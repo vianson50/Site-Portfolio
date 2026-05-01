@@ -73,21 +73,27 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
     <title><?= $title ?></title>
     <?= renderMeta($seoTitle, $seoDesc, "website", null, $seoKeywords) ?>
 
-    <!-- Fonts: Space Grotesk + Inter + Material Symbols Outlined -->
+    <!-- Preconnect for external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Fonts: load non-blocking with font-display swap + reduced weight set -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap">
 
-    <!-- Material Symbols config -->
+    <!-- Material Symbols: load async -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap"></noscript>
+
+    <!-- Critical CSS: inline the most important styles -->
     <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
+        :root{--void:#0a0a0b;--surface:#161618;--primary:#ff8200;--primary-dim:#ffb785;--primary-glow:rgba(255,130,0,0.35);--secondary:#009e60;--secondary-bright:#61dd98;--secondary-glow:rgba(0,158,96,0.3);--white:#ffffff;--on-surface:#f4ded2;--on-surface-variant:#dec1af;--outline:#a68b7b;--font-display:"Space Grotesk",sans-serif;--font-body:"Inter",sans-serif}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:var(--font-body);background:var(--void);color:var(--on-surface);overflow-x:hidden;padding-bottom:80px;padding-top:64px}
+        .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
     </style>
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
@@ -102,7 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
                         $isLoggedIn && $currentUser && $currentUser["avatar"]
                             ? $currentUser["avatar"]
                             : "https://lh3.googleusercontent.com/aida-public/AB6AXuDWEAvPC3mMvcv2gWWyc_wuirzRXkpGPlYEfhwZVU0E84KY-H0KN8coRKlNeMU3UTBZ6Jivc1MYRC1E_HQolj0_NDo9m9L_FT4jBnEiurMB46NTlQ4M7hXVZmjU9pF8gHqkXUA9rXVlSzNcPogw5bzZIcp_fiaWtZ18PLVBzSPbO9_W_L09rvE4mXPoBL05pP9s9E4jVtuQwplRDudUdd1ZCCFpwv1Jg8jZX9_BLXwgNOb_waq_L6LcSOImqsrC-DkmyAGJHz7Gi1c",
-                    ) ?>" alt="Profile">
+                    ) ?>" loading="eager" decoding="async" alt="Profile">
                 </div>
                 <span class="top-header__name">BLACK_PROTOCOL</span>
             </div>
@@ -118,7 +124,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
                             ): ?>
                             <img src="<?= htmlspecialchars(
                                 $currentUser["avatar"],
-                            ) ?>" alt="" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">
+                            ) ?>" loading="eager" decoding="async" alt="" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">
                             <?php else: ?>
                             <span class="material-symbols-outlined" style="font-size:18px;font-variation-settings:'FILL' 1;">person</span>
                             <?php endif; ?>
@@ -171,7 +177,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
     <div class="rss-ticker-bar">
         <div class="rss-ticker-bar__label">
             <span class="material-symbols-outlined" style="font-size:14px;">radar</span>
-            <span>LIVE_FEED</span>
+            <span>LIVE</span>
             <span class="live-indicator">
                 <span class="pulse-dot pulse-dot--green" style="width:6px;height:6px;"></span>
                 <span id="refresh-countdown" style="font-size:9px; color:rgba(255,255,255,0.4); min-width:22px; text-align:center;">60s</span>
@@ -201,7 +207,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
                 <div class="hero__profile-glow"></div>
                 <div class="hero__profile-frame">
                     <div class="hero__profile-inner">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4b3gbtVkhHvi8Hn6IJ4xFJ72NQKz74gEMW8eAF2AuE19vjailbpVCojG-0tUymwFkXGLRcrP8Gn7SmFpN31KIMtUbe3tstVdrTpmSBexT6nXsIGs69pxKwB88IkFtBFEQcnrniMyVgNHgZxgrC10msciQLtfYPKpkINreY3t-GDhZJpZwRglyOLujHrKdaIh4TAQG5C_OHuh7H_TsonZ2b1iwiprz6HNmCr1uBu1m2wLq9H6EDD3oHCnq40SYW2Z-4RYrVrbT1-w" alt="Professional Profile">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4b3gbtVkhHvi8Hn6IJ4xFJ72NQKz74gEMW8eAF2AuE19vjailbpVCojG-0tUymwFkXGLRcrP8Gn7SmFpN31KIMtUbe3tstVdrTpmSBexT6nXsIGs69pxKwB88IkFtBFEQcnrniMyVgNHgZxgrC10msciQLtfYPKpkINreY3t-GDhZJpZwRglyOLujHrKdaIh4TAQG5C_OHuh7H_TsonZ2b1iwiprz6HNmCr1uBu1m2wLq9H6EDD3oHCnq40SYW2Z-4RYrVrbT1-w" loading="eager" decoding="async" alt="Professional Profile">
                     </div>
                 </div>
                 <div class="hero__verified">
@@ -338,9 +344,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
         </div>
 
         <!-- Featured Project Card -->
-        <a href="#project-featured" class="featured-card featured-card--link">
+        <a href="https://bit.ly/429h10k" target="_blank" rel="noopener noreferrer" class="featured-card featured-card--link">
             <div class="featured-card__inner">
-                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuABBW_K8WCMfXGyZxOO97Hi45WaDy87J_qH8oIx_Kmlk4PkynVBOygDN1xVlhuFHfBF-199rj8YE2A5ywyBCTyKvpLDWfjoZDaR6_9nGYpFNTz-J2WwrT6o3ROFTon-Yz88P30vIHng3ATkVWRxUDxUfQgM5tgzpnidsGd3UESekrI0Om5t7XvqnTqqSrM2vQOGmhTqJHZHL1-G6JY0oibKEjIVbk8x0Rg5E3DfYCeXhnLBhO8khsO9I-eIyENHB5wQQOCgLhHyNiE" alt="Project Preview">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuABBW_K8WCMfXGyZxOO97Hi45WaDy87J_qH8oIx_Kmlk4PkynVBOygDN1xVlhuFHfBF-199rj8YE2A5ywyBCTyKvpLDWfjoZDaR6_9nGYpFNTz-J2WwrT6o3ROFTon-Yz88P30vIHng3ATkVWRxUDxUfQgM5tgzpnidsGd3UESekrI0Om5t7XvqnTqqSrM2vQOGmhTqJHZHL1-G6JY0oibKEjIVbk8x0Rg5E3DfYCeXhnLBhO8khsO9I-eIyENHB5wQQOCgLhHyNiE" loading="lazy" decoding="async" alt="Project Preview">
                 <div class="featured-card__gradient"></div>
                 <div class="featured-card__overlay">
                     <span class="material-symbols-outlined">open_in_new</span>
@@ -444,7 +450,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
                 <div class="skills-bento__card skills-bento__card--creative">
                     <div class="skills-bento__card-header">
                         <div>
-                            <h2 class="skills-bento__card-title">Creative Dir</h2>
+                            <h2 class="skills-bento__card-title">Creative</h2>
                             <p class="skills-bento__card-desc">Communication visuelle, UI/UX design &amp; 3D modeling.</p>
                         </div>
                         <span class="skills-bento__badge skills-bento__badge--green">Mastery</span>
@@ -642,7 +648,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
                 <!-- Project 1: Neural Breach Shield -->
                 <a href="#project-1" class="project-article project-article--orange project-article--link">
                     <div class="project-article__thumb">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjMXRxXBt-XR5y0YktP9I6F5Q8YVdeJhXJ4mpma3LJT1_WxMn1aZ8FakK5Jg_FubkbwlgjLORhWqxjtE8FcARevecKWrZEcoQl7jgQO0mIPcr_TvjC36c8q7OaR6pBRB_QTqjggaF1hc2LCj2pDk8l1QEjvWReADRt4ClMsM8Cuyi0pVvxJ_lTVgk1QZyzZAuZB1lLUTnX7SzpHKpuPzebNJNVLQV3bBihJfvy9Fxp9UFnX8XKYcVrlVz08GTryVO4GnNBQtgpLZI" alt="Neural Breach Shield">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjMXRxXBt-XR5y0YktP9I6F5Q8YVdeJhXJ4mpma3LJT1_WxMn1aZ8FakK5Jg_FubkbwlgjLORhWqxjtE8FcARevecKWrZEcoQl7jgQO0mIPcr_TvjC36c8q7OaR6pBRB_QTqjggaF1hc2LCj2pDk8l1QEjvWReADRt4ClMsM8Cuyi0pVvxJ_lTVgk1QZyzZAuZB1lLUTnX7SzpHKpuPzebNJNVLQV3bBihJfvy9Fxp9UFnX8XKYcVrlVz08GTryVO4GnNBQtgpLZI" loading="lazy" decoding="async" alt="Neural Breach Shield">
                         <div class="project-article__badge project-article__badge--orange">
                             <span>01_SEC</span>
                         </div>
@@ -664,7 +670,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
                 <!-- Project 2: Abidjan Terminal UI -->
                 <a href="#project-2" class="project-article project-article--green project-article--link">
                     <div class="project-article__thumb">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJCsWrr7XhXHdayMqdlbcfL0YrEkYgLjc_3Ptjmzt9iXZb-jzEC8_mI9BGyyNbkb-juaUqne6bJNkF-mb9xkU-qP63w5rJSSGVS9gnQOw5-tW2DNam3C_WTqPCQeJgOTBfqdPsAHenyxkocEoGG6KLDtB9pVvABRC9WquKRoak3GK1TIzp130biGkS1-0mh_b-9227k5K7oIpiHLvTHZjeWhCR4_HSi-A16DcdY6KfZ7qFnwHbSiJW-VjNnSurAS-h9zmgDKtkDD8" alt="Abidjan Terminal UI">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJCsWrr7XhXHdayMqdlbcfL0YrEkYgLjc_3Ptjmzt9iXZb-jzEC8_mI9BGyyNbkb-juaUqne6bJNkF-mb9xkU-qP63w5rJSSGVS9gnQOw5-tW2DNam3C_WTqPCQeJgOTBfqdPsAHenyxkocEoGG6KLDtB9pVvABRC9WquKRoak3GK1TIzp130biGkS1-0mh_b-9227k5K7oIpiHLvTHZjeWhCR4_HSi-A16DcdY6KfZ7qFnwHbSiJW-VjNnSurAS-h9zmgDKtkDD8" loading="lazy" decoding="async" alt="Abidjan Terminal UI">
                         <div class="project-article__badge project-article__badge--green">
                             <span>02_UI</span>
                         </div>
@@ -686,7 +692,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
                 <!-- Project 3: Eburnie Chronicles -->
                 <a href="#project-3" class="project-article project-article--orange project-article--link">
                     <div class="project-article__thumb">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNif-pzq2fiHIwVxQQzrozHe6zGWw5UIahi6OQ_tIlnSe0wNM8WgND2E4MfwWYOSyxAwavmgDsuI9IcwCHg3-EWAsg8oU_k-OViPgfjWJ9S3glUkrdkPmWoa19Q7hc9yI3lOIYHInt_MP5tmFJEhTp_dadtd9gkojAXj78NYoV1CpVVOQomLRpvO-Lw35ChOmdgp370NnBnr1NMkxeiwZZ4lEwhe6CGLIMFPX9n4hsU0GEyDdjt6N8rMvF1via6Q5v1krUzKByDiE" alt="Eburnie Chronicles">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNif-pzq2fiHIwVxQQzrozHe6zGWw5UIahi6OQ_tIlnSe0wNM8WgND2E4MfwWYOSyxAwavmgDsuI9IcwCHg3-EWAsg8oU_k-OViPgfjWJ9S3glUkrdkPmWoa19Q7hc9yI3lOIYHInt_MP5tmFJEhTp_dadtd9gkojAXj78NYoV1CpVVOQomLRpvO-Lw35ChOmdgp370NnBnr1NMkxeiwZZ4lEwhe6CGLIMFPX9n4hsU0GEyDdjt6N8rMvF1via6Q5v1krUzKByDiE" loading="lazy" decoding="async" alt="Eburnie Chronicles">
                         <div class="project-article__badge project-article__badge--orange">
                             <span>03_GM</span>
                         </div>
@@ -708,7 +714,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
                 <!-- Project 4: Core Infra Automata -->
                 <a href="#project-4" class="project-article project-article--green project-article--link">
                     <div class="project-article__thumb">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAozYEJo5Gr3ZIHjhPNlP88xDNQTOoHaGko5CYayBS3NkeYp6WGv_ZEF2weyxOCpSBesYcbf_oMGCB4i4HN8yQ6KZvsM9gP6Lin3Vd8HHgFQMEf1pN6huilxoKhzEBFoIxAYO9VnuXKRnEmern9bjlbPVXUsC00CECyUzGPVlrZUAjTmUaQMYGJJPcZNwTOUI8ZH9p0-os16MjRh_xJbDfTakyKjmJjPrlS0o-UxyET7XlSTK_g1ivU4G9_8Q7lvJNHdX5GqPe7W7o" alt="Core Infra Automata">
+                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAozYEJo5Gr3ZIHjhPNlP88xDNQTOoHaGko5CYayBS3NkeYp6WGv_ZEF2weyxOCpSBesYcbf_oMGCB4i4HN8yQ6KZvsM9gP6Lin3Vd8HHgFQMEf1pN6huilxoKhzEBFoIxAYO9VnuXKRnEmern9bjlbPVXUsC00CECyUzGPVlrZUAjTmUaQMYGJJPcZNwTOUI8ZH9p0-os16MjRh_xJbDfTakyKjmJjPrlS0o-UxyET7XlSTK_g1ivU4G9_8Q7lvJNHdX5GqPe7W7o" loading="lazy" decoding="async" alt="Core Infra Automata">
                         <div class="project-article__badge project-article__badge--green">
                             <span>04_OP</span>
                         </div>
@@ -737,7 +743,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
                         <h3>Build your vision?</h3>
                         <p>Collaborate on high-performance projects that push technical and creative boundaries.</p>
                     </div>
-                    <a href="#contact" class="projects-cta__btn">INITIATE_CONTACT</a>
+                    <a href="portfolio.php" class="projects-cta__btn" style="background: transparent; color: var(--secondary-bright); border: 1px solid rgba(0,158,96,0.3);">PORTFOLIO</a>
+                    <a href="#contact" class="projects-cta__btn">CONTACT</a>
                 </div>
             </div>
         </div>
@@ -1265,13 +1272,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
                         <span class="channels-card__title label-caps">DIRECT_CHANNELS</span>
                         <div class="channels-card__list">
                             <!-- GitHub -->
-                            <a href="#" class="channels-card__link">
+                            <a href="https://github.com/vianson50" target="_blank" rel="noopener" class="channels-card__link">
                                 <div class="channels-card__link-icon">
                                     <span class="material-symbols-outlined">terminal</span>
                                 </div>
                                 <div>
                                     <p class="channels-card__link-platform">GITHUB</p>
-                                    <p class="channels-card__link-handle code-sm">/creator-core</p>
+                                    <p class="channels-card__link-handle code-sm">/vianson50</p>
                                 </div>
                             </a>
                             <!-- LinkedIn -->
@@ -1491,7 +1498,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
 
                         <div class="donate-qr">
                             <span class="donate-qr__label">SCAN — Bitcoin (BTC)</span>
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&color=6a58ff&bgcolor=0d0d0d&data=bitcoin:12uHTihwfMokdsk11wDCSbUSDkGprAtDNj" alt="QR Code BTC" class="donate-qr__img">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&color=6a58ff&bgcolor=0d0d0d&data=bitcoin:12uHTihwfMokdsk11wDCSbUSDkGprAtDNj" loading="lazy" decoding="async" alt="QR Code BTC" class="donate-qr__img">
                             <code class="donate-qr__addr">12uHTihwfMokdsk11wDCSbUSDkGprAtDNj</code>
                         </div>
 
@@ -1988,6 +1995,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
             });
         }
     </script>
+
+    <!-- Preload critical images -->
+    <link rel="preload" as="image" href="https://lh3.googleusercontent.com/aida-public/AB6AXuDWEAvPC3mMvcv2gWWyc_wuirzRXkpGPlYEfhwZVU0E84KY-H0KN8coRKlNeMU3UTBZ6Jivc1MYRC1E_HQolj0_NDo9m9L_FT4jBnEiurMB46NTlQ4M7hXVZmjU9pF8gHqkXUA9rXVlSzNcPogw5bzZIcp_fiaWtZ18PLVBzSPbO9_W_L09rvE4mXPoBL05pP9s9E4jVtuQwplRDudUdd1ZCCFpwv1Jg8jZX9_BLXwgNOb_waq_L6LcSOImqsrC-DkmyAGJHz7Gi1c">
 
 </body>
 </html>
