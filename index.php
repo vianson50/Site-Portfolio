@@ -645,90 +645,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
             <!-- Projects Grid -->
             <div class="projects-grid">
 
-                <!-- Project 1: Neural Breach Shield -->
-                <a href="#project-1" class="project-article project-article--orange project-article--link">
+                <!-- Project 1: Nouchi Lexicon App -->
+                <a href="projet_nouchi.php" class="project-article project-article--green project-article--link">
                     <div class="project-article__thumb">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjMXRxXBt-XR5y0YktP9I6F5Q8YVdeJhXJ4mpma3LJT1_WxMn1aZ8FakK5Jg_FubkbwlgjLORhWqxjtE8FcARevecKWrZEcoQl7jgQO0mIPcr_TvjC36c8q7OaR6pBRB_QTqjggaF1hc2LCj2pDk8l1QEjvWReADRt4ClMsM8Cuyi0pVvxJ_lTVgk1QZyzZAuZB1lLUTnX7SzpHKpuPzebNJNVLQV3bBihJfvy9Fxp9UFnX8XKYcVrlVz08GTryVO4GnNBQtgpLZI" loading="lazy" decoding="async" alt="Neural Breach Shield">
-                        <div class="project-article__badge project-article__badge--orange">
-                            <span>01_SEC</span>
-                        </div>
-                        <div class="project-article__hover-overlay">
-                            <span class="material-symbols-outlined">open_in_new</span>
-                        </div>
-                    </div>
-                    <div class="project-article__body">
-                        <h2 class="project-article__title">Neural Breach Shield</h2>
-                        <p class="project-article__desc">Autonomous penetration testing suite for large-scale decentralized infrastructures using adversarial ML models.</p>
-                        <div class="project-article__tags">
-                            <span class="project-tag project-tag--orange">#CYBERSECURITY</span>
-                            <span class="project-tag project-tag--green">#RUST</span>
-                            <span class="project-tag project-tag--neutral">#AI</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Project 2: Abidjan Terminal UI -->
-                <a href="#project-2" class="project-article project-article--green project-article--link">
-                    <div class="project-article__thumb">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJCsWrr7XhXHdayMqdlbcfL0YrEkYgLjc_3Ptjmzt9iXZb-jzEC8_mI9BGyyNbkb-juaUqne6bJNkF-mb9xkU-qP63w5rJSSGVS9gnQOw5-tW2DNam3C_WTqPCQeJgOTBfqdPsAHenyxkocEoGG6KLDtB9pVvABRC9WquKRoak3GK1TIzp130biGkS1-0mh_b-9227k5K7oIpiHLvTHZjeWhCR4_HSi-A16DcdY6KfZ7qFnwHbSiJW-VjNnSurAS-h9zmgDKtkDD8" loading="lazy" decoding="async" alt="Abidjan Terminal UI">
+                        <img src="Presentation/Capture1 apk.jpg" loading="lazy" decoding="async" alt="Nouchi Lexicon App">
                         <div class="project-article__badge project-article__badge--green">
-                            <span>02_UI</span>
+                            <span>01_MO</span>
                         </div>
                         <div class="project-article__hover-overlay">
                             <span class="material-symbols-outlined">open_in_new</span>
                         </div>
                     </div>
                     <div class="project-article__body">
-                        <h2 class="project-article__title">Abidjan Terminal UI</h2>
-                        <p class="project-article__desc">High-performance logistics dashboard designed for real-time tracking of maritime cargo across West African ports.</p>
+                        <h2 class="project-article__title">Nouchi Lexicon App</h2>
+                        <p class="project-article__desc">Application mobile interactive servant de dictionnaire pour l'argot ivoirien (Nouchi). Développée avec Flutter pour offrir une expérience fluide hors ligne.</p>
                         <div class="project-article__tags">
-                            <span class="project-tag project-tag--green">#WEBDESIGN</span>
-                            <span class="project-tag project-tag--orange">#NEXTJS</span>
-                            <span class="project-tag project-tag--neutral">#LOGISTICS</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Project 3: Eburnie Chronicles -->
-                <a href="#project-3" class="project-article project-article--orange project-article--link">
-                    <div class="project-article__thumb">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNif-pzq2fiHIwVxQQzrozHe6zGWw5UIahi6OQ_tIlnSe0wNM8WgND2E4MfwWYOSyxAwavmgDsuI9IcwCHg3-EWAsg8oU_k-OViPgfjWJ9S3glUkrdkPmWoa19Q7hc9yI3lOIYHInt_MP5tmFJEhTp_dadtd9gkojAXj78NYoV1CpVVOQomLRpvO-Lw35ChOmdgp370NnBnr1NMkxeiwZZ4lEwhe6CGLIMFPX9n4hsU0GEyDdjt6N8rMvF1via6Q5v1krUzKByDiE" loading="lazy" decoding="async" alt="Eburnie Chronicles">
-                        <div class="project-article__badge project-article__badge--orange">
-                            <span>03_GM</span>
-                        </div>
-                        <div class="project-article__hover-overlay">
-                            <span class="material-symbols-outlined">open_in_new</span>
-                        </div>
-                    </div>
-                    <div class="project-article__body">
-                        <h2 class="project-article__title">Eburnie Chronicles</h2>
-                        <p class="project-article__desc">A narrative-driven RPG engine built on Unreal 5, featuring procedural world generation and advanced AI NPC behaviors.</p>
-                        <div class="project-article__tags">
-                            <span class="project-tag project-tag--orange">#GAMEDEV</span>
-                            <span class="project-tag project-tag--green">#UE5</span>
-                            <span class="project-tag project-tag--neutral">#SHADERS</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Project 4: Core Infra Automata -->
-                <a href="#project-4" class="project-article project-article--green project-article--link">
-                    <div class="project-article__thumb">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAozYEJo5Gr3ZIHjhPNlP88xDNQTOoHaGko5CYayBS3NkeYp6WGv_ZEF2weyxOCpSBesYcbf_oMGCB4i4HN8yQ6KZvsM9gP6Lin3Vd8HHgFQMEf1pN6huilxoKhzEBFoIxAYO9VnuXKRnEmern9bjlbPVXUsC00CECyUzGPVlrZUAjTmUaQMYGJJPcZNwTOUI8ZH9p0-os16MjRh_xJbDfTakyKjmJjPrlS0o-UxyET7XlSTK_g1ivU4G9_8Q7lvJNHdX5GqPe7W7o" loading="lazy" decoding="async" alt="Core Infra Automata">
-                        <div class="project-article__badge project-article__badge--green">
-                            <span>04_OP</span>
-                        </div>
-                        <div class="project-article__hover-overlay">
-                            <span class="material-symbols-outlined">open_in_new</span>
-                        </div>
-                    </div>
-                    <div class="project-article__body">
-                        <h2 class="project-article__title">Core Infra Automata</h2>
-                        <p class="project-article__desc">Terraform-driven multi-cloud orchestrator designed for zero-downtime deployments in mission-critical environments.</p>
-                        <div class="project-article__tags">
-                            <span class="project-tag project-tag--green">#DEVOPS</span>
-                            <span class="project-tag project-tag--orange">#K8S</span>
-                            <span class="project-tag project-tag--neutral">#AWS</span>
+                            <span class="project-tag project-tag--green">#FLUTTER</span>
+                            <span class="project-tag project-tag--orange">#DART</span>
+                            <span class="project-tag project-tag--neutral">#MOBILE_UI</span>
                         </div>
                     </div>
                 </a>
@@ -1292,13 +1226,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
                                 </div>
                             </a>
                             <!-- Discord -->
-                            <a href="#" class="channels-card__link">
+                            <a href="https://discord.com/users/yamiblack_kayden" target="_blank" rel="noopener" class="channels-card__link">
                                 <div class="channels-card__link-icon">
                                     <span class="material-symbols-outlined">forum</span>
                                 </div>
                                 <div>
                                     <p class="channels-card__link-platform">DISCORD</p>
-                                    <p class="channels-card__link-handle code-sm">@creator_node</p>
+                                    <p class="channels-card__link-handle code-sm">@yamiblack_kayden</p>
                                 </div>
                             </a>
                         </div>
@@ -1878,7 +1812,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
             { keywords: ['competenc', 'skills', 'stack', 'techno', 'langage', 'technolog', 'tu sais'],
               response: "Mes competences :\n• Frontend : TypeScript, React, Next.js, Tailwind, Vue.js\n• Backend : Node.js, PHP, Python, Rust, Express\n• DevOps : Docker, Kubernetes, AWS, Terraform, Linux\n• Security : Kali Linux, Metasploit, Wireshark, Nmap\n• Database : MySQL, PostgreSQL, MongoDB, Redis\n• Game Dev : Unreal Engine 5, Unity, Godot" },
             { keywords: ['projet', 'realisation', 'portfolio', 'travaux', 'works'],
-              response: "Mes projets recents :\n• Neural Breach Shield — Penetration testing autonome\n• Abidjan Terminal UI — Dashboard logistique\n• Eburnie Chronicles — RPG narratif (Unreal 5)\n• Core Infra Automata — Orchestrateur multi-cloud\n\nScrolle jusqu'a PROJECTS pour les decouvrir !" },
+              response: "Mes projets recents :\n• Neural Breach Shield — Penetration testing autonome\n• Eburnie Chronicles — RPG narratif (Unreal 5)\n• Core Infra Automata — Orchestrateur multi-cloud\n• Nouchi Lexicon App — Dictionnaire Nouchi (Flutter)\n\nScrolle jusqu'a PROJECTS pour les decouvrir !" },
             { keywords: ['contact', 'contacter', 'email', 'message', 'joindre'],
               response: "Pour me contacter :\n• Formulaire en bas de page (section CONTACT)\n• Email : vianson50@gmail.com\n• GitHub, LinkedIn, Discord dans la section Contact\n\nReponse sous 24h !" },
             { keywords: ['cyber', 'securite', 'security', 'hacking', 'hacker', 'pentest'],

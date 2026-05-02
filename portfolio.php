@@ -219,6 +219,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
                     <span class="material-symbols-outlined" style="font-size:16px;">psychology</span>
                     <span>AI/ML</span>
                 </button>
+                <button class="portfolio-filter-btn" data-filter="mobile">
+                    <span class="material-symbols-outlined" style="font-size:16px;">smartphone</span>
+                    <span>MOBILE</span>
+                </button>
             </div>
         </div>
     </section>
@@ -243,226 +247,30 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
             <!-- Projects Grid -->
             <div class="projects-grid portfolio-grid" id="portfolio-grid">
 
-                <!-- Project 1: Neural Breach Shield -->
-                <a href="javascript:void(0)" class="project-article project-article--orange project-article--link portfolio-card"
-                   data-category="cybersecurity"
-                   data-title="Neural Breach Shield"
-                   data-desc="Suite avancée de test de pénétration autonome conçue pour les infrastructures décentralisées à grande échelle. Utilise des modèles d'apprentissage automatique adversariaux pour identifier et exploiter les vulnérabilités en temps réel. Intègre un moteur de reporting automatisé compatible avec les frameworks MITRE ATT&amp;CK."
-                   data-tech="Rust, Python, TensorFlow, Docker, MITRE ATT&amp;CK"
-                   data-features="Scanning autonome | Rapports MITRE ATT&amp;CK | ML adversarial | API REST"
-                   data-img="https://lh3.googleusercontent.com/aida-public/AB6AXuCjMXRxXBt-XR5y0YktP9I6F5Q8YVdeJhXJ4mpma3LJT1_WxMn1aZ8FakK5Jg_FubkbwlgjLORhWqxjtE8FcARevecKWrZEcoQl7jgQO0mIPcr_TvjC36c8q7OaR6pBRB_QTqjggaF1hc2LCj2pDk8l1QEjvWReADRt4ClMsM8Cuyi0pVvxJ_lTVgk1QZyzZAuZB1lLUTnX7SzpHKpuPzebNJNVLQV3bBihJfvy9Fxp9UFnX8XKYcVrlVz08GTryVO4GnNBQtgpLZI">
+                <!-- Project 1: Nouchi Lexicon App -->
+                <a href="projet_nouchi.php" class="project-article project-article--green project-article--link portfolio-card"
+                   data-category="mobile"
+                   data-title="Nouchi Lexicon App"
+                   data-desc="Application mobile interactive servant de dictionnaire pour l'argot ivoirien (Nouchi). Développée avec Flutter pour offrir une expérience fluide hors ligne. Projet phare démontrant la capacité à résoudre un problème culturel local avec de la technologie moderne."
+                   data-tech="Flutter, Dart, SQLite, Firebase"
+                   data-features="Mode hors ligne | Recherche instantanée | Audio prononciation | Favoris & historique"
+                   data-img="Presentation/Capture1 apk.jpg">
                     <div class="project-article__thumb">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjMXRxXBt-XR5y0YktP9I6F5Q8YVdeJhXJ4mpma3LJT1_WxMn1aZ8FakK5Jg_FubkbwlgjLORhWqxjtE8FcARevecKWrZEcoQl7jgQO0mIPcr_TvjC36c8q7OaR6pBRB_QTqjggaF1hc2LCj2pDk8l1QEjvWReADRt4ClMsM8Cuyi0pVvxJ_lTVgk1QZyzZAuZB1lLUTnX7SzpHKpuPzebNJNVLQV3bBihJfvy9Fxp9UFnX8XKYcVrlVz08GTryVO4GnNBQtgpLZI" loading="lazy" decoding="async" alt="Neural Breach Shield">
-                        <div class="project-article__badge project-article__badge--orange">
-                            <span>01_SEC</span>
-                        </div>
-                        <div class="project-article__hover-overlay">
-                            <span class="material-symbols-outlined">open_in_new</span>
-                        </div>
-                    </div>
-                    <div class="project-article__body">
-                        <h2 class="project-article__title">Neural Breach Shield</h2>
-                        <p class="project-article__desc">Autonomous penetration testing suite for large-scale decentralized infrastructures using adversarial ML models.</p>
-                        <div class="project-article__tags">
-                            <span class="project-tag project-tag--orange">#CYBERSECURITY</span>
-                            <span class="project-tag project-tag--green">#RUST</span>
-                            <span class="project-tag project-tag--neutral">#AI</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Project 2: Abidjan Terminal UI -->
-                <a href="javascript:void(0)" class="project-article project-article--green project-article--link portfolio-card"
-                   data-category="webdesign"
-                   data-title="Abidjan Terminal UI"
-                   data-desc="Tableau de bord logistique haute performance pour le suivi en temps réel des cargaisons maritimes across les ports d'Afrique de l'Ouest. Interface intuitive avec visualisation de données en temps réel, gestion des conteneurs et alertes prédictives basées sur l'IA."
-                   data-tech="Next.js, TypeScript, D3.js, PostgreSQL, WebSocket"
-                   data-features="Cartes temps réel | Prédictions IA | Dashboard responsive | Notifications push"
-                   data-img="https://lh3.googleusercontent.com/aida-public/AB6AXuCJCsWrr7XhXHdayMqdlbcfL0YrEkYgLjc_3Ptjmzt9iXZb-jzEC8_mI9BGyyNbkb-juaUqne6bJNkF-mb9xkU-qP63w5rJSSGVS9gnQOw5-tW2DNam3C_WTqPCQeJgOTBfqdPsAHenyxkocEoGG6KLDtB9pVvABRC9WquKRoak3GK1TIzp130biGkS1-0mh_b-9227k5K7oIpiHLvTHZjeWhCR4_HSi-A16DcdY6KfZ7qFnwHbSiJW-VjNnSurAS-h9zmgDKtkDD8">
-                    <div class="project-article__thumb">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJCsWrr7XhXHdayMqdlbcfL0YrEkYgLjc_3Ptjmzt9iXZb-jzEC8_mI9BGyyNbkb-juaUqne6bJNkF-mb9xkU-qP63w5rJSSGVS9gnQOw5-tW2DNam3C_WTqPCQeJgOTBfqdPsAHenyxkocEoGG6KLDtB9pVvABRC9WquKRoak3GK1TIzp130biGkS1-0mh_b-9227k5K7oIpiHLvTHZjeWhCR4_HSi-A16DcdY6KfZ7qFnwHbSiJW-VjNnSurAS-h9zmgDKtkDD8" loading="lazy" decoding="async" alt="Abidjan Terminal UI">
+                        <img src="Presentation/Capture1 apk.jpg" loading="lazy" decoding="async" alt="Nouchi Lexicon App">
                         <div class="project-article__badge project-article__badge--green">
-                            <span>02_UI</span>
+                            <span>01_MO</span>
                         </div>
                         <div class="project-article__hover-overlay">
                             <span class="material-symbols-outlined">open_in_new</span>
                         </div>
                     </div>
                     <div class="project-article__body">
-                        <h2 class="project-article__title">Abidjan Terminal UI</h2>
-                        <p class="project-article__desc">High-performance logistics dashboard designed for real-time tracking of maritime cargo across West African ports.</p>
+                        <h2 class="project-article__title">Nouchi Lexicon App</h2>
+                        <p class="project-article__desc">Application mobile interactive servant de dictionnaire pour l'argot ivoirien (Nouchi). Développée avec Flutter pour offrir une expérience fluide hors ligne.</p>
                         <div class="project-article__tags">
-                            <span class="project-tag project-tag--green">#WEBDESIGN</span>
-                            <span class="project-tag project-tag--orange">#NEXTJS</span>
-                            <span class="project-tag project-tag--neutral">#LOGISTICS</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Project 3: Eburnie Chronicles -->
-                <a href="javascript:void(0)" class="project-article project-article--orange project-article--link portfolio-card"
-                   data-category="gamedev"
-                   data-title="Eburnie Chronicles"
-                   data-desc="Moteur RPG narratif développé sur Unreal Engine 5, mettant en œuvre une génération procédurale de monde et des comportements IA avancés pour les PNJ. Système de quêtes dynamiques et système de combat innovant avec shaders personnalisés."
-                   data-tech="Unreal Engine 5, C++, HLSL, Niagara VFX"
-                   data-features="Monde procédural | IA PNJ avancée | Shaders custom | Système de quêtes dynamique"
-                   data-img="https://lh3.googleusercontent.com/aida-public/AB6AXuBNif-pzq2fiHIwVxQQzrozHe6zGWw5UIahi6OQ_tIlnSe0wNM8WgND2E4MfwWYOSyxAwavmgDsuI9IcwCHg3-EWAsg8oU_k-OViPgfjWJ9S3glUkrdkPmWoa19Q7hc9yI3lOIYHInt_MP5tmFJEhTp_dadtd9gkojAXj78NYoV1CpVVOQomLRpvO-Lw35ChOmdgp370NnBnr1NMkxeiwZZ4lEwhe6CGLIMFPX9n4hsU0GEyDdjt6N8rMvF1via6Q5v1krUzKByDiE">
-                    <div class="project-article__thumb">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNif-pzq2fiHIwVxQQzrozHe6zGWw5UIahi6OQ_tIlnSe0wNM8WgND2E4MfwWYOSyxAwavmgDsuI9IcwCHg3-EWAsg8oU_k-OViPgfjWJ9S3glUkrdkPmWoa19Q7hc9yI3lOIYHInt_MP5tmFJEhTp_dadtd9gkojAXj78NYoV1CpVVOQomLRpvO-Lw35ChOmdgp370NnBnr1NMkxeiwZZ4lEwhe6CGLIMFPX9n4hsU0GEyDdjt6N8rMvF1via6Q5v1krUzKByDiE" loading="lazy" decoding="async" alt="Eburnie Chronicles">
-                        <div class="project-article__badge project-article__badge--orange">
-                            <span>03_GM</span>
-                        </div>
-                        <div class="project-article__hover-overlay">
-                            <span class="material-symbols-outlined">open_in_new</span>
-                        </div>
-                    </div>
-                    <div class="project-article__body">
-                        <h2 class="project-article__title">Eburnie Chronicles</h2>
-                        <p class="project-article__desc">A narrative-driven RPG engine built on Unreal 5, featuring procedural world generation and advanced AI NPC behaviors.</p>
-                        <div class="project-article__tags">
-                            <span class="project-tag project-tag--orange">#GAMEDEV</span>
-                            <span class="project-tag project-tag--green">#UE5</span>
-                            <span class="project-tag project-tag--neutral">#SHADERS</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Project 4: Core Infra Automata -->
-                <a href="javascript:void(0)" class="project-article project-article--green project-article--link portfolio-card"
-                   data-category="devops"
-                   data-title="Core Infra Automata"
-                   data-desc="Orchestrateur multi-cloud piloté par Terraform, conçu pour les déploiements sans interruption dans des environnements critiques. Architecture GitOps avec monitoring intégré et auto-réparation des services défaillants."
-                   data-tech="Terraform, Kubernetes, AWS, GitHub Actions, Prometheus"
-                   data-features="Zero-downtime deploy | Auto-healing | GitOps pipeline | Monitoring Grafana"
-                   data-img="https://lh3.googleusercontent.com/aida-public/AB6AXuAozYEJo5Gr3ZIHjhPNlP88xDNQTOoHaGko5CYayBS3NkeYp6WGv_ZEF2weyxOCpSBesYcbf_oMGCB4i4HN8yQ6KZvsM9gP6Lin3Vd8HHgFQMEf1pN6huilxoKhzEBFoIxAYO9VnuXKRnEmern9bjlbPVXUsC00CECyUzGPVlrZUAjTmUaQMYGJJPcZNwTOUI8ZH9p0-os16MjRh_xJbDfTakyKjmJjPrlS0o-UxyET7XlSTK_g1ivU4G9_8Q7lvJNHdX5GqPe7W7o">
-                    <div class="project-article__thumb">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAozYEJo5Gr3ZIHjhPNlP88xDNQTOoHaGko5CYayBS3NkeYp6WGv_ZEF2weyxOCpSBesYcbf_oMGCB4i4HN8yQ6KZvsM9gP6Lin3Vd8HHgFQMEf1pN6huilxoKhzEBFoIxAYO9VnuXKRnEmern9bjlbPVXUsC00CECyUzGPVlrZUAjTmUaQMYGJJPcZNwTOUI8ZH9p0-os16MjRh_xJbDfTakyKjmJjPrlS0o-UxyET7XlSTK_g1ivU4G9_8Q7lvJNHdX5GqPe7W7o" loading="lazy" decoding="async" alt="Core Infra Automata">
-                        <div class="project-article__badge project-article__badge--green">
-                            <span>04_OP</span>
-                        </div>
-                        <div class="project-article__hover-overlay">
-                            <span class="material-symbols-outlined">open_in_new</span>
-                        </div>
-                    </div>
-                    <div class="project-article__body">
-                        <h2 class="project-article__title">Core Infra Automata</h2>
-                        <p class="project-article__desc">Terraform-driven multi-cloud orchestrator designed for zero-downtime deployments in mission-critical environments.</p>
-                        <div class="project-article__tags">
-                            <span class="project-tag project-tag--green">#DEVOPS</span>
-                            <span class="project-tag project-tag--orange">#K8S</span>
-                            <span class="project-tag project-tag--neutral">#AWS</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Project 5: Phantom Recon Engine -->
-                <a href="javascript:void(0)" class="project-article project-article--green project-article--link portfolio-card"
-                   data-category="cybersecurity"
-                   data-title="Phantom Recon Engine"
-                   data-desc="Plateforme OSINT de renseignement en temps réel pour le threat hunting et la cartographie de surface d'attaque. Agrège des données de multiples sources et utilise le ML pour détecter les menaces émergentes avant qu'elles ne se matérialisent."
-                   data-tech="Python, Scikit-learn, Elasticsearch, Shodan API, Docker"
-                   data-features="Threat hunting | OSINT multi-sources | Alertes temps réel | Cartographie attaque"
-                   data-img="https://lh3.googleusercontent.com/aida-public/AB6AXuDWEAvPC3mMvcv2gWWyc_wuirzRXkpGPlYEfhwZVU0E84KY-H0KN8coRKlNeMU3UTBZ6Jivc1MYRC1E_HQolj0_NDo9m9L_FT4jBnEiurMB46NTlQ4M7hXVZmjU9pF8gHqkXUA9rXVlSzNcPogw5bzZIcp_fiaWtZ18PLVBzSPbO9_W_L09rvE4mXPoBL05pP9s9E4jVtuQwplRDudUdd1ZCCFpwv1Jg8jZX9_BLXwgNOb_waq_L6LcSOImqsrC-DkmyAGJHz7Gi1c">
-                    <div class="project-article__thumb">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWEAvPC3mMvcv2gWWyc_wuirzRXkpGPlYEfhwZVU0E84KY-H0KN8coRKlNeMU3UTBZ6Jivc1MYRC1E_HQolj0_NDo9m9L_FT4jBnEiurMB46NTlQ4M7hXVZmjU9pF8gHqkXUA9rXVlSzNcPogw5bzZIcp_fiaWtZ18PLVBzSPbO9_W_L09rvE4mXPoBL05pP9s9E4jVtuQwplRDudUdd1ZCCFpwv1Jg8jZX9_BLXwgNOb_waq_L6LcSOImqsrC-DkmyAGJHz7Gi1c" loading="lazy" decoding="async" alt="Phantom Recon Engine">
-                        <div class="project-article__badge project-article__badge--green">
-                            <span>05_SEC</span>
-                        </div>
-                        <div class="project-article__hover-overlay">
-                            <span class="material-symbols-outlined">open_in_new</span>
-                        </div>
-                    </div>
-                    <div class="project-article__body">
-                        <h2 class="project-article__title">Phantom Recon Engine</h2>
-                        <p class="project-article__desc">Real-time OSINT intelligence platform for threat hunting and attack surface mapping across distributed networks.</p>
-                        <div class="project-article__tags">
-                            <span class="project-tag project-tag--green">#CYBERSECURITY</span>
-                            <span class="project-tag project-tag--orange">#PYTHON</span>
-                            <span class="project-tag project-tag--neutral">#ML</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Project 6: Lagune Commerce -->
-                <a href="javascript:void(0)" class="project-article project-article--orange project-article--link portfolio-card"
-                   data-category="webdesign"
-                   data-title="Lagune Commerce"
-                   data-desc="Plateforme e-commerce full-stack avec gestion d'inventaire en temps réel et traitement de paiements intégré pour les marchés ouest-africains. Support multi-devises, gestion des taxes locales et interface d'administration complète."
-                   data-tech="React, Node.js, Stripe, PostgreSQL, Redis"
-                   data-features="Multi-devises | Paiement mobile | Gestion stock temps réel | Admin dashboard"
-                   data-img="https://lh3.googleusercontent.com/aida-public/AB6AXuBNif-pzq2fiHIwVxQQzrozHe6zGWw5UIahi6OQ_tIlnSe0wNM8WgND2E4MfwWYOSyxAwavmgDsuI9IcwCHg3-EWAsg8oU_k-OViPgfjWJ9S3glUkrdkPmWoa19Q7hc9yI3lOIYHInt_MP5tmFJEhTp_dadtd9gkojAXj78NYoV1CpVVOQomLRpvO-Lw35ChOmdgp370NnBnr1NMkxeiwZZ4lEwhe6CGLIMFPX9n4hsU0GEyDdjt6N8rMvF1via6Q5v1krUzKByDiE">
-                    <div class="project-article__thumb">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNif-pzq2fiHIwVxQQzrozHe6zGWw5UIahi6OQ_tIlnSe0wNM8WgND2E4MfwWYOSyxAwavmgDsuI9IcwCHg3-EWAsg8oU_k-OViPgfjWJ9S3glUkrdkPmWoa19Q7hc9yI3lOIYHInt_MP5tmFJEhTp_dadtd9gkojAXj78NYoV1CpVVOQomLRpvO-Lw35ChOmdgp370NnBnr1NMkxeiwZZ4lEwhe6CGLIMFPX9n4hsU0GEyDdjt6N8rMvF1via6Q5v1krUzKByDiE" loading="lazy" decoding="async" alt="Lagune Commerce">
-                        <div class="project-article__badge project-article__badge--orange">
-                            <span>06_UI</span>
-                        </div>
-                        <div class="project-article__hover-overlay">
-                            <span class="material-symbols-outlined">open_in_new</span>
-                        </div>
-                    </div>
-                    <div class="project-article__body">
-                        <h2 class="project-article__title">Lagune Commerce</h2>
-                        <p class="project-article__desc">Full-stack e-commerce platform with real-time inventory management and integrated payment processing for West African markets.</p>
-                        <div class="project-article__tags">
-                            <span class="project-tag project-tag--orange">#ECOMMERCE</span>
-                            <span class="project-tag project-tag--green">#REACT</span>
-                            <span class="project-tag project-tag--neutral">#STRIPE</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Project 7: Shadow Protocol AI -->
-                <a href="javascript:void(0)" class="project-article project-article--green project-article--link portfolio-card"
-                   data-category="ai"
-                   data-title="Shadow Protocol AI"
-                   data-desc="Assistant LLM personnalisé avec capacités RAG pour la gestion des connaissances d'entreprise et la revue de code automatisée. Fine-tuné sur des datasets spécialisés en cybersécurité et développement logiciel."
-                   data-tech="Python, LangChain, ChromaDB, FastAPI, HuggingFace"
-                   data-features="RAG avancé | Fine-tuning | Code review auto | Base connaissances"
-                   data-img="https://lh3.googleusercontent.com/aida-public/AB6AXuCJCsWrr7XhXHdayMqdlbcfL0YrEkYgLjc_3Ptjmzt9iXZb-jzEC8_mI9BGyyNbkb-juaUqne6bJNkF-mb9xkU-qP63w5rJSSGVS9gnQOw5-tW2DNam3C_WTqPCQeJgOTBfqdPsAHenyxkocEoGG6KLDtB9pVvABRC9WquKRoak3GK1TIzp130biGkS1-0mh_b-9227k5K7oIpiHLvTHZjeWhCR4_HSi-A16DcdY6KfZ7qFnwHbSiJW-VjNnSurAS-h9zmgDKtkDD8">
-                    <div class="project-article__thumb">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJCsWrr7XhXHdayMqdlbcfL0YrEkYgLjc_3Ptjmzt9iXZb-jzEC8_mI9BGyyNbkb-juaUqne6bJNkF-mb9xkU-qP63w5rJSSGVS9gnQOw5-tW2DNam3C_WTqPCQeJgOTBfqdPsAHenyxkocEoGG6KLDtB9pVvABRC9WquKRoak3GK1TIzp130biGkS1-0mh_b-9227k5K7oIpiHLvTHZjeWhCR4_HSi-A16DcdY6KfZ7qFnwHbSiJW-VjNnSurAS-h9zmgDKtkDD8" loading="lazy" decoding="async" alt="Shadow Protocol AI">
-                        <div class="project-article__badge project-article__badge--green">
-                            <span>07_AI</span>
-                        </div>
-                        <div class="project-article__hover-overlay">
-                            <span class="material-symbols-outlined">open_in_new</span>
-                        </div>
-                    </div>
-                    <div class="project-article__body">
-                        <h2 class="project-article__title">Shadow Protocol AI</h2>
-                        <p class="project-article__desc">Custom LLM-powered assistant with RAG capabilities for enterprise knowledge management and automated code review.</p>
-                        <div class="project-article__tags">
-                            <span class="project-tag project-tag--green">#AI</span>
-                            <span class="project-tag project-tag--orange">#LLM</span>
-                            <span class="project-tag project-tag--neutral">#RAG</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Project 8: Grid Runner -->
-                <a href="javascript:void(0)" class="project-article project-article--orange project-article--link portfolio-card"
-                   data-category="gamedev"
-                   data-title="Grid Runner"
-                   data-desc="Jeu d'arène multijoueur cyberpunk au rythme effréné développé avec Godot Engine. Intègre le netcode rollback pour une expérience réseau fluide et la génération procédurale de cartes pour une rejouabilité infinie."
-                   data-tech="Godot 4, GDScript, GDNative, ENet"
-                   data-features="Netcode rollback | Cartes procédurales | Mode battle royale | Spectateur live"
-                   data-img="https://lh3.googleusercontent.com/aida-public/AB6AXuAozYEJo5Gr3ZIHjhPNlP88xDNQTOoHaGko5CYayBS3NkeYp6WGv_ZEF2weyxOCpSBesYcbf_oMGCB4i4HN8yQ6KZvsM9gP6Lin3Vd8HHgFQMEf1pN6huilxoKhzEBFoIxAYO9VnuXKRnEmern9bjlbPVXUsC00CECyUzGPVlrZUAjTmUaQMYGJJPcZNwTOUI8ZH9p0-os16MjRh_xJbDfTakyKjmJjPrlS0o-UxyET7XlSTK_g1ivU4G9_8Q7lvJNHdX5GqPe7W7o">
-                    <div class="project-article__thumb">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAozYEJo5Gr3ZIHjhPNlP88xDNQTOoHaGko5CYayBS3NkeYp6WGv_ZEF2weyxOCpSBesYcbf_oMGCB4i4HN8yQ6KZvsM9gP6Lin3Vd8HHgFQMEf1pN6huilxoKhzEBFoIxAYO9VnuXKRnEmern9bjlbPVXUsC00CECyUzGPVlrZUAjTmUaQMYGJJPcZNwTOUI8ZH9p0-os16MjRh_xJbDfTakyKjmJjPrlS0o-UxyET7XlSTK_g1ivU4G9_8Q7lvJNHdX5GqPe7W7o" loading="lazy" decoding="async" alt="Grid Runner">
-                        <div class="project-article__badge project-article__badge--orange">
-                            <span>08_GM</span>
-                        </div>
-                        <div class="project-article__hover-overlay">
-                            <span class="material-symbols-outlined">open_in_new</span>
-                        </div>
-                    </div>
-                    <div class="project-article__body">
-                        <h2 class="project-article__title">Grid Runner</h2>
-                        <p class="project-article__desc">Fast-paced cyberpunk multiplayer arena game built with Godot Engine, featuring netcode rollback and procedural map generation.</p>
-                        <div class="project-article__tags">
-                            <span class="project-tag project-tag--orange">#GAMEDEV</span>
-                            <span class="project-tag project-tag--green">#GODOT</span>
-                            <span class="project-tag project-tag--neutral">#MULTIPLAYER</span>
+                            <span class="project-tag project-tag--green">#FLUTTER</span>
+                            <span class="project-tag project-tag--orange">#DART</span>
+                            <span class="project-tag project-tag--neutral">#MOBILE_UI</span>
                         </div>
                     </div>
                 </a>
@@ -880,7 +688,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
             { keywords: ['competenc', 'skills', 'stack', 'techno', 'langage', 'technolog', 'tu sais'],
               response: "Mes competences :\n• Frontend : TypeScript, React, Next.js, Tailwind, Vue.js\n• Backend : Node.js, PHP, Python, Rust, Express\n• DevOps : Docker, Kubernetes, AWS, Terraform, Linux\n• Security : Kali Linux, Metasploit, Wireshark, Nmap\n• Database : MySQL, PostgreSQL, MongoDB, Redis\n• Game Dev : Unreal Engine 5, Unity, Godot" },
             { keywords: ['projet', 'realisation', 'portfolio', 'travaux', 'works'],
-              response: "Mes projets recents :\n• Neural Breach Shield — Penetration testing autonome\n• Abidjan Terminal UI — Dashboard logistique\n• Eburnie Chronicles — RPG narratif (Unreal 5)\n• Core Infra Automata — Orchestrateur multi-cloud\n• Phantom Recon Engine — OSINT threat hunting\n• Lagune Commerce — E-commerce full-stack\n• Shadow Protocol AI — LLM & RAG\n• Grid Runner — Multiplayer cyberpunk arena\n\nScrolle jusqu'a PROJECTS pour les decouvrir !" },
+              response: "Mes projets recents :\n• Neural Breach Shield — Penetration testing autonome\n• Eburnie Chronicles — RPG narratif (Unreal 5)\n• Core Infra Automata — Orchestrateur multi-cloud\n• Phantom Recon Engine — OSINT threat hunting\n• Lagune Commerce — E-commerce full-stack\n• Shadow Protocol AI — LLM & RAG\n• Grid Runner — Multiplayer cyberpunk arena\n• Nouchi Lexicon App — Dictionnaire Nouchi (Flutter)\n\nScrolle jusqu'a PROJECTS pour les decouvrir !" },
             { keywords: ['contact', 'contacter', 'email', 'message', 'joindre'],
               response: "Pour me contacter :\n• Formulaire en bas de page (section CONTACT)\n• Email : vianson50@gmail.com\n• GitHub, LinkedIn, Discord dans la section Contact\n\nReponse sous 24h !" },
             { keywords: ['cyber', 'securite', 'security', 'hacking', 'hacker', 'pentest'],
