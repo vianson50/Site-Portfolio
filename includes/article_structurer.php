@@ -859,16 +859,48 @@ function generateDetailedIntro(
     array $keywords,
     array $sourceParagraphs,
 ): string {
+    $s = trim($subject);
     $kw = !empty($keywords)
         ? implode(", ", array_slice($keywords, 0, 4))
         : "technologie";
 
-    $hook =
-        "**" .
-        trim($subject) .
-        "** est un sujet qui suscite un intérêt croissant dans l'écosystème technologique. Que vous soyez développeur, architecte ou simplement curieux, comprendre ses enjeux est devenu essentiel.";
+    // ── Hooks par catégorie ──
+    $hooksByCat = [
+        "Cybersécurité" => [
+            "Dans un monde numérique où les menaces évoluent plus vite que les défenses, **{$s}** s'impose comme un enjeu critique pour toute organisation. Des attaques sophistiquées aux vulnérabilités zero-day, comprendre cette problématique est la première ligne de défense.",
+            "Chaque jour, des milliers de cyberattaques ciblent des infrastructures critiques. **{$s}** est au cœur de cette guerre invisible où la moindre faille peut coûter des millions. Décryptage d'une menace qui touche {$kw} et bien au-delà.",
+            "La cybersécurité n'est plus un luxe — c'est une survie numérique. **{$s}** illustre parfaitement comment les menaces modernes exploitent les moindres faiblesses de nos systèmes. Voici pourquoi chaque développeur et administrateur doit s'y intéresser d'urgence.",
+        ],
+        "DevOps & Cloud" => [
+            "L'infrastructure moderne ne pardonne pas à ceux qui restent statiques. **{$s}** représente une évolution majeure dans la façon dont les équipes conçoivent, déploient et maintiennent leurs systèmes. Du container au cluster, chaque couche est concernée.",
+            "Dans l'écosystème DevOps actuel, **{$s}** est bien plus qu'une tendance — c'est un fondement architectural. Les équipes qui l'adoptent gagnent en vélocité, en fiabilité et en capacité de scaling. Voici comment et pourquoi.",
+        ],
+        "Développement Web" => [
+            "Le développement web traverse une période de mutation sans précédent. **{$s}** incarne cette évolution en offrant aux développeurs des capacités qui redéfinissent les standards de création. Si vous codez en 2025, vous ne pouvez pas ignorer cela.",
+            "Chaque génération de frameworks apporte son lot de ruptures. **{$s}** fait partie de celles qui changent durablement la manière de concevoir des applications web modernes. Performance, DX, architecture — tout est repensé.",
+        ],
+        "Intelligence Artificielle" => [
+            "L'intelligence artificielle ne cesse de repousser les limites du possible. **{$s}** se positionne à la pointe de cette révolution, avec des implications qui dépassent largement le cadre technique pour toucher l'économie, l'éthique et la société toute entière.",
+            "Des modèles de langage à la vision par ordinateur, l'IA progresse à une vitesse vertigineuse. **{$s}** illustre cette dynamique avec des avancées concrètes qui transforment déjà des secteurs entiers.",
+        ],
+        "Game Dev" => [
+            "L'industrie du jeu vidéo génère plus de revenus que le cinéma et la musique réunis. **{$s}** donne aux créateurs des outils d'une puissance inédite pour façonner des mondes immersifs et des expériences qui captivent des milliards de joueurs.",
+            "Derrière chaque jeu qui vous marque, il y a une technologie invisible qui fait vivre le rêve. **{$s}** est l'une de ces technologies qui permet aux studios et aux indés de repousser les frontières de l'interactif.",
+        ],
+        "Mobile" => [
+            "Avec plus de 6 milliards d'utilisateurs de smartphones dans le monde, le mobile est le premier point de contact digital. **{$s}** redéfinit les standards de développement d'applications et ouvre de nouvelles possibilités pour les développeurs.",
+            "Le développement mobile évolue à toute vitesse. **{$s}** apporte des réponses concrètes aux défis de performance, d'UX et de cross-platform qui freinaient jusqu'ici les équipes mobile.",
+        ],
+    ];
 
-    // Si on a du contenu source, en extraire un aperçu
+    $hooks = $hooksByCat[$category] ?? [
+        "**{$s}** est un sujet qui ne cesse de gagner en importance dans le paysage technologique contemporain. Comprendre ses enjeux, ses mécanismes et son impact est devenu essentiel pour tout professionnel du numérique.",
+        "À l'ère de la transformation digitale, **{$s}** se distingue comme une thématique incontournable. Son influence s'étend bien au-delà du domaine technique pour toucher les stratégies d'entreprise et les usages quotidiens.",
+    ];
+
+    $hook = $hooks[array_rand($hooks)];
+
+    // Si on a du contenu source, en extraire un aperçu pertinent
     if (!empty($sourceParagraphs)) {
         $bestPara = "";
         $bestLen = 0;
@@ -881,14 +913,18 @@ function generateDetailedIntro(
             }
         }
         if ($bestPara) {
-            $hook .= "\n\nVoici ce qu'il faut retenir :\n\n> " . $bestPara;
+            $hook .= "\n\n> " . $bestPara;
         }
     }
 
-    $transition =
-        "Dans ce résumé complet, nous allons explorer " .
-        trim($subject) .
-        " sous tous ses angles : contexte, fonctionnement technique, cas d'usage concrets, avantages, limites et perspectives d'avenir. Accrochez-vous — c'est dense, mais c'est essentiel.";
+    // ── Transitions enrichies par catégorie ──
+    $transitions = [
+        "Ce dossier approfondi examine **{$s}** sous tous ses angles : de ses fondements à son impact sur l'écosystème, en passant par les bonnes pratiques, les pièges courants et les perspectives d'évolution. Que vous soyez débutant ou expert, vous y trouverez des informations actionnables.",
+        "Dans cette analyse détaillée de **{$s}**, nous couvrirons le contexte historique, le fonctionnement technique, les cas d'usage concrets, les alternatives disponibles et les tendances à venir. Chaque section est conçue pour vous donner une compréhension solide et immédiatement applicable.",
+        "De la théorie à la pratique, ce guide complet sur **{$s}** vous accompagne étape par étape. Nous analyserons les enjeux, décortiquerons l'architecture, comparerons les solutions et projeterons les évolutions futures. Préparez-vous — c'est dense mais essentiel.",
+    ];
+
+    $transition = $transitions[array_rand($transitions)];
 
     return $hook . "\n\n" . $transition;
 }
@@ -995,65 +1031,193 @@ function generateDefaultRichPlan(
     string $category,
     array $sourceParagraphs,
 ): array {
-    $sections = [
-        [
-            "title" => "Contexte & Présentation",
-            "fallback" =>
-                "Présentation de " .
-                $subject .
-                ", son origine et les problèmes qu'il résout dans le paysage actuel.",
+    $s = trim($subject);
+
+    // ── Sections enrichies par catégorie ──
+    $sectionsByCat = [
+        "Cybersécurité" => [
+            [
+                "title" => "Paysage des menaces & Contexte",
+                "desc" => "L'écosystème des cybermenaces a radicalement changé ces dernières années. **{$s}** s'inscrit dans un contexte où les attaques sont de plus en plus sophistiquées, automatisées et difficiles à détecter. Les groupes APT (Advanced Persistent Threats) exploitent des chaines d'attaque complexes, combinant phishing, élévation de privilèges et mouvement latéral. En parallèle, la surface d'attaque s'élargit avec le cloud, l'IoT et le télétravail. Comprendre les vecteurs d'attaque liés à **{$s}** est la première étape pour construire une défense efficace.",
+            ],
+            [
+                "title" => "Mécanismes d'attaque & Vulnérabilités",
+                "desc" => "Les vulnérabilités exploitées dans le cadre de **{$s}** reposent souvent sur des failles connues mais sous-estimées : injections SQL, cross-site scripting (XSS), broken access control, et misconfigurations d'infrastructure. Les attaquants utilisent des outils automatisés pour scanner massivement les cibles potentielles. L'analyse des TTP (Tactics, Techniques & Procedures) observées révèle des patterns récurrents qu'il est possible de contrer avec les bonnes mesures.",
+            ],
+            [
+                "title" => "Stratégies de défense & Bonnes pratiques",
+                "desc" => "Se protéger efficacement contre les menaces liées à **{$s}** nécessite une approche multicouche. Le modèle Zero Trust, le chiffrement de bout en bout, l'authentification multi-facteurs (MFA) et le monitoring en temps réel constituent le socle d'une posture de sécurité solide. Les audits réguliers, les tests de pénétration et la formation continue des équipes sont tout aussi cruciaux que les outils techniques déployés.",
+            ],
+            [
+                "title" => "Outils & Frameworks de référence",
+                "desc" => "L'écosystème de la cybersécurité offre une panoplie d'outils pour faire face à **{$s}**. Du côté offensif : Nmap, Metasploit, Burp Suite, Wireshark. Du côté défensif : SIEM (Splunk, ELK), EDR (CrowdStrike, SentinelOne), WAF et solutions de threat intelligence. Chaque outil a ses forces et ses limites — le choix dépend du contexte, du budget et du niveau de maturité de l'organisation.",
+            ],
+            [
+                "title" => "Cas réels & Retours d'expérience",
+                "desc" => "L'histoire récente regorge d'incidents liés à **{$s}** qui ont eu des conséquences désastreuses : fuites de données de millions d'utilisateurs, paralysie d'hopitaux par ransomware, vols de propriété intellectuelle. L'analyse de ces cas concrets permet d'identifier les failles récurrentes et d'en tirer des leçons applicable à toute organisation. La détection précoce et la réponse incidentielle rapide font la différence entre un incident mineur et une catastrophe.",
+            ],
+            [
+                "title" => "Perspectives & Évolution des menaces",
+                "desc" => "L'avenir de **{$s}** sera marqué par l'arrivée des attaques alimentées par l'IA (deepfakes, phishing généré par LLM, malware polymorphe), l'expansion des attaques supply chain, et les menaces quantiques sur la cryptographie. Les professionnels de la sécurité doivent anticiper ces évolutions en investissant dans la formation, la R&D et la collaboration inter-organisationnelle.",
+            ],
         ],
-        [
-            "title" => "Fonctionnement & Caractéristiques",
-            "fallback" =>
-                "Comment " .
-                $subject .
-                " fonctionne techniquement. Principales caractéristiques et innovations.",
+        "DevOps & Cloud" => [
+            [
+                "title" => "Architecture & Fondamentaux",
+                "desc" => "**{$s}** repose sur des principes architecturaux qui transforment la façon dont les applications sont construites et déployées. L'approche Infrastructure as Code (IaC), la conteneurisation, le service mesh et l'observabilité forment le socle d'une plateforme cloud-native robuste. Comprendre ces fondements est indispensable avant toute mise en oeuvre.",
+            ],
+            [
+                "title" => "Pipeline CI/CD & Automatisation",
+                "desc" => "L'automatisation est le coeur battant du DevOps. Avec **{$s}**, les pipelines CI/CD deviennent plus rapides, plus sûrs et plus reproductibles. Du commit au déploiement en production, chaque étape peut être automatisée : tests unitaires, integration tests, scans de sécurité, build d'images container, blue-green deployment, canary releases. L'objectif : délivrer de la valeur plus vite sans sacrifier la qualité.",
+            ],
+            [
+                "title" => "Scalabilité & Résilience",
+                "desc" => "Les systèmes modernes doivent absorber des pics de charge sans fléchir. **{$s}** offre des mécanismes de scaling horizontal, de load balancing intelligent et de circuit breaking qui garantissent la disponibilité même sous stress. La résilience ne s'improvise pas — elle se conçoit dès l'architecture avec du chaos engineering, des health checks et des stratégies de rollback automatisées.",
+            ],
+            [
+                "title" => "Monitoring, Observabilité & SRE",
+                "desc" => "Un système qu'on ne peut pas observer est un système qu'on ne peut pas améliorer. **{$s}** intègre des pratiques d'observabilité avancées : métriques (Prometheus, Grafana), logs structurés (ELK, Loki), traces distribuées (Jaeger, Zipkin). Les SRE (Site Reliability Engineers) utilisent ces données pour définir des SLO/SLI et garantir la fiabilité du service.",
+            ],
+            [
+                "title" => "Sécurité & Compliance (DevSecOps)",
+                "desc" => "La sécurité ne peut plus être un afterthought dans le cycle DevOps. **{$s}** intègre les contrôles de sécurité dès le début du pipeline : scan de vulnérabilités dans les images container, analyse statique du code (SAST), analyse des dépendances (SCA), policy-as-code avec Open Policy Agent. Le DevSecOps garantit que chaque release respecte les standards de sécurité sans ralentir la vélocité.",
+            ],
+            [
+                "title" => "Retours d'expérience & Roadmap",
+                "desc" => "Les organisations qui ont adopté **{$s}** rapportent des gains significatifs : réduction du time-to-market, diminution des incidents de production, meilleure collaboration entre équipes dev et ops. Cependant, la transition demande un investissement en formation, une refonte des processus et un accompagnement au changement. Les prochaines évolutions porteront sur l'IA dans l'Ops, le platform engineering et le GitOps.",
+            ],
         ],
-        [
-            "title" => "Points forts & Avantages",
-            "fallback" =>
-                "Les avantages concrets de " .
-                $subject .
-                " par rapport aux solutions existantes.",
+        "Développement Web" => [
+            [
+                "title" => "État de l'art & Contexte technique",
+                "desc" => "Le paysage du développement web évolue à un rythme effréné. **{$s}** s'inscrit dans cette évolution en adressant des problématiques que les générations précédentes de technologies laissaient en suspens : performance perçue, expérience développeur, architecture modulaire et SEO technique. Avant de plonger dans les détails, il est essentiel de comprendre le contexte qui a rendu cette approche nécessaire et les limites des solutions antérieures.",
+            ],
+            [
+                "title" => "Architecture & Principes de conception",
+                "desc" => "L'architecture derrière **{$s}** repose sur des principes éprouvés : composantisation, rendering optimisé (SSR, SSG, ISR), gestion d'état prédictible et routage basé sur le système de fichiers. Ces choix architecturaux ne sont pas anodins — ils déterminent la maintenabilité, les performances et la capacité à scaler de l'application. Chaque décision technique a un impact direct sur l'expérience utilisateur final.",
+            ],
+            [
+                "title" => "Mise en pratique : Du setup au déploiement",
+                "desc" => "Passer de la théorie à la pratique avec **{$s}** demande une approche méthodique. Le setup initial, la configuration du tooling (linting, formatting, testing), la structuration du projet et les conventions d'équipe sont autant d'étapes qui conditionnent la réussite. Ce guide pas-à-pas couvre chaque étape avec des exemples concrets et des configurations prêtes à l'emploi.",
+            ],
+            [
+                "title" => "Performance & Optimisation",
+                "desc" => "La performance web n'est pas un détail — c'est un facteur de conversion. **{$s}** offre des leviers d'optimisation puissants : code splitting automatique, lazy loading des composants, optimisation des images, caching agressif et minimisation du JavaScript bloquant. Les Core Web Vitals (LCP, FID, CLS) deviennent des métriques de première importance pour le référencement comme pour l'UX.",
+            ],
+            [
+                "title" => "Écosystème & Comparatifs",
+                "desc" => "**{$s}** ne vit pas en isolation — il s'inscrit dans un écosystème riche de bibliothèques, plugins, templates et outils complémentaires. Comment se positionne-t-il face aux alternatives ? Quels sont ses cas d'usage optimaux et ses limites ? Cette analyse comparative objective aide à faire le bon choix technologique en fonction du contexte du projet.",
+            ],
+            [
+                "title" => "Bonnes pratiques & Perspectives",
+                "desc" => "Adopter **{$s}** efficacement, c'est suivre les patterns éprouvés par la communauté : gestion propre des side effects, tests unitaires et d'integration systématiques, documentation vivante, revues de code rigoureuses. Les tendances à venir incluent l'IA-assisted development, les edge functions, les architectures islands et le progressive enhancement.",
+            ],
         ],
-        [
-            "title" => "Limites & Points de vigilance",
-            "fallback" =>
-                "Ce qu'il faut savoir avant d'adopter " .
-                $subject .
-                ". Limites connues et précautions.",
+        "Intelligence Artificielle" => [
+            [
+                "title" => "Fondements scientifiques & Contexte",
+                "desc" => "**{$s}** s'appuie sur des décennies de recherche en apprentissage automatique, réseaux de neurones et traitement du langage naturel. Les percées récentes en deep learning, la disponibilité de puissance de calcul massive et l'explosion des données ont créé les conditions parfaites pour l'émergence de solutions comme **{$s}**. Comprendre les fondements mathématiques et informatiques permet de mieux apprécier les capacités et les limites du système.",
+            ],
+            [
+                "title" => "Architecture technique du modèle",
+                "desc" => "Sous le capot, **{$s}** utilise une architecture de transformer avec des mécanismes d'attention qui lui permettent de capturer des dépendances complexes dans les données. L'entrainement implique des milliards de paramètres, des techniques d'optimisation avancées (Adam, LoRA) et des infrastructures GPU/TPU distribuées. L'architecture détermine directement la qualité des résultats et les ressources nécessaires.",
+            ],
+            [
+                "title" => "Cas d'usage & Applications concrètes",
+                "desc" => "Les applications de **{$s}** couvrent un spectre impressionnant : génération de texte, analyse de sentiments, traduction automatique, résumé de documents, assistance au code, création de contenu, diagnostic médical, conduite autonome. Chaque cas d'usage a ses spécificités en termes de fine-tuning, de prompt engineering et de validation des résultats.",
+            ],
+            [
+                "title" => "Éthique, Biais & Régulation",
+                "desc" => "Le déploiement de **{$s}** soulève des questions éthiques fondamentales : biais dans les données d'entrainement, hallucinations, désinformation, impact sur l'emploi, vie privée. L'EU AI Act et les initiatives de responsible AI imposent des cadres de plus en plus stricts. Les développeurs et organisations doivent intégrer ces dimensions dès la conception (privacy by design, fairness audits).",
+            ],
+            [
+                "title" => "Implémentation & Outils",
+                "desc" => "Mettre en oeuvre **{$s}** demande de maîtriser un stack technique spécifique : frameworks (PyTorch, TensorFlow, Hugging Face), orchestration (MLflow, Kubeflow), serving (vLLM, TGI), monitoring (Weights & Biases). Du prototypage en notebook à la production à l'échelle, le chemin est jalonné de défis techniques et opérationnels.",
+            ],
+            [
+                "title" => "Avenir & Tendances émergentes",
+                "desc" => "L'avenir de **{$s}** s'oriente vers des modèles multimodaux (texte + image + audio + vidéo), l'IA agentic (agents autonomes capable de planifier et exécuter), le small language models (SLM) pour l'edge computing, et l'IA open-source qui démocratise l'accès. Les 12-24 prochains mois seront déterminants pour l'adoption massive et la maturité industrielle.",
+            ],
         ],
-        [
-            "title" => "Cas d'usage & Mise en pratique",
-            "fallback" =>
-                "Exemples concrets d'utilisation de " .
-                $subject .
-                " dans des projets réels.",
-        ],
-        [
-            "title" => "Conclusion & Perspectives",
-            "fallback" =>
-                "Synthèse des points clés et vision de l'avenir pour " .
-                $subject .
-                ".",
+        "Game Dev" => [
+            [
+                "title" => "Moteur & Outils de développement",
+                "desc" => "Le choix du moteur est la décision la plus impactante dans un projet de jeu. **{$s}** implique une compréhension profonde des capacités du moteur : système de rendu, pipeline graphique, physique, audio, IA NPCs, networking. Unreal Engine 5 avec Nanite et Lumen, Unity avec son écosystème, ou Godot pour l'indé — chaque option a ses forces et ses compromis.",
+            ],
+            [
+                "title" => "Gameplay & Game Design",
+                "desc" => "Le gameplay est l'âme du jeu. **{$s}** touche à la conception de mécaniques engaging, de boucles de feedback satisfaisantes et de courbes de difficulté bien dosées. Le level design, la progression du joueur, les systèmes de récompense et l'équilibrage sont des éléments qui demandent itération et playtesting rigoureux.",
+            ],
+            [
+                "title" => "Graphismes, Shaders & Audio",
+                "desc" => "**{$s}** exploite les dernières avancées en rendu temps réel : PBR (Physically Based Rendering), raytracing, shaders custom, particules volumétriques. L'audio spatial et la musique adaptative complètent l'immersion. L'optimisation est cruciale — maintenir 60 FPS stable tout en offrant un rendu de qualité demande un savoir-faire technique pointu.",
+            ],
+            [
+                "title" => "Performance & Optimisation",
+                "desc" => "La performance est non négociable dans le jeu vidéo. **{$s}** demande une maitrise du profiling GPU/CPU, de la gestion mémoire, du LOD (Level of Detail), du culling et du streaming de textures. Les techniques d'optimisation avancées (GPU instancing, compute shaders, asset bundling) font la différence entre un jeu fluide et un slideshow.",
+            ],
+            [
+                "title" => "Publication & Distribution",
+                "desc" => "Sortir un jeu est un projet en soi. **{$s}** implique de maîtriser les processus de soumission sur Steam, consoles (certification TRC/XRc/Lotcheck), mobile (App Store/Play Store). Le marketing, la communauté, le post-launch content et le support technique sont tout aussi importants que le développement lui-même.",
+            ],
+            [
+                "title" => "Tendances & Avenir du Game Dev",
+                "desc" => "L'industrie du jeu évolue rapidement : IA procédurale pour la génération de contenu, cloud gaming, VR/AR mainstream, cross-platform play. **{$s}** s'inscrit dans ces tendances qui redéfinissent ce que signifie créer des expériences interactives. Les développeurs qui anticipent ces évolutions auront un avantage compétitif majeur.",
+            ],
         ],
     ];
 
+    // Sections par défaut (pour catégories sans templates dédiés)
+    $defaultSections = [
+        [
+            "title" => "Contexte & Présentation générale",
+            "desc" => "**{$s}** s'inscrit dans un contexte technologique en mutation rapide. Cette section pose les bases en explorant l'origine du sujet, les problèmes qu'il adresse et les raisons pour lesquelles il gagne en pertinence aujourd'hui. Comprendre le contexte historique et les facteurs déclencheurs est essentiel pour apprécier pleinement les enjeux techniques et stratégiques qui sous-tendent cette thématique.",
+        ],
+        [
+            "title" => "Architecture & Fonctionnement",
+            "desc" => "Sous la surface, **{$s}** repose sur des principes de conception et une architecture qui déterminent sa robustesse et ses capacités. Cette section décortique les mécanismes fondamentaux, les composants clés et les flux de données qui font tourner le système. De l'infrastructure backend aux interfaces utilisateur, chaque couche mérite une analyse approfondie.",
+        ],
+        [
+            "title" => "Avantages & Points forts",
+            "desc" => "Les forces de **{$s}** sont multiples et méritent d'être détaillées. Performance, scalabilité, facilité d'utilisation, écosystème, communauté active — chaque atout contribue à rendre la solution attractive. Nous analysons objectivement les bénéfices concrets que les utilisateurs et les organisations peuvent en tirer, avec des données et des exemples à l'appui.",
+        ],
+        [
+            "title" => "Limites & Points de vigilance",
+            "desc" => "Aucune technologie n'est parfaite. **{$s}** présente des limites qu'il faut connaître avant de s'engager : courbe d'apprentissage, contraintes techniques, coûts cachés, dépendances vendor lock-in, maturité de l'écosystème. Cette analyse honnèse des faiblesses permet de prendre des décisions éclairées et d'anticiper les risques potentiels.",
+        ],
+        [
+            "title" => "Cas d'usage & Mise en pratique",
+            "desc" => "La théorie ne vaut rien sans la pratique. Cette section présente des cas d'usage concrets de **{$s}** dans des contextes réels : startup, entreprise, projet personnel, use case spécifique. Des exemples de code, des schémas d'architecture et des retours d'expérience illustrent comment tirer le meilleur parti de cette technologie dans des situations variées.",
+        ],
+        [
+            "title" => "Perspectives & Évolutions futures",
+            "desc" => "L'avenir de **{$s}** s'annonce riche en développements. Les tendances émergentes, les roadmap des mainteneurs, les signaux faibles de la communauté et les avancées de la recherche dessinent les contours de ce qui nous attend. Les professionnels qui anticipent ces évolutions se donneront un avantage stratégique décisif dans les mois et années à venir.",
+        ],
+    ];
+
+    $sections = $sectionsByCat[$category] ?? $defaultSections;
+
     $plan = [];
     foreach ($sections as $section) {
-        $desc = generateSectionContent($section["title"], $sourceParagraphs);
-        if (safeStrlen($desc) < 40) {
-            $desc = $section["fallback"];
+        // Essayer de trouver du contenu source pertinent
+        $sourceContent = generateSectionContent(
+            $section["title"],
+            $sourceParagraphs,
+        );
+        $desc = $section["desc"];
+
+        // Si le contenu source est pertinent, l'ajouter à la description
+        if (
+            safeStrlen($sourceContent) > 60 &&
+            strpos($sourceContent, "Analyse détaillée de") === false
+        ) {
+            $desc .= "\n\n" . $sourceContent;
         }
+
         $plan[] = [
             "level" => 1,
-            "title" => str_replace(
-                "{subject}",
-                trim($subject),
-                $section["title"],
-            ),
-            "desc" => str_replace("{subject}", trim($subject), $desc),
+            "title" => str_replace("{subject}", $s, $section["title"]),
+            "desc" => str_replace("{subject}", $s, $desc),
             "subsections" => [],
         ];
     }
@@ -1125,12 +1289,12 @@ function generateFullSummary(
     }
 
     // 4. Conclusion
-    $summary .= "## En conclusion\n\n";
-    $summary .=
-        trim($subject) .
-        " s'inscrit dans une tendance de fond du secteur " .
-        $category .
-        ". Les développements récents montrent un écosystème en pleine mutation, avec des opportunités concrètes pour les professionnels qui sauront s'adapter rapidement. La veille technologique reste essentielle pour rester compétitif dans ce domaine en évolution permanente.";
+    $conclusions = [
+        "En definitive, **{$subject}** represente bien plus qu'une simple evolution technologique — c'est un changement de paradigme qui redéfinit les règles du jeu dans le secteur {$category}. Les organisations qui investissent dans la compréhension et l'adoption de cette thématique aujourd'hui se positionneront en leaders demain. La clé du succès réside dans l'anticipation, la formation continue et l'expérimentation concrète. Le moment d'agir est maintenant.",
+        "Pour conclure, **{$subject}** nous rappelle que l'innovation technologique ne ralentit jamais — c'est à nous d'accélérer pour ne pas être laissés pour compte. Les enjeux analysés dans ce dossier montrent clairement que les opportunités sont immenses pour ceux qui osent. La veille technologique, l'apprentissage continu et la mise en pratique restent les meilleurs investissements.",
+        "En somme, **{$subject}** illustre parfaitement la vitesse à laquelle le secteur {$category} évolue. Les concepts, outils et pratiques présentés dans cette analyse constituent une base solide pour tout professionnel souhaitant rester compétitif. L'important n'est pas de tout maîtriser immédiatement, mais de commencer — un projet, un prototype, une exploration. Chaque pas compte.",
+    ];
+    $summary .= $conclusions[array_rand($conclusions)];
 
     return $summary;
 }
@@ -1143,12 +1307,13 @@ function extractKeyPoints(array $sourceParagraphs, string $subject): array
     $points = [];
 
     if (empty($sourceParagraphs)) {
+        $s = trim($subject);
         return [
-            "Le sujet concerne directement les développeurs et professionnels tech.",
-            "Les enjeux de sécurité et de performance sont au cœur du dispositif.",
-            "L'adoption est en croissance rapide dans l'industrie.",
-            "Des ressources et documentations sont disponibles pour démarrer.",
-            "L'impact sur les pratiques existantes est significatif.",
+            "**{$s}** représente un enjeu stratégique majeur pour les professionnels du secteur tech en 2025.",
+            "L'adoption de cette technologie/approche est en croissance accélérée, portée par des cas d'usage concrets et démontrés.",
+            "Les défis techniques (performance, sécurité, scalabilité) sont réels mais surmontables avec les bonnes pratiques.",
+            "L'écosystème autour de {$s} est dynamique : communauté active, documentation croissante, outils matures.",
+            "Investir dans la compréhension de {$s} maintenant offre un avantage compétitif significatif à court et moyen terme.",
         ];
     }
 

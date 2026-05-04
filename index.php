@@ -184,7 +184,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
             </span>
         </div>
         <div class="rss-ticker-bar__content">
-            <rssapp-ticker id="TVOvmVGK5J7yEQY4"></rssapp-ticker><script src="https://widget.rss.app/v1/ticker.js" type="text/javascript" async></script>
+            <rssapp-ticker id="TVOvmVGK5J7yEQY4"></rssapp-ticker><script data-src="https://widget.rss.app/v1/ticker.js" type="text/javascript" async class="rss-lazy"></script>
         </div>
         <div id="refresh-bar" style="position:absolute;bottom:0;left:0;height:1px;background:var(--primary);width:0%;transition:width 1s linear;"></div>
     </div>
@@ -685,7 +685,679 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
     </section>
 
     <!-- ================================
-         SECTION 4 — BLOG / FLUX RSS
+         SECTION 4 — SYNERGY: CRYPTO × GAMING
+         ================================ -->
+    <section class="synergy-section" id="synergy">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header">
+                <div class="section-header__bar"></div>
+                <div class="section-header__label">Cross-Domain Intelligence</div>
+                <h1 class="section-header__title">SYNERGY_<span class="text-primary">MATRIX</span></h1>
+                <p class="section-header__desc">
+                    Des domaines isolés naissent les vulnérabilités. De leurs intersections naissent les opportunités. Explorez les ponts entre Crypto, Gaming et Hacking — les frontières où se joue l'avenir du numérique.
+                </p>
+            </div>
+
+            <!-- Synergy Terminal Card -->
+            <div class="synergy-terminal">
+                <div class="synergy-terminal__scanline"></div>
+                <div class="synergy-terminal__bar">
+                    <div class="synergy-terminal__dots">
+                        <span class="synergy-terminal__dot" style="background:rgba(255,180,171,0.4);"></span>
+                        <span class="synergy-terminal__dot" style="background:rgba(255,183,133,0.4);"></span>
+                        <span class="synergy-terminal__dot" style="background:rgba(97,221,152,0.4);"></span>
+                    </div>
+                    <span class="synergy-terminal__bar-title label-caps">SYNERGY_ENGINE_V1</span>
+                    <span class="synergy-terminal__bar-status">
+                        <span class="pulse-dot pulse-dot--green"></span>
+                        <span class="label-caps" style="font-size:9px; color:rgba(255,255,255,0.35);">SYNC</span>
+                    </span>
+                </div>
+                <div class="synergy-terminal__body">
+
+                    <!-- ═══════ CLUSTER 1 : CRYPTO × GAMING ═══════ -->
+                    <div class="synergy-cluster-label">
+                        <span class="synergy-cluster-label__icon">
+                            <span class="material-symbols-outlined" style="font-size:16px; color:var(--primary);">currency_bitcoin</span>
+                            <span class="material-symbols-outlined" style="font-size:12px; color:rgba(255,255,255,0.25);">close</span>
+                            <span class="material-symbols-outlined" style="font-size:16px; color:var(--secondary-bright);">sports_esports</span>
+                        </span>
+                        <span class="synergy-cluster-label__text label-caps">CLUSTER_01 // CRYPTO × GAMING</span>
+                        <span class="synergy-cluster-label__line"></span>
+                    </div>
+
+                    <!-- Bridge Visualization -->
+                    <div class="synergy-bridge">
+                        <div class="synergy-bridge__node synergy-bridge__node--crypto">
+                            <span class="material-symbols-outlined" style="font-size:28px;">currency_bitcoin</span>
+                            <span class="label-caps">CRYPTO</span>
+                        </div>
+                        <div class="synergy-bridge__link">
+                            <div class="synergy-bridge__line"></div>
+                            <div class="synergy-bridge__pulse"></div>
+                            <div class="synergy-bridge__line"></div>
+                        </div>
+                        <div class="synergy-bridge__node synergy-bridge__node--gaming">
+                            <span class="material-symbols-outlined" style="font-size:28px;">sports_esports</span>
+                            <span class="label-caps">GAMING</span>
+                        </div>
+                    </div>
+
+                    <!-- Synergy Topics Grid -->
+                    <div class="synergy-grid">
+
+                        <!-- Card 1: Play-to-Earn -->
+                        <div class="synergy-card" data-synergy="p2e">
+                            <div class="synergy-card__scanline"></div>
+                            <div class="synergy-card__header">
+                                <div class="synergy-card__icon-wrap synergy-card__icon-wrap--orange">
+                                    <span class="material-symbols-outlined">stadia_controller</span>
+                                </div>
+                                <div class="synergy-card__badge synergy-card__badge--hot">
+                                    <span class="pulse-dot pulse-dot--orange" style="width:6px; height:6px;"></span>
+                                    <span>TRENDING</span>
+                                </div>
+                            </div>
+                            <h3 class="synergy-card__title">Play-to-Earn</h3>
+                            <p class="synergy-card__desc">
+                                Les jeux P2E redéfinissent le rapport entre gameplay et rémunération. Des titres comme Axie Infinity, Illuvium et Pixels prouvent que les joueurs peuvent être les premiers acteurs de leur économie numérique.
+                            </p>
+                            <div class="synergy-card__tags">
+                                <span class="synergy-tag">#GAMEFI</span>
+                                <span class="synergy-tag">#TOKENOMICS</span>
+                                <span class="synergy-tag">#WEB3</span>
+                            </div>
+                            <div class="synergy-card__metrics">
+                                <div class="synergy-metric">
+                                    <span class="synergy-metric__label">Marché P2E</span>
+                                    <span class="synergy-metric__value text-primary">$4.2B+</span>
+                                </div>
+                                <div class="synergy-metric">
+                                    <span class="synergy-metric__label">Joueurs actifs</span>
+                                    <span class="synergy-metric__value text-secondary-bright">2.5M+</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2: NFT Gaming -->
+                        <div class="synergy-card" data-synergy="nft">
+                            <div class="synergy-card__scanline"></div>
+                            <div class="synergy-card__header">
+                                <div class="synergy-card__icon-wrap synergy-card__icon-wrap--green">
+                                    <span class="material-symbols-outlined">deployed_code</span>
+                                </div>
+                                <div class="synergy-card__badge synergy-card__badge--live">
+                                    <span class="pulse-dot pulse-dot--green" style="width:6px; height:6px;"></span>
+                                    <span>ACTIVE</span>
+                                </div>
+                            </div>
+                            <h3 class="synergy-card__title">NFT dans le Gaming</h3>
+                            <p class="synergy-card__desc">
+                                Les NFT gaming transforment les assets in-game en propriété numérique réelle. Godcards, armes legendary et terrains virtuels — chaque item possède une provenance vérifiable on-chain et une valeur marchande.
+                            </p>
+                            <div class="synergy-card__tags">
+                                <span class="synergy-tag">#DIGITAL_OWNERSHIP</span>
+                                <span class="synergy-tag">#SMART_CONTRACTS</span>
+                                <span class="synergy-tag">#METaverse</span>
+                            </div>
+                            <div class="synergy-card__metrics">
+                                <div class="synergy-metric">
+                                    <span class="synergy-metric__label">Volume NFT Gaming</span>
+                                    <span class="synergy-metric__value text-primary">$1.8B</span>
+                                </div>
+                                <div class="synergy-metric">
+                                    <span class="synergy-metric__label">Collections actives</span>
+                                    <span class="synergy-metric__value text-secondary-bright">850+</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3: Skins Economy -->
+                        <div class="synergy-card" data-synergy="skins">
+                            <div class="synergy-card__scanline"></div>
+                            <div class="synergy-card__header">
+                                <div class="synergy-card__icon-wrap synergy-card__icon-wrap--purple">
+                                    <span class="material-symbols-outlined">palette</span>
+                                </div>
+                                <div class="synergy-card__badge synergy-card__badge--evolving">
+                                    <span class="pulse-dot" style="width:6px; height:6px; background:#a78bfa;"></span>
+                                    <span>EVOLVING</span>
+                                </div>
+                            </div>
+                            <h3 class="synergy-card__title">Économie des Skins</h3>
+                            <p class="synergy-card__desc">
+                                L'économie des skins CS2, Valorant et Fortnite dépasse celle de nombreux pays. Des marchés secondaires aux plateformes d'échange, les cosmétiques numériques sont devenus une classe d'actifs à part entière.
+                            </p>
+                            <div class="synergy-card__tags">
+                                <span class="synergy-tag">#SKIN_TRADE</span>
+                                <span class="synergy-tag">#DIGITAL_ECONOMY</span>
+                                <span class="synergy-tag">#RARITY</span>
+                            </div>
+                            <div class="synergy-card__metrics">
+                                <div class="synergy-metric">
+                                    <span class="synergy-metric__label">Marché CS2</span>
+                                    <span class="synergy-metric__value text-primary">$1.5B+</span>
+                                </div>
+                                <div class="synergy-metric">
+                                    <span class="synergy-metric__label">Transactions/jour</span>
+                                    <span class="synergy-metric__value text-secondary-bright">500K+</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 4: GameFi Infrastructure -->
+                        <div class="synergy-card" data-synergy="infra">
+                            <div class="synergy-card__scanline"></div>
+                            <div class="synergy-card__header">
+                                <div class="synergy-card__icon-wrap synergy-card__icon-wrap--orange">
+                                    <span class="material-symbols-outlined">developer_board</span>
+                                </div>
+                                <div class="synergy-card__badge synergy-card__badge--dev">
+                                    <span class="material-symbols-outlined" style="font-size:10px;">code</span>
+                                    <span>DEV_FOCUSED</span>
+                                </div>
+                            </div>
+                            <h3 class="synergy-card__title">GameFi Infrastructure</h3>
+                            <p class="synergy-card__desc">
+                                Les chaînes gaming-spécifiques (Immutable X, Ronin, Polygon) et les SDK blockchain (Enjin, Unity Web3) créent les fondations techniques de la prochaine génération de jeux décentralisés.
+                            </p>
+                            <div class="synergy-card__tags">
+                                <span class="synergy-tag">#LAYER2</span>
+                                <span class="synergy-tag">#GAME_SDK</span>
+                                <span class="synergy-tag">#ON_CHAIN</span>
+                            </div>
+                            <div class="synergy-card__metrics">
+                                <div class="synergy-metric">
+                                    <span class="synergy-metric__label">TPS Gaming</span>
+                                    <span class="synergy-metric__value text-primary">9 000+</span>
+                                </div>
+                                <div class="synergy-metric">
+                                    <span class="synergy-metric__label">Frais/gas</span>
+                                    <span class="synergy-metric__value text-secondary-bright">~$0.01</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Synergy Cross-Links -->
+                    <div class="synergy-crosslinks">
+                        <div class="synergy-crosslinks__header">
+                            <span class="material-symbols-outlined" style="font-size:16px; color:var(--primary);">hub</span>
+                            <span class="label-caps">CROSS_DOMAIN_LINKS</span>
+                        </div>
+                        <div class="synergy-crosslinks__grid">
+                            <div class="synergy-crosslink">
+                                <div class="synergy-crosslink__icons">
+                                    <span class="material-symbols-outlined" style="font-size:16px; color:var(--primary);">currency_bitcoin</span>
+                                    <span class="material-symbols-outlined" style="font-size:12px; color:rgba(255,255,255,0.25);">add</span>
+                                    <span class="material-symbols-outlined" style="font-size:16px; color:var(--secondary-bright);">security</span>
+                                </div>
+                                <span class="synergy-crosslink__label">Smart Contract Audits pour Jeux</span>
+                            </div>
+                            <div class="synergy-crosslink">
+                                <div class="synergy-crosslink__icons">
+                                    <span class="material-symbols-outlined" style="font-size:16px; color:var(--primary);">token</span>
+                                    <span class="material-symbols-outlined" style="font-size:12px; color:rgba(255,255,255,0.25);">add</span>
+                                    <span class="material-symbols-outlined" style="font-size:16px; color:var(--secondary-bright);">code</span>
+                                </div>
+                                <span class="synergy-crosslink__label">Token Engineering & Game Design</span>
+                            </div>
+                            <div class="synergy-crosslink">
+                                <div class="synergy-crosslink__icons">
+                                    <span class="material-symbols-outlined" style="font-size:16px; color:var(--primary);">paid</span>
+                                    <span class="material-symbols-outlined" style="font-size:12px; color:rgba(255,255,255,0.25);">add</span>
+                                    <span class="material-symbols-outlined" style="font-size:16px; color:var(--secondary-bright);">sports_esports</span>
+                                </div>
+                                <span class="synergy-crosslink__label">Esports & Crypto Betting</span>
+                            </div>
+                            <div class="synergy-crosslink">
+                                <div class="synergy-crosslink__icons">
+                                    <span class="material-symbols-outlined" style="font-size:16px; color:var(--primary);">deployed_code</span>
+                                    <span class="material-symbols-outlined" style="font-size:12px; color:rgba(255,255,255,0.25);">add</span>
+                                    <span class="material-symbols-outlined" style="font-size:16px; color:var(--secondary-bright);">terminal</span>
+                                </div>
+                                <span class="synergy-crosslink__label">NFT Minting & Backend Architecture</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ═══════ CLUSTER DIVIDER ═══════ -->
+                    <div class="synergy-divider">
+                        <span class="synergy-divider__line"></span>
+                        <span class="material-symbols-outlined" style="font-size:14px; color:rgba(255,255,255,0.15);">more_horiz</span>
+                        <span class="synergy-divider__line"></span>
+                    </div>
+
+                    <!-- ═══════ CLUSTER 2 : HACKING × CRYPTO ═══════ -->
+                    <div class="synergy-cluster-label">
+                        <span class="synergy-cluster-label__icon">
+                            <span class="material-symbols-outlined" style="font-size:16px; color:#ff6b6b;">shield</span>
+                            <span class="material-symbols-outlined" style="font-size:12px; color:rgba(255,255,255,0.25);">close</span>
+                            <span class="material-symbols-outlined" style="font-size:16px; color:var(--primary);">currency_bitcoin</span>
+                        </span>
+                        <span class="synergy-cluster-label__text label-caps">CLUSTER_02 // HACKING × CRYPTO</span>
+                        <span class="synergy-cluster-label__line"></span>
+                    </div>
+
+                    <!-- Bridge Visualization: Hacking ⟷ Crypto -->
+                    <div class="synergy-bridge">
+                        <div class="synergy-bridge__node synergy-bridge__node--hacking">
+                            <span class="material-symbols-outlined" style="font-size:28px;">shield</span>
+                            <span class="label-caps">HACKING</span>
+                        </div>
+                        <div class="synergy-bridge__link">
+                            <div class="synergy-bridge__line synergy-bridge__line--red"></div>
+                            <div class="synergy-bridge__pulse synergy-bridge__pulse--red"></div>
+                            <div class="synergy-bridge__line synergy-bridge__line--red"></div>
+                        </div>
+                        <div class="synergy-bridge__node synergy-bridge__node--crypto">
+                            <span class="material-symbols-outlined" style="font-size:28px;">currency_bitcoin</span>
+                            <span class="label-caps">CRYPTO</span>
+                        </div>
+                    </div>
+
+                    <!-- Hacking × Crypto Cards Grid -->
+                    <div class="synergy-grid">
+
+                        <!-- Card 1: Wallet Security -->
+                        <div class="synergy-card" data-synergy="wallet-sec">
+                            <div class="synergy-card__scanline"></div>
+                            <div class="synergy-card__header">
+                                <div class="synergy-card__icon-wrap synergy-card__icon-wrap--red">
+                                    <span class="material-symbols-outlined">account_balance_wallet</span>
+                                </div>
+                                <div class="synergy-card__badge synergy-card__badge--critical">
+                                    <span class="pulse-dot pulse-dot--red" style="width:6px; height:6px;"></span>
+                                    <span>CRITICAL</span>
+                                </div>
+                            </div>
+                            <h3 class="synergy-card__title">Sécurité des Wallets</h3>
+                            <p class="synergy-card__desc">
+                                Un wallet compromis = des fonds perdus à jamais. Des attaques par phishing aux exploits de clé privée, les vecteurs d'attaque évoluent constamment. Hardware wallets, multi-sig, seed phrase management — chaque couche compte.
+                            </p>
+                            <div class="synergy-card__tags">
+                                <span class="synergy-tag">#WALLET_SEC</span>
+                                <span class="synergy-tag">#PRIVATE_KEY</span>
+                                <span class="synergy-tag">#HARDWARE_WALLET</span>
+                            </div>
+                            <div class="synergy-card__metrics">
+                                <div class="synergy-metric">
+                                    <span class="synergy-metric__label">Fonds volés 2024</span>
+                                    <span class="synergy-metric__value" style="color:#ff6b6b;">$1.8B</span>
+                                </div>
+                                <div class="synergy-metric">
+                                    <span class="synergy-metric__label">Attaques wallet/jour</span>
+                                    <span class="synergy-metric__value text-primary">1 200+</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2: DeFi Vulnerabilities -->
+                        <div class="synergy-card" data-synergy="defi-vuln">
+                            <div class="synergy-card__scanline"></div>
+                            <div class="synergy-card__header">
+                                <div class="synergy-card__icon-wrap synergy-card__icon-wrap--red">
+                                    <span class="material-symbols-outlined">warning</span>
+                                </div>
+                                <div class="synergy-card__badge synergy-card__badge--hot">
+                                    <span class="pulse-dot pulse-dot--orange" style="width:6px; height:6px;"></span>
+                                    <span>TRENDING</span>
+                                </div>
+                            </div>
+                            <h3 class="synergy-card__title">Failles DeFi</h3>
+                            <p class="synergy-card__desc">
+                                Les protocoles DeFi sont des cibles de choix : flash loan attacks, oracle manipulation, reentrancy exploits, rug pulls. L'analyse on-chain révèle des patterns d'attaque récurrents que tout hacker éthique doit maîtriser.
+                            </p>
+                            <div class="synergy-card__tags">
+                                <span class="synergy-tag">#DEFI_EXPLOIT</span>
+                                <span class="synergy-tag">#FLASH_LOAN</span>
+                                <span class="synergy-tag">#REENTRANCY</span>
+                            </div>
+                            <div class="synergy-card__metrics">
+                                <div class="synergy-metric">
+                                    <span class="synergy-metric__label">Hacks DeFi 2024</span>
+                                    <span class="synergy-metric__value" style="color:#ff6b6b;">$770M</span>
+                                </div>
+                                <div class="synergy-metric">
+                                    <span class="synergy-metric__label">Protocoles touchés</span>
+                                    <span class="synergy-metric__value text-primary">180+</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3: Smart Contract Auditing -->
+                        <div class="synergy-card" data-synergy="audit">
+                            <div class="synergy-card__scanline"></div>
+                            <div class="synergy-card__header">
+                                <div class="synergy-card__icon-wrap synergy-card__icon-wrap--green">
+                                    <span class="material-symbols-outlined">fact_check</span>
+                                </div>
+                                <div class="synergy-card__badge synergy-card__badge--dev">
+                                    <span class="material-symbols-outlined" style="font-size:10px;">code</span>
+                                    <span>DEV_FOCUSED</span>
+                                </div>
+                            </div>
+                            <h3 class="synergy-card__title">Smart Contract Auditing</h3>
+                            <p class="synergy-card__desc">
+                                Avant tout déploiement, un audit rigoureux est obligatoire. Slither, Mythril, Echidna pour le fuzzing. Vérification formelle pour les protocoles critiques. Un bug dans un contrat = des millions perdus en quelques secondes.
+                            </p>
+                            <div class="synergy-card__tags">
+                                <span class="synergy-tag">#SOLIDITY_AUDIT</span>
+                                <span class="synergy-tag">#FUZZING</span>
+                                <span class="synergy-tag">#FORMAL_VERIFY</span>
+                            </div>
+                            <div class="synergy-card__metrics">
+                                <div class="synergy-metric">
+                                    <span class="synergy-metric__label">Bugs critiques/an</span>
+                                    <span class="synergy-metric__value" style="color:#ff6b6b;">420+</span>
+                                </div>
+                                <div class="synergy-metric">
+                                    <span class="synergy-metric__label">Bounty moyen</span>
+                                    <span class="synergy-metric__value text-secondary-bright">$50K</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 4: Blockchain Forensics -->
+                        <div class="synergy-card" data-synergy="forensics">
+                            <div class="synergy-card__scanline"></div>
+                            <div class="synergy-card__header">
+                                <div class="synergy-card__icon-wrap synergy-card__icon-wrap--orange">
+                                    <span class="material-symbols-outlined">travel_explore</span>
+                                </div>
+                                <div class="synergy-card__badge synergy-card__badge--live">
+                                    <span class="pulse-dot pulse-dot--green" style="width:6px; height:6px;"></span>
+                                    <span>ACTIVE</span>
+                                </div>
+                            </div>
+                            <h3 class="synergy-card__title">Forensique Blockchain</h3>
+                            <p class="synergy-card__desc">
+                                Le traçage on-chain permet de suivre les flux de fonds illicites. Chainalysis, Elliptic et des outils custom révèlent les liens entre wallets, mixers et exchanges. L'art de transformer la transparence de la blockchain en arme d'investigation.
+                            </p>
+                            <div class="synergy-card__tags">
+                                <span class="synergy-tag">#ON_CHAIN_ANALYSIS</span>
+                                <span class="synergy-tag">#AML</span>
+                                <span class="synergy-tag">#TRACE</span>
+                            </div>
+                            <div class="synergy-card__metrics">
+                                <div class="synergy-metric">
+                                    <span class="synergy-metric__label">Fonds tracés 2024</span>
+                                    <span class="synergy-metric__value text-primary">$3.4B</span>
+                                </div>
+                                <div class="synergy-metric">
+                                    <span class="synergy-metric__label">Fonds récupérés</span>
+                                    <span class="synergy-metric__value text-secondary-bright">18%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Hacking × Crypto Cross-Links -->
+                    <div class="synergy-crosslinks">
+                        <div class="synergy-crosslinks__header">
+                            <span class="material-symbols-outlined" style="font-size:16px; color:#ff6b6b;">shield</span>
+                            <span class="label-caps">OFFSEC × CRYPTO_LINKS</span>
+                        </div>
+                        <div class="synergy-crosslinks__grid">
+                            <div class="synergy-crosslink">
+                                <div class="synergy-crosslink__icons">
+                                    <span class="material-symbols-outlined" style="font-size:16px; color:#ff6b6b;">shield</span>
+                                    <span class="material-symbols-outlined" style="font-size:12px; color:rgba(255,255,255,0.25);">add</span>
+                                    <span class="material-symbols-outlined" style="font-size:16px; color:var(--primary);">account_balance_wallet</span>
+                                </div>
+                                <span class="synergy-crosslink__label">Pentest d'Interfaces Wallet</span>
+                            </div>
+                            <div class="synergy-crosslink">
+                                <div class="synergy-crosslink__icons">
+                                    <span class="material-symbols-outlined" style="font-size:16px; color:#ff6b6b;">bug_report</span>
+                                    <span class="material-symbols-outlined" style="font-size:12px; color:rgba(255,255,255,0.25);">add</span>
+                                    <span class="material-symbols-outlined" style="font-size:16px; color:var(--primary);">token</span>
+                                </div>
+                                <span class="synergy-crosslink__label">Exploit DeFi & Bug Bounty</span>
+                            </div>
+                            <div class="synergy-crosslink">
+                                <div class="synergy-crosslink__icons">
+                                    <span class="material-symbols-outlined" style="font-size:16px; color:#ff6b6b;">travel_explore</span>
+                                    <span class="material-symbols-outlined" style="font-size:12px; color:rgba(255,255,255,0.25);">add</span>
+                                    <span class="material-symbols-outlined" style="font-size:16px; color:var(--primary);">currency_bitcoin</span>
+                                </div>
+                                <span class="synergy-crosslink__label">OSINT & Traçage On-Chain</span>
+                            </div>
+                            <div class="synergy-crosslink">
+                                <div class="synergy-crosslink__icons">
+                                    <span class="material-symbols-outlined" style="font-size:16px; color:#ff6b6b;">policy</span>
+                                    <span class="material-symbols-outlined" style="font-size:12px; color:rgba(255,255,255,0.25);">add</span>
+                                    <span class="material-symbols-outlined" style="font-size:16px; color:var(--primary);">gavel</span>
+                                </div>
+                                <span class="synergy-crosslink__label">Conformité AML & KYC Crypto</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ═══════ CLUSTER DIVIDER ═══════ -->
+                    <div class="synergy-divider">
+                        <span class="synergy-divider__line"></span>
+                        <span class="material-symbols-outlined" style="font-size:14px; color:rgba(255,255,255,0.15);">more_horiz</span>
+                        <span class="synergy-divider__line"></span>
+                    </div>
+
+                    <!-- ═══════ CLUSTER 3 : HACKING × GAMING ═══════ -->
+                    <div class="synergy-cluster-label">
+                        <span class="synergy-cluster-label__icon">
+                            <span class="material-symbols-outlined" style="font-size:16px; color:#ff6b6b;">shield</span>
+                            <span class="material-symbols-outlined" style="font-size:12px; color:rgba(255,255,255,0.25);">close</span>
+                            <span class="material-symbols-outlined" style="font-size:16px; color:var(--secondary-bright);">sports_esports</span>
+                        </span>
+                        <span class="synergy-cluster-label__text label-caps">CLUSTER_03 // HACKING × GAMING</span>
+                        <span class="synergy-cluster-label__line"></span>
+                    </div>
+
+                    <!-- Bridge Visualization: Hacking ⟷ Gaming -->
+                    <div class="synergy-bridge">
+                        <div class="synergy-bridge__node synergy-bridge__node--hacking">
+                            <span class="material-symbols-outlined" style="font-size:28px;">shield</span>
+                            <span class="label-caps">HACKING</span>
+                        </div>
+                        <div class="synergy-bridge__link">
+                            <div class="synergy-bridge__line synergy-bridge__line--redgreen"></div>
+                            <div class="synergy-bridge__pulse synergy-bridge__pulse--redgreen"></div>
+                            <div class="synergy-bridge__line synergy-bridge__line--redgreen"></div>
+                        </div>
+                        <div class="synergy-bridge__node synergy-bridge__node--gaming">
+                            <span class="material-symbols-outlined" style="font-size:28px;">sports_esports</span>
+                            <span class="label-caps">GAMING</span>
+                        </div>
+                    </div>
+
+                    <!-- Hacking × Gaming Cards Grid -->
+                    <div class="synergy-grid">
+
+                        <!-- Card 1: Game Server Security -->
+                        <div class="synergy-card" data-synergy="game-server">
+                            <div class="synergy-card__scanline"></div>
+                            <div class="synergy-card__header">
+                                <div class="synergy-card__icon-wrap synergy-card__icon-wrap--red">
+                                    <span class="material-symbols-outlined">dns</span>
+                                </div>
+                                <div class="synergy-card__badge synergy-card__badge--critical">
+                                    <span class="pulse-dot pulse-dot--red" style="width:6px; height:6px;"></span>
+                                    <span>CRITICAL</span>
+                                </div>
+                            </div>
+                            <h3 class="synergy-card__title">Sécurité des Serveurs de Jeux</h3>
+                            <p class="synergy-card__desc">
+                                Les serveurs de jeux sont des cibles de choix : DDoS massifs, RCE via des failles dans les moteurs (Source, Unreal), man-in-the-middle sur les communications client-serveur. Protéger l'infrastructure game est un défi d'ingénierie offensif permanent.
+                            </p>
+                            <div class="synergy-card__tags">
+                                <span class="synergy-tag">#DDOS</span>
+                                <span class="synergy-tag">#RCE</span>
+                                <span class="synergy-tag">#SERVER_HARDENING</span>
+                            </div>
+                            <div class="synergy-card__metrics">
+                                <div class="synergy-metric">
+                                    <span class="synergy-metric__label">Attaques DDoS/jour</span>
+                                    <span class="synergy-metric__value" style="color:#ff6b6b;">80K+</span>
+                                </div>
+                                <div class="synergy-metric">
+                                    <span class="synergy-metric__label">Coût downtime/h</span>
+                                    <span class="synergy-metric__value text-primary">$150K</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2: Account Protection -->
+                        <div class="synergy-card" data-synergy="account-sec">
+                            <div class="synergy-card__scanline"></div>
+                            <div class="synergy-card__header">
+                                <div class="synergy-card__icon-wrap synergy-card__icon-wrap--orange">
+                                    <span class="material-symbols-outlined">person_off</span>
+                                </div>
+                                <div class="synergy-card__badge synergy-card__badge--hot">
+                                    <span class="pulse-dot pulse-dot--orange" style="width:6px; height:6px;"></span>
+                                    <span>TRENDING</span>
+                                </div>
+                            </div>
+                            <h3 class="synergy-card__title">Protection des Comptes</h3>
+                            <p class="synergy-card__desc">
+                                Le vol de comptes Steam, Epic, PlayStation Network exploite credential stuffing, OAuth hijacking et SIM swapping. L'inventaire d'un joueur CS2 peut valoir des dizaines de milliers de dollars — un pactole pour les cybercriminels.
+                            </p>
+                            <div class="synergy-card__tags">
+                                <span class="synergy-tag">#CREDENTIAL_STUFFING</span>
+                                <span class="synergy-tag">#2FA</span>
+                                <span class="synergy-tag">#SIM_SWAP</span>
+                            </div>
+                            <div class="synergy-card__metrics">
+                                <div class="synergy-metric">
+                                    <span class="synergy-metric__label">Comptes volés/an</span>
+                                    <span class="synergy-metric__value" style="color:#ff6b6b;">12M+</span>
+                                </div>
+                                <div class="synergy-metric">
+                                    <span class="synergy-metric__label">Valeur moyenne/inventaire</span>
+                                    <span class="synergy-metric__value text-primary">$340</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 3: Anti-Cheat & EAC Bypass -->
+                        <div class="synergy-card" data-synergy="anticheat">
+                            <div class="synergy-card__scanline"></div>
+                            <div class="synergy-card__header">
+                                <div class="synergy-card__icon-wrap synergy-card__icon-wrap--green">
+                                    <span class="material-symbols-outlined">verified_user</span>
+                                </div>
+                                <div class="synergy-card__badge synergy-card__badge--live">
+                                    <span class="pulse-dot pulse-dot--green" style="width:6px; height:6px;"></span>
+                                    <span>ACTIVE</span>
+                                </div>
+                            </div>
+                            <h3 class="synergy-card__title">Anti-Cheat vs Bypass</h3>
+                            <p class="synergy-card__desc">
+                                La guerre entre anti-cheats (EAC, BattlEye, Vanguard) et les développeurs de cheats est un bras de fer constant : kernel-level drivers, memory manipulation, DMA hardware cheats. Comprendre cette course aux armements, c'est comprendre la sécurité offensive moderne.
+                            </p>
+                            <div class="synergy-card__tags">
+                                <span class="synergy-tag">#KERNEL_DRIVER</span>
+                                <span class="synergy-tag">#DMA_CHEAT</span>
+                                <span class="synergy-tag">#MEMORY_SCAN</span>
+                            </div>
+                            <div class="synergy-card__metrics">
+                                <div class="synergy-metric">
+                                    <span class="synergy-metric__label">Cheats détectés/an</span>
+                                    <span class="synergy-metric__value text-secondary-bright">2.5M+</span>
+                                </div>
+                                <div class="synergy-metric">
+                                    <span class="synergy-metric__label">Marché des cheats</span>
+                                    <span class="synergy-metric__value text-primary">$800M+</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 4: Esports Infrastructure -->
+                        <div class="synergy-card" data-synergy="esports-infra">
+                            <div class="synergy-card__scanline"></div>
+                            <div class="synergy-card__header">
+                                <div class="synergy-card__icon-wrap synergy-card__icon-wrap--purple">
+                                    <span class="material-symbols-outlined">emoji_events</span>
+                                </div>
+                                <div class="synergy-card__badge synergy-card__badge--evolving">
+                                    <span class="pulse-dot" style="width:6px; height:6px; background:#a78bfa;"></span>
+                                    <span>EVOLVING</span>
+                                </div>
+                            </div>
+                            <h3 class="synergy-card__title">Infrastructure Esports</h3>
+                            <p class="synergy-card__desc">
+                                Les tournois esports avec des prize pools millionnaires attirent les attaques sophistiquées : DDoS pendant les matchs live, compromission des réseaux LAN, vol de stratégies via spyware. La sécurité des événements compétitifs est un domaine à part entière.
+                            </p>
+                            <div class="synergy-card__tags">
+                                <span class="synergy-tag">#LAN_SEC</span>
+                                <span class="synergy-tag">#MATCH_FIXING</span>
+                                <span class="synergy-tag">#STREAM_SEC</span>
+                            </div>
+                            <div class="synergy-card__metrics">
+                                <div class="synergy-metric">
+                                    <span class="synergy-metric__label">Prize pools 2024</span>
+                                    <span class="synergy-metric__value text-primary">$280M+</span>
+                                </div>
+                                <div class="synergy-metric">
+                                    <span class="synergy-metric__label">Incidents majeurs</span>
+                                    <span class="synergy-metric__value" style="color:#ff6b6b;">47</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Hacking × Gaming Cross-Links -->
+                    <div class="synergy-crosslinks">
+                        <div class="synergy-crosslinks__header">
+                            <span class="material-symbols-outlined" style="font-size:16px; color:#ff6b6b;">sports_esports</span>
+                            <span class="label-caps">OFFSEC × GAMING_LINKS</span>
+                        </div>
+                        <div class="synergy-crosslinks__grid">
+                            <div class="synergy-crosslink">
+                                <div class="synergy-crosslink__icons">
+                                    <span class="material-symbols-outlined" style="font-size:16px; color:#ff6b6b;">dns</span>
+                                    <span class="material-symbols-outlined" style="font-size:12px; color:rgba(255,255,255,0.25);">add</span>
+                                    <span class="material-symbols-outlined" style="font-size:16px; color:var(--secondary-bright);">sports_esports</span>
+                                </div>
+                                <span class="synergy-crosslink__label">Pentest d'Infrastructures de Jeux</span>
+                            </div>
+                            <div class="synergy-crosslink">
+                                <div class="synergy-crosslink__icons">
+                                    <span class="material-symbols-outlined" style="font-size:16px; color:#ff6b6b;">bug_report</span>
+                                    <span class="material-symbols-outlined" style="font-size:12px; color:rgba(255,255,255,0.25);">add</span>
+                                    <span class="material-symbols-outlined" style="font-size:16px; color:var(--secondary-bright);">controller_gen</span>
+                                </div>
+                                <span class="synergy-crosslink__label">Reverse Engineering de Game Engines</span>
+                            </div>
+                            <div class="synergy-crosslink">
+                                <div class="synergy-crosslink__icons">
+                                    <span class="material-symbols-outlined" style="font-size:16px; color:#ff6b6b;">person_off</span>
+                                    <span class="material-symbols-outlined" style="font-size:12px; color:rgba(255,255,255,0.25);">add</span>
+                                    <span class="material-symbols-outlined" style="font-size:16px; color:var(--secondary-bright);">shield</span>
+                                </div>
+                                <span class="synergy-crosslink__label">OSINT sur les Marchés de Comptes Volés</span>
+                            </div>
+                            <div class="synergy-crosslink">
+                                <div class="synergy-crosslink__icons">
+                                    <span class="material-symbols-outlined" style="font-size:16px; color:#ff6b6b;">network_check</span>
+                                    <span class="material-symbols-outlined" style="font-size:12px; color:rgba(255,255,255,0.25);">add</span>
+                                    <span class="material-symbols-outlined" style="font-size:16px; color:var(--secondary-bright);">emoji_events</span>
+                                </div>
+                                <span class="synergy-crosslink__label">Sécurité Réseaux LAN Tournois</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================
+         SECTION 5 — BLOG / FLUX RSS
          ================================ -->
     <section class="rss-section" id="blog">
         <div class="container">
@@ -899,7 +1571,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
                     </span>
                 </div>
                 <div class="rss-card__widget">
-                    <rssapp-magazine id="zVn6TvX26blDCSPJ"></rssapp-magazine><script src="https://widget.rss.app/v1/magazine.js" type="text/javascript" async></script>
+                    <rssapp-magazine id="zVn6TvX26blDCSPJ"></rssapp-magazine><script data-src="https://widget.rss.app/v1/magazine.js" type="text/javascript" async class="rss-lazy"></script>
                 </div>
             </div>
 
@@ -932,7 +1604,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
                         <span class="material-symbols-outlined" style="font-size:16px; color:var(--primary);">view_carousel</span>
                         <span class="label-caps">Highlights</span>
                     </div>
-                    <rssapp-carousel id="TVOvmVGK5J7yEQY4"></rssapp-carousel><script src="https://widget.rss.app/v1/carousel.js" type="text/javascript" async></script>
+                    <rssapp-carousel id="TVOvmVGK5J7yEQY4"></rssapp-carousel><script data-src="https://widget.rss.app/v1/carousel.js" type="text/javascript" async class="rss-lazy"></script>
                 </div>
 
                 <!-- Separator -->
@@ -948,69 +1620,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
                         <span class="material-symbols-outlined" style="font-size:16px; color:var(--secondary-bright);">grid_view</span>
                         <span class="label-caps">Archive</span>
                     </div>
-                    <rssapp-wall id="S5zmzgmuJRPBcSVo"></rssapp-wall><script src="https://widget.rss.app/v1/wall.js" type="text/javascript" async></script>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================================
-         SECTION 5 — NEWSLETTER
-         ================================ -->
-    <section class="newsletter-section" id="newsletter">
-        <div class="container">
-            <!-- Section Header -->
-            <div class="section-header">
-                <div class="section-header__bar"></div>
-                <div class="section-header__label">Stay Connected</div>
-                <h1 class="section-header__title">NEWSLETTER</h1>
-                <p class="section-header__desc">
-                    Recevez les dernières transmissions directement dans votre boîte. Projets, articles techniques et signaux cybers — aucun spam, promesse d'opérateur.
-                </p>
-            </div>
-
-            <!-- Newsletter Card -->
-            <div class="newsletter-card">
-                <div class="newsletter-card__scanline"></div>
-                <div class="newsletter-card__bar">
-                    <div class="newsletter-card__dots">
-                        <span class="newsletter-card__dot newsletter-card__dot--red"></span>
-                        <span class="newsletter-card__dot newsletter-card__dot--yellow"></span>
-                        <span class="newsletter-card__dot newsletter-card__dot--green"></span>
-                    </div>
-                    <span class="newsletter-card__bar-title label-caps">SIGNAL_FEED_V1</span>
-                </div>
-                <div class="newsletter-card__body">
-                    <div class="newsletter-card__info">
-                        <span class="material-symbols-outlined newsletter-card__icon">campaign</span>
-                        <div>
-                            <h2 class="newsletter-card__title">RECEVEZ LES TRANSMISSIONS</h2>
-                            <p class="newsletter-card__desc">
-                                Abonnez-vous au flux BLACK_PROTOCOL. Projets exclusifs, veille cybersécurité et mises à jour — livrés avec précision.
-                            </p>
-                        </div>
-                    </div>
-                    <form class="newsletter-card__form" id="newsletter-form">
-                        <div class="newsletter-card__input-wrap">
-                            <span class="material-symbols-outlined newsletter-card__input-icon">mail</span>
-                            <input class="newsletter-card__input" type="email" name="email" placeholder="votre@email.com" required autocomplete="email">
-                        </div>
-                        <button type="submit" class="newsletter-card__submit">
-                            <span>S'ABONNER</span>
-                            <span class="material-symbols-outlined">send</span>
-                        </button>
-                    </form>
-                    <div class="newsletter-card__message" id="newsletter-message"></div>
-                    <div class="newsletter-card__meta">
-                        <span class="newsletter-card__meta-item">
-                            <span class="material-symbols-outlined" style="font-size:14px;">shield</span>
-                            <span>Zéro spam garanti</span>
-                        </span>
-                        <span class="newsletter-card__meta-item">
-                            <span class="material-symbols-outlined" style="font-size:14px;">bolt</span>
-                            <span>Désabonnement en un clic</span>
-                        </span>
-                    </div>
+                    <rssapp-wall id="S5zmzgmuJRPBcSVo"></rssapp-wall><script data-src="https://widget.rss.app/v1/wall.js" type="text/javascript" async class="rss-lazy"></script>
                 </div>
             </div>
         </div>
@@ -1047,7 +1657,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
                     </span>
                 </div>
                 <div class="gallery-card__body">
-                    <rssapp-imageboard id="cc3dcW1cljMM3wlZ"></rssapp-imageboard><script src="https://widget.rss.app/v1/imageboard.js" type="text/javascript" async></script>
+                    <rssapp-imageboard id="cc3dcW1cljMM3wlZ"></rssapp-imageboard><script data-src="https://widget.rss.app/v1/imageboard.js" type="text/javascript" async class="rss-lazy"></script>
                 </div>
             </div>
         </div>
@@ -1084,7 +1694,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
                     </span>
                 </div>
                 <div class="media-card__body">
-                    <rssapp-imageboard id="lGxVnaoQxFBHUR53"></rssapp-imageboard><script src="https://widget.rss.app/v1/imageboard.js" type="text/javascript" async></script>
+                    <rssapp-imageboard id="lGxVnaoQxFBHUR53"></rssapp-imageboard><script data-src="https://widget.rss.app/v1/imageboard.js" type="text/javascript" async class="rss-lazy"></script>
                 </div>
             </div>
         </div>
@@ -1119,148 +1729,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
                     </span>
                 </div>
                 <div class="media-card__body">
-                    <rssapp-imageboard id="Lt3ZLEhfxXAnAcuM"></rssapp-imageboard><script src="https://widget.rss.app/v1/imageboard.js" type="text/javascript" async></script>
+                    <rssapp-imageboard id="Lt3ZLEhfxXAnAcuM"></rssapp-imageboard><script data-src="https://widget.rss.app/v1/imageboard.js" type="text/javascript" async class="rss-lazy"></script>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ================================
-         SECTION 8 — CONTACT
-         ================================ -->
-    <section class="contact-section" id="contact">
-        <div class="container">
-            <!-- Section Header -->
-            <div class="section-header">
-                <div class="section-header__bar"></div>
-                <div class="section-header__label">Establish Link</div>
-                <h1 class="section-header__title">CONTACT</h1>
-                <p class="section-header__desc">
-                    Ready to deploy a new project or initiate a technical collaboration? Input your parameters below to establish a secure transmission.
-                </p>
-            </div>
-
-            <!-- Contact Bento Layout -->
-            <div class="contact-bento">
-
-                <!-- Terminal Form Card -->
-                <div class="contact-form-card">
-                    <div class="contact-form-card__scanline"></div>
-                    <div class="contact-form-card__bar">
-                        <div class="contact-form-card__dots">
-                            <span class="contact-form-card__dot contact-form-card__dot--red"></span>
-                            <span class="contact-form-card__dot contact-form-card__dot--yellow"></span>
-                            <span class="contact-form-card__dot contact-form-card__dot--green"></span>
-                        </div>
-                        <span class="contact-form-card__bar-title label-caps">STX_ENCRYPTED_V2</span>
-                    </div>
-                    <form class="contact-form-card__form" action="#" method="POST">
-                        <div>
-                            <label class="form__label label-caps" for="user_name">USER_IDENTIFIER</label>
-                            <input class="form__input" type="text" id="user_name" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div>
-                            <label class="form__label label-caps" for="user_email">RETURN_ADDRESS</label>
-                            <input class="form__input" type="email" id="user_email" name="email" placeholder="email@domain.com" required>
-                        </div>
-                        <div>
-                            <label class="form__label label-caps" for="user_message">DATA_PAYLOAD</label>
-                            <textarea class="form__textarea" id="user_message" name="message" placeholder="System message..." rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="form__submit">
-                            <span>EXECUTE_SUBMISSION</span>
-                            <span class="material-symbols-outlined">send</span>
-                        </button>
-                    </form>
-                </div>
-
-                <!-- Side Panel -->
-                <div class="contact-side">
-
-                    <!-- Status Card -->
-                    <div class="status-card">
-                        <div class="status-card__header">
-                            <span class="status-card__title label-caps">LINK_STATUS</span>
-                            <span class="status-card__pulse"></span>
-                        </div>
-                        <div class="status-card__rows">
-                            <div class="status-card__row">
-                                <span class="status-card__row-key">LATENCY</span>
-                                <span class="status-card__row-value">24ms</span>
-                            </div>
-                            <div class="status-card__divider"></div>
-                            <div class="status-card__row">
-                                <span class="status-card__row-key">ENCRYPTION</span>
-                                <span class="status-card__row-value">AES-256</span>
-                            </div>
-                            <div class="status-card__divider"></div>
-                            <div class="status-card__row">
-                                <span class="status-card__row-key">AVAILABILITY</span>
-                                <span class="status-card__row-value">99.9%</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Channels Card -->
-                    <div class="channels-card">
-                        <span class="channels-card__title label-caps">DIRECT_CHANNELS</span>
-                        <div class="channels-card__list">
-                            <!-- GitHub -->
-                            <a href="https://github.com/vianson50" target="_blank" rel="noopener" class="channels-card__link">
-                                <div class="channels-card__link-icon">
-                                    <span class="material-symbols-outlined">terminal</span>
-                                </div>
-                                <div>
-                                    <p class="channels-card__link-platform">GITHUB</p>
-                                    <p class="channels-card__link-handle code-sm">/vianson50</p>
-                                </div>
-                            </a>
-                            <!-- LinkedIn -->
-                            <a href="#" class="channels-card__link">
-                                <div class="channels-card__link-icon">
-                                    <span class="material-symbols-outlined">account_circle</span>
-                                </div>
-                                <div>
-                                    <p class="channels-card__link-platform">LINKEDIN</p>
-                                    <p class="channels-card__link-handle code-sm">/in/creatorcore</p>
-                                </div>
-                            </a>
-                            <!-- Discord -->
-                            <a href="https://discord.com/users/yamiblack_kayden" target="_blank" rel="noopener" class="channels-card__link">
-                                <div class="channels-card__link-icon">
-                                    <span class="material-symbols-outlined">forum</span>
-                                </div>
-                                <div>
-                                    <p class="channels-card__link-platform">DISCORD</p>
-                                    <p class="channels-card__link-handle code-sm">@yamiblack_kayden</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Location Metadata Bar -->
-            <div class="location-bar">
-                <div class="location-bar__coord">
-                    <span class="material-symbols-outlined">location_on</span>
-                    <span class="code-sm">ABIDJAN, CÔTE D'IVOIRE // 5.3600° N, 4.0083° W</span>
-                </div>
-                <div class="location-bar__time code-sm">LOCAL_TIME: <span id="current-time"></span></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================================
-         SECTION 9 — DONATIONS / SOUTIEN
+         SECTION 8 — DONATIONS / SOUTIEN
          ================================ -->
     <section class="donate-section" id="donate">
         <div class="container">
             <div class="section-header">
                 <div class="section-header__bar"></div>
-                <div class="section-header__label">Support</div>
-                <h1 class="section-header__title">DONATE_PORTAL</h1>
+
                 <p class="section-header__desc">
                     Soutenez le projet BLACK_PROTOCOL. Chaque contribution finance la recherche, les outils et le contenu libre.
                 </p>
@@ -1444,6 +1926,196 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
     </section>
 
     <!-- ================================
+         SECTION 9 — NEWSLETTER
+         ================================ -->
+    <section class="newsletter-section" id="newsletter">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header">
+                <div class="section-header__bar"></div>
+                <div class="section-header__label">Stay Connected</div>
+                <h1 class="section-header__title">NEWSLETTER</h1>
+                <p class="section-header__desc">
+                    Recevez les dernières transmissions directement dans votre boîte. Projets, articles techniques et signaux cybers — aucun spam, promesse d'opérateur.
+                </p>
+            </div>
+
+            <!-- Newsletter Card -->
+            <div class="newsletter-card">
+                <div class="newsletter-card__scanline"></div>
+                <div class="newsletter-card__bar">
+                    <div class="newsletter-card__dots">
+                        <span class="newsletter-card__dot newsletter-card__dot--red"></span>
+                        <span class="newsletter-card__dot newsletter-card__dot--yellow"></span>
+                        <span class="newsletter-card__dot newsletter-card__dot--green"></span>
+                    </div>
+                    <span class="newsletter-card__bar-title label-caps">SIGNAL_FEED_V1</span>
+                </div>
+                <div class="newsletter-card__body">
+                    <div class="newsletter-card__info">
+                        <span class="material-symbols-outlined newsletter-card__icon">campaign</span>
+                        <div>
+                            <h2 class="newsletter-card__title">RECEVEZ LES TRANSMISSIONS</h2>
+                            <p class="newsletter-card__desc">
+                                Abonnez-vous au flux BLACK_PROTOCOL. Projets exclusifs, veille cybersécurité et mises à jour — livrés avec précision.
+                            </p>
+                        </div>
+                    </div>
+                    <form class="newsletter-card__form" id="newsletter-form">
+                        <div class="newsletter-card__input-wrap">
+                            <span class="material-symbols-outlined newsletter-card__input-icon">mail</span>
+                            <input class="newsletter-card__input" type="email" name="email" placeholder="votre@email.com" required autocomplete="email">
+                        </div>
+                        <button type="submit" class="newsletter-card__submit">
+                            <span>S'ABONNER</span>
+                            <span class="material-symbols-outlined">send</span>
+                        </button>
+                    </form>
+                    <div class="newsletter-card__message" id="newsletter-message"></div>
+                    <div class="newsletter-card__meta">
+                        <span class="newsletter-card__meta-item">
+                            <span class="material-symbols-outlined" style="font-size:14px;">shield</span>
+                            <span>Zéro spam garanti</span>
+                        </span>
+                        <span class="newsletter-card__meta-item">
+                            <span class="material-symbols-outlined" style="font-size:14px;">bolt</span>
+                            <span>Désabonnement en un clic</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================
+         SECTION 10 — CONTACT
+         ================================ -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header">
+                <div class="section-header__bar"></div>
+                <div class="section-header__label">Establish Link</div>
+                <h1 class="section-header__title">CONTACT</h1>
+                <p class="section-header__desc">
+                    Ready to deploy a new project or initiate a technical collaboration? Input your parameters below to establish a secure transmission.
+                </p>
+            </div>
+
+            <!-- Contact Bento Layout -->
+            <div class="contact-bento">
+
+                <!-- Terminal Form Card -->
+                <div class="contact-form-card">
+                    <div class="contact-form-card__scanline"></div>
+                    <div class="contact-form-card__bar">
+                        <div class="contact-form-card__dots">
+                            <span class="contact-form-card__dot contact-form-card__dot--red"></span>
+                            <span class="contact-form-card__dot contact-form-card__dot--yellow"></span>
+                            <span class="contact-form-card__dot contact-form-card__dot--green"></span>
+                        </div>
+                        <span class="contact-form-card__bar-title label-caps">STX_ENCRYPTED_V2</span>
+                    </div>
+                    <form class="contact-form-card__form" action="#" method="POST">
+                        <div>
+                            <label class="form__label label-caps" for="user_name">USER_IDENTIFIER</label>
+                            <input class="form__input" type="text" id="user_name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div>
+                            <label class="form__label label-caps" for="user_email">RETURN_ADDRESS</label>
+                            <input class="form__input" type="email" id="user_email" name="email" placeholder="email@domain.com" required>
+                        </div>
+                        <div>
+                            <label class="form__label label-caps" for="user_message">DATA_PAYLOAD</label>
+                            <textarea class="form__textarea" id="user_message" name="message" placeholder="System message..." rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="form__submit">
+                            <span>EXECUTE_SUBMISSION</span>
+                            <span class="material-symbols-outlined">send</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Side Panel -->
+                <div class="contact-side">
+
+                    <!-- Status Card -->
+                    <div class="status-card">
+                        <div class="status-card__header">
+                            <span class="status-card__title label-caps">LINK_STATUS</span>
+                            <span class="status-card__pulse"></span>
+                        </div>
+                        <div class="status-card__rows">
+                            <div class="status-card__row">
+                                <span class="status-card__row-key">LATENCY</span>
+                                <span class="status-card__row-value">24ms</span>
+                            </div>
+                            <div class="status-card__divider"></div>
+                            <div class="status-card__row">
+                                <span class="status-card__row-key">ENCRYPTION</span>
+                                <span class="status-card__row-value">AES-256</span>
+                            </div>
+                            <div class="status-card__divider"></div>
+                            <div class="status-card__row">
+                                <span class="status-card__row-key">AVAILABILITY</span>
+                                <span class="status-card__row-value">99.9%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Channels Card -->
+                    <div class="channels-card">
+                        <span class="channels-card__title label-caps">DIRECT_CHANNELS</span>
+                        <div class="channels-card__list">
+                            <!-- GitHub -->
+                            <a href="https://github.com/vianson50" target="_blank" rel="noopener" class="channels-card__link">
+                                <div class="channels-card__link-icon">
+                                    <span class="material-symbols-outlined">terminal</span>
+                                </div>
+                                <div>
+                                    <p class="channels-card__link-platform">GITHUB</p>
+                                    <p class="channels-card__link-handle code-sm">/vianson50</p>
+                                </div>
+                            </a>
+                            <!-- LinkedIn -->
+                            <a href="#" class="channels-card__link">
+                                <div class="channels-card__link-icon">
+                                    <span class="material-symbols-outlined">account_circle</span>
+                                </div>
+                                <div>
+                                    <p class="channels-card__link-platform">LINKEDIN</p>
+                                    <p class="channels-card__link-handle code-sm">/in/creatorcore</p>
+                                </div>
+                            </a>
+                            <!-- Discord -->
+                            <a href="https://discord.com/users/yamiblack_kayden" target="_blank" rel="noopener" class="channels-card__link">
+                                <div class="channels-card__link-icon">
+                                    <span class="material-symbols-outlined">forum</span>
+                                </div>
+                                <div>
+                                    <p class="channels-card__link-platform">DISCORD</p>
+                                    <p class="channels-card__link-handle code-sm">@yamiblack_kayden</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Location Metadata Bar -->
+            <div class="location-bar">
+                <div class="location-bar__coord">
+                    <span class="material-symbols-outlined">location_on</span>
+                    <span class="code-sm">ABIDJAN, CÔTE D'IVOIRE // 5.3600° N, 4.0083° W</span>
+                </div>
+                <div class="location-bar__time code-sm">LOCAL_TIME: <span id="current-time"></span></div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ================================
          FOOTER
          ================================ -->
     <footer class="footer">
@@ -1498,6 +2170,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
                 <button class="chat-suggestion" data-msg="Compétences">Compétences</button>
                 <button class="chat-suggestion" data-msg="Projets">Projets</button>
                 <button class="chat-suggestion" data-msg="Contact">Contact</button>
+                <button class="chat-suggestion" data-msg="Rédige l'intelligence artificielle" style="border-color:rgba(255,130,0,0.5); color:#ffb785;">✦ Rédactionnel</button>
             </div>
 
             <form class="chat-panel__input-wrap" id="chat-form">
@@ -1638,7 +2311,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
         const animateElements = document.querySelectorAll(
             '.bento-card, .stat-mini, .featured-card__inner, ' +
             '.skills-bento__card, .project-article, .status-card, ' +
-            '.channels-card, .contact-form-card'
+            '.channels-card, .contact-form-card, .synergy-card, ' +
+            '.synergy-crosslink, .synergy-bridge__node'
         );
 
         const fadeObserver = new IntersectionObserver((entries) => {
@@ -1659,6 +2333,55 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
                 `transform 0.5s ${i * 0.06}s cubic-bezier(0.16,1,0.3,1)`;
             fadeObserver.observe(el);
         });
+
+        // ═══════════════════════════════════════
+        //  LAZY LOAD RSS WIDGETS
+        // ═══════════════════════════════════════
+        const rssLoaded = new Set();
+        const rssScripts = document.querySelectorAll('script.rss-lazy[data-src]');
+
+        // Load a single RSS script
+        function loadRssScript(script) {
+            const src = script.dataset.src;
+            if (rssLoaded.has(src)) return;
+            rssLoaded.add(src);
+            const s = document.createElement('script');
+            s.src = src;
+            s.type = 'text/javascript';
+            s.async = true;
+            script.parentNode.insertBefore(s, script);
+            script.remove();
+        }
+
+        // Load all RSS scripts at once (used as fallback)
+        function loadAllRss() {
+            rssScripts.forEach(s => loadRssScript(s));
+        }
+
+        if ('IntersectionObserver' in window) {
+            const rssObserver = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const script = entry.target.querySelector('script.rss-lazy[data-src]');
+                        if (script) loadRssScript(script);
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { rootMargin: '200px' });
+
+            rssScripts.forEach(script => {
+                const parent = script.parentElement;
+                if (parent) rssObserver.observe(parent);
+            });
+        } else {
+            // No IntersectionObserver — load all immediately
+            loadAllRss();
+        }
+
+        // Safety: load any remaining after 8s
+        setTimeout(() => {
+            document.querySelectorAll('script.rss-lazy[data-src]').forEach(s => loadRssScript(s));
+        }, 8000);
 
         // — Smooth scroll for nav links (only for # anchor links)
         navLinks.forEach(link => {
@@ -1827,18 +2550,113 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
               response: "Game dev = passion :\n• Unreal Engine 5 — C++, Niagara, Lumen\n• Unity — C#, Shader Graph\n• Godot — GDScript\n\nProjet phare : Eburnie Chronicles, RPG narratif avec generation procedurale." },
             { keywords: ['devops', 'cloud', 'docker', 'kubernetes', 'aws', 'deploy', 'deploie'],
               response: "Stack DevOps :\n• Docker & Kubernetes\n• AWS\n• Terraform\n• CI/CD GitHub Actions\n\nDeploiements zero-downtime !" },
+            { keywords: ['synergie', 'synergy', 'crypto gaming', 'p2e', 'play-to-earn', 'play to earn', 'nft', 'skin', 'gamefi', 'token', 'blockchain gaming'],
+              response: "Crypto × Gaming = la frontiere la plus excitante du web3 !\n\n• Play-to-Earn : jeux comme Axie Infinity, Illuvium, Pixels — les joueurs gagnent des tokens en jouant\n• NFT Gaming : assets in-game verifiables on-chain — armes, terrains, personnages\n• Skins Economy : le marche CS2 depasse $1.5B, les cosmestiques numeriques sont une classe d'actifs\n• GameFi Infra : Immutable X, Ronin, Polygon — des chaines optimisees gaming a 9000+ TPS\n\nDecouvre la section SYNERGY_MATRIX sur la page pour plus de details !" },
+            { keywords: ['wallet', 'portefeuille', 'defi', 'smart contract audit', 'solidity', 'rug pull', 'flash loan', 'reentrancy', 'hack crypto', 'crypto hack', 'blockchain forens', 'on-chain', 'chainalysis', 'slither', 'mythril', 'bug bounty crypto', 'securite crypto', 'crypto securite', 'hacking crypto'],
+              response: "Hacking × Crypto = le croisement le plus critique du web3 !\n\n• Securite des Wallets : hardware wallets, multi-sig, seed phrase management — $1.8B voles en 2024\n• Failles DeFi : flash loan attacks, oracle manipulation, reentrancy — $7770M perdus en 2024\n• Smart Contract Auditing : Slither, Mythril, Echidna — un bug = des millions perdus en secondes\n• Forensique Blockchain : traçage on-chain, AML/KYC — $3.4B traces en 2024\n\nCheck la section SYNERGY_MATRIX > CLUSTER_02 pour l'analyse complete !" },
+            { keywords: ['serveur jeu', 'serveur game', 'ddos jeu', 'ddos game', 'vol compte', 'account steal', 'credential stuffing', 'sim swap', 'anti-cheat', 'cheat', 'bypass', 'eac', 'battleye', 'vanguard', 'esports securite', 'lan securite', 'game hack', 'hack game', 'game server security', 'steam vol', 'compte vole'],
+              response: "Hacking × Gaming = la guerre invisible derriere ton ecran !\n\n• Securite des Serveurs : 80K+ attaques DDoS/jour, RCE dans les moteurs Source/Unreal, MITM client-serveur\n• Protection des Comptes : credential stuffing, OAuth hijacking, SIM swapping — 12M+ comptes voles/an\n• Anti-Cheat vs Bypass : EAC, BattlEye, Vanguard — kernel drivers, DMA cheats, memory manipulation\n• Infrastructure Esports : DDoS pendant les matchs live, LAN compromise, vol de strats\n\nExplore CLUSTER_03 dans SYNERGY_MATRIX pour l'analyse complete !" },
             { keywords: ['merci', 'thanks', 'super', 'cool', 'genial', 'parfait'],
               response: "Avec plaisir ! N'hesite pas si tu as d'autres questions. Tu peux aussi m'ecrire via le formulaire de contact en bas de page. A bientot !" },
         ];
 
+        // ═══════════════════════════════════════
+        //  OUTIL RÉDACTIONNEL v1.0
+        //  Génère INTRODUCTION / DÉVELOPPEMENT / CONCLUSION (~200 mots)
+        // ═══════════════════════════════════════
+        const redacModeKeywords = ['redige', 'redaction', 'rédige', 'rédaction', 'rédiger', 'rediger', 'dissertation', 'composition', 'essai', 'trait le sujet', 'traite le sujet', 'traite', 'trait', 'parle de', 'fais un texte', 'fais une redaction', 'ecris sur', 'écris sur', 'article sur', 'texte sur', 'sujet :', 'sujet:'];
+
+        function isRedacRequest(msg) {
+            const lower = msg.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+            for (const kw of redacModeKeywords) {
+                if (lower.includes(kw)) return true;
+            }
+            // Detect pattern: "rédige [sujet]" or "traite [sujet]"
+            if (/^(redige|rédige|traite|trait|parle|écris|ecris|fais)\s+(de|du|le|la|les|un|une|des|sur|d\'|l\')?\s*\w+/i.test(lower)) return true;
+            return false;
+        }
+
+        function extractSujet(msg) {
+            const lower = msg.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+            // Remove trigger words to extract the subject
+            let sujet = msg.replace(/^(redige|rédige|traite|trait|parle|écris|ecris|fais)\s+(moi\s+)?(de|du|le|la|les|un|une|des|sur|d'|l')?\s*(une\s+|un\s+)?(redaction|rédaction|dissertation|composition|essai|article|texte)\s*(sur|de|à\s+propos)?\s*/i, '').trim();
+            sujet = sujet.replace(/^(sur|de|du|le|la|les|un|une|des|d'|l')\s+/i, '').trim();
+            sujet = sujet.replace(/^sujet\s*[:\-]\s*/i, '').trim();
+            sujet = sujet.replace(/["']/g, '').trim();
+            if (!sujet || sujet.length < 2) sujet = msg;
+            // Capitalize first letter
+            return sujet.charAt(0).toUpperCase() + sujet.slice(1);
+        }
+
+        function generateRedaction(sujet) {
+            const s = sujet.toLowerCase();
+            const sMaj = sujet;
+
+            // Templates dynamiques pour chaque section
+            const intros = [
+                `${sMaj} est un sujet qui suscite un interet croissant dans notre societe actuelle. Que ce soit dans le domaine technologique, social ou culturel, cette thematique occupe une place centrale dans les debats contemporains. Il est donc pertinent de s'interroger sur les enjeux et les perspectives qu'offre ${s}.`,
+                `De tout temps, ${s} a constitue un element fondamental de notre environnement. Aujourd'hui plus que jamais, cette problematique merite une attention particuliere car elle touche a la fois aux aspects economiques, sociaux et culturels de notre vie quotidienne.`,
+                `Dans un monde en perpetuelle evolution, ${s} represente un defi majeur mais aussi une opportunite considerable. Comprendre cette dynamique necessite une analyse approfondie des facteurs qui influencent ce domaine et des consequences qui en decoulent.`,
+                `L'importance de ${s} ne cesse de croitre dans notre societe moderne. Face aux transformations rapides que connait notre epoque, il devient essentiel d'examiner ce sujet sous differents angles pour en saisir toute la portee et les implications.`,
+                `${sMaj} constitue l'un des sujets les plus debattus de notre epoque. Entre progres et incertitudes, cette thematique soulève des questions fondamentales auxquelles il est indispensable d'apporter des reponses eclairees et reflechies.`
+            ];
+
+            const devParts = [
+                `Sur le plan pratique, ${s} engendre des consequences directes sur le quotidien des individus. Les avancees recentes dans ce domaine ont demontre a la fois des benefices significatifs et des limites qu'il convient de ne pas ignorer. Les experts s'accordent a dire que une approche equilibree est necessaire pour tirer le meilleur parti de cette dynamique.`,
+                `D'un point de vue analytique, ${s} presente plusieurs dimensions complementaires. D'une part, il offre des possibilites innovantes qui transforment les pratiques existantes. D'autre part, il pose des defis ethiques et techniques qui demandent une reflexion approfondie. Cette dualite est au coeur des discussions entre specialistes et grand public.`,
+                `En examinant ${s} de plus pres, on constate que les impacts se manifestent a plusieurs niveaux. Au niveau individuel, les habitudes et les comportements evoluent en reponse aux changements apportes. Au niveau collectif, les structures sociales et economiques s'adaptent progressivement a cette nouvelle realite.`,
+                `L'analyse de ${s} revele une realite complexe et multiforme. Les acteurs impliques dans ce domaine font face a des choix strategiques qui determineront l'avenir de cette thematique. La collaboration entre les differents parties prenantes apparait comme un facteur cle pour garantir un developpement harmonieux et durable.`,
+                `Plusieurs etudes et temoignages illustrent l'impact reel de ${s} sur notre environnement. Les chiffres revelent une tendance a la hausse qui ne semble pas prete de s'inverser. Face a cette situation, il revient a chacun de s'informer et d'agir de maniere responsable et eclairee.`
+            ];
+
+            const conclusions = [
+                `En definitive, ${s} est une realite que l'on ne peut ignorer. Entre opportunites et defis, l'essentiel est d'adopter une approche reflechie et proactive. L'avenir de ${s} depend de notre capacite collective a innover tout en preservant les valeurs fondamentales qui nous unissent.`,
+                `Pour conclure, ${s} occupe une place incontournable dans notre monde moderne. Les enjeux identifies tout au long de cette reflexion montrent qu'il est imperative de rester vigilant et adaptable. C'est a cette condition que nous pourrons saisir les opportunites qu'offre ${s} tout en maitrisant les risques associes.`,
+                `En somme, ${s} nous rappelle que le progres est un processus continu qui exige lucidite et engagement. Les defis sont nombreux mais les perspectives sont prometteuses. A nous de faire les choix qui faconneront l'avenir de ${s} de maniere positive et constructive.`,
+                `En conclusion, l'etude de ${s} nous conduit a une prise de conscience essentielle : chaque avancee comporte sa part d'opportunites et de responsabilites. L'important n'est pas de tout maitriser mais de comprendre les enjeux pour agir de maniere eclairee et responsable.`,
+                `Pour resumer, ${s} est bien plus qu'une simple thematique : c'est un levier de transformation qui faconne notre avenir. En cultivant la curiosite et l'esprit critique, nous serons mieux prepares a affronter les defis et a exploiter le potentiel qu'offre ce domaine.`
+            ];
+
+            // Pick random sections
+            const intro = intros[Math.floor(Math.random() * intros.length)];
+            const dev = devParts[Math.floor(Math.random() * devParts.length)];
+            const concl = conclusions[Math.floor(Math.random() * conclusions.length)];
+
+            // Count words
+            const fullText = intro + ' ' + dev + ' ' + concl;
+            const wordCount = fullText.split(/\s+/).filter(w => w.length > 0).length;
+
+            return `✦ OUTIL RÉDACTIONNEL v1.0 ✦
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Sujet : ${sMaj} (${wordCount} mots)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+▸ INTRODUCTION
+${intro}
+
+▸ DÉVELOPPEMENT
+${dev}
+
+▸ CONCLUSION
+${concl}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Outil Rédactionnel v1.0 — BLACK_PROTOCOL`;
+        }
+
         function getBotResponse(msg) {
+            // Check if it's a redaction request first
+            if (isRedacRequest(msg)) {
+                const sujet = extractSujet(msg);
+                return generateRedaction(sujet);
+            }
+
             const lower = msg.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
             for (const entry of botKnowledge) {
                 for (const kw of entry.keywords) {
                     if (lower.includes(kw)) return entry.response;
                 }
             }
-            return "Interessant ! Pas de reponse specifique pour ca. Essaie de me demander : mes competences, mes projets, la cybersecurite, le DevOps, le game dev, ou comment me contacter.";
+            return "Interessant ! Pas de reponse specifique pour ca. Essaie de me demander : mes competences, mes projets, la cybersecurite, le DevOps, le game dev, ou comment me contacter.\n\n💡 Astuce : Ecrivez \"Rédige [votre sujet]\" pour utiliser l'Outil Rédactionnel v1.0 !";
         }
 
         function addMessage(text, type) {
@@ -1910,6 +2728,270 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
                 btn.style.display = 'inline-flex';
             }
         }
+
+        // ═══════════════════════════════════════
+        //  CRYPTO MARKET WIDGET — CoinGecko API
+        // ═══════════════════════════════════════
+        /* DISABLED — API calls removed for performance
+        (function() {
+            const API = 'includes/crypto_api.php';
+            let marketData = null;
+            let chartData = null;
+            let activeCoin = 'bitcoin';
+            let activeDays = 1;
+
+            // ── Helpers ──
+            function fmt$(n) {
+                if (n == null) return '—';
+                if (n >= 1e12) return '$' + (n/1e12).toFixed(2) + 'T';
+                if (n >= 1e9) return '$' + (n/1e9).toFixed(2) + 'B';
+                if (n >= 1e6) return '$' + (n/1e6).toFixed(2) + 'M';
+                if (n >= 1e3) return '$' + (n/1e3).toFixed(2) + 'K';
+                return '$' + n.toFixed(2);
+            }
+            function fmtPrice(n) {
+                if (n == null) return '—';
+                if (n >= 1) return '$' + n.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
+                if (n >= 0.01) return '$' + n.toFixed(4);
+                return '$' + n.toFixed(6);
+            }
+            function fmtPct(n) {
+                if (n == null) return '—';
+                const sign = n >= 0 ? '+' : '';
+                return sign + n.toFixed(2) + '%';
+            }
+            function pctColor(n) {
+                if (n == null) return 'var(--on-surface-variant)';
+                return n >= 0 ? 'var(--secondary-bright)' : '#ff6b6b';
+            }
+
+            // ── Build sparkline SVG path ──
+            function sparklinePath(data, w, h) {
+                if (!data || data.length < 2) return '';
+                const min = Math.min(...data);
+                const max = Math.max(...data);
+                const range = max - min || 1;
+                const step = w / (data.length - 1);
+                let d = '';
+                data.forEach((v, i) => {
+                    const x = i * step;
+                    const y = h - ((v - min) / range) * h;
+                    d += (i === 0 ? 'M' : 'L') + x.toFixed(1) + ',' + y.toFixed(1);
+                });
+                return d;
+            }
+
+            // ── Build chart SVG ──
+            function renderChart(prices) {
+                if (!prices || prices.length < 2) return;
+                const svgW = 800, svgH = 260, padY = 10;
+                const vals = prices.map(p => p[1]);
+                const minV = Math.min(...vals);
+                const maxV = Math.max(...vals);
+                const range = maxV - minV || 1;
+                const step = svgW / (vals.length - 1);
+
+                let lineD = '', areaD = '';
+                const pts = vals.map((v, i) => {
+                    const x = i * step;
+                    const y = padY + (svgH - 2*padY) * (1 - (v - minV) / range);
+                    return {x, y, v, t: prices[i][0]};
+                });
+
+                pts.forEach((p, i) => {
+                    lineD += (i === 0 ? 'M' : 'L') + p.x.toFixed(1) + ',' + p.y.toFixed(1);
+                });
+
+                // Area fill
+                areaD = lineD + ` L${svgW},${svgH} L0,${svgH} Z`;
+
+                const isUp = vals[vals.length - 1] >= vals[0];
+                const lineColor = isUp ? '#61dd98' : '#ff6b6b';
+                const gradId = isUp ? 'chartGradUp' : 'chartGradDown';
+
+                document.getElementById('chart-line').setAttribute('d', lineD);
+                document.getElementById('chart-line').setAttribute('stroke', lineColor);
+                document.getElementById('chart-area').setAttribute('d', areaD);
+                document.getElementById('chart-area').setAttribute('fill', `url(#${gradId})`);
+
+                // Store points for tooltip
+                window.__chartPts = pts;
+            }
+
+            // ── Render ticker table ──
+            function renderTicker(coins) {
+                const body = document.getElementById('crypto-ticker-body');
+                if (!body || !coins) return;
+
+                let html = '';
+                coins.forEach((c, idx) => {
+                    const sparkSvg = c.sparkline && c.sparkline.length > 2
+                        ? `<svg viewBox="0 0 80 28" class="crypto-ticker__spark"><path d="${sparklinePath(c.sparkline, 80, 24)}" fill="none" stroke="${pctColor(c.change_24h)}" stroke-width="1.5"/></svg>`
+                        : '<span style="color:rgba(255,255,255,0.2);">—</span>';
+
+                    html += `<div class="crypto-ticker__row" data-coin="${c.id}">
+                        <span class="crypto-ticker__col crypto-ticker__col--rank">${idx+1}</span>
+                        <span class="crypto-ticker__col crypto-ticker__col--name">
+                            <img src="${c.image}" alt="${c.symbol}" class="crypto-ticker__icon" loading="lazy" onerror="this.style.display='none'">
+                            <span>${c.symbol}</span>
+                        </span>
+                        <span class="crypto-ticker__col crypto-ticker__col--price">${fmtPrice(c.price)}</span>
+                        <span class="crypto-ticker__col crypto-ticker__col--change" style="color:${pctColor(c.change_24h)}">${fmtPct(c.change_24h)}</span>
+                        <span class="crypto-ticker__col crypto-ticker__col--spark">${sparkSvg}</span>
+                        <span class="crypto-ticker__col crypto-ticker__col--mcap">${fmt$(c.market_cap)}</span>
+                    </div>`;
+                });
+
+                body.innerHTML = html;
+
+                // Click rows to load chart
+                body.querySelectorAll('.crypto-ticker__row').forEach(row => {
+                    row.style.cursor = 'pointer';
+                    row.addEventListener('click', () => {
+                        activeCoin = row.dataset.coin;
+                        loadChart();
+                        updateCoinTabs();
+                    });
+                });
+            }
+
+            // ── Render coin tabs ──
+            function renderCoinTabs(coins) {
+                const container = document.getElementById('crypto-coin-tabs');
+                if (!container) return;
+                const top5 = coins.slice(0, 5);
+                let html = '';
+                top5.forEach(c => {
+                    html += `<button class="crypto-chart__coin-tab ${c.id === activeCoin ? 'active' : ''}" data-coin="${c.id}">
+                        <img src="${c.image}" alt="${c.symbol}" class="crypto-chart__coin-icon" loading="lazy" onerror="this.style.display='none'">
+                        <span>${c.symbol}</span>
+                    </button>`;
+                });
+                container.innerHTML = html;
+
+                container.querySelectorAll('.crypto-chart__coin-tab').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        activeCoin = btn.dataset.coin;
+                        loadChart();
+                        updateCoinTabs();
+                    });
+                });
+            }
+
+            function updateCoinTabs() {
+                document.querySelectorAll('.crypto-chart__coin-tab').forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.coin === activeCoin);
+                });
+            }
+
+            // ── Load market data ──
+            async function loadMarket() {
+                try {
+                    const res = await fetch(API + '?action=market');
+                    const data = await res.json();
+                    if (data.error) throw new Error(data.error);
+                    marketData = data.coins;
+
+                    renderTicker(marketData);
+                    renderCoinTabs(marketData);
+
+                    document.getElementById('crypto-updated').textContent =
+                        'MAJ: ' + new Date(data.updated).toLocaleTimeString('fr-FR');
+                    document.getElementById('crypto-status').textContent = 'LIVE';
+                    document.getElementById('crypto-loading')?.remove();
+
+                    // Load chart for active coin
+                    loadChart();
+                } catch(e) {
+                    console.warn('CoinGecko market error:', e);
+                    const loading = document.getElementById('crypto-loading');
+                    if (loading) loading.innerHTML = '<span style="color:#ff6b6b;">API indisponible — données en cache</span>';
+                    document.getElementById('crypto-status').textContent = 'OFFLINE';
+                }
+            }
+
+            // ── Load chart data ──
+            async function loadChart() {
+                try {
+                    const res = await fetch(API + '?action=chart&id=' + activeCoin + '&days=' + activeDays);
+                    const data = await res.json();
+                    if (data.error) throw new Error(data.error);
+                    chartData = data.prices;
+                    renderChart(chartData);
+                } catch(e) {
+                    console.warn('CoinGecko chart error:', e);
+                }
+            }
+
+            // ── Load global stats ──
+            async function loadGlobal() {
+                try {
+                    const res = await fetch(API + '?action=global');
+                    const data = await res.json();
+                    if (data.error) throw new Error(data.error);
+                    document.getElementById('cg-marketcap').textContent = fmt$(data.total_market_cap_usd);
+                    document.getElementById('cg-volume').textContent = fmt$(data.total_volume_usd);
+                    document.getElementById('cg-btcdom').textContent = data.btc_dominance.toFixed(1) + '%';
+                    const ch = document.getElementById('cg-change');
+                    ch.textContent = fmtPct(data.market_cap_change_24h);
+                    ch.style.color = pctColor(data.market_cap_change_24h);
+                } catch(e) {
+                    console.warn('CoinGecko global error:', e);
+                }
+            }
+
+            // ── Time range buttons ──
+            document.querySelectorAll('.crypto-chart__time-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.crypto-chart__time-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    activeDays = parseInt(btn.dataset.days);
+                    loadChart();
+                });
+            });
+
+            // ── Chart hover tooltip ──
+            const svgEl = document.getElementById('crypto-chart-svg');
+            const tooltipEl = document.getElementById('crypto-tooltip');
+            const crosshair = document.getElementById('chart-crosshair');
+
+            if (svgEl && tooltipEl) {
+                svgEl.addEventListener('mousemove', function(e) {
+                    const rect = svgEl.getBoundingClientRect();
+                    const relX = (e.clientX - rect.left) / rect.width;
+                    const pts = window.__chartPts;
+                    if (!pts || pts.length < 2) return;
+
+                    const idx = Math.min(Math.floor(relX * pts.length), pts.length - 1);
+                    const p = pts[idx];
+                    if (!p) return;
+
+                    crosshair.setAttribute('x1', p.x);
+                    crosshair.setAttribute('x2', p.x);
+                    crosshair.style.display = '';
+
+                    document.getElementById('tooltip-price').textContent = fmtPrice(p.v);
+                    document.getElementById('tooltip-date').textContent = new Date(p.t).toLocaleDateString('fr-FR', {day:'2-digit', month:'short', hour:'2-digit', minute:'2-digit'});
+                    tooltipEl.style.display = 'block';
+
+                    const px = (p.x / 800) * 100;
+                    tooltipEl.style.left = px > 70 ? (px - 15) + '%' : (px + 2) + '%';
+                    tooltipEl.style.top = Math.min(p.y / 260 * 100, 80) + '%';
+                });
+
+                svgEl.addEventListener('mouseleave', function() {
+                    tooltipEl.style.display = 'none';
+                    crosshair.style.display = 'none';
+                });
+            }
+
+            // ── Init ──
+            loadGlobal();
+            loadMarket();
+            // Auto-refresh every 5 min
+            setInterval(() => { loadMarket(); loadGlobal(); }, 300000);
+        })();
+        */
 
         function copyAddr(type) {
             const el = document.getElementById('addr-' + type);

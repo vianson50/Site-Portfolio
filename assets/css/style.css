@@ -4154,6 +4154,981 @@ section {
 }
 
 /* ========================================
+   CRYPTO MARKET WIDGET — CoinGecko
+   ======================================== */
+
+.crypto-widget {
+    margin-bottom: var(--sp-xl);
+}
+
+.crypto-widget__terminal {
+    background: var(--surface);
+    border: 1px solid var(--outline-variant);
+    position: relative;
+    overflow: hidden;
+}
+
+.crypto-widget__scanline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--primary),
+        transparent
+    );
+    opacity: 0.4;
+    animation: scanline 3s ease-in-out infinite;
+    z-index: 5;
+}
+
+.crypto-widget__bar {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-sm);
+    padding: var(--sp-sm) var(--sp-md);
+    border-bottom: 1px solid var(--outline-variant);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.crypto-widget__bar-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.crypto-widget__bar-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: block;
+}
+
+.crypto-widget__bar-title {
+    flex: 1;
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 10px;
+}
+
+.crypto-widget__bar-status {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.crypto-widget__body {
+    padding: var(--sp-md);
+    position: relative;
+    z-index: 2;
+}
+
+/* -- Global Stats Bar -- */
+.crypto-global {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--sp-sm);
+    margin-bottom: var(--sp-md);
+    padding: var(--sp-sm) var(--sp-md);
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--outline-variant);
+}
+
+.crypto-global__item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.crypto-global__label {
+    font-family: var(--font-display);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.crypto-global__value {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--on-surface);
+}
+
+/* -- Chart Area -- */
+.crypto-chart-wrap {
+    margin-bottom: var(--sp-md);
+}
+
+.crypto-chart__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-sm);
+    margin-bottom: var(--sp-sm);
+    flex-wrap: wrap;
+}
+
+.crypto-chart__coin-select {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+
+.crypto-chart__coin-tab {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--outline-variant);
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    transition: all 0.2s;
+}
+
+.crypto-chart__coin-tab:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.crypto-chart__coin-tab.active {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: rgba(255, 130, 0, 0.08);
+}
+
+.crypto-chart__coin-icon {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+}
+
+.crypto-chart__time-select {
+    display: flex;
+    gap: 4px;
+}
+
+.crypto-chart__time-btn {
+    padding: 4px 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--outline-variant);
+    color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    font-family: var(--font-display);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    transition: all 0.2s;
+}
+
+.crypto-chart__time-btn:hover {
+    border-color: var(--secondary-bright);
+    color: var(--secondary-bright);
+}
+
+.crypto-chart__time-btn.active {
+    border-color: var(--secondary-bright);
+    color: var(--secondary-bright);
+    background: rgba(97, 221, 152, 0.08);
+}
+
+.crypto-chart__canvas-wrap {
+    position: relative;
+    background: rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--outline-variant);
+    overflow: hidden;
+}
+
+.crypto-chart__svg {
+    display: block;
+    width: 100%;
+    height: 260px;
+}
+
+.crypto-chart__tooltip {
+    position: absolute;
+    background: var(--surface-container-high);
+    border: 1px solid var(--outline-variant);
+    padding: 6px 10px;
+    pointer-events: none;
+    z-index: 10;
+    white-space: nowrap;
+}
+
+.crypto-chart__tooltip-price {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--on-surface);
+}
+
+.crypto-chart__tooltip-date {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* -- Ticker Table -- */
+.crypto-ticker {
+    border: 1px solid var(--outline-variant);
+    overflow-x: auto;
+}
+
+.crypto-ticker__header-row,
+.crypto-ticker__row {
+    display: grid;
+    grid-template-columns: 30px 100px 100px 70px 80px 90px;
+    gap: var(--sp-sm);
+    padding: var(--sp-sm) var(--sp-md);
+    align-items: center;
+    font-family: var(--font-display);
+    font-size: 12px;
+}
+
+.crypto-ticker__header-row {
+    background: rgba(0, 0, 0, 0.2);
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    border-bottom: 1px solid var(--outline-variant);
+}
+
+.crypto-ticker__row {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    color: var(--on-surface-variant);
+    transition: background 0.2s;
+}
+
+.crypto-ticker__row:hover {
+    background: rgba(255, 130, 0, 0.04);
+}
+
+.crypto-ticker__row:last-child {
+    border-bottom: none;
+}
+
+.crypto-ticker__col--rank {
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 10px;
+    text-align: center;
+}
+
+.crypto-ticker__col--name {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    color: var(--on-surface);
+}
+
+.crypto-ticker__icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.crypto-ticker__col--price {
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+.crypto-ticker__col--change {
+    font-weight: 700;
+    font-size: 11px;
+    font-variant-numeric: tabular-nums;
+}
+
+.crypto-ticker__col--spark {
+    display: flex;
+    align-items: center;
+}
+
+.crypto-ticker__spark {
+    width: 80px;
+    height: 28px;
+}
+
+.crypto-ticker__col--mcap {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.4);
+    font-variant-numeric: tabular-nums;
+}
+
+.crypto-ticker__loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-sm);
+    padding: var(--sp-xl) var(--sp-md);
+    color: rgba(255, 255, 255, 0.4);
+    font-family: var(--font-display);
+    font-size: 12px;
+}
+
+/* -- Attribution -- */
+.crypto-widget__attribution {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: var(--sp-sm);
+    font-family: var(--font-display);
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.25);
+}
+
+.crypto-widget__attribution a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.crypto-widget__attribution a:hover {
+    text-decoration: underline;
+}
+
+/* -- Crypto Widget Responsive -- */
+@media (max-width: 640px) {
+    .crypto-global {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .crypto-ticker__header-row,
+    .crypto-ticker__row {
+        grid-template-columns: 24px 80px 80px 55px 70px;
+    }
+    .crypto-ticker__col--mcap {
+        display: none;
+    }
+    .crypto-chart__svg {
+        height: 180px;
+    }
+}
+
+@media (max-width: 400px) {
+    .crypto-ticker__header-row,
+    .crypto-ticker__row {
+        grid-template-columns: 24px 70px 70px 50px;
+    }
+    .crypto-ticker__col--spark {
+        display: none;
+    }
+}
+
+/* ========================================
+   SECTION 10 — SYNERGY: CRYPTO × GAMING
+   ======================================== */
+
+/* -- Section Layout -- */
+.synergy-section {
+    padding: var(--sp-3xl) 0;
+    position: relative;
+}
+
+/* -- Terminal Card (reuses existing terminal pattern) -- */
+.synergy-terminal {
+    background: var(--surface);
+    border: 1px solid var(--outline-variant);
+    position: relative;
+    overflow: hidden;
+}
+
+.synergy-terminal__scanline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--primary),
+        transparent
+    );
+    opacity: 0.4;
+    animation: scanline 3s ease-in-out infinite;
+    z-index: 5;
+}
+
+.synergy-terminal__bar {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-sm);
+    padding: var(--sp-sm) var(--sp-md);
+    border-bottom: 1px solid var(--outline-variant);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.synergy-terminal__dots {
+    display: flex;
+    gap: 6px;
+}
+
+.synergy-terminal__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.synergy-terminal__bar-title {
+    flex: 1;
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 10px;
+}
+
+.synergy-terminal__bar-status {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.synergy-terminal__body {
+    padding: var(--sp-lg);
+    position: relative;
+    z-index: 2;
+}
+
+/* -- Bridge Visualization -- */
+.synergy-bridge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-md);
+    padding: var(--sp-xl) var(--sp-md);
+    margin-bottom: var(--sp-xl);
+    position: relative;
+}
+
+.synergy-bridge__node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-xs);
+    padding: var(--sp-md) var(--sp-lg);
+    border: 1px solid;
+    position: relative;
+    z-index: 2;
+    min-width: 120px;
+}
+
+.synergy-bridge__node--crypto {
+    border-color: var(--primary);
+    background: rgba(255, 130, 0, 0.06);
+    color: var(--primary);
+}
+
+.synergy-bridge__node--gaming {
+    border-color: var(--secondary-bright);
+    background: rgba(97, 221, 152, 0.06);
+    color: var(--secondary-bright);
+}
+
+.synergy-bridge__link {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    max-width: 200px;
+    position: relative;
+}
+
+.synergy-bridge__line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary-bright));
+    opacity: 0.4;
+}
+
+.synergy-bridge__pulse {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary-bright)
+    );
+    animation: synergy-pulse 2s ease-in-out infinite;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.synergy-bridge__pulse::after {
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: linear-gradient(
+        135deg,
+        var(--primary-glow),
+        var(--secondary-glow)
+    );
+    animation: synergy-glow 2s ease-in-out infinite;
+}
+
+@keyframes synergy-pulse {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.3);
+    }
+}
+
+@keyframes synergy-glow {
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(1.5);
+    }
+}
+
+/* -- Synergy Cards Grid -- */
+.synergy-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--sp-md);
+    margin-bottom: var(--sp-xl);
+}
+
+/* -- Individual Synergy Card -- */
+.synergy-card {
+    background: var(--surface-container);
+    border: 1px solid var(--outline-variant);
+    padding: var(--sp-lg);
+    position: relative;
+    overflow: hidden;
+    transition:
+        border-color 0.3s ease,
+        transform 0.2s ease;
+}
+
+.synergy-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.synergy-card__scanline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--primary),
+        transparent
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.synergy-card:hover .synergy-card__scanline {
+    opacity: 0.6;
+}
+
+.synergy-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--sp-md);
+}
+
+.synergy-card__icon-wrap {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid;
+}
+
+.synergy-card__icon-wrap--orange {
+    border-color: rgba(255, 130, 0, 0.3);
+    background: rgba(255, 130, 0, 0.08);
+    color: var(--primary);
+}
+
+.synergy-card__icon-wrap--green {
+    border-color: rgba(97, 221, 152, 0.3);
+    background: rgba(97, 221, 152, 0.08);
+    color: var(--secondary-bright);
+}
+
+.synergy-card__icon-wrap--purple {
+    border-color: rgba(167, 139, 250, 0.3);
+    background: rgba(167, 139, 250, 0.08);
+    color: #a78bfa;
+}
+
+.synergy-card__badge {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 8px;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    font-family: var(--font-display);
+    border: 1px solid;
+}
+
+.synergy-card__badge--hot {
+    border-color: rgba(255, 130, 0, 0.3);
+    color: var(--primary);
+    background: rgba(255, 130, 0, 0.08);
+}
+
+.synergy-card__badge--live {
+    border-color: rgba(97, 221, 152, 0.3);
+    color: var(--secondary-bright);
+    background: rgba(97, 221, 152, 0.08);
+}
+
+.synergy-card__badge--evolving {
+    border-color: rgba(167, 139, 250, 0.3);
+    color: #a78bfa;
+    background: rgba(167, 139, 250, 0.08);
+}
+
+.synergy-card__badge--dev {
+    border-color: rgba(255, 130, 0, 0.2);
+    color: var(--primary-dim);
+    background: rgba(255, 130, 0, 0.04);
+}
+
+.synergy-card__badge--dev .material-symbols-outlined {
+    font-size: 10px;
+}
+
+.synergy-card__title {
+    font-family: var(--font-display);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--on-surface);
+    margin-bottom: var(--sp-sm);
+    letter-spacing: -0.01em;
+}
+
+.synergy-card__desc {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--on-surface-variant);
+    margin-bottom: var(--sp-md);
+}
+
+.synergy-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: var(--sp-md);
+}
+
+.synergy-tag {
+    font-family: var(--font-display);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 3px 8px;
+    border: 1px solid var(--outline-variant);
+    color: var(--on-surface-variant);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.synergy-card__metrics {
+    display: flex;
+    gap: var(--sp-lg);
+    padding-top: var(--sp-md);
+    border-top: 1px solid var(--outline-variant);
+}
+
+.synergy-metric {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.synergy-metric__label {
+    font-family: var(--font-display);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.35);
+    text-transform: uppercase;
+}
+
+.synergy-metric__value {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+/* -- Cross-Links Section -- */
+.synergy-crosslinks {
+    border-top: 1px solid var(--outline-variant);
+    padding-top: var(--sp-lg);
+}
+
+.synergy-crosslinks__header {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-sm);
+    margin-bottom: var(--sp-md);
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.synergy-crosslinks__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--sp-sm);
+}
+
+.synergy-crosslink {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-md);
+    padding: var(--sp-sm) var(--sp-md);
+    border: 1px solid var(--outline-variant);
+    background: rgba(255, 255, 255, 0.02);
+    transition:
+        border-color 0.3s ease,
+        background 0.3s ease;
+    cursor: default;
+}
+
+.synergy-crosslink:hover {
+    border-color: var(--primary);
+    background: rgba(255, 130, 0, 0.04);
+}
+
+.synergy-crosslink__icons {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    flex-shrink: 0;
+}
+
+.synergy-crosslink__label {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--on-surface-variant);
+}
+
+/* -- Synergy Section Responsive -- */
+@media (min-width: 640px) {
+    .synergy-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .synergy-crosslinks__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .synergy-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .synergy-crosslinks__grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* -- Pulse dot for orange -- */
+.pulse-dot--orange {
+    background: var(--primary) !important;
+    box-shadow: 0 0 6px var(--primary-glow);
+}
+
+.pulse-dot--orange {
+    animation: pulse-orange 2s ease-in-out infinite;
+}
+
+@keyframes pulse-orange {
+    0%,
+    100% {
+        box-shadow: 0 0 4px rgba(255, 130, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 12px rgba(255, 130, 0, 0.6);
+    }
+}
+
+/* -- Pulse dot for red (hacking/critical) -- */
+.pulse-dot--red {
+    background: #ff6b6b !important;
+    box-shadow: 0 0 6px rgba(255, 107, 107, 0.3);
+    animation: pulse-red 2s ease-in-out infinite;
+}
+
+@keyframes pulse-red {
+    0%,
+    100% {
+        box-shadow: 0 0 4px rgba(255, 107, 107, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 12px rgba(255, 107, 107, 0.7);
+    }
+}
+
+/* -- Hacking Bridge Node (red) -- */
+.synergy-bridge__node--hacking {
+    border-color: #ff6b6b;
+    background: rgba(255, 107, 107, 0.06);
+    color: #ff6b6b;
+}
+
+/* -- Red bridge line -- */
+.synergy-bridge__line--red {
+    background: linear-gradient(90deg, #ff6b6b, var(--primary)) !important;
+}
+
+.synergy-bridge__pulse--red {
+    background: linear-gradient(135deg, #ff6b6b, var(--primary)) !important;
+}
+
+.synergy-bridge__pulse--red::after {
+    background: linear-gradient(
+        135deg,
+        rgba(255, 107, 107, 0.35),
+        var(--primary-glow)
+    ) !important;
+}
+
+/* -- Red icon wrap (hacking/critical) -- */
+.synergy-card__icon-wrap--red {
+    border-color: rgba(255, 107, 107, 0.3);
+    background: rgba(255, 107, 107, 0.08);
+    color: #ff6b6b;
+}
+
+/* -- Critical badge (red) -- */
+.synergy-card__badge--critical {
+    border-color: rgba(255, 107, 107, 0.3);
+    color: #ff6b6b;
+    background: rgba(255, 107, 107, 0.08);
+}
+
+/* -- Cluster Label -- */
+.synergy-cluster-label {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-md);
+    margin-bottom: var(--sp-lg);
+    flex-wrap: wrap;
+}
+
+.synergy-cluster-label__icon {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.synergy-cluster-label__text {
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    white-space: nowrap;
+}
+
+.synergy-cluster-label__line {
+    flex: 1;
+    min-width: 40px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--outline-variant), transparent);
+}
+
+/* -- Cluster Divider -- */
+.synergy-divider {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-sm);
+    margin: var(--sp-xl) 0;
+}
+
+.synergy-divider__line {
+    flex: 1;
+    height: 1px;
+    background: var(--outline-variant);
+}
+
+/* -- Hacking cards hover tint -- */
+.synergy-card[data-synergy="wallet-sec"]:hover,
+.synergy-card[data-synergy="defi-vuln"]:hover {
+    border-color: #ff6b6b;
+}
+
+.synergy-card[data-synergy="wallet-sec"]:hover .synergy-card__scanline,
+.synergy-card[data-synergy="defi-vuln"]:hover .synergy-card__scanline {
+    background: linear-gradient(90deg, transparent, #ff6b6b, transparent);
+}
+
+/* -- Red-green bridge line (Hacking ⟷ Gaming) -- */
+.synergy-bridge__line--redgreen {
+    background: linear-gradient(
+        90deg,
+        #ff6b6b,
+        var(--secondary-bright)
+    ) !important;
+}
+
+.synergy-bridge__pulse--redgreen {
+    background: linear-gradient(
+        135deg,
+        #ff6b6b,
+        var(--secondary-bright)
+    ) !important;
+}
+
+.synergy-bridge__pulse--redgreen::after {
+    background: linear-gradient(
+        135deg,
+        rgba(255, 107, 107, 0.35),
+        var(--secondary-glow)
+    ) !important;
+}
+
+/* -- Cluster 03 card hover tints -- */
+.synergy-card[data-synergy="game-server"]:hover {
+    border-color: #ff6b6b;
+}
+.synergy-card[data-synergy="game-server"]:hover .synergy-card__scanline {
+    background: linear-gradient(90deg, transparent, #ff6b6b, transparent);
+}
+
+.synergy-card[data-synergy="account-sec"]:hover {
+    border-color: var(--primary);
+}
+
+.synergy-card[data-synergy="anticheat"]:hover {
+    border-color: var(--secondary-bright);
+}
+
+.synergy-card[data-synergy="esports-infra"]:hover {
+    border-color: #a78bfa;
+}
+.synergy-card[data-synergy="esports-infra"]:hover .synergy-card__scanline {
+    background: linear-gradient(90deg, transparent, #a78bfa, transparent);
+}
+
+/* ========================================
    RESPONSIVE UTILITIES
    ======================================== */
 @media (min-width: 768px) {
