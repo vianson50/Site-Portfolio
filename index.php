@@ -2016,7 +2016,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
                         </div>
                         <span class="contact-form-card__bar-title label-caps">STX_ENCRYPTED_V2</span>
                     </div>
-                    <form class="contact-form-card__form" action="#" method="POST">
+                    <form class="contact-form-card__form" action="contact_action.php" method="POST">
+                        <input type="text" name="website" style="display:none !important;" tabindex="-1" autocomplete="off">
                         <div>
                             <label class="form__label label-caps" for="user_name">USER_IDENTIFIER</label>
                             <input class="form__input" type="text" id="user_name" name="name" placeholder="Your Name" required>
@@ -2132,6 +2133,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
                 <p class="footer__copy code-sm">
                     Construit avec <span style="color: var(--primary);">PHP</span> +
                     <span style="color: var(--secondary-bright);">passion</span>
+                </p>
+                <p class="footer__copy code-sm" style="margin-top:6px;">
+                    <a href="#" onclick="document.getElementById('cookie-float').click(); return false;" style="color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.2s;">Cookie Settings</a>
                 </p>
             </div>
         </div>
@@ -2472,12 +2476,67 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
             }
         });
 
-        // — Form handling (basic) —
-        const form = document.querySelector('.contact-form-card__form');
-        if (form) {
-            form.addEventListener('submit', (e) => {
+        // — Contact Form AJAX —
+        const contactForm = document.querySelector('.contact-form-card__form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
                 e.preventDefault();
-                alert('Merci pour votre message ! (Démo — connectez un backend PHP pour le traitement)');
+                const btn = contactForm.querySelector('.form__submit');
+                const origHTML = btn.innerHTML;
+                btn.innerHTML = '<span>TRANSMISSION_EN_COURS...</span><span class="material-symbols-outlined" style="animation:spin 1s linear infinite;">progress_activity</span>';
+                btn.disabled = true;
+                btn.style.opacity = '0.6';
+
+                const formData = new FormData(contactForm);
+
+                fetch('contact_action.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(res => res.json())
+                .then(data => {
+                    let feedback = contactForm.querySelector('.contact-form-feedback');
+                    if (!feedback) {
+                        feedback = document.createElement('div');
+                        feedback.className = 'contact-form-feedback';
+                        feedback.style.cssText = 'padding:12px 16px; border-radius:8px; margin-top:12px; font-family:var(--font-display); font-size:13px; letter-spacing:0.05em;';
+                        contactForm.appendChild(feedback);
+                    }
+                    if (data.success) {
+                        feedback.style.background = 'rgba(0,158,96,0.1)';
+                        feedback.style.border = '1px solid rgba(0,158,96,0.3)';
+                        feedback.style.color = 'var(--secondary-bright)';
+                        feedback.innerHTML = '<span class="material-symbols-outlined" style="font-size:16px; vertical-align:middle; margin-right:6px;">check_circle</span>' + data.message;
+                        contactForm.reset();
+                    } else {
+                        feedback.style.background = 'rgba(255,107,107,0.1)';
+                        feedback.style.border = '1px solid rgba(255,107,107,0.3)';
+                        feedback.style.color = '#ff6b6b';
+                        feedback.innerHTML = '<span class="material-symbols-outlined" style="font-size:16px; vertical-align:middle; margin-right:6px;">error</span>' + data.message;
+                    }
+                    feedback.style.display = 'block';
+                    setTimeout(() => { feedback.style.display = 'none'; }, 6000);
+                })
+                .catch(() => {
+                    let feedback = contactForm.querySelector('.contact-form-feedback');
+                    if (!feedback) {
+                        feedback = document.createElement('div');
+                        feedback.className = 'contact-form-feedback';
+                        feedback.style.cssText = 'padding:12px 16px; border-radius:8px; margin-top:12px; font-family:var(--font-display); font-size:13px; letter-spacing:0.05em;';
+                        contactForm.appendChild(feedback);
+                    }
+                    feedback.style.background = 'rgba(255,107,107,0.1)';
+                    feedback.style.border = '1px solid rgba(255,107,107,0.3)';
+                    feedback.style.color = '#ff6b6b';
+                    feedback.innerHTML = '<span class="material-symbols-outlined" style="font-size:16px; vertical-align:middle; margin-right:6px;">wifi_off</span>Erreur réseau. Veuillez réessayer.';
+                    feedback.style.display = 'block';
+                    setTimeout(() => { feedback.style.display = 'none'; }, 6000);
+                })
+                .finally(() => {
+                    btn.innerHTML = origHTML;
+                    btn.disabled = false;
+                    btn.style.opacity = '1';
+                });
             });
         }
 
@@ -3014,6 +3073,767 @@ Outil Rédactionnel v1.0 — BLACK_PROTOCOL`;
 
     <!-- Preload critical images -->
     <link rel="preload" as="image" href="https://lh3.googleusercontent.com/aida-public/AB6AXuDWEAvPC3mMvcv2gWWyc_wuirzRXkpGPlYEfhwZVU0E84KY-H0KN8coRKlNeMU3UTBZ6Jivc1MYRC1E_HQolj0_NDo9m9L_FT4jBnEiurMB46NTlQ4M7hXVZmjU9pF8gHqkXUA9rXVlSzNcPogw5bzZIcp_fiaWtZ18PLVBzSPbO9_W_L09rvE4mXPoBL05pP9s9E4jVtuQwplRDudUdd1ZCCFpwv1Jg8jZX9_BLXwgNOb_waq_L6LcSOImqsrC-DkmyAGJHz7Gi1c">
+
+    <!-- ================================
+         SYNERGY DETAIL MODAL
+         ================================ -->
+    <div class="synergy-detail-overlay" id="synergy-detail-overlay">
+        <div class="synergy-detail" id="synergy-detail">
+            <div class="synergy-detail__header">
+                <div class="synergy-detail__header-left">
+                    <span class="synergy-detail__cluster" id="sd-cluster"></span>
+                    <span class="synergy-detail__title" id="sd-title"></span>
+                </div>
+                <button class="synergy-detail__close" id="synergy-detail-close">
+                    <span class="material-symbols-outlined" style="font-size:20px;">close</span>
+                </button>
+            </div>
+            <div class="synergy-detail__body" id="synergy-detail-body"></div>
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        const overlay = document.getElementById('synergy-detail-overlay');
+        const detail = document.getElementById('synergy-detail');
+        const sdCluster = document.getElementById('sd-cluster');
+        const sdTitle = document.getElementById('sd-title');
+        const sdBody = document.getElementById('synergy-detail-body');
+        const sdClose = document.getElementById('synergy-detail-close');
+
+        // ═══════ SYNERGY DATA ═══════
+        const synergyData = {
+            // ── CLUSTER 1: CRYPTO × GAMING ──
+            'p2e': {
+                cluster: 'CLUSTER_01 // CRYPTO × GAMING',
+                title: 'PLAY-TO-EARN',
+                desc: "L'écosystème Play-to-Earn (P2E) redéfinit la relation entre gameplay et économie numérique. Des titres pionniers comme Axie Infinity ont prouvé que les joueurs pouvaient générer des revenus réels, tandis que la génération actuelle — Illuvium, Pixels, Pirate Nation — intègre des mécaniques tokenomiques plus durables. Le modèle évolue du 'play-to-earn' pur vers le 'play-and-earn', où la qualité du gameplay prime sur la simple rentabilité.\n\nLes défis restent majeurs : inflation tokenique, dépendance aux nouveaux entrants pour soutenir l'économie, et réglementation croissante. Mais les infrastructure progressent — Ronin, Immutable X et Beam permettent des transactions à moins de $0.01 avec des TPS gaming-optimized de 9 000+.",
+                metrics: [
+                    { label: 'Marché P2E', value: '$4.2B+', color: 'var(--primary)' },
+                    { label: 'Joueurs actifs', value: '2.5M+', color: 'var(--secondary-bright)' },
+                    { label: 'DAU moyen', value: '850K', color: 'var(--primary)' },
+                    { label: 'Croissance YoY', value: '+38%', color: 'var(--secondary-bright)' }
+                ],
+                tools: [
+                    { icon: 'code', name: 'Unity SDK' },
+                    { icon: 'code', name: 'Unreal SDK' },
+                    { icon: 'developer_board', name: 'Immutable X' },
+                    { icon: 'token', name: 'Ronin Chain' },
+                    { icon: 'developer_board', name: 'Beam Network' },
+                    { icon: 'analytics', name: 'Footprint Analytics' }
+                ],
+                links: [
+                    { icon: 'open_in_new', label: 'DappRadar P2E Rankings', url: 'https://dappradar.com/rankings/category/games' },
+                    { icon: 'open_in_new', label: 'PlaytoEarn.net', url: 'https://playtoearn.net' }
+                ]
+            },
+            'nft': {
+                cluster: 'CLUSTER_01 // CRYPTO × GAMING',
+                title: 'NFT DANS LE GAMING',
+                desc: "Les NFT gaming transforment les items in-game en propriété numérique réelle et vérifiable. Contrairement aux cosmétiques traditionnels verrouillés dans un écosystème fermé, les NFT gaming permettent le trade cross-game, la vérification de rarete on-chain, et la composition composable d'assets.\n\nDes plateformes comme Gods Unchained et Parallel démontrent que les TCG (Trading Card Games) sont un cas d'usage idéal : chaque carte est un NFT unique avec une historique de propriété transparente. Les standards ERC-1155 permettent des économies de gas significatives pour les collections massives. L'enjeu majeur reste l'interopérabilité — le rêve d'utiliser un item dans plusieurs jeux reste techniquement complexe mais progresse via des standards comme ERC-6551 (Token Bound Accounts).",
+                metrics: [
+                    { label: 'Volume NFT Gaming', value: '$1.8B', color: 'var(--primary)' },
+                    { label: 'Collections actives', value: '850+', color: 'var(--secondary-bright)' },
+                    { label: 'Floor avg', value: '$45', color: 'var(--primary)' },
+                    { label: 'Joueurs NFT', value: '1.2M+', color: 'var(--secondary-bright)' }
+                ],
+                tools: [
+                    { icon: 'code', name: 'ERC-721' },
+                    { icon: 'code', name: 'ERC-1155' },
+                    { icon: 'code', name: 'ERC-6551' },
+                    { icon: 'token', name: 'OpenSea' },
+                    { icon: 'token', name: 'Magic Eden' },
+                    { icon: 'developer_board', name: 'Enjin SDK' }
+                ],
+                links: [
+                    { icon: 'open_in_new', label: 'NFT Gaming Market', url: 'https://nftgaming.com' },
+                    { icon: 'open_in_new', label: 'OpenSea Gaming', url: 'https://opensea.io/category/gaming' }
+                ]
+            },
+            'skins': {
+                cluster: 'CLUSTER_01 // CRYPTO × GAMING',
+                title: 'ÉCONOMIE DES SKINS',
+                desc: "L'économie des skins dépasse celle de nombreux pays. Le marché CS2 seul représente plus de $1.5 milliard en volume de transactions annuelles. Des items comme le 'Dragon Lore' AWP se vendent à plus de $1.5M. Les skins sont devenus une classe d'actifs numérique à part entière, avec des plateformes de trading spécialisées (Buff163, Skinport, DMarket).\n\nValorant et Fortnite ont adapté le modèle avec des stores propriétaires, mais le principe reste identique : la rareté artificielle et le statut social créent une demande structurelle. Les marchés secondaires non-officiels posent des défis réglementaires et de sécurité — les scams par trade et les sites de gambling illégal restent un problème majeur pour l'industrie.",
+                metrics: [
+                    { label: 'Marché CS2', value: '$1.5B+', color: 'var(--primary)' },
+                    { label: 'Transactions/jour', value: '500K+', color: 'var(--secondary-bright)' },
+                    { label: 'Skin le plus cher', value: '$1.5M', color: '#a78bfa' },
+                    { label: 'Marchés actifs', value: '25+', color: 'var(--primary)' }
+                ],
+                tools: [
+                    { icon: 'storefront', name: 'Buff163' },
+                    { icon: 'storefront', name: 'Skinport' },
+                    { icon: 'storefront', name: 'DMarket' },
+                    { icon: 'analytics', name: 'CSFloat' },
+                    { icon: 'analytics', name: 'SteamAnalyst' }
+                ],
+                links: [
+                    { icon: 'open_in_new', label: 'CS2 Market Stats', url: 'https://csfloat.com' },
+                    { icon: 'open_in_new', label: 'Skinport', url: 'https://skinport.com' }
+                ]
+            },
+            'infra': {
+                cluster: 'CLUSTER_01 // CRYPTO × GAMING',
+                title: 'GAMEFI INFRASTRUCTURE',
+                desc: "Les chaînes gaming-spécifiques construisent les fondations techniques de la prochaine génération de jeux décentralisés. Immutable X offre des transactions gratuites avec la sécurité d'Ethereum L2. Ronin, développé par Sky Mavis (Axie Infinity), atteint 9 000+ TPS optimisés gaming. Polygon CDK permet de lancer des chaînes gaming custom.\n\nLes SDK Web3 s'intègrent directement dans les moteurs de jeu : Unity Web3 SDK, Unreal Marketplace plugins, Godot blockchain libraries. Les développeurs peuvent mint des NFTs, gérer des wallets intégrés et implémenter des économies tokenomiques sans quitter leur engine. Le défi reste l'UX — les gamers ne veulent pas gérer des seed phrases.",
+                metrics: [
+                    { label: 'TPS Gaming', value: '9 000+', color: 'var(--primary)' },
+                    { label: 'Frais/gas', value: '~$0.01', color: 'var(--secondary-bright)' },
+                    { label: 'L2 Chains gaming', value: '12+', color: 'var(--primary)' },
+                    { label: 'SDKs actifs', value: '30+', color: 'var(--secondary-bright)' }
+                ],
+                tools: [
+                    { icon: 'developer_board', name: 'Immutable X' },
+                    { icon: 'developer_board', name: 'Ronin' },
+                    { icon: 'developer_board', name: 'Polygon CDK' },
+                    { icon: 'developer_board', name: 'Beam' },
+                    { icon: 'code', name: 'Unity Web3 SDK' },
+                    { icon: 'code', name: 'Thirdweb' }
+                ],
+                links: [
+                    { icon: 'open_in_new', label: 'Immutable', url: 'https://immutable.com' },
+                    { icon: 'open_in_new', label: 'Ronin Chain', url: 'https://roninchain.com' }
+                ]
+            },
+
+            // ── CLUSTER 2: HACKING × CRYPTO ──
+            'wallet-sec': {
+                cluster: 'CLUSTER_02 // HACKING × CRYPTO',
+                title: 'SÉCURITÉ DES WALLETS',
+                desc: "Un wallet compromis = des fonds perdus à jamais. Les vecteurs d'attaque sont multiples : phishing calqué sur des interfaces légitimes (MetaMask, Phantom), keyloggers ciblant les seed phrases, supply chain attacks sur les bibliothèques crypto, et exploits zero-day dans les logiciels de wallet.\n\n$1.8 milliard volé en 2024 via des attaques de wallets. La défense en profondeur est obligatoire : hardware wallets (Ledger, Trezor) pour le stockage cold, multi-signature (Gnosis Safe) pour les treasury, et air-gapped devices pour les opérations critiques. Les seed phrases doivent être stockées offline, jamais dans un clipboard ou un gestionnaire de mots de passe cloud.",
+                metrics: [
+                    { label: 'Fonds volés 2024', value: '$1.8B', color: '#ff6b6b' },
+                    { label: 'Attaques wallet/jour', value: '1 200+', color: 'var(--primary)' },
+                    { label: 'Phishing domains', value: '15K+/mois', color: '#ff6b6b' },
+                    { label: 'Récupération', value: '~4%', color: 'var(--secondary-bright)' }
+                ],
+                tools: [
+                    { icon: 'lock', name: 'Ledger' },
+                    { icon: 'lock', name: 'Trezor' },
+                    { icon: 'shield', name: 'Gnosis Safe' },
+                    { icon: 'bug_report', name: 'Revoke.cash' },
+                    { icon: 'shield', name: 'Wallet Guard' },
+                    { icon: 'search', name: 'Token Sniffer' }
+                ],
+                links: [
+                    { icon: 'open_in_new', label: 'Revoke.cash', url: 'https://revoke.cash' },
+                    { icon: 'open_in_new', label: 'Scam Sniffer', url: 'https://scamsniffer.io' }
+                ]
+            },
+            'defi-vuln': {
+                cluster: 'CLUSTER_02 // HACKING × CRYPTO',
+                title: 'FAILLES DEFI',
+                desc: "Les protocoles DeFi accumulent $770M en hacks en 2024, via des vecteurs d'attaque bien identifiés : flash loan attacks manipulant les oracles de prix, reentrancy exploits profitant de l'exécution asynchrone des smart contracts, et rug pulls où les équipes malveillantes drainent la liquidité.\n\nLes attaques les plus sophistiquées combinent plusieurs vecteurs : flash loan + oracle manipulation + governance exploit en une seule transaction. L'analyse post-mortem révèle que 80%+ des hacks auraient pu être évités par un audit rigoureux. Les bug bounties DeFi sur Immunefi atteignent en moyenne $50K pour une vulnerabilité critique, avec des primes exceptionnelles dépassant $10M.",
+                metrics: [
+                    { label: 'Hacks DeFi 2024', value: '$770M', color: '#ff6b6b' },
+                    { label: 'Protocoles touchés', value: '180+', color: 'var(--primary)' },
+                    { label: 'Flash loan attacks', value: '43%', color: '#ff6b6b' },
+                    { label: 'Bug bounty avg', value: '$50K', color: 'var(--secondary-bright)' }
+                ],
+                tools: [
+                    { icon: 'bug_report', name: 'Slither' },
+                    { icon: 'bug_report', name: 'Mythril' },
+                    { icon: 'bug_report', name: 'Echidna' },
+                    { icon: 'bug_report', name: 'Foundry' },
+                    { icon: 'shield', name: 'Immunefi' },
+                    { icon: 'analytics', name: 'DeFiLlama' }
+                ],
+                links: [
+                    { icon: 'open_in_new', label: 'Immunefi Bug Bounty', url: 'https://immunefi.com' },
+                    { icon: 'open_in_new', label: 'DeFi Hack Labs', url: 'https://github.com/SunWeb3Sec/DeFiHackLabs' }
+                ]
+            },
+            'audit': {
+                cluster: 'CLUSTER_02 // HACKING × CRYPTO',
+                title: 'SMART CONTRACT AUDITING',
+                desc: "Avant tout déploiement critique, un audit rigoureux est obligatoire. La stack d'audit moderne combine analyse statique (Slither), symbolic execution (Mythril), fuzzing (Echidna, Medusa) et vérification formelle (Certora Prover). 420+ bugs critiques détectés en 2024 avant déploiement.\n\nLes audits se déroulent en phases : review du code et de l'architecture, identification des attack surfaces, tests de propriétés invariantes, et rapport détaillé avec sévérité (Critical/High/Medium/Low/Informational). Les top firms (Trail of Bits, OpenZeppelin, Spearbit) facturent $50K-$500K par audit. Le marché des audits crypto représente $200M+ annuellement.",
+                metrics: [
+                    { label: 'Bugs critiques/an', value: '420+', color: '#ff6b6b' },
+                    { label: 'Bounty moyen', value: '$50K', color: 'var(--secondary-bright)' },
+                    { label: 'Marché audits', value: '$200M+', color: 'var(--primary)' },
+                    { label: 'Firms actives', value: '60+', color: 'var(--secondary-bright)' }
+                ],
+                tools: [
+                    { icon: 'bug_report', name: 'Slither' },
+                    { icon: 'bug_report', name: 'Mythril' },
+                    { icon: 'bug_report', name: 'Echidna' },
+                    { icon: 'bug_report', name: 'Certora' },
+                    { icon: 'bug_report', name: 'Foundry' },
+                    { icon: 'code', name: '4naly3er' }
+                ],
+                links: [
+                    { icon: 'open_in_new', label: 'Secureum Bootcamp', url: 'https://secureum.xyz' },
+                    { icon: 'open_in_new', label: 'Damn Vulnerable DeFi', url: 'https://damnvulnerabledefi.xyz' }
+                ]
+            },
+            'forensics': {
+                cluster: 'CLUSTER_02 // HACKING × CRYPTO',
+                title: 'FORENSIQUE BLOCKCHAIN',
+                desc: "La blockchain est un registre public immuable — parfait pour le traçage. Les outils de forensique on-chain (Chainalysis, Elliptic, TRM Labs) permettent de suivre les flux de fonds illicites à travers des mixers, des DEX aggregators et des cross-chain bridges.\n\nEn 2024, $3.4 milliard de fonds illicites ont été tracés, avec un taux de récupération de 18% — en progression constante grâce à la coopération entre firmes de forensique, exchanges centralisés et autorités. Les techniques avancées incluent : clustering heuristique d'adresses, analyse temporelle des transactions, et machine learning pour détecter les patterns de blanchiment.",
+                metrics: [
+                    { label: 'Fonds tracés 2024', value: '$3.4B', color: 'var(--primary)' },
+                    { label: 'Récupérés', value: '18%', color: 'var(--secondary-bright)' },
+                    { label: 'Mixers sanctionnés', value: '12', color: '#ff6b6b' },
+                    { label: 'Exchanges cooperants', value: '150+', color: 'var(--primary)' }
+                ],
+                tools: [
+                    { icon: 'travel_explore', name: 'Chainalysis' },
+                    { icon: 'travel_explore', name: 'Elliptic' },
+                    { icon: 'travel_explore', name: 'TRM Labs' },
+                    { icon: 'analytics', name: 'Dune Analytics' },
+                    { icon: 'analytics', name: 'Nansen' },
+                    { icon: 'search', name: 'Etherscan' }
+                ],
+                links: [
+                    { icon: 'open_in_new', label: 'Chainalysis Reports', url: 'https://chainalysis.com/reports' },
+                    { icon: 'open_in_new', label: 'Etherscan', url: 'https://etherscan.io' }
+                ]
+            },
+
+            // ── CLUSTER 3: HACKING × GAMING ──
+            'game-server': {
+                cluster: 'CLUSTER_03 // HACKING × GAMING',
+                title: 'SÉCURITÉ DES SERVEURS DE JEUX',
+                desc: "Les serveurs de jeux subissent plus de 80 000 attaques DDoS par jour — un chiffre qui ne cesse de croître avec l'explosion de l'esport et du streaming. Les attaques vont du volumétrique classique (UDP flood, amplification) aux attaques layer 7 sophistiquées qui ciblent directement les game servers.\n\nAu-delà du DDoS, les failles RCE (Remote Code Execution) dans les moteurs Source et Unreal permettent la compromission totale des serveurs. Les attaques MITM sur les communications client-serveur permettent le wallhack et l'espionnage de données sensibles. Le coût d'une heure de downtime pour un jeu AAA est estimé à $150K.",
+                metrics: [
+                    { label: 'DDoS/jour', value: '80K+', color: '#ff6b6b' },
+                    { label: 'Coût downtime/h', value: '$150K', color: 'var(--primary)' },
+                    { label: 'RCE découvertes', value: '23/2024', color: '#ff6b6b' },
+                    { label: 'Serveurs hardenés', value: '45%', color: 'var(--secondary-bright)' }
+                ],
+                tools: [
+                    { icon: 'shield', name: 'Cloudflare Spectrum' },
+                    { icon: 'shield', name: 'Akamai Prolexic' },
+                    { icon: 'dns', name: 'AWS Shield' },
+                    { icon: 'bug_report', name: 'Nmap' },
+                    { icon: 'bug_report', name: 'Burp Suite' },
+                    { icon: 'shield', name: 'Valve VAC' }
+                ],
+                links: [
+                    { icon: 'open_in_new', label: 'Cloudflare Gaming', url: 'https://cloudflare.com/gaming' },
+                    { icon: 'open_in_new', label: 'GameSec Research', url: 'https://gamesec.xyz' }
+                ]
+            },
+            'account-sec': {
+                cluster: 'CLUSTER_03 // HACKING × GAMING',
+                title: 'PROTECTION DES COMPTES',
+                desc: "12 millions de comptes gaming volés par an — un pactole pour les cybercriminels. Le credential stuffing exploite les bases de données leaked (Have I Been Pwned recense 12+ billion de credentials) pour tester automatiquement des combinaisons sur Steam, Epic Games, PlayStation Network.\n\nL'OAuth hijacking cible les flux d'authentification sociale (Login with Google/Steam/Discord). Le SIM swapping permet de bypasser la 2FA SMS. Un inventaire CS2 moyen vaut $340, mais les comptes premium dépassent largement les $10K. La protection multicouche est essentielle : 2FA hardware (YubiKey), OAuth sécure, et monitoring des sessions actives.",
+                metrics: [
+                    { label: 'Comptes volés/an', value: '12M+', color: '#ff6b6b' },
+                    { label: 'Valeur avg/inventaire', value: '$340', color: 'var(--primary)' },
+                    { label: 'Leak databases', value: '12B+ creds', color: '#ff6b6b' },
+                    { label: 'SIM swap coût', value: '$1.2B/an', color: 'var(--secondary-bright)' }
+                ],
+                tools: [
+                    { icon: 'lock', name: 'YubiKey' },
+                    { icon: 'shield', name: 'Steam Guard' },
+                    { icon: 'shield', name: 'Epic 2FA' },
+                    { icon: 'search', name: 'HIBP API' },
+                    { icon: 'bug_report', name: 'Have I Been Pwned' },
+                    { icon: 'lock', name: 'Authy' }
+                ],
+                links: [
+                    { icon: 'open_in_new', label: 'Have I Been Pwned', url: 'https://haveibeenpwned.com' },
+                    { icon: 'open_in_new', label: 'Steam Security', url: 'https://help.steampowered.com/wizard/HelpWithLogin' }
+                ]
+            },
+            'anticheat': {
+                cluster: 'CLUSTER_03 // HACKING × GAMING',
+                title: 'ANTI-CHEAT VS BYPASS',
+                desc: "La guerre entre anti-cheats kernel-level et les développeurs de cheats est un bras de fer technique constant. EAC (Easy Anti-Cheat), BattlEye et Vanguard (Riot) opèrent au niveau ring 0 du kernel Windows pour détecter les memory manipulation et code injection.\n\nLes cheats DMA (Direct Memory Access) utilisent du hardware dédié (PCIe cards) pour lire la mémoire du PC cible sans que le kernel anti-cheat puisse le détecter — un marché underground estimé à $800M+. La réponse : machine learning behavioral analysis, hardware fingerprinting avancé, et trusted execution environments (Intel SGX). Le marché des cheats légitimes et les bannissements dépassent 2.5 millions par an.",
+                metrics: [
+                    { label: 'Bans/an', value: '2.5M+', color: 'var(--secondary-bright)' },
+                    { label: 'Marché cheats', value: '$800M+', color: 'var(--primary)' },
+                    { label: 'DMA cheats prix', value: '$200-$2K', color: '#ff6b6b' },
+                    { label: 'Kernel AC', value: '4 actifs', color: 'var(--secondary-bright)' }
+                ],
+                tools: [
+                    { icon: 'verified_user', name: 'EAC' },
+                    { icon: 'verified_user', name: 'BattlEye' },
+                    { icon: 'verified_user', name: 'Vanguard' },
+                    { icon: 'verified_user', name: 'Valve VAC Net' },
+                    { icon: 'bug_report', name: 'Intel SGX' },
+                    { icon: 'analytics', name: 'ML Detection' }
+                ],
+                links: [
+                    { icon: 'open_in_new', label: 'BattlEye', url: 'https://battleye.com' },
+                    { icon: 'open_in_new', label: 'EAC Developer', url: 'https://easy.ac/en-US/developer' }
+                ]
+            },
+            'esports-infra': {
+                cluster: 'CLUSTER_03 // HACKING × GAMING',
+                title: 'INFRASTRUCTURE ESPORTS',
+                desc: "Les tournois esports avec des prize pools de $280M+ attirent des attaques sophistiquées. Les DDoS pendant les matchs live peuvent changer l'issue d'un tournoi. La compromission des réseaux LAN permet l'espionnage de stratégies. Le match fixing, facilité par l'accès à des données en temps réel, menace l'intégrité compétitive.\n\nLa sécurisation d'un événement esports majeur implique : réseaux air-gapped pour les joueurs, monitoring réseau en temps réel, anti-tampering sur les configurations hardware, et équipes de response dédiées. 47 incidents majeurs de sécurité ont été recensés en 2024 lors d'événements compétitifs.",
+                metrics: [
+                    { label: 'Prize pools 2024', value: '$280M+', color: 'var(--primary)' },
+                    { label: 'Incidents majeurs', value: '47', color: '#ff6b6b' },
+                    { label: 'Viewers peak', value: '5.4M', color: 'var(--secondary-bright)' },
+                    { label: 'LAN events', value: '350+/an', color: 'var(--primary)' }
+                ],
+                tools: [
+                    { icon: 'shield', name: 'Cisco Secure' },
+                    { icon: 'dns', name: 'Fortinet' },
+                    { icon: 'verified_user', name: 'ESIC' },
+                    { icon: 'analytics', name: 'Grafana' },
+                    { icon: 'shield', name: 'Palo Alto' },
+                    { icon: 'lock', name: 'WireGuard VPN' }
+                ],
+                links: [
+                    { icon: 'open_in_new', label: 'ESIC Integrity', url: 'https://esic.gg' },
+                    { icon: 'open_in_new', label: 'Liquipedia Events', url: 'https://liquipedia.net' }
+                ]
+            }
+        };
+
+        // ═══════ CROSSLINK DATA ═══════
+        const crosslinkData = {
+            'Smart Contract Audits pour Jeux': {
+                cluster: 'CROSS_DOMAIN_LINK',
+                title: 'SMART CONTRACT AUDITS POUR JEUX',
+                desc: "L'intersection la plus critique du Web3 Gaming : auditer les smart contracts qui gèrent les économies in-game. Un bug dans un contrat de minting NFT ou un système de reward token peut drainer des millions en quelques heures. Les audits gaming-specific doivent vérifier la logique de gameplay on-chain, les mécanismes anti-cheat, et les guardrails économiques.",
+                tools: [{ icon: 'bug_report', name: 'Slither' }, { icon: 'bug_report', name: 'Mythril' }, { icon: 'code', name: 'Foundry' }, { icon: 'shield', name: 'Immunefi' }],
+                links: [{ icon: 'open_in_new', label: 'DeFiHackLabs', url: 'https://github.com/SunWeb3Sec/DeFiHackLabs' }]
+            },
+            'Token Engineering & Game Design': {
+                cluster: 'CROSS_DOMAIN_LINK',
+                title: 'TOKEN ENGINEERING & GAME DESIGN',
+                desc: "La tokenomics d'un jeu doit être conçue en tandem avec le game design pour éviter l'inflation, la spéculation excessive et le death spiral. Les modèles bonding curves, les sink mechanisms et les emission schedules doivent être simulés (cadCAD) avant déploiement.",
+                tools: [{ icon: 'analytics', name: 'cadCAD' }, { icon: 'analytics', name: 'Token Engineering Commons' }, { icon: 'code', name: 'Dune Analytics' }],
+                links: [{ icon: 'open_in_new', label: 'Token Engineering', url: 'https://tokenengineeringcommunity.github.io/website' }]
+            },
+            'Esports & Crypto Betting': {
+                cluster: 'CROSS_DOMAIN_LINK',
+                title: 'ESPORTS & CRYPTO BETTING',
+                desc: "Les plateformes de paris esports décentralisées (Polymarket, Augur) permettent de miser sur les résultats de tournois avec des smart contracts. Les défis : l'intégrité des matchs (match fixing), la manipulation d'oracles pour les résultats, et la réglementation cross-border des paris en ligne.",
+                tools: [{ icon: 'token', name: 'Polymarket' }, { icon: 'shield', name: 'Chainlink Oracles' }, { icon: 'analytics', name: 'ESIC' }],
+                links: [{ icon: 'open_in_new', label: 'ESIC Anti-Corruption', url: 'https://esic.gg' }]
+            },
+            'NFT Minting & Backend Architecture': {
+                cluster: 'CROSS_DOMAIN_LINK',
+                title: 'NFT MINTING & BACKEND',
+                desc: "L'architecture backend pour le minting NFT gaming à l'échelle : gestion des queues de minting, metadata storage (IPFS/Arweave), lazy minting patterns, et gas optimization par batch processing. Le défi est de supporter des drops de 10K+ NFTs sans congestion ni failed transactions.",
+                tools: [{ icon: 'developer_board', name: 'IPFS' }, { icon: 'developer_board', name: 'Arweave' }, { icon: 'code', name: 'Thirdweb' }, { icon: 'developer_board', name: 'Pinata' }],
+                links: [{ icon: 'open_in_new', label: 'Thirdweb Docs', url: 'https://thirdweb.com/docs' }]
+            },
+            'Pentest d\'Interfaces Wallet': {
+                cluster: 'OFFSEC × CRYPTO_LINK',
+                title: 'PENTEST D\'INTERFACES WALLET',
+                desc: "Tester la sécurité des interfaces utilisateur de wallets (browser extensions, web apps, mobile apps) : XSS stocké via des transactions crafted, injection de paramètres dans les deeplinks, et manipulation de la UI pour tromper l'utilisateur sur le destinataire réel d'une transaction.",
+                tools: [{ icon: 'bug_report', name: 'Burp Suite' }, { icon: 'bug_report', name: 'OWASP ZAP' }, { icon: 'search', name: 'Frida' }, { icon: 'bug_report', name: 'Nmap' }],
+                links: [{ icon: 'open_in_new', label: 'OWASP Testing Guide', url: 'https://owasp.org/www-project-web-security-testing-guide/' }]
+            },
+            'Exploit DeFi & Bug Bounty': {
+                cluster: 'OFFSEC × CRYPTO_LINK',
+                title: 'EXPLOIT DEFI & BUG BOUNTY',
+                desc: "Participer aux programmes de bug bounty DeFi est l'un des revenus les plus lucratifs en cybersécurité. Immunefi héberge des bounties allant jusqu'à $10M pour des critical findings. La méthodologie : code review complet, fuzzing des fonctions exposées, et test des propriétés invariantes.",
+                tools: [{ icon: 'bug_report', name: 'Immunefi' }, { icon: 'bug_report', name: 'Code4rena' }, { icon: 'bug_report', name: 'Sherlock' }, { icon: 'bug_report', name: 'Cantina' }],
+                links: [{ icon: 'open_in_new', label: 'Immunefi', url: 'https://immunefi.com' }]
+            },
+            'OSINT & Traçage On-Chain': {
+                cluster: 'OFFSEC × CRYPTO_LINK',
+                title: 'OSINT & TRAÇAGE ON-CHAIN',
+                desc: "Combiner les techniques OSINT traditionnelles avec l'analyse on-chain pour tracer les acteurs malveillants : clustering d'adresses, corrélation temporelle avec des events off-chain (social media, exchange KYC), et identification de patterns de blanchiment à travers des mixers et des tumblers.",
+                tools: [{ icon: 'travel_explore', name: 'Chainalysis' }, { icon: 'analytics', name: 'Dune Analytics' }, { icon: 'search', name: 'Etherscan' }, { icon: 'travel_explore', name: 'Maltego' }],
+                links: [{ icon: 'open_in_new', label: 'Dune Analytics', url: 'https://dune.com' }]
+            },
+            'Conformité AML & KYC Crypto': {
+                cluster: 'OFFSEC × CRYPTO_LINK',
+                title: 'CONFORMITÉ AML & KYC CRYPTO',
+                desc: "Le cadre réglementaire crypto s'intensifie globalement : MiCA en Europe, FATF Travel Rule, et les sanctions OFAC contre les mixers (Tornado Cash). Les solutions de compliance combinent KYC/AML automatisé, transaction monitoring en temps réel, et screening contre les listes de sanctions.",
+                tools: [{ icon: 'shield', name: 'Chainalysis KYT' }, { icon: 'shield', name: 'Elliptic' }, { icon: 'shield', name: 'TRM Labs' }, { icon: 'policy', name: 'Sumsub' }],
+                links: [{ icon: 'open_in_new', label: 'FATF Crypto Guidance', url: 'https://fatf-gafi.org/en/topics/virtual-assets' }]
+            },
+            'Pentest d\'Infrastructures de Jeux': {
+                cluster: 'OFFSEC × GAMING_LINK',
+                title: 'PENTEST INFRA JEUX',
+                desc: "Les infrastructures gaming (matchmaking servers, game databases, CDN pour les assets, API backend) présentent des surfaces d'attaque spécifiques : injection dans les API de matchmaking, éscalade de privilèges via les game panels admin, et exfiltration de données joueurs via les endpoints de leaderboards.",
+                tools: [{ icon: 'bug_report', name: 'Nmap' }, { icon: 'bug_report', name: 'Burp Suite' }, { icon: 'bug_report', name: 'Metasploit' }, { icon: 'dns', name: 'Nuclei' }],
+                links: [{ icon: 'open_in_new', label: 'OWASP API Security', url: 'https://owasp.org/www-project-api-security/' }]
+            },
+            'Reverse Engineering de Game Engines': {
+                cluster: 'OFFSEC × GAMING_LINK',
+                title: 'REVERSE ENGINEERING GAME ENGINES',
+                desc: "Le reverse engineering des moteurs de jeux (Unity IL2CPP, Unreal Engine, Source 2) permet de comprendre les mécaniques anti-cheat, de développer des outils de modding légitimes, et de découvrir des vulnérabilités dans les protocols réseau. IDA Pro, Ghidra et x64dbg sont les outils de base du game RE.",
+                tools: [{ icon: 'code', name: 'IDA Pro' }, { icon: 'code', name: 'Ghidra' }, { icon: 'bug_report', name: 'x64dbg' }, { icon: 'code', name: 'dnSpy' }],
+                links: [{ icon: 'open_in_new', label: 'Ghidra', url: 'https://ghidra-sre.org' }]
+            },
+            'OSINT sur les Marchés de Comptes Volés': {
+                cluster: 'OFFSEC × GAMING_LINK',
+                title: 'OSINT MARCHÉS COMPTES VOLÉS',
+                desc: "Traquer les marchés underground de comptes gaming volés sur Telegram, forums russes et marketplace dark web. Les techniques OSINT permettent d'identifier les réseaux de credential stuffing, de cartographier les opérateurs, et de collaborer avec les éditeurs pour les takedowns.",
+                tools: [{ icon: 'travel_explore', name: 'Maltego' }, { icon: 'travel_explore', name: 'SpiderFoot' }, { icon: 'search', name: 'Shodan' }, { icon: 'analytics', name: 'GreyNoise' }],
+                links: [{ icon: 'open_in_new', label: 'OSINT Framework', url: 'https://osintframework.com' }]
+            },
+            'Sécurité Réseaux LAN Tournois': {
+                cluster: 'OFFSEC × GAMING_LINK',
+                title: 'SÉCURITÉ LAN TOURNOIS',
+                desc: "Les réseaux LAN des tournois esports sont des environnements critiques : isolation des segments joueurs/organisateurs/spectateurs, détection d'intrusion en temps réel, anti-tampering des configurations hardware, et monitoring des connexions USB. Un seul incident peut compromettre l'intégrité d'un tournoi millionnaire.",
+                tools: [{ icon: 'dns', name: 'Wireshark' }, { icon: 'shield', name: 'Snort/Suricata' }, { icon: 'analytics', name: 'Zeek' }, { icon: 'lock', name: '802.1X' }],
+                links: [{ icon: 'open_in_new', label: 'ESIC Guidelines', url: 'https://esic.gg' }]
+            }
+        };
+
+        // ═══════ RENDER FUNCTIONS ═══════
+        function renderDetail(data) {
+            sdCluster.textContent = data.cluster;
+            sdTitle.textContent = data.title;
+
+            let html = '<p class="synergy-detail__desc">' + data.desc.replace(/\n/g, '<br>') + '</p>';
+
+            if (data.metrics && data.metrics.length) {
+                html += '<div class="synergy-detail__metrics">';
+                data.metrics.forEach(function(m) {
+                    html += '<div class="synergy-detail__metric"><div class="synergy-detail__metric-label">' + m.label + '</div><div class="synergy-detail__metric-value" style="color:' + m.color + ';">' + m.value + '</div></div>';
+                });
+                html += '</div>';
+            }
+
+            if (data.tools && data.tools.length) {
+                html += '<div class="synergy-detail__section-title"><span class="material-symbols-outlined" style="font-size:14px;">build</span>OUTILS & TECHNOLOGIES</div>';
+                html += '<div class="synergy-detail__tools">';
+                data.tools.forEach(function(t) {
+                    html += '<span class="synergy-detail__tool"><span class="material-symbols-outlined">' + t.icon + '</span>' + t.name + '</span>';
+                });
+                html += '</div>';
+            }
+
+            if (data.links && data.links.length) {
+                html += '<div class="synergy-detail__section-title"><span class="material-symbols-outlined" style="font-size:14px;">link</span>RESSOURCES</div>';
+                html += '<div class="synergy-detail__links">';
+                data.links.forEach(function(l) {
+                    html += '<a class="synergy-detail__link" href="' + l.url + '" target="_blank" rel="noopener"><span class="material-symbols-outlined">' + l.icon + '</span>' + l.label + '</a>';
+                });
+                html += '</div>';
+            }
+
+            sdBody.innerHTML = html;
+            overlay.classList.add('visible');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDetail() {
+            overlay.classList.remove('visible');
+            document.body.style.overflow = '';
+        }
+
+        // ═══════ EVENT LISTENERS ═══════
+
+        // Cards
+        document.querySelectorAll('.synergy-card').forEach(function(card) {
+            card.addEventListener('click', function() {
+                var key = card.getAttribute('data-synergy');
+                if (synergyData[key]) {
+                    renderDetail(synergyData[key]);
+                }
+            });
+        });
+
+        // Crosslinks
+        document.querySelectorAll('.synergy-crosslink').forEach(function(link) {
+            link.addEventListener('click', function() {
+                var label = link.querySelector('.synergy-crosslink__label').textContent.trim();
+                if (crosslinkData[label]) {
+                    renderDetail(crosslinkData[label]);
+                }
+            });
+        });
+
+        // Bridge nodes — scroll to cluster
+        document.querySelectorAll('.synergy-bridge__node').forEach(function(node) {
+            node.addEventListener('click', function() {
+                var text = node.textContent.trim().toUpperCase();
+                var target = null;
+                if (text.includes('CRYPTO') && text.includes('GAMING')) {
+                    // crypto node in cluster 1
+                    target = document.querySelector('[data-synergy="p2e"]');
+                } else if (text.includes('HACKING')) {
+                    target = document.querySelector('[data-synergy="wallet-sec"]');
+                } else if (text.includes('GAMING')) {
+                    target = document.querySelector('[data-synergy="game-server"]');
+                } else if (text.includes('CRYPTO')) {
+                    target = document.querySelector('[data-synergy="wallet-sec"]');
+                }
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    target.style.boxShadow = '0 0 0 2px var(--primary), 0 8px 32px rgba(255,130,0,0.2)';
+                    setTimeout(function() { target.style.boxShadow = ''; }, 2000);
+                }
+            });
+        });
+
+        // Close modal
+        sdClose.addEventListener('click', closeDetail);
+        overlay.addEventListener('click', function(e) {
+            if (e.target === overlay) closeDetail();
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && overlay.classList.contains('visible')) closeDetail();
+        });
+    })();
+    </script>
+
+    <!-- ================================
+         COOKIE CONSENT SYSTEM
+         ================================ -->
+
+    <!-- Floating Cookie Button (visible after banner dismissed) -->
+    <button class="cookie-float" id="cookie-float" title="Paramètres des cookies">
+        <span class="material-symbols-outlined" style="font-size:20px;">cookie</span>
+    </button>
+
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookie-banner">
+        <div class="cookie-banner__inner">
+            <span class="material-symbols-outlined cookie-banner__icon">policy</span>
+            <div class="cookie-banner__text">
+                <p>Ce site utilise des cookies pour assurer le fonctionnement, l'analyse du trafic et l'amélioration de l'expérience. Vous pouvez personnaliser vos préférences ou tout accepter.</p>
+            </div>
+            <div class="cookie-banner__actions">
+                <button class="cookie-btn cookie-btn--settings" id="cookie-settings-btn">Paramétrer</button>
+                <button class="cookie-btn cookie-btn--reject" id="cookie-reject-btn">Refuser</button>
+                <button class="cookie-btn cookie-btn--accept" id="cookie-accept-btn">Tout accepter</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Settings Modal -->
+    <div class="cookie-modal-overlay" id="cookie-modal">
+        <div class="cookie-modal">
+            <div class="cookie-modal__header">
+                <span class="cookie-modal__title">COOKIE_PREFERENCES</span>
+                <button class="cookie-modal__close" id="cookie-modal-close">
+                    <span class="material-symbols-outlined" style="font-size:20px;">close</span>
+                </button>
+            </div>
+            <div class="cookie-modal__body">
+
+                <!-- Essential -->
+                <div class="cookie-category">
+                    <div class="cookie-category__header">
+                        <span class="cookie-category__name">ESSENTIELS <span>(toujours actifs)</span></span>
+                        <label class="cookie-toggle">
+                            <input type="checkbox" checked disabled>
+                            <span class="cookie-toggle__slider"></span>
+                        </label>
+                    </div>
+                    <p class="cookie-category__desc">Cookies nécessaires au fonctionnement du site : session PHP, sécurité CSRF, consentement cookie. Ne peuvent pas être désactivés.</p>
+                </div>
+
+                <!-- Analytics -->
+                <div class="cookie-category">
+                    <div class="cookie-category__header">
+                        <span class="cookie-category__name">ANALYTIQUES</span>
+                        <label class="cookie-toggle">
+                            <input type="checkbox" id="cookie-analytics">
+                            <span class="cookie-toggle__slider"></span>
+                        </label>
+                    </div>
+                    <p class="cookie-category__desc">Aident à comprendre comment les visiteurs interagissent avec le site. Données agrégées et anonymisées uniquement.</p>
+                </div>
+
+                <!-- Functional -->
+                <div class="cookie-category">
+                    <div class="cookie-category__header">
+                        <span class="cookie-category__name">FONCTIONNELS</span>
+                        <label class="cookie-toggle">
+                            <input type="checkbox" id="cookie-functional">
+                            <span class="cookie-toggle__slider"></span>
+                        </label>
+                    </div>
+                    <p class="cookie-category__desc">Permettent de mémoriser vos préférences (thème, langue, chat history) pour une expérience personnalisée.</p>
+                </div>
+
+                <!-- Marketing -->
+                <div class="cookie-category">
+                    <div class="cookie-category__header">
+                        <span class="cookie-category__name">MARKETING</span>
+                        <label class="cookie-toggle">
+                            <input type="checkbox" id="cookie-marketing">
+                            <span class="cookie-toggle__slider"></span>
+                        </label>
+                    </div>
+                    <p class="cookie-category__desc">Utilisés pour afficher du contenu pertinent et mesurer l'efficacité des campagnes de communication.</p>
+                </div>
+
+            </div>
+            <div class="cookie-modal__footer">
+                <button class="cookie-btn cookie-btn--reject" id="cookie-modal-reject">Tout refuser</button>
+                <button class="cookie-btn cookie-btn--accept" id="cookie-modal-save">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        // ── Cookie helpers ──
+        function setCookie(name, value, days) {
+            const d = new Date();
+            d.setTime(d.getTime() + days * 86400000);
+            document.cookie = name + '=' + encodeURIComponent(value) + ';expires=' + d.toUTCString() + ';path=/;SameSite=Lax';
+        }
+
+        function getCookie(name) {
+            const match = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
+            return match ? decodeURIComponent(match[2]) : null;
+        }
+
+        // ── Elements ──
+        const banner = document.getElementById('cookie-banner');
+        const modal = document.getElementById('cookie-modal');
+        const floatBtn = document.getElementById('cookie-float');
+        const analyticsToggle = document.getElementById('cookie-analytics');
+        const functionalToggle = document.getElementById('cookie-functional');
+        const marketingToggle = document.getElementById('cookie-marketing');
+
+        // ── Load saved preferences ──
+        function loadPreferences() {
+            const saved = getCookie('bp_cookie_consent');
+            if (saved) {
+                try {
+                    const prefs = JSON.parse(saved);
+                    analyticsToggle.checked = !!prefs.analytics;
+                    functionalToggle.checked = !!prefs.functional;
+                    marketingToggle.checked = !!prefs.marketing;
+                } catch(e) {}
+            }
+        }
+
+        // ── Save preferences ──
+        function savePreferences(acceptAll) {
+            const prefs = {
+                essential: true,
+                analytics: acceptAll ? true : analyticsToggle.checked,
+                functional: acceptAll ? true : functionalToggle.checked,
+                marketing: acceptAll ? true : marketingToggle.checked,
+                timestamp: new Date().toISOString()
+            };
+            setCookie('bp_cookie_consent', JSON.stringify(prefs), 365);
+            applyPreferences(prefs);
+        }
+
+        function rejectAll() {
+            const prefs = {
+                essential: true,
+                analytics: false,
+                functional: false,
+                marketing: false,
+                timestamp: new Date().toISOString()
+            };
+            setCookie('bp_cookie_consent', JSON.stringify(prefs), 365);
+            analyticsToggle.checked = false;
+            functionalToggle.checked = false;
+            marketingToggle.checked = false;
+            applyPreferences(prefs);
+        }
+
+        // ── Apply preferences ──
+        function applyPreferences(prefs) {
+            // Store locally for other scripts to check
+            window.bpCookies = prefs;
+
+            // Functional: remember theme / chat history
+            if (prefs.functional) {
+                setCookie('bp_functional_enabled', '1', 365);
+            } else {
+                document.cookie = 'bp_functional_enabled=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;';
+                document.cookie = 'bp_chat_history=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;';
+            }
+
+            // Analytics placeholder (ready for Google Analytics, etc.)
+            if (prefs.analytics) {
+                setCookie('bp_analytics_enabled', '1', 365);
+                // TODO: Load analytics script here when ready
+            } else {
+                document.cookie = 'bp_analytics_enabled=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;';
+            }
+
+            // Marketing placeholder
+            if (prefs.marketing) {
+                setCookie('bp_marketing_enabled', '1', 365);
+            } else {
+                document.cookie = 'bp_marketing_enabled=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;';
+            }
+        }
+
+        // ── Show / Hide ──
+        function showBanner() {
+            setTimeout(function() { banner.classList.add('visible'); }, 1000);
+        }
+
+        function hideBanner() {
+            banner.classList.remove('visible');
+            floatBtn.classList.add('visible');
+        }
+
+        function showModal() {
+            modal.classList.add('visible');
+        }
+
+        function hideModal() {
+            modal.classList.remove('visible');
+        }
+
+        // ── Init ──
+        loadPreferences();
+
+        const consent = getCookie('bp_cookie_consent');
+        if (consent) {
+            // Already consented — show float button only
+            floatBtn.classList.add('visible');
+            try { applyPreferences(JSON.parse(consent)); } catch(e) {}
+        } else {
+            // No consent yet — show banner
+            showBanner();
+        }
+
+        // ── Event listeners ──
+        document.getElementById('cookie-accept-btn').addEventListener('click', function() {
+            savePreferences(true);
+            hideBanner();
+        });
+
+        document.getElementById('cookie-reject-btn').addEventListener('click', function() {
+            rejectAll();
+            hideBanner();
+        });
+
+        document.getElementById('cookie-settings-btn').addEventListener('click', function() {
+            showModal();
+        });
+
+        document.getElementById('cookie-modal-close').addEventListener('click', function() {
+            hideModal();
+        });
+
+        document.getElementById('cookie-modal-save').addEventListener('click', function() {
+            savePreferences(false);
+            hideModal();
+            hideBanner();
+        });
+
+        document.getElementById('cookie-modal-reject').addEventListener('click', function() {
+            rejectAll();
+            hideModal();
+            hideBanner();
+        });
+
+        floatBtn.addEventListener('click', function() {
+            showModal();
+        });
+
+        // Close modal on overlay click
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) hideModal();
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('visible')) {
+                hideModal();
+            }
+        });
+    })();
+    </script>
 
 </body>
 </html>

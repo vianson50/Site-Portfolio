@@ -9,11 +9,27 @@ require_once __DIR__ . "/auth.php";
  * Ajoute un email à la newsletter
  * @return array ['success' => bool, 'message' => string]
  */
-function subscribeNewsletter(string $email): array {
+function subscribeNewsletter(string $email): array
+{
     try {
         $pdo = getDB();
         if (!$pdo) {
-            return ["success" => false, "message" => "Erreur de connexion à la base de données."];
+            return [
+                "success" => false,
+                "message" => "Erreur de connexion à la base de données.",
+            ];
+        }
+
+        // Auto-create table if not exists
+        $check = $pdo->query("SHOW TABLES LIKE 'newsletter_subscribers'");
+        if ($check->rowCount() === 0) {
+            $pdo->exec("CREATE TABLE newsletter_subscribers (
+                id INT AUTO_INCREMENT PRIMARY KEY,
+                email VARCHAR(100) NOT NULL UNIQUE,
+                is_active TINYINT(1) DEFAULT 1,
+                subscribed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                unsubscribed_at TIMESTAMP NULL DEFAULT NULL
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
         }
 
         // Nettoyage et validation de l'email
@@ -34,7 +50,10 @@ function subscribeNewsletter(string $email): array {
 
         if ($existing) {
             if ($existing["is_active"]) {
-                return ["success" => false, "message" => "Cet email est déjà abonné à la newsletter."];
+                return [
+                    "success" => false,
+                    "message" => "Cet email est déjà abonné à la newsletter.",
+                ];
             }
 
             // Réactiver l'abonnement
@@ -45,7 +64,10 @@ function subscribeNewsletter(string $email): array {
             ");
             $stmt->execute([":id" => $existing["id"]]);
 
-            return ["success" => true, "message" => "Votre abonnement a été réactivé avec succès !"];
+            return [
+                "success" => true,
+                "message" => "Votre abonnement a été réactivé avec succès !",
+            ];
         }
 
         // Nouvel abonnement
@@ -55,16 +77,23 @@ function subscribeNewsletter(string $email): array {
         ");
         $stmt->execute([":email" => $email]);
 
-        return ["success" => true, "message" => "Merci ! Vous êtes maintenant abonné à la newsletter."];
+        return [
+            "success" => true,
+            "message" => "Merci ! Vous êtes maintenant abonné à la newsletter.",
+        ];
     } catch (PDOException $e) {
-        return ["success" => false, "message" => "Une erreur est survenue. Veuillez réessayer."];
+        return [
+            "success" => false,
+            "message" => "Une erreur est survenue. Veuillez réessayer.",
+        ];
     }
 }
 
 /**
  * Désabonne un email
  */
-function unsubscribeNewsletter(string $email): bool {
+function unsubscribeNewsletter(string $email): bool
+{
     try {
         $pdo = getDB();
         if (!$pdo) {
@@ -89,7 +118,8 @@ function unsubscribeNewsletter(string $email): bool {
 /**
  * Récupère tous les abonnés actifs
  */
-function getNewsletterSubscribers(): array {
+function getNewsletterSubscribers(): array
+{
     try {
         $pdo = getDB();
         if (!$pdo) {
@@ -111,7 +141,8 @@ function getNewsletterSubscribers(): array {
 /**
  * Compte les abonnés actifs
  */
-function getNewsletterCount(): int {
+function getNewsletterCount(): int
+{
     try {
         $pdo = getDB();
         if (!$pdo) {
@@ -133,7 +164,8 @@ function getNewsletterCount(): int {
 /**
  * Supprime un abonné (admin)
  */
-function deleteSubscriber(int $id): bool {
+function deleteSubscriber(int $id): bool
+{
     try {
         $pdo = getDB();
         if (!$pdo) {
