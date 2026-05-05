@@ -1356,6 +1356,42 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
         </div>
     </section>
 
+
+
+    <!-- ================================
+         SECTION 4.5 — GAMING CALENDAR
+         ================================ -->
+    <section class="gc-section" id="gaming-calendar">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header">
+                <div class="section-header__bar"></div>
+                <div class="section-header__label">Esports Intelligence</div>
+                <h1 class="section-header__title">GAMING_<span class="text-primary">CALENDAR</span></h1>
+                <p class="section-header__desc">
+                    Calendrier des tournois esports en temps réel. Suivez les compétitions majeures organisées par catégorie de jeu.
+                </p>
+            </div>
+
+            <!-- Stats -->
+            <div class="gc-stats" id="gc-stats"></div>
+
+            <!-- Category Tabs -->
+            <div class="gc-tabs-wrapper">
+                <div class="gc-category-nav" id="gc-category-nav"></div>
+                <div class="gc-status-nav" id="gc-status-nav"></div>
+            </div>
+
+            <!-- Tournaments Container -->
+            <div class="gc-tournaments" id="gc-tournaments">
+                <div class="gc-loading">
+                    <span class="material-symbols-outlined gc-loading__icon">sync</span>
+                    <span>Chargement des tournois...</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ================================
          SECTION 5 — BLOG / FLUX RSS
          ================================ -->
@@ -3572,6 +3608,8 @@ Outil Rédactionnel v1.0 — BLACK_PROTOCOL`;
     })();
     </script>
 
+
+
     <!-- ================================
          COOKIE CONSENT SYSTEM
          ================================ -->
@@ -3834,6 +3872,9 @@ Outil Rédactionnel v1.0 — BLACK_PROTOCOL`;
         });
     })();
     </script>
+
+    <!-- Gaming Calendar -->
+    <script src="assets/js/gaming-calendar.js" defer></script>
 
 </body>
 </html>

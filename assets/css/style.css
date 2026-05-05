@@ -5657,6 +5657,678 @@ section {
 }
 
 /* ========================================
+   GAMING CALENDAR (gc-*)
+   ======================================== */
+.gc-section .section-header {
+    margin-bottom: var(--sp-xl);
+}
+
+.gc-section .section-header__bar {
+    width: 32px;
+    height: 2px;
+    background: var(--secondary-bright);
+    margin-bottom: var(--sp-xs);
+}
+
+.gc-section .section-header__label {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-sm);
+    color: var(--secondary-bright);
+    font-family: var(--font-display);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: var(--sp-md);
+}
+
+.gc-section .section-header__title {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 6vw, 48px);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--white);
+    margin-bottom: var(--sp-md);
+}
+
+.gc-section .section-header__desc {
+    color: var(--on-surface-variant);
+    max-width: 560px;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* ── Stats Bar ── */
+.gc-stats {
+    display: flex;
+    gap: var(--sp-lg);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--sp-xl);
+    padding: var(--sp-lg) var(--sp-md);
+    background: var(--surface);
+    border: 1px solid var(--outline-variant);
+    border-radius: var(--radius);
+}
+
+.gc-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    min-width: 80px;
+}
+
+.gc-stat__value {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary-dim);
+}
+
+.gc-stat__value--live {
+    color: #f87171;
+    text-shadow: 0 0 12px rgba(248, 113, 113, 0.4);
+}
+
+.gc-stat__value--prize {
+    color: #fbbf24;
+    text-shadow: 0 0 12px rgba(251, 191, 36, 0.4);
+}
+
+.gc-stat__label {
+    font-family: var(--font-display);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--outline);
+}
+
+/* ── Tabs Wrapper ── */
+.gc-tabs-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-md);
+    margin-bottom: var(--sp-xl);
+}
+
+/* ── Category Navigation ── */
+.gc-category-nav {
+    display: flex;
+    gap: var(--sp-sm);
+    overflow-x: auto;
+    padding-bottom: var(--sp-xs);
+    scrollbar-width: thin;
+    scrollbar-color: var(--outline-variant) transparent;
+}
+
+.gc-tab {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    background: var(--surface);
+    border: 1px solid var(--outline-variant);
+    border-radius: var(--radius);
+    color: var(--on-surface-variant);
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.25s var(--ease-out);
+}
+
+.gc-tab:hover {
+    border-color: var(--outline);
+    color: var(--white);
+    background: var(--surface-container);
+}
+
+.gc-tab--active {
+    background: var(--surface-container-high);
+    border-color: var(--tab-color, var(--primary));
+    color: var(--tab-color, var(--primary));
+    box-shadow: 0 0 16px rgba(255, 130, 0, 0.1);
+}
+
+.gc-tab .material-symbols-outlined {
+    font-size: 18px;
+}
+
+.gc-tab__count {
+    font-size: 11px;
+    padding: 1px 6px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 10px;
+    color: var(--outline);
+}
+
+.gc-tab--active .gc-tab__count {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--tab-color, var(--primary));
+}
+
+/* ── Status Filter ── */
+.gc-status-nav {
+    display: flex;
+    gap: var(--sp-xs);
+}
+
+.gc-filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 12px;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    color: var(--outline);
+    font-family: var(--font-body);
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s var(--ease-out);
+}
+
+.gc-filter-btn:hover {
+    color: var(--on-surface-variant);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.gc-filter-btn--active {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--outline-variant);
+    color: var(--white);
+}
+
+.gc-filter-btn .material-symbols-outlined {
+    font-size: 14px;
+}
+
+/* ── Tournaments Container ── */
+.gc-tournaments {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-xl);
+}
+
+/* ── Category Block ── */
+.gc-category {
+    border-left: 3px solid var(--cat-color, var(--primary));
+}
+
+.gc-category__header {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-md);
+    margin-bottom: var(--sp-lg);
+    padding: var(--sp-md) var(--sp-lg);
+    background: var(--surface);
+    border-radius: var(--radius);
+}
+
+.gc-category__icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--cat-glow, var(--primary-glow));
+    border-radius: var(--radius);
+    color: var(--cat-color, var(--primary));
+}
+
+.gc-category__icon .material-symbols-outlined {
+    font-size: 22px;
+}
+
+.gc-category__info {
+    display: flex;
+    flex-direction: column;
+}
+
+.gc-category__name {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.05em;
+}
+
+.gc-category__count {
+    font-size: 12px;
+    color: var(--outline);
+}
+
+.gc-category__games {
+    margin-left: auto;
+    display: flex;
+    gap: var(--sp-xs);
+    flex-wrap: wrap;
+}
+
+.gc-game-tag {
+    font-family: var(--font-display);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--outline-variant);
+    border-radius: 2px;
+    color: var(--outline);
+}
+
+/* ── Tournament Grid ── */
+.gc-category__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--sp-md);
+    padding-left: var(--sp-lg);
+}
+
+/* ── Tournament Card ── */
+.gc-card {
+    position: relative;
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--outline-variant);
+    border-radius: var(--radius);
+    padding: var(--sp-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-sm);
+    transition: all 0.3s var(--ease-out);
+    opacity: 0;
+    transform: translateY(12px);
+}
+
+.gc-card--visible {
+    animation: gcFadeIn 0.4s var(--ease-out) forwards;
+}
+
+@keyframes gcFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gc-card:hover {
+    border-color: var(--outline);
+    background: var(--surface-container);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.gc-card__scanline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--primary-glow),
+        transparent
+    );
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.gc-card:hover .gc-card__scanline {
+    opacity: 1;
+}
+
+.gc-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--sp-sm);
+}
+
+.gc-card__game-badge {
+    font-family: var(--font-display);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+}
+
+.gc-card__tier {
+    font-family: var(--font-display);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 2px 8px;
+    border: 1px solid;
+    border-radius: 2px;
+}
+
+.gc-card__name {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.3;
+}
+
+.gc-card__organizer {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: var(--on-surface-variant);
+}
+
+.gc-card__organizer .material-symbols-outlined {
+    font-size: 14px;
+    color: var(--outline);
+}
+
+.gc-card__organizer span:last-child {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+.gc-card__date {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--on-surface-variant);
+}
+
+.gc-card__date .material-symbols-outlined {
+    font-size: 16px;
+    color: var(--outline);
+}
+
+.gc-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-md);
+    padding-top: var(--sp-sm);
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.gc-card__prize,
+.gc-card__teams,
+.gc-card__format {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: var(--on-surface-variant);
+}
+
+.gc-card__prize .material-symbols-outlined,
+.gc-card__teams .material-symbols-outlined,
+.gc-card__format .material-symbols-outlined {
+    font-size: 14px;
+    color: var(--outline);
+}
+
+.gc-card__format {
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-family: var(--font-display);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.gc-card__format--lan {
+    background: rgba(248, 113, 113, 0.12);
+    color: #f87171;
+    border: 1px solid rgba(248, 113, 113, 0.25);
+}
+
+.gc-card__format--lan .material-symbols-outlined {
+    color: #f87171;
+}
+
+.gc-card__format--online {
+    background: rgba(52, 211, 153, 0.12);
+    color: #34d399;
+    border: 1px solid rgba(52, 211, 153, 0.25);
+}
+
+.gc-card__format--online .material-symbols-outlined {
+    color: #34d399;
+}
+
+.gc-card__prize span:last-child {
+    color: #fbbf24;
+    font-weight: 600;
+}
+
+/* ── Card Footer ── */
+.gc-card__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: auto;
+    padding-top: var(--sp-sm);
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    gap: var(--sp-sm);
+}
+
+.gc-card__footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.gc-card__footer .gc-card__location {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 11px;
+    color: var(--outline);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.gc-card__footer .gc-card__location .material-symbols-outlined {
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+.gc-status {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.gc-status .material-symbols-outlined {
+    font-size: 14px;
+}
+
+.gc-status--live {
+    color: #f87171;
+    animation: gcPulse 2s ease-in-out infinite;
+}
+
+@keyframes gcPulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+.gc-status--upcoming {
+    color: var(--primary-dim);
+}
+
+.gc-status--completed {
+    color: var(--outline);
+}
+
+.gc-card__stream {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--secondary-bright);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 5px 12px;
+    border: 1px solid var(--secondary);
+    border-radius: var(--radius);
+    transition: all 0.2s var(--ease-out);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.gc-card__stream:hover {
+    background: var(--secondary);
+    color: var(--void);
+    box-shadow: 0 0 12px var(--secondary-glow);
+}
+
+.gc-card__stream .material-symbols-outlined {
+    font-size: 15px;
+}
+
+/* ── Empty State ── */
+.gc-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-md);
+    padding: var(--sp-3xl) var(--sp-md);
+    text-align: center;
+}
+
+.gc-empty__icon {
+    font-size: 48px;
+    color: var(--outline-variant);
+}
+
+.gc-empty__text {
+    color: var(--outline);
+    font-size: 16px;
+}
+
+.gc-empty__reset {
+    padding: 8px 20px;
+    background: var(--surface-container);
+    border: 1px solid var(--outline-variant);
+    border-radius: var(--radius);
+    color: var(--primary-dim);
+    font-family: var(--font-display);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.gc-empty__reset:hover {
+    background: var(--surface-container-high);
+    border-color: var(--primary);
+}
+
+/* ── Loading State ── */
+.gc-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-md);
+    padding: var(--sp-3xl) var(--sp-md);
+    color: var(--outline);
+}
+
+.gc-loading__icon {
+    font-size: 32px;
+    color: var(--primary);
+    animation: gcSpin 1s linear infinite;
+}
+
+@keyframes gcSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ── Responsive ── */
+@media (max-width: 767px) {
+    .gc-category__header {
+        flex-wrap: wrap;
+        gap: var(--sp-sm);
+    }
+
+    .gc-category__games {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .gc-category__grid {
+        grid-template-columns: 1fr;
+        padding-left: var(--sp-sm);
+    }
+
+    .gc-stats {
+        gap: var(--sp-md);
+    }
+
+    .gc-stat__value {
+        font-size: 22px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .gc-category__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ── Category Border Colors ── */
+.gc-category[data-category="moba"] {
+    --cat-color: #a78bfa;
+    --cat-glow: rgba(167, 139, 250, 0.3);
+}
+
+.gc-category[data-category="fps"] {
+    --cat-color: #f87171;
+    --cat-glow: rgba(248, 113, 113, 0.3);
+}
+
+.gc-category[data-category="sport"] {
+    --cat-color: #34d399;
+    --cat-glow: rgba(52, 211, 153, 0.3);
+}
+
+.gc-category[data-category="combat"] {
+    --cat-color: #fbbf24;
+    --cat-glow: rgba(251, 191, 36, 0.3);
+}
+
+.gc-category[data-category="mobile"] {
+    --cat-color: #38bdf8;
+    --cat-glow: rgba(56, 189, 248, 0.3);
+}
+
+/* ========================================
    RESPONSIVE UTILITIES
    ======================================== */
 @media (min-width: 768px) {
