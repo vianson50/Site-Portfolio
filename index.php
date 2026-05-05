@@ -1635,7 +1635,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
             <div class="section-header">
                 <div class="section-header__bar"></div>
                 <div class="section-header__label">Visual Stream</div>
-                <h1 class="section-header__title">GALLERY_BOARD</h1>
+                <h1 class="section-header__title">GALLERY</h1>
                 <p class="section-header__desc">
                     Captures visuelles du réseau. Retours d'expérience, infographies et instantanés du quotidien cybers.
                 </p>
@@ -2031,7 +2031,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
                             <textarea class="form__textarea" id="user_message" name="message" placeholder="System message..." rows="5" required></textarea>
                         </div>
                         <button type="submit" class="form__submit">
-                            <span>EXECUTE_SUBMISSION</span>
+                            <span>SUBMISSION</span>
                             <span class="material-symbols-outlined">send</span>
                         </button>
                     </form>

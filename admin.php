@@ -1053,6 +1053,41 @@ $title = $seoTitle . " | BLACK_PROTOCOL";
                     </div>
                     <?php endif; ?>
 
+                    <!-- ====== Newsletter Composer ====== -->
+                    <div class="section-header" style="margin-top:var(--sp-xl);">
+                        <span class="material-symbols-outlined" style="color:var(--primary); font-size:24px;">edit_square</span>
+                        <h2 class="section-header__title">ENVOYER_NEWSLETTER</h2>
+                        <span class="badge badge--orange"><?= $subscriberCount ?> DESTINATAIRE<?= $subscriberCount !==
+ 1
+     ? "S"
+     : "" ?></span>
+                    </div>
+
+                    <form id="newsletter-compose-form" style="margin-top:var(--sp-md);">
+                        <div style="margin-bottom:14px;">
+                            <label style="display:block; font-family:var(--font-display); font-size:11px; letter-spacing:0.1em; color:rgba(255,255,255,0.5); margin-bottom:6px;">SUJET</label>
+                            <input type="text" name="subject" id="nl-subject" required placeholder="Ex: Nouvelle mise à jour BLACK_PROTOCOL" style="width:100%; padding:10px 14px; background:var(--surface-container); border:1px solid rgba(255,255,255,0.1); border-radius:8px; color:var(--white); font-size:14px; font-family:inherit; outline:none; transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
+                        </div>
+                        <div style="margin-bottom:14px;">
+                            <label style="display:block; font-family:var(--font-display); font-size:11px; letter-spacing:0.1em; color:rgba(255,255,255,0.5); margin-bottom:6px;">CONTENU</label>
+                            <textarea name="content" id="nl-content" required rows="8" placeholder="Rédigez votre newsletter ici..." style="width:100%; padding:10px 14px; background:var(--surface-container); border:1px solid rgba(255,255,255,0.1); border-radius:8px; color:var(--white); font-size:14px; font-family:inherit; outline:none; resize:vertical; transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'"></textarea>
+                        </div>
+                        <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:center;">
+                            <button type="button" id="nl-test-btn" style="font-family:var(--font-display); font-size:11px; letter-spacing:0.1em; padding:10px 18px; background:transparent; color:var(--primary); border:1px solid rgba(255,130,0,0.3); border-radius:8px; cursor:pointer; display:flex; align-items:center; gap:6px; transition:all 0.2s;">
+                                <span class="material-symbols-outlined" style="font-size:16px;">science</span>
+                                TEST UNICAST
+                            </button>
+                            <button type="button" id="nl-send-btn" style="font-family:var(--font-display); font-size:11px; letter-spacing:0.1em; padding:10px 18px; background:var(--secondary); color:#00391f; border:none; border-radius:8px; cursor:pointer; display:flex; align-items:center; gap:6px; font-weight:600; transition:all 0.2s;">
+                                <span class="material-symbols-outlined" style="font-size:16px;">send</span>
+                                ENVOYER À TOUS (<?= $subscriberCount ?>)
+                            </button>
+                            <div id="nl-status" style="font-family:var(--font-display); font-size:11px; color:rgba(255,255,255,0.4); margin-left:8px;"></div>
+                        </div>
+                    </form>
+
+                    <!-- Newsletter result -->
+                    <div id="nl-result" style="display:none; margin-top:var(--sp-md); padding:14px 18px; border-radius:8px; font-family:var(--font-display); font-size:13px; line-height:1.5;"></div>
+
                 </div>
 
                 <!-- ── Sidebar ── -->
@@ -1243,6 +1278,87 @@ $title = $seoTitle . " | BLACK_PROTOCOL";
                 `transform 0.4s ${i * 0.04}s cubic-bezier(0.16,1,0.3,1)`;
             fadeObserver.observe(el);
         });
+    </script>
+
+    <script>
+    (function() {
+        const form = document.getElementById('newsletter-compose-form');
+        const subjectEl = document.getElementById('nl-subject');
+        const contentEl = document.getElementById('nl-content');
+        const testBtn = document.getElementById('nl-test-btn');
+        const sendBtn = document.getElementById('nl-send-btn');
+        const statusEl = document.getElementById('nl-status');
+        const resultEl = document.getElementById('nl-result');
+
+        function showResult(success, html) {
+            resultEl.style.display = 'block';
+            resultEl.style.background = success ? 'rgba(0,158,96,0.08)' : 'rgba(255,107,107,0.08)';
+            resultEl.style.border = success ? '1px solid rgba(0,158,96,0.2)' : '1px solid rgba(255,107,107,0.2)';
+            resultEl.style.color = success ? 'var(--secondary-bright)' : '#ff6b6b';
+            resultEl.innerHTML = html;
+        }
+
+        function setLoading(btn) {
+            btn.disabled = true;
+            btn.style.opacity = '0.5';
+            statusEl.innerHTML = '<span class="material-symbols-outlined" style="font-size:14px; animation:spin 1s linear infinite; vertical-align:middle;">progress_activity</span> Transmission en cours...';
+        }
+
+        function resetBtn(btn) {
+            btn.disabled = false;
+            btn.style.opacity = '1';
+            statusEl.innerHTML = '';
+        }
+
+        // ── Test ──
+        testBtn.addEventListener('click', function() {
+            if (!subjectEl.value.trim() || !contentEl.value.trim()) {
+                showResult(false, '<span class="material-symbols-outlined" style="font-size:16px; vertical-align:middle; margin-right:6px;">warning</span>Sujet et contenu requis.');
+                return;
+            }
+            setLoading(testBtn);
+            const fd = new FormData();
+            fd.append('subject', subjectEl.value);
+            fd.append('content', contentEl.value);
+            fd.append('test_only', '1');
+            fd.append('test_email', 'vianson50@gmail.com');
+
+            fetch('newsletter_send.php', { method: 'POST', body: fd })
+            .then(r => r.json())
+            .then(data => {
+                let html = '<span class="material-symbols-outlined" style="font-size:16px; vertical-align:middle; margin-right:6px;">' + (data.success ? 'check_circle' : 'error') + '</span>' + data.message;
+                showResult(data.success, html);
+            })
+            .catch(() => showResult(false, '<span class="material-symbols-outlined" style="font-size:16px; vertical-align:middle; margin-right:6px;">wifi_off</span>Erreur réseau.'))
+            .finally(() => resetBtn(testBtn));
+        });
+
+        // ── Send All ──
+        sendBtn.addEventListener('click', function() {
+            if (!subjectEl.value.trim() || !contentEl.value.trim()) {
+                showResult(false, '<span class="material-symbols-outlined" style="font-size:16px; vertical-align:middle; margin-right:6px;">warning</span>Sujet et contenu requis.');
+                return;
+            }
+            if (!confirm('Envoyer cette newsletter à TOUS les abonnés actifs ?')) return;
+            setLoading(sendBtn);
+            const fd = new FormData();
+            fd.append('subject', subjectEl.value);
+            fd.append('content', contentEl.value);
+
+            fetch('newsletter_send.php', { method: 'POST', body: fd })
+            .then(r => r.json())
+            .then(data => {
+                let html = '<span class="material-symbols-outlined" style="font-size:16px; vertical-align:middle; margin-right:6px;">' + (data.success ? 'check_circle' : 'error') + '</span>' + data.message;
+                if (data.sent) html += '<br><span style="color:rgba(255,255,255,0.4); font-size:11px;">' + data.sent + '/' + data.total + ' envoyés</span>';
+                if (data.errors && data.errors.length) {
+                    html += '<br><span style="color:#ff6b6b; font-size:11px;">Erreurs: ' + data.errors.join(', ') + '</span>';
+                }
+                showResult(data.success, html);
+            })
+            .catch(() => showResult(false, '<span class="material-symbols-outlined" style="font-size:16px; vertical-align:middle; margin-right:6px;">wifi_off</span>Erreur réseau.'))
+            .finally(() => resetBtn(sendBtn));
+        });
+    })();
     </script>
 
 </body>
