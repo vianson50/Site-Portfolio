@@ -515,27 +515,72 @@
   }
 
   /* ── Chargement des données ── */
-  async function loadTournaments() {
-    // Essayer de charger via l'API PandaScore
+  async function loadTournaments(forceRefresh = false) {
+    // Afficher un indicateur de chargement
+    const container = document.getElementById("gc-tournaments");
+    if (container) {
+      container.innerHTML = `
+        <div class="gc-loading" style="text-align:center;padding:3rem 1rem;">
+          <span class="material-symbols-outlined gc-loading__icon" style="
+            display:inline-block;animation:gc-spin .8s linear infinite;font-size:2.5rem;color:#a78bfa;
+          ">sync</span>
+          <p style="margin-top:1rem;color:#999;">Chargement des tournois en temps réel…</p>
+        </div>`;
+    }
+
+    // Déterminer l'action : refresh = bypass du cache serveur
+    const action = forceRefresh ? "refresh" : "tournaments";
+    const url = `includes/pandascore_api.php?action=${action}`;
+
     try {
-      const resp = await fetch(
-        "includes/pandascore_api.php?action=tournaments",
-      );
-      if (resp.ok) {
-        const data = await resp.json();
-        if (data && typeof data === "object" && Object.keys(data).length > 0) {
-          // Fusionner avec les données statiques (l'API a priorité)
-          tournaments = mergeTournaments(STATIC_TOURNAMENTS, data);
-          return;
-        }
+      const fetchStart = performance.now();
+      const resp = await fetch(url);
+
+      if (!resp.ok) {
+        console.warn(
+          `[GamingCalendar] API responded with status ${resp.status} ${resp.statusText}`,
+        );
+        throw new Error(`HTTP ${resp.status}`);
+      }
+
+      const data = await resp.json();
+      const fetchTime = Math.round(performance.now() - fetchStart);
+
+      // Valider la structure : objet avec des clés de catégorie
+      const validCategories = ["moba", "fps", "sport", "combat", "mobile"];
+      const isValidData =
+        data &&
+        typeof data === "object" &&
+        !Array.isArray(data) &&
+        Object.keys(data).length > 0 &&
+        Object.keys(data).some((key) => validCategories.includes(key));
+
+      if (isValidData) {
+        const apiCount = Object.values(data)
+          .filter(Array.isArray)
+          .reduce((sum, arr) => sum + arr.length, 0);
+        tournaments = mergeTournaments(STATIC_TOURNAMENTS, data);
+        console.log(
+          `[GamingCalendar] ✅ API PandaScore chargée (${apiCount} tournois live) en ${fetchTime}ms`,
+        );
+        return;
+      } else {
+        console.warn(
+          "[GamingCalendar] ⚠️ Format API invalide, fallback statique",
+          data,
+        );
       }
     } catch (e) {
-      console.log(
-        "[GamingCalendar] API non disponible, utilisation des données statiques",
+      console.warn(
+        `[GamingCalendar] ❌ API indisponible (${e.message}), utilisation des données statiques`,
       );
     }
+
     // Fallback : données statiques
     tournaments = STATIC_TOURNAMENTS;
+    console.log(
+      `[GamingCalendar] ℹ️ ${Object.keys(STATIC_TOURNAMENTS).length} catégories statiques chargées`,
+    );
   }
 
   function mergeTournaments(staticData, apiData) {
@@ -858,6 +903,15 @@
       renderCategoryTabs();
       renderStatusFilters();
       render();
+    },
+    async refresh() {
+      console.log("[GamingCalendar] 🔄 Rafraîchissement forcé (cache bypass)…");
+      await loadTournaments(true);
+      renderStats();
+      renderCategoryTabs();
+      renderStatusFilters();
+      render();
+      console.log("[GamingCalendar] ✅ Rafraîchissement terminé");
     },
   };
 

@@ -1,0 +1,91 @@
+{
+    "updated": "2025-05-06",
+    "source": "Newzoo, SELL, Matthew Ball, Sensor Tower, Statista",
+    "kpi": [
+        {
+            "id": "market_global",
+            "icon": "public",
+            "color": "primary",
+            "value": "187,7",
+            "unit": "Mds $",
+            "label": "Marché mondial 2025",
+            "trend": "+2,1 %",
+            "trend_dir": "up"
+        },
+        {
+            "id": "gamers",
+            "icon": "person",
+            "color": "green",
+            "value": "3,38",
+            "unit": "Mrd",
+            "label": "Joueurs dans le monde",
+            "trend": "+4,3 %",
+            "trend_dir": "up"
+        },
+        {
+            "id": "market_france",
+            "icon": "payments",
+            "color": "primary",
+            "value": "6,1",
+            "unit": "Mds €",
+            "label": "Marché français 2024",
+            "trend": "+3 %",
+            "trend_dir": "up"
+        },
+        {
+            "id": "esport_revenue",
+            "icon": "emoji_events",
+            "color": "green",
+            "value": "1,87",
+            "unit": "Mds $",
+            "label": "Esport — Revenus mondiaux",
+            "trend": "+11 %",
+            "trend_dir": "up"
+        }
+    ],
+    "splits": [
+        {
+            "title": "Répartition par plateforme",
+            "icon": "devices",
+            "bars": [
+                { "label": "Mobile", "pct": 49, "color": "#22c55e" },
+                { "label": "Console", "pct": 29, "color": "#ff8200" },
+                { "label": "PC", "pct": 21, "color": "#38bdf8" },
+                { "label": "Cloud", "pct": 1, "color": "#a855f7" }
+            ]
+        },
+        {
+            "title": "Répartition géographique",
+            "icon": "map",
+            "bars": [
+                { "label": "Asie-Pac.", "pct": 48, "color": "#f97316" },
+                { "label": "Amérique", "pct": 26, "color": "#38bdf8" },
+                { "label": "EMEA", "pct": 22, "color": "#ff8200" },
+                { "label": "LATAM", "pct": 4, "color": "#22c55e" }
+            ]
+        }
+    ],
+    "highlights": [
+        {
+            "icon": "group",
+            "icon_bg": "rgba(255,130,0,0.12)",
+            "icon_color": "var(--primary)",
+            "title": "France — 38,3 millions de joueurs",
+            "text": "70 % des Français jouent aux jeux vidéo. L'âge moyen du joueur est de 39 ans. Parité quasi atteinte : 48 % de femmes, 52 % d'hommes."
+        },
+        {
+            "icon": "smartphone",
+            "icon_bg": "rgba(0,158,96,0.12)",
+            "icon_color": "var(--secondary-bright)",
+            "title": "Mobile domine avec 49 % du marché",
+            "text": "Le mobile génère 92,3 Mds $ en 2025. Les jeux free-to-play sur mobile représentent plus de 80 % des revenus mobiles. Le marché continue de croître porté par l'Asie."
+        },
+        {
+            "icon": "workspace_premium",
+            "icon_bg": "rgba(56,189,248,0.12)",
+            "icon_color": "#38bdf8",
+            "title": "Esport — 532 millions de spectateurs",
+            "text": "L'esport touche 532 millions de fans dans le monde dont 263 millions d'esport enthusiasts. Les revenus dépassent 1,87 milliard $ en 2025."
+        }
+    ]
+}

@@ -163,6 +163,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
                         INSCRIPTION
                     </a>
                 <?php endif; ?>
+                    <a href="agenda.php" class="top-header__btn top-header__btn--login" style="border-color:rgba(0,158,96,0.4);">
+                        <span class="material-symbols-outlined" style="font-size:16px;">calendar_month</span>
+                        AGENDA
+                    </a>
                     <a href="article_structurer.php" class="top-header__btn top-header__btn--login" style="border-color:rgba(255,130,0,0.3);">
                         <span class="material-symbols-outlined" style="font-size:16px;">auto_awesome</span>
                         ARTICLE
