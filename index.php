@@ -88,8 +88,48 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
     <style>
         :root{--void:#0a0a0b;--surface:#161618;--primary:#ff8200;--primary-dim:#ffb785;--primary-glow:rgba(255,130,0,0.35);--secondary:#009e60;--secondary-bright:#61dd98;--secondary-glow:rgba(0,158,96,0.3);--white:#ffffff;--on-surface:#f4ded2;--on-surface-variant:#dec1af;--outline:#a68b7b;--font-display:"Space Grotesk",sans-serif;--font-body:"Inter",sans-serif}
         *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:var(--font-body);background:var(--void);color:var(--on-surface);overflow-x:hidden;padding-bottom:80px;padding-top:64px}
+        body{font-family:var(--font-body);background:var(--void);color:var(--on-surface);overflow-x:hidden;padding-top:64px}
         .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+
+        /* ── Cyberpunk Sidebar ── */
+        .sidebar{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:900;display:flex;align-items:center}
+        .sidebar__nav{width:58px;background:linear-gradient(180deg,rgba(14,14,16,0.97) 0%,rgba(22,22,24,0.95) 50%,rgba(14,14,16,0.97) 100%);backdrop-filter:blur(20px) saturate(1.2);border-radius:0 20px 20px 0;border:1px solid rgba(255,130,0,0.08);border-left:none;padding:16px 0 14px;display:flex;flex-direction:column;align-items:center;gap:2px;transition:all .4s cubic-bezier(.4,0,.2,1);overflow:hidden;box-shadow:6px 0 30px rgba(0,0,0,0.5),2px 0 12px rgba(255,130,0,0.04);position:relative}
+        .sidebar__nav::before{content:'';position:absolute;left:0;top:20px;bottom:20px;width:2px;background:linear-gradient(to bottom,transparent 0%,rgba(255,130,0,0.5) 20%,var(--primary) 50%,rgba(255,130,0,0.5) 80%,transparent 100%);opacity:.5;border-radius:1px}
+        .sidebar__nav::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,130,0,0.008) 3px,rgba(255,130,0,0.008) 4px);pointer-events:none;border-radius:0 20px 20px 0}
+        .sidebar__nav:hover,.sidebar__nav.expanded{width:200px;border-color:rgba(255,130,0,0.15);box-shadow:8px 0 40px rgba(0,0,0,0.6),3px 0 16px rgba(255,130,0,0.08)}
+        .sidebar__brand{display:flex;align-items:center;gap:10px;padding:2px 0 10px;white-space:nowrap}
+        .sidebar__brand-icon{width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:8px;background:linear-gradient(135deg,rgba(255,130,0,0.12),rgba(255,130,0,0.04));border:1px solid rgba(255,130,0,0.2);position:relative}
+        .sidebar__brand-icon .material-symbols-outlined{font-size:18px;color:var(--primary)}
+        .sidebar__brand-text{font-family:var(--font-display);font-weight:700;font-size:10px;color:var(--primary);letter-spacing:2.5px;opacity:0;transform:translateX(-6px);transition:all .35s cubic-bezier(.4,0,.2,1);text-transform:uppercase}
+        .sidebar__nav:hover .sidebar__brand-text,.sidebar__nav.expanded .sidebar__brand-text{opacity:1;transform:translateX(0)}
+        .sidebar__divider{width:24px;height:1px;margin:6px 0;transition:all .35s ease;position:relative;background:transparent}
+        .sidebar__divider::before{content:'';position:absolute;left:50%;transform:translateX(-50%);width:3px;height:3px;background:var(--primary);border-radius:50%;opacity:.5}
+        .sidebar__divider::after{content:'';position:absolute;top:0;bottom:0;left:calc(50% + 6px);width:calc(100% - 6px);height:1px;background:linear-gradient(to right,rgba(255,130,0,0.3),transparent);opacity:.3}
+        .sidebar__nav:hover .sidebar__divider::before,.sidebar__nav.expanded .sidebar__divider::before{opacity:0}
+        .sidebar__nav:hover .sidebar__divider::after,.sidebar__nav.expanded .sidebar__divider::after{width:80%;left:10%;background:linear-gradient(to right,transparent,rgba(255,130,0,0.2),transparent)}
+        .sidebar__link{display:flex;align-items:center;gap:12px;width:100%;padding:9px 16px;text-decoration:none;color:rgba(222,193,175,0.6);transition:all .25s cubic-bezier(.4,0,.2,1);position:relative;border-radius:0 10px 10px 0;white-space:nowrap;overflow:hidden}
+        .sidebar__link::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%) scaleY(0);width:2px;height:0;background:var(--primary);border-radius:0 1px 1px 0;transition:all .3s cubic-bezier(.4,0,.2,1);box-shadow:0 0 8px rgba(255,130,0,0.4)}
+        .sidebar__link:hover{color:var(--white);background:rgba(255,130,0,0.06)}
+        .sidebar__link:hover::before{transform:translateY(-50%) scaleY(1);height:16px}
+        .sidebar__link.active{color:var(--primary);background:linear-gradient(90deg,rgba(255,130,0,0.1) 0%,rgba(255,130,0,0.02) 100%)}
+        .sidebar__link.active::before{transform:translateY(-50%) scaleY(1);height:24px;box-shadow:0 0 12px rgba(255,130,0,0.6),0 0 4px rgba(255,130,0,0.8)}
+        .sidebar__link .material-symbols-outlined{font-size:20px;flex-shrink:0;transition:all .25s cubic-bezier(.4,0,.2,1)}
+        .sidebar__link.active .material-symbols-outlined{color:var(--primary);filter:drop-shadow(0 0 4px rgba(255,130,0,0.4))}
+        .sidebar__link:hover .material-symbols-outlined{color:var(--primary-dim);transform:scale(1.1)}
+        .sidebar__label{font-family:var(--font-display);font-size:0.7rem;font-weight:600;letter-spacing:0.8px;opacity:0;transform:translateX(-8px);transition:all .35s cubic-bezier(.4,0,.2,1);text-transform:uppercase}
+        .sidebar__nav:hover .sidebar__label,.sidebar__nav.expanded .sidebar__label{opacity:1;transform:translateX(0)}
+        .sidebar__dot{display:none}
+        .sidebar__spacer{flex:1;min-height:16px}
+        .sidebar__link--auth{opacity:.45;transition:all .3s}
+        .sidebar__link--auth:hover{opacity:1}
+        .sidebar__link--ext{position:relative}
+        .sidebar__link--ext .material-symbols-outlined{font-size:18px;color:rgba(97,221,152,0.5)}
+        .sidebar__link--ext:hover .material-symbols-outlined{color:var(--secondary-bright);filter:drop-shadow(0 0 4px rgba(0,158,96,0.4));transform:scale(1.1)}
+        .sidebar__link--ext .sidebar__label{color:rgba(97,221,152,0.5);letter-spacing:0.5px}
+        .sidebar__link--ext:hover .sidebar__label{color:var(--secondary-bright)}
+        .sidebar__link--ext::before{background:var(--secondary)!important;box-shadow:0 0 8px rgba(0,158,96,0.4)!important}
+        .sidebar__link--ext:hover::before{transform:translateY(-50%) scaleY(1);height:14px}
+        @media(max-width:768px){.sidebar{top:auto;bottom:0;left:0;right:0;transform:none;flex-direction:column}.sidebar__nav{width:100%;flex-direction:row;border-radius:18px 18px 0 0;border:1px solid rgba(255,130,0,0.1);border-bottom:none;padding:8px 6px;gap:0;justify-content:space-around;box-shadow:0 -4px 24px rgba(0,0,0,0.5),0 -1px 8px rgba(255,130,0,0.05);background:linear-gradient(180deg,rgba(14,14,16,0.98),rgba(10,10,11,0.99))}.sidebar__nav::before,.sidebar__nav::after{display:none}.sidebar__brand,.sidebar__divider,.sidebar__spacer,.sidebar__label,.sidebar__dot{display:none!important}.sidebar__link{flex-direction:column;gap:3px;padding:8px 6px;border-radius:10px;justify-content:center}.sidebar__link .material-symbols-outlined{font-size:21px}.sidebar__link.active{background:rgba(255,130,0,0.08)}.sidebar__link::before{display:none}.sidebar__link.active::after{content:'';position:absolute;bottom:-2px;left:50%;transform:translateX(-50%);width:16px;height:2px;background:var(--primary);border-radius:1px;box-shadow:0 0 8px rgba(255,130,0,0.5)}.sidebar__link--ext{display:none}.sidebar__link--auth{opacity:.7}}
     </style>
 
     <!-- Main Stylesheet -->
@@ -370,7 +410,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
             </div>
         </a>
     </section>
-
     <!-- ================================
          SECTION 2 — SKILLS / COMPÉTENCES
          ================================ -->
@@ -632,7 +671,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
             </div>
         </div>
     </section>
-
     <!-- ================================
          SECTION 3 — PROJECTS / PROJETS
          ================================ -->
@@ -691,9 +729,296 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
             </div>
         </div>
     </section>
-
     <!-- ================================
-         SECTION 4 — SYNERGY: CRYPTO × GAMING
+         SECTION 4 — BLOG / FLUX RSS
+         ================================ -->
+    <section class="rss-section" id="blog">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="section-header">
+                <div class="section-header__bar"></div>
+                <div class="section-header__label">Signal Feed</div>
+                <h1 class="section-header__title">BLOG_FEED</h1>
+                <p class="section-header__desc">
+                    Dernières transmissions captées sur le réseau. Articles, veille technique et signaux cybers en temps réel.
+                </p>
+            </div>
+
+            <!-- ================================
+                 PUBLICATIONS
+                 ================================ -->
+            <div class="blog-pub">
+                <div class="blog-pub__header">
+                    <div class="blog-pub__header-left">
+                        <span class="material-symbols-outlined" style="font-size:18px; color:var(--primary);">edit_note</span>
+                        <span class="label-caps">Publications</span>
+                        <span class="pulse-dot pulse-dot--green" style="margin-left:6px;"></span>
+                    </div>
+                    <?php if ($isLoggedIn && isAdmin()): ?>
+                    <a href="article_structurer.php" class="blog-pub__new-btn">
+                        <span class="material-symbols-outlined" style="font-size:14px;">add</span>
+                        <span>Nouvel article</span>
+                    </a>
+                    <?php endif; ?>
+                </div>
+
+                <?php if ($isLoggedIn && isAdmin()): ?>
+                <!-- Formulaire de publication rapide -->
+                <div class="blog-pub__quick-form" id="quickPublishForm">
+                    <div class="blog-pub__quick-form-toggle">
+                        <button class="blog-pub__quick-btn" onclick="toggleQuickPublish()">
+                            <span class="material-symbols-outlined" style="font-size:16px;">edit_square</span>
+                            <span>Publier un article</span>
+                        </button>
+                    </div>
+                    <div class="blog-pub__quick-form-body" id="quickPublishBody" style="display:none;">
+                        <form method="POST" action="article_structurer.php">
+                            <input type="hidden" name="publish" value="1">
+                            <div class="blog-pub__quick-field">
+                                <label>Sujet / Thème</label>
+                                <input type="text" name="topic" placeholder="Ex: Flutter 3.24, Docker best practices..." required>
+                            </div>
+                            <div class="blog-pub__quick-field">
+                                <label>Texte / Notes (optionnel)</label>
+                                <textarea name="raw_text" placeholder="Collez vos notes, un résumé, un lien vers un article..." rows="3"></textarea>
+                            </div>
+                            <div class="blog-pub__quick-field">
+                                <label>Lien source (optionnel)</label>
+                                <input type="url" name="url" placeholder="https://example.com/article">
+                            </div>
+                            <div class="blog-pub__quick-actions">
+                                <button type="submit" class="blog-pub__quick-submit">
+                                    <span class="material-symbols-outlined" style="font-size:16px;">publish</span>
+                                    Générer & Publier
+                                </button>
+                                <button type="button" class="blog-pub__quick-cancel" onclick="toggleQuickPublish()">Annuler</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <?php endif; ?>
+
+                <?php if (!empty($publishedArticles)): ?>
+                <div class="blog-pub__grid">
+                    <?php foreach ($publishedArticles as $art):
+
+                        $artTags = json_decode($art["tags"], true) ?? [];
+                        $artPlan = json_decode($art["plan"], true) ?? [];
+                        ?>
+                    <a href="article.php?id=<?= $art[
+                        "id"
+                    ] ?>" class="blog-pub__card-link">
+                    <article class="blog-pub__card">
+                        <div class="blog-pub__card-scanline"></div>
+                        <!-- Barre terminal -->
+                        <div class="blog-pub__card-bar">
+                            <div class="blog-pub__card-dots">
+                                <span class="blog-pub__card-dot" style="background:rgba(255,180,171,0.4);"></span>
+                                <span class="blog-pub__card-dot" style="background:rgba(255,183,133,0.4);"></span>
+                                <span class="blog-pub__card-dot" style="background:rgba(97,221,152,0.4);"></span>
+                            </div>
+                            <span class="blog-pub__card-id">#<?= str_pad(
+                                $art["id"],
+                                3,
+                                "0",
+                                STR_PAD_LEFT,
+                            ) ?></span>
+                            <span class="blog-pub__card-cat"><?= htmlspecialchars(
+                                $art["category"],
+                            ) ?></span>
+                            <span class="blog-pub__card-date"><?= date(
+                                "d.m.Y",
+                                strtotime($art["created_at"]),
+                            ) ?></span>
+                        </div>
+                        <!-- Corps -->
+                        <div class="blog-pub__card-body">
+                            <h3 class="blog-pub__card-title"><?= htmlspecialchars(
+                                $art["seo_title"] ?: $art["title"],
+                            ) ?></h3>
+                            <?php if (!empty($art["meta_description"])): ?>
+                            <p class="blog-pub__card-meta"><?= htmlspecialchars(
+                                safeSubstr($art["meta_description"], 0, 160),
+                            ) .
+                                (safeStrlen($art["meta_description"]) > 160
+                                    ? "..."
+                                    : "") ?></p>
+                            <?php endif; ?>
+                            <?php if (!empty($art["introduction"])): ?>
+                            <div class="blog-pub__card-intro"><?= nl2br(
+                                htmlspecialchars(
+                                    safeSubstr(
+                                        strip_tags($art["introduction"]),
+                                        0,
+                                        220,
+                                    ),
+                                ),
+                            ) .
+                                (safeStrlen(strip_tags($art["introduction"])) >
+                                220
+                                    ? "..."
+                                    : "") ?></div>
+                            <?php endif; ?>
+                            <?php if (!empty($artPlan)): ?>
+                            <div class="blog-pub__card-plan">
+                                <span class="blog-pub__card-plan-label">
+                                    <span class="material-symbols-outlined" style="font-size:12px;">format_list_bulleted</span>
+                                    Plan (<?= count($artPlan) ?> sections)
+                                </span>
+                            </div>
+                            <?php endif; ?>
+                            <?php if (!empty($artTags)): ?>
+                            <div class="blog-pub__card-tags">
+                                <?php foreach (
+                                    array_slice($artTags, 0, 5)
+                                    as $tag
+                                ): ?>
+                                <span class="blog-pub__card-tag"><?= htmlspecialchars(
+                                    $tag,
+                                ) ?></span>
+                                <?php endforeach; ?>
+                            </div>
+                            <?php endif; ?>
+                            <div class="blog-pub__card-footer">
+                                <span class="blog-pub__card-author">
+                                    <span class="material-symbols-outlined" style="font-size:12px;">person</span>
+                                    <?= htmlspecialchars($art["author_name"]) ?>
+                                </span>
+                                <span class="blog-pub__card-comments">
+                                    <span class="material-symbols-outlined" style="font-size:12px;">chat_bubble</span>
+                                    <?= getCommentCount($art["id"]) ?>
+                                </span>
+                                <span class="blog-pub__card-read">
+                                    Lire l'article
+                                    <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- Delete button (admin only) -->
+                        <?php if ($isLoggedIn && isAdmin()): ?>
+                        <form method="POST" action="index.php#blog" class="blog-pub__card-delete-form" onclick="event.stopPropagation();" onsubmit="return confirm('Supprimer cet article ?');">
+                            <input type="hidden" name="delete_article" value="<?= $art[
+                                "id"
+                            ] ?>">
+                            <button type="submit" class="blog-pub__card-delete" title="Supprimer">
+                                <span class="material-symbols-outlined">delete</span>
+                            </button>
+                        </form>
+                        <?php endif; ?>
+                    </article>
+                    </a>
+                    <?php
+                    endforeach; ?>
+                </div>
+                <?php else: ?>
+                <!-- État vide -->
+                <div class="blog-pub__empty">
+                    <div class="blog-pub__empty-icon">
+                        <span class="material-symbols-outlined">article</span>
+                    </div>
+                    <p class="blog-pub__empty-text">Aucune publication pour le moment.</p>
+                    <p class="blog-pub__empty-sub">Les articles générés via l'Article Structurer apparaîtront ici automatiquement.</p>
+                    <?php if ($isLoggedIn && isAdmin()): ?>
+                    <a href="article_structurer.php" class="blog-pub__empty-btn">
+                        <span class="material-symbols-outlined" style="font-size:16px;">auto_awesome</span>
+                        Créer un article
+                    </a>
+                    <?php endif; ?>
+                </div>
+                <?php endif; ?>
+            </div>
+
+            <!-- RSS Magazine -->
+            <div class="rss-card" style="margin-bottom: var(--sp-lg);">
+                <div class="rss-card__scanline"></div>
+                <div class="rss-card__bar">
+                    <div class="rss-card__dots">
+                        <span class="rss-card__dot rss-card__dot--red"></span>
+                        <span class="rss-card__dot rss-card__dot--yellow"></span>
+                        <span class="rss-card__dot rss-card__dot--green"></span>
+                    </div>
+                    <span class="rss-card__bar-title label-caps">INFO_MAGAZINE</span>
+                    <span class="rss-card__bar-status">
+                        <span class="pulse-dot pulse-dot--green"></span>
+                        <span class="label-caps" style="font-size:9px; color:rgba(255,255,255,0.35);">LIVE</span>
+                    </span>
+                </div>
+                <div class="rss-card__widget">
+                    <rssapp-magazine id="zVn6TvX26blDCSPJ"></rssapp-magazine><script data-src="https://widget.rss.app/v1/magazine.js" type="text/javascript" async class="rss-lazy"></script>
+                </div>
+            </div>
+
+            <!-- Separator -->
+            <div class="rss-card__divider" style="margin: var(--sp-xl) 0;">
+                <span class="rss-card__divider-line"></span>
+                <span class="material-symbols-outlined" style="font-size:14px; color:rgba(255,255,255,0.15);">more_horiz</span>
+                <span class="rss-card__divider-line"></span>
+            </div>
+
+            <!-- RSS Unified Card -->
+            <div class="rss-card">
+                <div class="rss-card__scanline"></div>
+                <div class="rss-card__bar">
+                    <div class="rss-card__dots">
+                        <span class="rss-card__dot rss-card__dot--red"></span>
+                        <span class="rss-card__dot rss-card__dot--yellow"></span>
+                        <span class="rss-card__dot rss-card__dot--green"></span>
+                    </div>
+                    <span class="rss-card__bar-title label-caps">RSS_TERMINAL</span>
+                    <span class="rss-card__bar-status">
+                        <span class="pulse-dot pulse-dot--green"></span>
+                        <span class="label-caps" style="font-size:9px; color:rgba(255,255,255,0.35);">STREAMING</span>
+                    </span>
+                </div>
+
+                <!-- Widget 1: Carousel -->
+                <div class="rss-card__widget">
+                    <div class="rss-card__widget-label">
+                        <span class="material-symbols-outlined" style="font-size:16px; color:var(--primary);">view_carousel</span>
+                        <span class="label-caps">Highlights</span>
+                    </div>
+                    <rssapp-carousel id="TVOvmVGK5J7yEQY4"></rssapp-carousel><script data-src="https://widget.rss.app/v1/carousel.js" type="text/javascript" async class="rss-lazy"></script>
+                </div>
+
+                <!-- Separator -->
+                <div class="rss-card__divider">
+                    <span class="rss-card__divider-line"></span>
+                    <span class="material-symbols-outlined" style="font-size:14px; color:rgba(255,255,255,0.15);">more_horiz</span>
+                    <span class="rss-card__divider-line"></span>
+                </div>
+
+                <!-- Widget 2: Wall -->
+                <div class="rss-card__widget">
+                    <div class="rss-card__widget-label">
+                        <span class="material-symbols-outlined" style="font-size:16px; color:var(--secondary-bright);">grid_view</span>
+                        <span class="label-caps">Archive</span>
+                    </div>
+                    <rssapp-wall id="S5zmzgmuJRPBcSVo"></rssapp-wall><script data-src="https://widget.rss.app/v1/wall.js" type="text/javascript" async class="rss-lazy"></script>
+                </div>
+            </div>
+
+            <div class="media-card">
+                <div class="media-card__scanline"></div>
+                <div class="media-card__bar">
+                    <div class="media-card__dots">
+                        <span class="media-card__dot media-card__dot--red"></span>
+                        <span class="media-card__dot media-card__dot--yellow"></span>
+                        <span class="media-card__dot media-card__dot--green"></span>
+                    </div>
+                    <span class="media-card__bar-title label-caps">SIGNAL_STREAM</span>
+                    <span class="media-card__bar-status">
+                        <span class="pulse-dot pulse-dot--green"></span>
+                        <span class="label-caps" style="font-size:9px; color:rgba(255,255,255,0.35);">LIVE</span>
+                    </span>
+                </div>
+                <div class="media-card__body">
+                    <rssapp-imageboard id="Lt3ZLEhfxXAnAcuM"></rssapp-imageboard><script data-src="https://widget.rss.app/v1/imageboard.js" type="text/javascript" async class="rss-lazy"></script>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ================================
+         SECTION 5 — SYNERGY: CRYPTO × GAMING
          ================================ -->
     <section class="synergy-section" id="synergy">
         <div class="container">
@@ -1363,11 +1688,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
             </div>
         </div>
     </section>
-
-
-
     <!-- ================================
-         SECTION 4.5 — GAMING CALENDAR
+         SECTION 6 — GAMING CALENDAR
          ================================ -->
     <section class="gc-section" id="gaming-calendar">
         <div class="container">
@@ -1399,279 +1721,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
             </div>
         </div>
     </section>
-
     <!-- ================================
-         SECTION 5 — BLOG / FLUX RSS
-         ================================ -->
-    <section class="rss-section" id="blog">
-        <div class="container">
-            <!-- Section Header -->
-            <div class="section-header">
-                <div class="section-header__bar"></div>
-                <div class="section-header__label">Signal Feed</div>
-                <h1 class="section-header__title">BLOG_FEED</h1>
-                <p class="section-header__desc">
-                    Dernières transmissions captées sur le réseau. Articles, veille technique et signaux cybers en temps réel.
-                </p>
-            </div>
-
-            <!-- ================================
-                 PUBLICATIONS
-                 ================================ -->
-            <div class="blog-pub">
-                <div class="blog-pub__header">
-                    <div class="blog-pub__header-left">
-                        <span class="material-symbols-outlined" style="font-size:18px; color:var(--primary);">edit_note</span>
-                        <span class="label-caps">Publications</span>
-                        <span class="pulse-dot pulse-dot--green" style="margin-left:6px;"></span>
-                    </div>
-                    <?php if ($isLoggedIn && isAdmin()): ?>
-                    <a href="article_structurer.php" class="blog-pub__new-btn">
-                        <span class="material-symbols-outlined" style="font-size:14px;">add</span>
-                        <span>Nouvel article</span>
-                    </a>
-                    <?php endif; ?>
-                </div>
-
-                <?php if ($isLoggedIn && isAdmin()): ?>
-                <!-- Formulaire de publication rapide -->
-                <div class="blog-pub__quick-form" id="quickPublishForm">
-                    <div class="blog-pub__quick-form-toggle">
-                        <button class="blog-pub__quick-btn" onclick="toggleQuickPublish()">
-                            <span class="material-symbols-outlined" style="font-size:16px;">edit_square</span>
-                            <span>Publier un article</span>
-                        </button>
-                    </div>
-                    <div class="blog-pub__quick-form-body" id="quickPublishBody" style="display:none;">
-                        <form method="POST" action="article_structurer.php">
-                            <input type="hidden" name="publish" value="1">
-                            <div class="blog-pub__quick-field">
-                                <label>Sujet / Thème</label>
-                                <input type="text" name="topic" placeholder="Ex: Flutter 3.24, Docker best practices..." required>
-                            </div>
-                            <div class="blog-pub__quick-field">
-                                <label>Texte / Notes (optionnel)</label>
-                                <textarea name="raw_text" placeholder="Collez vos notes, un résumé, un lien vers un article..." rows="3"></textarea>
-                            </div>
-                            <div class="blog-pub__quick-field">
-                                <label>Lien source (optionnel)</label>
-                                <input type="url" name="url" placeholder="https://example.com/article">
-                            </div>
-                            <div class="blog-pub__quick-actions">
-                                <button type="submit" class="blog-pub__quick-submit">
-                                    <span class="material-symbols-outlined" style="font-size:16px;">publish</span>
-                                    Générer & Publier
-                                </button>
-                                <button type="button" class="blog-pub__quick-cancel" onclick="toggleQuickPublish()">Annuler</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <?php endif; ?>
-
-                <?php if (!empty($publishedArticles)): ?>
-                <div class="blog-pub__grid">
-                    <?php foreach ($publishedArticles as $art):
-
-                        $artTags = json_decode($art["tags"], true) ?? [];
-                        $artPlan = json_decode($art["plan"], true) ?? [];
-                        ?>
-                    <a href="article.php?id=<?= $art[
-                        "id"
-                    ] ?>" class="blog-pub__card-link">
-                    <article class="blog-pub__card">
-                        <div class="blog-pub__card-scanline"></div>
-                        <!-- Barre terminal -->
-                        <div class="blog-pub__card-bar">
-                            <div class="blog-pub__card-dots">
-                                <span class="blog-pub__card-dot" style="background:rgba(255,180,171,0.4);"></span>
-                                <span class="blog-pub__card-dot" style="background:rgba(255,183,133,0.4);"></span>
-                                <span class="blog-pub__card-dot" style="background:rgba(97,221,152,0.4);"></span>
-                            </div>
-                            <span class="blog-pub__card-id">#<?= str_pad(
-                                $art["id"],
-                                3,
-                                "0",
-                                STR_PAD_LEFT,
-                            ) ?></span>
-                            <span class="blog-pub__card-cat"><?= htmlspecialchars(
-                                $art["category"],
-                            ) ?></span>
-                            <span class="blog-pub__card-date"><?= date(
-                                "d.m.Y",
-                                strtotime($art["created_at"]),
-                            ) ?></span>
-                        </div>
-                        <!-- Corps -->
-                        <div class="blog-pub__card-body">
-                            <h3 class="blog-pub__card-title"><?= htmlspecialchars(
-                                $art["seo_title"] ?: $art["title"],
-                            ) ?></h3>
-                            <?php if (!empty($art["meta_description"])): ?>
-                            <p class="blog-pub__card-meta"><?= htmlspecialchars(
-                                safeSubstr($art["meta_description"], 0, 160),
-                            ) .
-                                (safeStrlen($art["meta_description"]) > 160
-                                    ? "..."
-                                    : "") ?></p>
-                            <?php endif; ?>
-                            <?php if (!empty($art["introduction"])): ?>
-                            <div class="blog-pub__card-intro"><?= nl2br(
-                                htmlspecialchars(
-                                    safeSubstr(
-                                        strip_tags($art["introduction"]),
-                                        0,
-                                        220,
-                                    ),
-                                ),
-                            ) .
-                                (safeStrlen(strip_tags($art["introduction"])) >
-                                220
-                                    ? "..."
-                                    : "") ?></div>
-                            <?php endif; ?>
-                            <?php if (!empty($artPlan)): ?>
-                            <div class="blog-pub__card-plan">
-                                <span class="blog-pub__card-plan-label">
-                                    <span class="material-symbols-outlined" style="font-size:12px;">format_list_bulleted</span>
-                                    Plan (<?= count($artPlan) ?> sections)
-                                </span>
-                            </div>
-                            <?php endif; ?>
-                            <?php if (!empty($artTags)): ?>
-                            <div class="blog-pub__card-tags">
-                                <?php foreach (
-                                    array_slice($artTags, 0, 5)
-                                    as $tag
-                                ): ?>
-                                <span class="blog-pub__card-tag"><?= htmlspecialchars(
-                                    $tag,
-                                ) ?></span>
-                                <?php endforeach; ?>
-                            </div>
-                            <?php endif; ?>
-                            <div class="blog-pub__card-footer">
-                                <span class="blog-pub__card-author">
-                                    <span class="material-symbols-outlined" style="font-size:12px;">person</span>
-                                    <?= htmlspecialchars($art["author_name"]) ?>
-                                </span>
-                                <span class="blog-pub__card-comments">
-                                    <span class="material-symbols-outlined" style="font-size:12px;">chat_bubble</span>
-                                    <?= getCommentCount($art["id"]) ?>
-                                </span>
-                                <span class="blog-pub__card-read">
-                                    Lire l'article
-                                    <span class="material-symbols-outlined" style="font-size:14px;">arrow_forward</span>
-                                </span>
-                            </div>
-                        </div>
-                        <!-- Delete button (admin only) -->
-                        <?php if ($isLoggedIn && isAdmin()): ?>
-                        <form method="POST" action="index.php#blog" class="blog-pub__card-delete-form" onclick="event.stopPropagation();" onsubmit="return confirm('Supprimer cet article ?');">
-                            <input type="hidden" name="delete_article" value="<?= $art[
-                                "id"
-                            ] ?>">
-                            <button type="submit" class="blog-pub__card-delete" title="Supprimer">
-                                <span class="material-symbols-outlined">delete</span>
-                            </button>
-                        </form>
-                        <?php endif; ?>
-                    </article>
-                    </a>
-                    <?php
-                    endforeach; ?>
-                </div>
-                <?php else: ?>
-                <!-- État vide -->
-                <div class="blog-pub__empty">
-                    <div class="blog-pub__empty-icon">
-                        <span class="material-symbols-outlined">article</span>
-                    </div>
-                    <p class="blog-pub__empty-text">Aucune publication pour le moment.</p>
-                    <p class="blog-pub__empty-sub">Les articles générés via l'Article Structurer apparaîtront ici automatiquement.</p>
-                    <?php if ($isLoggedIn && isAdmin()): ?>
-                    <a href="article_structurer.php" class="blog-pub__empty-btn">
-                        <span class="material-symbols-outlined" style="font-size:16px;">auto_awesome</span>
-                        Créer un article
-                    </a>
-                    <?php endif; ?>
-                </div>
-                <?php endif; ?>
-            </div>
-
-            <!-- RSS Magazine -->
-            <div class="rss-card" style="margin-bottom: var(--sp-lg);">
-                <div class="rss-card__scanline"></div>
-                <div class="rss-card__bar">
-                    <div class="rss-card__dots">
-                        <span class="rss-card__dot rss-card__dot--red"></span>
-                        <span class="rss-card__dot rss-card__dot--yellow"></span>
-                        <span class="rss-card__dot rss-card__dot--green"></span>
-                    </div>
-                    <span class="rss-card__bar-title label-caps">INFO_MAGAZINE</span>
-                    <span class="rss-card__bar-status">
-                        <span class="pulse-dot pulse-dot--green"></span>
-                        <span class="label-caps" style="font-size:9px; color:rgba(255,255,255,0.35);">LIVE</span>
-                    </span>
-                </div>
-                <div class="rss-card__widget">
-                    <rssapp-magazine id="zVn6TvX26blDCSPJ"></rssapp-magazine><script data-src="https://widget.rss.app/v1/magazine.js" type="text/javascript" async class="rss-lazy"></script>
-                </div>
-            </div>
-
-            <!-- Separator -->
-            <div class="rss-card__divider" style="margin: var(--sp-xl) 0;">
-                <span class="rss-card__divider-line"></span>
-                <span class="material-symbols-outlined" style="font-size:14px; color:rgba(255,255,255,0.15);">more_horiz</span>
-                <span class="rss-card__divider-line"></span>
-            </div>
-
-            <!-- RSS Unified Card -->
-            <div class="rss-card">
-                <div class="rss-card__scanline"></div>
-                <div class="rss-card__bar">
-                    <div class="rss-card__dots">
-                        <span class="rss-card__dot rss-card__dot--red"></span>
-                        <span class="rss-card__dot rss-card__dot--yellow"></span>
-                        <span class="rss-card__dot rss-card__dot--green"></span>
-                    </div>
-                    <span class="rss-card__bar-title label-caps">RSS_TERMINAL</span>
-                    <span class="rss-card__bar-status">
-                        <span class="pulse-dot pulse-dot--green"></span>
-                        <span class="label-caps" style="font-size:9px; color:rgba(255,255,255,0.35);">STREAMING</span>
-                    </span>
-                </div>
-
-                <!-- Widget 1: Carousel -->
-                <div class="rss-card__widget">
-                    <div class="rss-card__widget-label">
-                        <span class="material-symbols-outlined" style="font-size:16px; color:var(--primary);">view_carousel</span>
-                        <span class="label-caps">Highlights</span>
-                    </div>
-                    <rssapp-carousel id="TVOvmVGK5J7yEQY4"></rssapp-carousel><script data-src="https://widget.rss.app/v1/carousel.js" type="text/javascript" async class="rss-lazy"></script>
-                </div>
-
-                <!-- Separator -->
-                <div class="rss-card__divider">
-                    <span class="rss-card__divider-line"></span>
-                    <span class="material-symbols-outlined" style="font-size:14px; color:rgba(255,255,255,0.15);">more_horiz</span>
-                    <span class="rss-card__divider-line"></span>
-                </div>
-
-                <!-- Widget 2: Wall -->
-                <div class="rss-card__widget">
-                    <div class="rss-card__widget-label">
-                        <span class="material-symbols-outlined" style="font-size:16px; color:var(--secondary-bright);">grid_view</span>
-                        <span class="label-caps">Archive</span>
-                    </div>
-                    <rssapp-wall id="S5zmzgmuJRPBcSVo"></rssapp-wall><script data-src="https://widget.rss.app/v1/wall.js" type="text/javascript" async class="rss-lazy"></script>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================================
-         SECTION 6 — GALLERY / IMAGEBOARD
+         SECTION 7 — GALLERY / IMAGEBOARD
          ================================ -->
     <section class="gallery-section" id="gallery">
         <div class="container">
@@ -1706,9 +1757,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
             </div>
         </div>
     </section>
-
     <!-- ================================
-         SECTION 7 — MEDIA WALL
+         SECTION 8 — MEDIA WALL
          ================================ -->
     <section class="media-section" id="media">
         <div class="container">
@@ -1743,44 +1793,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
             </div>
         </div>
     </section>
-
     <!-- ================================
-         SECTION 7.5 — SIGNAL_FEED
-         ================================ -->
-    <section class="gallery-section" id="signal-feed">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-header__bar"></div>
-                <div class="section-header__label">Signal Feed</div>
-                <h1 class="section-header__title">SIGNAL_FEED</h1>
-                <p class="section-header__desc">
-                    Source supplémentaire. Veille technologique, actualités et découvertes du moment.
-                </p>
-            </div>
-
-            <div class="media-card">
-                <div class="media-card__scanline"></div>
-                <div class="media-card__bar">
-                    <div class="media-card__dots">
-                        <span class="media-card__dot media-card__dot--red"></span>
-                        <span class="media-card__dot media-card__dot--yellow"></span>
-                        <span class="media-card__dot media-card__dot--green"></span>
-                    </div>
-                    <span class="media-card__bar-title label-caps">SIGNAL_STREAM</span>
-                    <span class="media-card__bar-status">
-                        <span class="pulse-dot pulse-dot--green"></span>
-                        <span class="label-caps" style="font-size:9px; color:rgba(255,255,255,0.35);">LIVE</span>
-                    </span>
-                </div>
-                <div class="media-card__body">
-                    <rssapp-imageboard id="Lt3ZLEhfxXAnAcuM"></rssapp-imageboard><script data-src="https://widget.rss.app/v1/imageboard.js" type="text/javascript" async class="rss-lazy"></script>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================================
-         SECTION 8 — DONATIONS / SOUTIEN
+         SECTION 9 — DONATIONS / SOUTIEN
          ================================ -->
     <section class="donate-section" id="donate">
         <div class="container">
@@ -1968,9 +1982,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
             </div>
         </div>
     </section>
-
     <!-- ================================
-         SECTION 9 — NEWSLETTER
+         SECTION 10 — NEWSLETTER
          ================================ -->
     <section class="newsletter-section" id="newsletter">
         <div class="container">
@@ -2030,9 +2043,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
             </div>
         </div>
     </section>
-
     <!-- ================================
-         SECTION 10 — CONTACT
+         SECTION 11 — CONTACT
          ================================ -->
     <section class="contact-section" id="contact">
         <div class="container">
@@ -2231,61 +2243,80 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
     </div>
 
     <!-- ================================
-         BOTTOM NAVIGATION
+         DYNAMIC SIDEBAR
          ================================ -->
-    <nav class="nav-bottom" aria-label="Navigation principale">
-        <ul class="nav-bottom__list">
-            <li class="nav-bottom__item">
-                <a href="#home" class="nav-bottom__link active" data-section="home">
-                    <span class="material-symbols-outlined nav-bottom__icon" style="font-variation-settings:'FILL' 1;">home</span>
-                    <span class="nav-bottom__text">Home</span>
-                </a>
-            </li>
-            <li class="nav-bottom__item">
-                <a href="#skills" class="nav-bottom__link" data-section="skills">
-                    <span class="material-symbols-outlined nav-bottom__icon">bolt</span>
-                    <span class="nav-bottom__text">Skills</span>
-                </a>
-            </li>
-            <li class="nav-bottom__item">
-                <a href="#projects" class="nav-bottom__link" data-section="projects">
-                    <span class="material-symbols-outlined nav-bottom__icon">grid_view</span>
-                    <span class="nav-bottom__text">Projects</span>
-                </a>
-            </li>
-            <li class="nav-bottom__item">
-                <a href="#contact" class="nav-bottom__link" data-section="contact">
-                    <span class="material-symbols-outlined nav-bottom__icon">alternate_email</span>
-                    <span class="nav-bottom__text">Contact</span>
-                </a>
-            </li>
-            <li class="nav-bottom__item">
-                <?php if ($isLoggedIn): ?>
-                    <a href="profile.php" class="nav-bottom__link">
-                        <span class="material-symbols-outlined nav-bottom__icon" style="font-variation-settings:'FILL' <?= isAdmin()
-                            ? "1"
-                            : "0" ?>;">person</span>
-                        <span class="nav-bottom__text"><?= isAdmin()
-                            ? "Admin"
-                            : "Profil" ?></span>
-                    </a>
-                <?php else: ?>
-                    <a href="login.php" class="nav-bottom__link">
-                        <span class="material-symbols-outlined nav-bottom__icon">login</span>
-                        <span class="nav-bottom__text">Compte</span>
-                    </a>
-                <?php endif; ?>
-            </li>
-        </ul>
-    </nav>
+    <aside class="sidebar" id="sidebar">
+        <nav class="sidebar__nav" id="sidebarNav">
+            <div class="sidebar__brand">
+                <div class="sidebar__brand-icon">
+                    <span class="material-symbols-outlined">terminal</span>
+                </div>
+                <span class="sidebar__brand-text">BP</span>
+            </div>
+            <div class="sidebar__divider"></div>
+            <a href="#home" class="sidebar__link active" data-section="home" title="Accueil">
+                <span class="material-symbols-outlined">home</span>
+                <span class="sidebar__label">Accueil</span>
+            </a>
+            <a href="#skills" class="sidebar__link" data-section="skills" title="Compétences">
+                <span class="material-symbols-outlined">bolt</span>
+                <span class="sidebar__label">Skills</span>
+            </a>
+            <a href="#projects" class="sidebar__link" data-section="projects" title="Projets">
+                <span class="material-symbols-outlined">grid_view</span>
+                <span class="sidebar__label">Projets</span>
+            </a>
+            <a href="#blog" class="sidebar__link" data-section="blog" title="Blog">
+                <span class="material-symbols-outlined">rss_feed</span>
+                <span class="sidebar__label">Blog</span>
+            </a>
+            <a href="#gaming-calendar" class="sidebar__link" data-section="gaming-calendar" title="Gaming">
+                <span class="material-symbols-outlined">sports_esports</span>
+                <span class="sidebar__label">Gaming</span>
+            </a>
+            <a href="#contact" class="sidebar__link" data-section="contact" title="Contact">
+                <span class="material-symbols-outlined">alternate_email</span>
+                <span class="sidebar__label">Contact</span>
+            </a>
+            <div class="sidebar__spacer"></div>
+            <div class="sidebar__divider"></div>
+            <?php if ($isLoggedIn): ?>
+            <a href="<?= isAdmin()
+                ? "admin.php"
+                : "profile.php" ?>" class="sidebar__link sidebar__link--auth" title="<?= isAdmin()
+    ? "Admin"
+    : "Profil" ?>">
+                <span class="material-symbols-outlined" style="font-variation-settings:'FILL' <?= isAdmin()
+                    ? "1"
+                    : "0" ?>;">person</span>
+                <span class="sidebar__label"><?= isAdmin()
+                    ? "Admin"
+                    : "Profil" ?></span>
+            </a>
+            <?php else: ?>
+            <a href="login.php" class="sidebar__link sidebar__link--auth" title="Connexion">
+                <span class="material-symbols-outlined">login</span>
+                <span class="sidebar__label">Compte</span>
+            </a>
+            <?php endif; ?>
+            <a href="agenda.php" class="sidebar__link sidebar__link--ext" title="Agenda">
+                <span class="material-symbols-outlined">calendar_month</span>
+                <span class="sidebar__label">Agenda</span>
+            </a>
+            <a href="hardware.php" class="sidebar__link sidebar__link--ext" title="Hardware">
+                <span class="material-symbols-outlined">memory</span>
+                <span class="sidebar__label">Hardware</span>
+            </a>
+        </nav>
+    </aside>
 
     <!-- ================================
          JAVASCRIPT
          ================================ -->
     <script>
-        // — Active nav link on scroll —
+        // — Active sidebar link on scroll —
         const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav-bottom__link');
+        const navLinks = document.querySelectorAll('.sidebar__link[data-section]');
 
         // — Efficiency Chart Animation —
         const chartBars = document.querySelectorAll('.efficiency-chart__bar[data-height]');

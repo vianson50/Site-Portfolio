@@ -479,7 +479,7 @@
         icon: "check_circle",
       };
     } else if (status === "live" || (start <= now && end >= now)) {
-      return { label: "En cours", class: "gc-status--live", icon: "pulse" };
+      return { label: "En cours", class: "gc-status--live", icon: "" };
     } else {
       return {
         label: "À venir",
@@ -815,7 +815,7 @@
 
     const statuses = [
       { id: "all", label: "Tous", icon: "list" },
-      { id: "live", label: "En cours", icon: "pulse" },
+      { id: "live", label: "En cours", icon: "" },
       { id: "upcoming", label: "À venir", icon: "schedule" },
       { id: "completed", label: "Terminés", icon: "check_circle" },
     ];
