@@ -31,6 +31,19 @@ $currentUser = $isLoggedIn ? getCurrentUser() : null;
 if ($isLoggedIn && !$currentUser) {
     $isLoggedIn = false;
 }
+
+// ─── APK Metadata ───
+$apkMeta = null;
+$apkMetaFile = __DIR__ . "/uploads/apk/apk_meta.json";
+if (file_exists($apkMetaFile)) {
+    $tmp = json_decode(file_get_contents($apkMetaFile), true);
+    if (
+        $tmp &&
+        file_exists(__DIR__ . "/uploads/apk/" . ($tmp["filename"] ?? ""))
+    ) {
+        $apkMeta = $tmp;
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="<?= $lang ?>">
@@ -175,6 +188,56 @@ if ($isLoggedIn && !$currentUser) {
         /* ── Animations ── */
         .fade-up{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
         .fade-up.visible{opacity:1;transform:translateY(0)}
+
+        /* ── APK Download Section ── */
+        .apk-section{padding:60px 0}
+        .apk-card{background:var(--surface);border:1px solid rgba(255,130,0,0.1);border-radius:16px;padding:40px;text-align:center;max-width:600px;margin:0 auto;position:relative;overflow:hidden}
+        .apk-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--secondary),var(--primary));opacity:.6}
+        .apk-card__icon{width:64px;height:64px;margin:0 auto 20px;background:linear-gradient(135deg,rgba(0,158,96,0.15),rgba(0,158,96,0.05));border:1px solid rgba(0,158,96,0.2);border-radius:16px;display:flex;align-items:center;justify-content:center}
+        .apk-card__icon .material-symbols-outlined{font-size:32px;color:var(--secondary-bright)}
+        .apk-card__title{font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--white);margin-bottom:8px}
+        .apk-card__desc{font-size:14px;color:var(--on-surface-variant);margin-bottom:24px;line-height:1.6}
+        .apk-info{display:flex;justify-content:center;gap:24px;margin-bottom:28px;flex-wrap:wrap}
+        .apk-info__item{display:flex;align-items:center;gap:6px;font-family:var(--font-display);font-size:12px;color:var(--outline);letter-spacing:.3px}
+        .apk-info__item .material-symbols-outlined{font-size:16px;color:var(--primary)}
+        .apk-download-btn{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;background:var(--secondary);color:var(--void);font-family:var(--font-display);font-size:14px;font-weight:700;letter-spacing:.5px;border-radius:12px;text-decoration:none;transition:all .25s;border:none;cursor:pointer}
+        .apk-download-btn:hover{background:var(--secondary-bright);transform:translateY(-2px);box-shadow:0 8px 30px var(--secondary-glow)}
+        .apk-download-btn .material-symbols-outlined{font-size:20px}
+        .apk-download-btn--disabled{opacity:.4;cursor:not-allowed;pointer-events:none}
+        .apk-no-file{padding:16px 24px;background:rgba(255,130,0,0.06);border:1px dashed rgba(255,130,0,0.2);border-radius:10px;display:flex;align-items:center;gap:10px;justify-content:center;font-family:var(--font-display);font-size:13px;color:var(--outline)}
+        .apk-no-file .material-symbols-outlined{font-size:18px;color:var(--primary);opacity:.5}
+        .apk-admin-bar{margin-top:20px;display:flex;justify-content:center;gap:12px}
+        .apk-admin-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;font-family:var(--font-display);font-size:11px;font-weight:600;letter-spacing:.5px;border-radius:8px;cursor:pointer;transition:all .2s;border:1px solid rgba(255,130,0,0.2);background:rgba(255,130,0,0.06);color:var(--primary)}
+        .apk-admin-btn:hover{background:rgba(255,130,0,0.15)}
+        .apk-admin-btn--danger{border-color:rgba(255,95,87,0.3);background:rgba(255,95,87,0.06);color:#ff5f57}
+        .apk-admin-btn--danger:hover{background:rgba(255,95,87,0.15)}
+        .apk-admin-btn .material-symbols-outlined{font-size:14px}
+
+        /* ── APK Upload Modal ── */
+        .apk-modal{position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;backdrop-filter:blur(4px)}
+        .apk-modal.active{opacity:1;pointer-events:all}
+        .apk-modal__box{background:var(--surface);border:1px solid rgba(255,130,0,0.12);border-radius:16px;padding:32px;width:90%;max-width:480px;position:relative}
+        .apk-modal__close{position:absolute;top:12px;right:12px;background:none;border:none;color:var(--outline);cursor:pointer;font-size:20px;transition:color .2s}
+        .apk-modal__close:hover{color:var(--primary)}
+        .apk-modal__title{font-family:var(--font-display);font-size:18px;font-weight:700;color:var(--white);margin-bottom:20px;display:flex;align-items:center;gap:8px}
+        .apk-modal__title .material-symbols-outlined{font-size:20px;color:var(--primary)}
+        .apk-modal__field{margin-bottom:16px}
+        .apk-modal__field label{display:block;font-family:var(--font-display);font-size:11px;font-weight:600;letter-spacing:.5px;color:var(--outline);margin-bottom:6px;text-transform:uppercase}
+        .apk-modal__field input[type="text"],.apk-modal__field textarea{width:100%;padding:10px 14px;background:var(--void);border:1px solid rgba(166,139,123,0.15);border-radius:8px;color:var(--on-surface);font-family:var(--font-body);font-size:13px;transition:border-color .2s}
+        .apk-modal__field input[type="text"]:focus,.apk-modal__field textarea:focus{outline:none;border-color:rgba(255,130,0,0.4)}
+        .apk-modal__field textarea{resize:vertical;min-height:70px}
+        .apk-dropzone{border:2px dashed rgba(255,130,0,0.2);border-radius:12px;padding:32px 20px;text-align:center;cursor:pointer;transition:all .25s;background:rgba(255,130,0,0.02);margin-bottom:16px}
+        .apk-dropzone:hover,.apk-dropzone.dragover{border-color:rgba(255,130,0,0.4);background:rgba(255,130,0,0.06)}
+        .apk-dropzone__icon{font-size:36px;color:var(--primary);opacity:.5;margin-bottom:8px}
+        .apk-dropzone__text{font-family:var(--font-display);font-size:12px;color:var(--outline);letter-spacing:.3px}
+        .apk-dropzone__text strong{color:var(--primary)}
+        .apk-dropzone input[type="file"]{display:none}
+        .apk-modal__submit{width:100%;padding:14px;background:var(--secondary);color:var(--void);font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:.5px;border:none;border-radius:10px;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px}
+        .apk-modal__submit:hover:not(:disabled){background:var(--secondary-bright);transform:translateY(-1px)}
+        .apk-modal__submit:disabled{opacity:.5;cursor:not-allowed}
+        .apk-modal__msg{margin-top:12px;padding:10px 14px;border-radius:8px;font-family:var(--font-display);font-size:12px;letter-spacing:.3px;display:none}
+        .apk-modal__msg--success{display:block;background:rgba(0,158,96,0.1);color:var(--secondary-bright);border:1px solid rgba(0,158,96,0.2)}
+        .apk-modal__msg--error{display:block;background:rgba(255,95,87,0.1);color:#ff5f57;border:1px solid rgba(255,95,87,0.2)}
     </style>
 </head>
 <body>
@@ -453,6 +516,150 @@ if ($isLoggedIn && !$currentUser) {
     </section>
 
     <!-- ================================
+         APK DOWNLOAD
+         ================================ -->
+    <section class="apk-section" id="apk-download">
+        <div class="container">
+            <div class="case-section__label fade-up">
+                <span>TÉLÉCHARGEMENT</span>
+                <span class="bar"></span>
+            </div>
+            <h2 class="case-section__title fade-up" style="margin-bottom:32px;">Télécharger l'APK</h2>
+
+            <div class="apk-card fade-up">
+                <div class="apk-card__icon">
+                    <span class="material-symbols-outlined">android</span>
+                </div>
+                <h3 class="apk-card__title">Nouchi Lexicon App</h3>
+                <p class="apk-card__desc">Téléchargez l'application directement sur votre appareil Android. Activez \&quot;Sources inconnues\&quot; dans vos paramètres pour installer l'APK.</p>
+
+<?php if ($apkMeta): ?>
+                <div class="apk-info">
+                    <div class="apk-info__item">
+                        <span class="material-symbols-outlined">new_releases</span>
+                        v<?= htmlspecialchars($apkMeta["version"] ?? "1.0.0") ?>
+                    </div>
+                    <div class="apk-info__item">
+                        <span class="material-symbols-outlined">sd_card</span>
+                        <?= htmlspecialchars(
+                            $apkMeta["size_formatted"] ?? "?",
+                        ) ?>
+                    </div>
+                    <div class="apk-info__item">
+                        <span class="material-symbols-outlined">calendar_today</span>
+                        <?= htmlspecialchars(
+                            date(
+                                "d/m/Y",
+                                strtotime($apkMeta["upload_date"] ?? "now"),
+                            ),
+                        ) ?>
+                    </div>
+<?php if (!empty($apkMeta["downloads"])): ?>
+                    <div class="apk-info__item">
+                        <span class="material-symbols-outlined">download</span>
+                        <?= number_format(
+                            $apkMeta["downloads"],
+                        ) ?> téléchargements
+                    </div>
+<?php endif; ?>
+                </div>
+
+<?php if (!empty($apkMeta["changelog"])): ?>
+                <div style="margin-bottom:20px;padding:12px 16px;background:rgba(255,130,0,0.04);border:1px solid rgba(255,130,0,0.08);border-radius:8px;text-align:left;">
+                    <div style="font-family:var(--font-display);font-size:10px;font-weight:600;letter-spacing:.5px;color:var(--primary);margin-bottom:6px;text-transform:uppercase;">Nouveautés</div>
+                    <div style="font-size:13px;color:var(--on-surface-variant);line-height:1.5;"><?= nl2br(
+                        htmlspecialchars($apkMeta["changelog"]),
+                    ) ?></div>
+                </div>
+<?php endif; ?>
+
+                <a href="apk_handler.php?download=1" class="apk-download-btn">
+                    <span class="material-symbols-outlined">download</span>
+                    TÉLÉCHARGER L'APK
+                </a>
+
+<?php else: ?>
+                <div class="apk-no-file">
+                    <span class="material-symbols-outlined">cloud_off</span>
+                    Aucun APK disponible pour le moment.
+                </div>
+<?php endif; ?>
+
+<?php if (isAdmin()): ?>
+                <div class="apk-admin-bar">
+<?php if ($apkMeta): ?>
+                    <button class="apk-admin-btn apk-admin-btn--danger" onclick="deleteApk()">
+                        <span class="material-symbols-outlined">delete</span>
+                        SUPPRIMER
+                    </button>
+<?php endif; ?>
+                    <button class="apk-admin-btn" onclick="openApkModal()">
+                        <span class="material-symbols-outlined">upload_file</span>
+                        <?= $apkMeta ? 'REMPLACER L\'APK' : "UPLOADER UN APK" ?>
+                    </button>
+                </div>
+<?php endif; ?>
+            </div>
+        </div>
+    </section>
+
+<?php if (isAdmin()): ?>
+    <!-- APK Upload Modal -->
+    <div class="apk-modal" id="apkModal">
+        <div class="apk-modal__box">
+            <button class="apk-modal__close" onclick="closeApkModal()">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <div class="apk-modal__title">
+                <span class="material-symbols-outlined">upload_file</span>
+                Uploader un APK
+            </div>
+            <form id="apkUploadForm" onsubmit="return submitApk(event)">
+                <input type="hidden" name="action" value="upload">
+
+                <div class="apk-dropzone" id="apkDropzone" onclick="document.getElementById('apkFileInput').click()">
+                    <div class="apk-dropzone__icon">
+                        <span class="material-symbols-outlined" style="font-size:36px;">cloud_upload</span>
+                    </div>
+                    <div class="apk-dropzone__text" id="apkDropText">
+                        Glissez un fichier <strong>.apk</strong> ici<br>ou cliquez pour parcourir
+                    </div>
+                    <input type="file" name="apk_file" id="apkFileInput" accept=".apk">
+                </div>
+
+                <div style="display:flex;gap:12px;margin-bottom:16px;">
+                    <div class="apk-modal__field" style="flex:1;">
+                        <label>Version</label>
+                        <input type="text" name="version" placeholder="1.0.0" value="<?= htmlspecialchars(
+                            $apkMeta["version"] ?? "1.0.0",
+                        ) ?>">
+                    </div>
+                    <div class="apk-modal__field" style="flex:1;">
+                        <label>Android min.</label>
+                        <input type="text" name="min_android" placeholder="5.0" value="<?= htmlspecialchars(
+                            $apkMeta["min_android"] ?? "5.0",
+                        ) ?>">
+                    </div>
+                </div>
+
+                <div class="apk-modal__field">
+                    <label>Changelog</label>
+                    <textarea name="changelog" placeholder="Nouveautés de cette version..."><?= htmlspecialchars(
+                        $apkMeta["changelog"] ?? "",
+                    ) ?></textarea>
+                </div>
+
+                <button type="submit" class="apk-modal__submit" id="apkSubmitBtn">
+                    <span class="material-symbols-outlined" style="font-size:18px;">upload</span>
+                    UPLOADER
+                </button>
+            </form>
+            <div class="apk-modal__msg" id="apkMsg"></div>
+        </div>
+    </div>
+<?php endif; ?>
+
+    <!-- ================================
          CTA
          ================================ -->
     <section class="case-cta">
@@ -532,6 +739,118 @@ if ($isLoggedIn && !$currentUser) {
             });
         }, { threshold: 0.15 });
         fadeEls.forEach(el => fadeObserver.observe(el));
+
+<?php if (isAdmin()): ?>
+        // ── APK Upload System ──
+        const apkModal = document.getElementById('apkModal');
+        const apkDropzone = document.getElementById('apkDropzone');
+        const apkFileInput = document.getElementById('apkFileInput');
+        const apkDropText = document.getElementById('apkDropText');
+        const apkSubmitBtn = document.getElementById('apkSubmitBtn');
+        const apkMsg = document.getElementById('apkMsg');
+        let selectedFile = null;
+
+        function openApkModal() {
+            apkModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            apkMsg.className = 'apk-modal__msg';
+            apkMsg.textContent = '';
+        }
+
+        function closeApkModal() {
+            apkModal.classList.remove('active');
+            document.body.style.overflow = '';
+            selectedFile = null;
+            apkDropText.innerHTML = 'Glissez un fichier <strong>.apk</strong> ici<br>ou cliquez pour parcourir';
+        }
+
+        apkModal.addEventListener('click', function(e) {
+            if (e.target === apkModal) closeApkModal();
+        });
+
+        // Drag & Drop
+        apkDropzone.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            apkDropzone.classList.add('dragover');
+        });
+        apkDropzone.addEventListener('dragleave', function() {
+            apkDropzone.classList.remove('dragover');
+        });
+        apkDropzone.addEventListener('drop', function(e) {
+            e.preventDefault();
+            apkDropzone.classList.remove('dragover');
+            const file = e.dataTransfer.files[0];
+            if (file && file.name.toLowerCase().endsWith('.apk')) {
+                selectedFile = file;
+                apkDropText.innerHTML = '<strong>' + file.name + '</strong><br>' + (file.size / 1048576).toFixed(1) + ' MB';
+            } else {
+                apkDropText.innerHTML = '<span style="color:#ff5f57;">Fichier invalide. Seul .apk accepté.</span>';
+            }
+        });
+
+        apkFileInput.addEventListener('change', function() {
+            if (this.files[0]) {
+                selectedFile = this.files[0];
+                apkDropText.innerHTML = '<strong>' + selectedFile.name + '</strong><br>' + (selectedFile.size / 1048576).toFixed(1) + ' MB';
+            }
+        });
+
+        function submitApk(e) {
+            e.preventDefault();
+            if (!selectedFile) {
+                apkMsg.className = 'apk-modal__msg apk-modal__msg--error';
+                apkMsg.textContent = 'Sélectionnez un fichier APK.';
+                return false;
+            }
+
+            const form = document.getElementById('apkUploadForm');
+            const formData = new FormData(form);
+            formData.set('apk_file', selectedFile);
+
+            apkSubmitBtn.disabled = true;
+            apkSubmitBtn.innerHTML = '<span class="material-symbols-outlined" style="font-size:18px;animation:spin 1s linear infinite;">progress_activity</span> Upload en cours...';
+
+            fetch('apk_handler.php', { method: 'POST', body: formData })
+                .then(r => r.json())
+                .then(data => {
+                    if (data.success) {
+                        apkMsg.className = 'apk-modal__msg apk-modal__msg--success';
+                        apkMsg.textContent = 'APK uploadé avec succès ! Rechargement...';
+                        setTimeout(() => location.reload(), 1500);
+                    } else {
+                        throw new Error(data.error || 'Erreur inconnue');
+                    }
+                })
+                .catch(err => {
+                    apkMsg.className = 'apk-modal__msg apk-modal__msg--error';
+                    apkMsg.textContent = err.message;
+                    apkSubmitBtn.disabled = false;
+                    apkSubmitBtn.innerHTML = '<span class="material-symbols-outlined" style="font-size:18px;">upload</span> UPLOADER';
+                });
+
+            return false;
+        }
+
+        function deleteApk() {
+            if (!confirm('Supprimer l\'APK actuel ?')) return;
+            fetch('apk_handler.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: 'action=delete'
+            })
+            .then(r => r.json())
+            .then(data => {
+                if (data.success) location.reload();
+                else alert(data.error || 'Erreur');
+            })
+            .catch(() => alert('Erreur réseau.'));
+        }
+
+        // Spin animation for upload progress
+        const style = document.createElement('style');
+        style.textContent = '@keyframes spin{to{transform:rotate(360deg)}}';
+        document.head.appendChild(style);
+<?php endif; ?>
     </script>
 </body>
 </html>

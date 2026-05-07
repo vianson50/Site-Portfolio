@@ -1,0 +1,2379 @@
+{
+    "ts": 1778169597,
+    "d": {
+        "success": true,
+        "upcoming": [
+            {
+                "id": "startgg_909363",
+                "name": "Castle Smashers 154 - I Am Making This One From A Card Game Event Yippee",
+                "slug": "tournament\/castle-smashers-154-i-am-making-this-one-from-a-card-game-event-yippee",
+                "source": "start.gg",
+                "start_at": "2026-05-07 07:30:00",
+                "end_at": "2026-05-07 12:00:00",
+                "city": "Warabrook",
+                "country": "AU",
+                "state": "NSW",
+                "attendees": 6,
+                "events": [
+                    {
+                        "id": 1620267,
+                        "name": "Ultimate singles",
+                        "numEntrants": 6,
+                        "game": "Super Smash Bros. Ultimate"
+                    },
+                    {
+                        "id": 1620270,
+                        "name": "Puyo Puyo Tetris 2 Singles",
+                        "numEntrants": 6,
+                        "game": "Puyo Puyo Tetris 2"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/castle-smashers-154-i-am-making-this-one-from-a-card-game-event-yippee",
+                "status": "completed",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_909640",
+                "name": "Flightless Esports Street Fighter 6 Weekly - Week 2 [OCE]",
+                "slug": "tournament\/flightless-esports-street-fighter-6-weekly-week-2-oce",
+                "source": "start.gg",
+                "start_at": "2026-05-07 07:30:00",
+                "end_at": "2026-05-07 11:57:00",
+                "city": null,
+                "country": null,
+                "state": null,
+                "attendees": 21,
+                "events": [
+                    {
+                        "id": 1620849,
+                        "name": "Street Fighter 6 1v1 Bracket",
+                        "numEntrants": 21,
+                        "game": "Street Fighter 6"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/flightless-esports-street-fighter-6-weekly-week-2-oce",
+                "status": "completed",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_909366",
+                "name": "Launceston Smash Club #66",
+                "slug": "tournament\/launceston-smash-club-66",
+                "source": "start.gg",
+                "start_at": "2026-05-07 08:00:00",
+                "end_at": "2026-05-07 11:00:00",
+                "city": "Launceston",
+                "country": "AU",
+                "state": "TAS",
+                "attendees": 6,
+                "events": [
+                    {
+                        "id": 1620273,
+                        "name": "Melee Singles",
+                        "numEntrants": 6,
+                        "game": "Super Smash Bros. Melee"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/launceston-smash-club-66",
+                "status": "completed",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_905774",
+                "name": "7(木)上野スマコミ#448(オープン)",
+                "slug": "tournament\/7-448",
+                "source": "start.gg",
+                "start_at": "2026-05-07 08:00:00",
+                "end_at": "2026-05-07 14:00:00",
+                "city": "台東区",
+                "country": "JP",
+                "state": "東京都",
+                "attendees": 9,
+                "events": [
+                    {
+                        "id": 1612759,
+                        "name": "シングルス（１on１トーナメント）",
+                        "numEntrants": 9,
+                        "game": "Super Smash Bros. Ultimate"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/7-448",
+                "status": "completed",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_907382",
+                "name": "Creature Club 18",
+                "slug": "tournament\/creature-club-18",
+                "source": "start.gg",
+                "start_at": "2026-05-07 09:00:00",
+                "end_at": "2026-05-07 13:00:00",
+                "city": "Brunswick East",
+                "country": "AU",
+                "state": "VIC",
+                "attendees": 20,
+                "events": [
+                    {
+                        "id": 1616059,
+                        "name": "Melee singles",
+                        "numEntrants": 20,
+                        "game": "Super Smash Bros. Melee"
+                    },
+                    {
+                        "id": 1616060,
+                        "name": "Critter club (ammies)",
+                        "numEntrants": 4,
+                        "game": "Super Smash Bros. Melee"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/creature-club-18",
+                "status": "completed",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_908909",
+                "name": "Smash @ Burnside #54",
+                "slug": "tournament\/smash-burnside-54",
+                "source": "start.gg",
+                "start_at": "2026-05-07 09:00:00",
+                "end_at": "2026-05-07 13:30:00",
+                "city": "Tusmore",
+                "country": "AU",
+                "state": "SA",
+                "attendees": 26,
+                "events": [
+                    {
+                        "id": 1619208,
+                        "name": "Ultimate Singles",
+                        "numEntrants": 25,
+                        "game": "Super Smash Bros. Ultimate"
+                    },
+                    {
+                        "id": 1621896,
+                        "name": "Ultimate Singles Redemption",
+                        "numEntrants": 13,
+                        "game": "Super Smash Bros. Ultimate"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/smash-burnside-54",
+                "status": "completed",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_907862",
+                "name": "Shibuya G.G.Smash Weekly 61",
+                "slug": "tournament\/shibuya-g-g-smash-weekly-61",
+                "source": "start.gg",
+                "start_at": "2026-05-07 09:30:00",
+                "end_at": "2026-05-07 13:30:00",
+                "city": "渋谷区",
+                "country": "JP",
+                "state": "東京都",
+                "attendees": 35,
+                "events": [
+                    {
+                        "id": 1617024,
+                        "name": "Singles",
+                        "numEntrants": 35,
+                        "game": "Super Smash Bros. Ultimate"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/shibuya-g-g-smash-weekly-61",
+                "status": "completed",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_909753",
+                "name": "マエスマ'HIT#166 \/ Maesuma'HIT#166",
+                "slug": "tournament\/hit-166-maesuma-hit-166-1",
+                "source": "start.gg",
+                "start_at": "2026-05-07 10:00:00",
+                "end_at": "2026-05-07 14:00:00",
+                "city": "大阪市",
+                "country": "JP",
+                "state": "大阪府",
+                "attendees": 34,
+                "events": [
+                    {
+                        "id": 1621128,
+                        "name": "Singles Tournament",
+                        "numEntrants": 34,
+                        "game": "Super Smash Bros. Ultimate"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/hit-166-maesuma-hit-166-1",
+                "status": "completed",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_905157",
+                "name": "CGS Online Open Cup #2",
+                "slug": "tournament\/cgs-online-open-cup-2",
+                "source": "start.gg",
+                "start_at": "2026-05-07 14:00:00",
+                "end_at": "2026-05-10 21:00:00",
+                "city": null,
+                "country": null,
+                "state": null,
+                "attendees": 63,
+                "events": [
+                    {
+                        "id": 1611545,
+                        "name": "TEKKEN 8",
+                        "numEntrants": 20,
+                        "game": "TEKKEN 8"
+                    },
+                    {
+                        "id": 1611546,
+                        "name": "EA Sports FC 26",
+                        "numEntrants": 9,
+                        "game": "EA Sports FC 26"
+                    },
+                    {
+                        "id": 1611544,
+                        "name": "Super Smash Bros. Ultimate Singles",
+                        "numEntrants": 35,
+                        "game": "Super Smash Bros. Ultimate"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/cgs-online-open-cup-2",
+                "status": "live",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_910126",
+                "name": "Blue Cat Series #17",
+                "slug": "tournament\/blue-cat-series-17",
+                "source": "start.gg",
+                "start_at": "2026-05-07 14:00:00",
+                "end_at": "2026-05-07 21:00:00",
+                "city": null,
+                "country": null,
+                "state": null,
+                "attendees": 14,
+                "events": [
+                    {
+                        "id": 1621877,
+                        "name": "Ultimate Singles",
+                        "numEntrants": 14,
+                        "game": "Super Smash Bros. Ultimate"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/blue-cat-series-17",
+                "status": "live",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_901275",
+                "name": "Smash Israel at Rotemz 11",
+                "slug": "tournament\/smash-israel-at-rotemz-11",
+                "source": "start.gg",
+                "start_at": "2026-05-07 14:59:00",
+                "end_at": "2026-05-07 20:59:00",
+                "city": "Rishon LeTsiyon",
+                "country": "IL",
+                "state": "Center District",
+                "attendees": 19,
+                "events": [
+                    {
+                        "id": 1603315,
+                        "name": "Ultimate Singles",
+                        "numEntrants": 19,
+                        "game": "Super Smash Bros. Ultimate"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/smash-israel-at-rotemz-11",
+                "status": "live",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_889402",
+                "name": "Cafeteria Cup Kings",
+                "slug": "tournament\/cafeteria-cup-kings",
+                "source": "start.gg",
+                "start_at": "2026-05-07 15:00:00",
+                "end_at": "2026-05-09 03:00:00",
+                "city": "Nakano City",
+                "country": "JP",
+                "state": "Tokyo",
+                "attendees": 24,
+                "events": [
+                    {
+                        "id": 1577934,
+                        "name": "Cafeteria Kings: Singles 1v1",
+                        "numEntrants": 24,
+                        "game": "Super Smash Bros. Ultimate"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/cafeteria-cup-kings",
+                "status": "live",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_909327",
+                "name": "Lounge Angle #77",
+                "slug": "tournament\/lounge-angle-77",
+                "source": "start.gg",
+                "start_at": "2026-05-07 15:30:00",
+                "end_at": "2026-05-07 19:00:00",
+                "city": "Dortmund",
+                "country": "DE",
+                "state": "NRW",
+                "attendees": 16,
+                "events": [
+                    {
+                        "id": 1620174,
+                        "name": "Ultimate Singles",
+                        "numEntrants": 16,
+                        "game": "Super Smash Bros. Ultimate"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/lounge-angle-77",
+                "status": "live",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_908935",
+                "name": "Frente Euskadi #26",
+                "slug": "tournament\/frente-euskadi-26",
+                "source": "start.gg",
+                "start_at": "2026-05-07 15:30:00",
+                "end_at": "2026-05-07 19:00:00",
+                "city": "Bilbo",
+                "country": "ES",
+                "state": "PV",
+                "attendees": 3,
+                "events": [
+                    {
+                        "id": 1619277,
+                        "name": "Singles Bracket",
+                        "numEntrants": 3,
+                        "game": "Super Smash Bros. Ultimate"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/frente-euskadi-26",
+                "status": "live",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_907900",
+                "name": "Lorem Ipsum [Page 78]",
+                "slug": "tournament\/lorem-ipsum-page-78",
+                "source": "start.gg",
+                "start_at": "2026-05-07 15:30:00",
+                "end_at": "2026-05-07 21:30:00",
+                "city": "Strasbourg",
+                "country": "FR",
+                "state": "Grand Est",
+                "attendees": 40,
+                "events": [
+                    {
+                        "id": 1617123,
+                        "name": "MAIN EVENT - TEKKEN 8",
+                        "numEntrants": 8,
+                        "game": "TEKKEN 8"
+                    },
+                    {
+                        "id": 1617116,
+                        "name": "MAIN EVENT - SSBU",
+                        "numEntrants": 33,
+                        "game": "Super Smash Bros. Ultimate"
+                    },
+                    {
+                        "id": 1618201,
+                        "name": "SIDE EVENT - INVINCIBLE VS.",
+                        "numEntrants": 5,
+                        "game": "Invincible Vs."
+                    },
+                    {
+                        "id": 1617122,
+                        "name": "SIDE EVENT - MELTY BLOOD: TYPE LUMINA",
+                        "numEntrants": 4,
+                        "game": "Melty Blood: Type Lumina"
+                    },
+                    {
+                        "id": 1619374,
+                        "name": "SIDE EVENT - BOMBERMAN BLAST",
+                        "numEntrants": 6,
+                        "game": "Bomberman Blast"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/lorem-ipsum-page-78",
+                "status": "live",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_908510",
+                "name": "Super 1A Turnier #27",
+                "slug": "tournament\/super-1a-turnier-27",
+                "source": "start.gg",
+                "start_at": "2026-05-07 16:00:00",
+                "end_at": "2026-05-07 20:00:00",
+                "city": "Augsburg",
+                "country": "DE",
+                "state": "BY",
+                "attendees": 11,
+                "events": [
+                    {
+                        "id": 1618410,
+                        "name": "Ultimate Singles",
+                        "numEntrants": 10,
+                        "game": "Super Smash Bros. Ultimate"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/super-1a-turnier-27",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_909439",
+                "name": "Houblon & Baston 93",
+                "slug": "tournament\/houblon-baston-93",
+                "source": "start.gg",
+                "start_at": "2026-05-07 16:00:00",
+                "end_at": "2026-05-07 19:00:00",
+                "city": "Angoulême",
+                "country": "FR",
+                "state": "Nouvelle-Aquitaine",
+                "attendees": 21,
+                "events": [
+                    {
+                        "id": 1620387,
+                        "name": "LISTE D'ATTENTE",
+                        "numEntrants": 0,
+                        "game": "Super Smash Bros. Ultimate"
+                    },
+                    {
+                        "id": 1620386,
+                        "name": "Houblon & Baston 93",
+                        "numEntrants": 21,
+                        "game": "Super Smash Bros. Ultimate"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/houblon-baston-93",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_909456",
+                "name": "Nordic Arcadian Series #109",
+                "slug": "tournament\/nordic-arcadian-series-109",
+                "source": "start.gg",
+                "start_at": "2026-05-07 16:00:00",
+                "end_at": "2026-05-07 21:00:00",
+                "city": null,
+                "country": null,
+                "state": null,
+                "attendees": 5,
+                "events": [
+                    {
+                        "id": 1620424,
+                        "name": "Ultimate singles",
+                        "numEntrants": 5,
+                        "game": "Super Smash Bros. Ultimate"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/nordic-arcadian-series-109",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_909407",
+                "name": "29Corner Pressure #1",
+                "slug": "tournament\/29corner-pressure-1",
+                "source": "start.gg",
+                "start_at": "2026-05-07 16:00:00",
+                "end_at": "2026-05-07 20:00:00",
+                "city": "Berlin",
+                "country": "DE",
+                "state": "BE",
+                "attendees": 20,
+                "events": [
+                    {
+                        "id": 1620336,
+                        "name": "Singles",
+                        "numEntrants": 20,
+                        "game": "Super Smash Bros. Ultimate"
+                    },
+                    {
+                        "id": 1620337,
+                        "name": "Ladder",
+                        "numEntrants": 0,
+                        "game": "Super Smash Bros. Ultimate"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/29corner-pressure-1",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_909211",
+                "name": "ePeak Battle #7",
+                "slug": "tournament\/epeak-battle-7",
+                "source": "start.gg",
+                "start_at": "2026-05-07 16:00:00",
+                "end_at": "2026-05-07 21:00:00",
+                "city": "Douai",
+                "country": "FR",
+                "state": "Hauts-de-France",
+                "attendees": 29,
+                "events": [
+                    {
+                        "id": 1619822,
+                        "name": "Simple SSBU",
+                        "numEntrants": 28,
+                        "game": "Super Smash Bros. Ultimate"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/epeak-battle-7",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_905464",
+                "name": "Kayane Session - Ladder - Mai 2026",
+                "slug": "tournament\/kayane-session-ladder-mai-2026",
+                "source": "start.gg",
+                "start_at": "2026-05-07 16:00:00",
+                "end_at": "2026-05-07 21:00:00",
+                "city": "Paris",
+                "country": "FR",
+                "state": "IDF",
+                "attendees": 87,
+                "events": [
+                    {
+                        "id": 1612390,
+                        "name": "Ladder TEKKEN 8",
+                        "numEntrants": 81,
+                        "game": "TEKKEN 8"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/kayane-session-ladder-mai-2026",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_910102",
+                "name": "CPX Semanal",
+                "slug": "tournament\/cpx-semanal",
+                "source": "start.gg",
+                "start_at": "2026-05-07 16:20:00",
+                "end_at": "2026-05-07 17:00:00",
+                "city": "Xalapa-Enríquez",
+                "country": "MX",
+                "state": "Ver.",
+                "attendees": 8,
+                "events": [
+                    {
+                        "id": 1621846,
+                        "name": "Ultimate Singles 07\/05",
+                        "numEntrants": 8,
+                        "game": "Super Smash Bros. Ultimate"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/cpx-semanal",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_908932",
+                "name": "Jab Check #110",
+                "slug": "tournament\/jab-check-110",
+                "source": "start.gg",
+                "start_at": "2026-05-07 16:30:00",
+                "end_at": "2026-05-07 20:00:00",
+                "city": "Clermont-Ferrand",
+                "country": "FR",
+                "state": "Auvergne-Rhône-Alpes",
+                "attendees": 24,
+                "events": [
+                    {
+                        "id": 1619272,
+                        "name": "Jab Check : Single",
+                        "numEntrants": 24,
+                        "game": "Super Smash Bros. Ultimate"
+                    },
+                    {
+                        "id": 1619273,
+                        "name": "Liste d'attente",
+                        "numEntrants": 0,
+                        "game": "Super Smash Bros. Ultimate"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/jab-check-110",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_906365",
+                "name": "BORDERLINE SMASH #59 - Thursday Edition",
+                "slug": "tournament\/borderline-smash-59-thursday-edition",
+                "source": "start.gg",
+                "start_at": "2026-05-07 16:30:00",
+                "end_at": "2026-05-07 20:00:00",
+                "city": "Enschede",
+                "country": "NL",
+                "state": "OV",
+                "attendees": 11,
+                "events": [
+                    {
+                        "id": 1613921,
+                        "name": "Ultimate Singles",
+                        "numEntrants": 11,
+                        "game": "Super Smash Bros. Ultimate"
+                    },
+                    {
+                        "id": 1613922,
+                        "name": "Redemption Bracket",
+                        "numEntrants": 0,
+                        "game": "Super Smash Bros. Ultimate"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/borderline-smash-59-thursday-edition",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_905605",
+                "name": "LE DOJO CLUB #76",
+                "slug": "tournament\/le-dojo-club-76-1",
+                "source": "start.gg",
+                "start_at": "2026-05-07 16:30:00",
+                "end_at": "2026-05-07 20:30:00",
+                "city": "Paris",
+                "country": "FR",
+                "state": "IDF",
+                "attendees": 8,
+                "events": [
+                    {
+                        "id": 1612420,
+                        "name": "LE DOJO CLUB #76 1VS1",
+                        "numEntrants": 8,
+                        "game": "Street Fighter 6"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/le-dojo-club-76-1",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_909754",
+                "name": "Mid Level Mashdown SIX SEVEN",
+                "slug": "tournament\/mid-level-mashdown-six-seven",
+                "source": "start.gg",
+                "start_at": "2026-05-07 16:30:00",
+                "end_at": "2026-05-07 21:00:00",
+                "city": "Rotterdam",
+                "country": "NL",
+                "state": "ZH",
+                "attendees": 8,
+                "events": [
+                    {
+                        "id": 1621129,
+                        "name": "Smashy brosss",
+                        "numEntrants": 8,
+                        "game": "Super Smash Bros. Ultimate"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/mid-level-mashdown-six-seven",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_908399",
+                "name": "Brighton Stock Melee CXCVI",
+                "slug": "tournament\/brighton-stock-melee-cxcvi",
+                "source": "start.gg",
+                "start_at": "2026-05-07 16:30:00",
+                "end_at": "2026-05-07 21:00:00",
+                "city": "Brighton and Hove",
+                "country": "GB",
+                "state": "England",
+                "attendees": 20,
+                "events": [
+                    {
+                        "id": 1618202,
+                        "name": "Melee Singles",
+                        "numEntrants": 20,
+                        "game": "Super Smash Bros. Melee"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/brighton-stock-melee-cxcvi",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_910145",
+                "name": "Daddel Donnerstag #37",
+                "slug": "tournament\/daddel-donnerstag-37",
+                "source": "start.gg",
+                "start_at": "2026-05-07 16:30:00",
+                "end_at": "2026-05-07 21:30:00",
+                "city": null,
+                "country": null,
+                "state": null,
+                "attendees": 22,
+                "events": [
+                    {
+                        "id": 1621903,
+                        "name": "Ultimate Singles",
+                        "numEntrants": 22,
+                        "game": "Super Smash Bros. Ultimate"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/daddel-donnerstag-37",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_909378",
+                "name": "JOKOA #183",
+                "slug": "tournament\/jokoa-183",
+                "source": "start.gg",
+                "start_at": "2026-05-07 16:31:00",
+                "end_at": "2026-05-07 20:00:00",
+                "city": "Anglet",
+                "country": "FR",
+                "state": "Nouvelle-Aquitaine",
+                "attendees": 10,
+                "events": [
+                    {
+                        "id": 1620290,
+                        "name": "Ultimate Singles",
+                        "numEntrants": 10,
+                        "game": "Super Smash Bros. Ultimate"
+                    },
+                    {
+                        "id": 1620291,
+                        "name": "Liste d'attente",
+                        "numEntrants": 0,
+                        "game": "Super Smash Bros. Ultimate"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/jokoa-183",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_909243",
+                "name": "LHS Red Raider Rumble 2026",
+                "slug": "tournament\/lhs-red-raider-rumble-2026",
+                "source": "start.gg",
+                "start_at": "2026-05-07 17:00:00",
+                "end_at": "2026-05-07 18:00:00",
+                "city": "London",
+                "country": "US",
+                "state": "OH",
+                "attendees": 37,
+                "events": [
+                    {
+                        "id": 1621379,
+                        "name": "Mario Kart 8 Deluxe",
+                        "numEntrants": 23,
+                        "game": "Mario Kart 8 Deluxe"
+                    },
+                    {
+                        "id": 1619902,
+                        "name": "Ultimate Singles",
+                        "numEntrants": 21,
+                        "game": "Super Smash Bros. Ultimate"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/lhs-red-raider-rumble-2026",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_907955",
+                "name": "Toblerone Tangerine Thursdays #211 (EU Event)",
+                "slug": "tournament\/toblerone-tangerine-thursdays-211-eu-event",
+                "source": "start.gg",
+                "start_at": "2026-05-07 17:00:00",
+                "end_at": "2026-05-07 20:00:00",
+                "city": null,
+                "country": null,
+                "state": null,
+                "attendees": 12,
+                "events": [
+                    {
+                        "id": 1617241,
+                        "name": "Toblerone Singles",
+                        "numEntrants": 12,
+                        "game": "Super Smash Bros. Melee"
+                    },
+                    {
+                        "id": 1617240,
+                        "name": "Toblerone waitlist",
+                        "numEntrants": 2,
+                        "game": "Super Smash Bros. Melee"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/toblerone-tangerine-thursdays-211-eu-event",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_908934",
+                "name": "Saucismash[NG+] #260 - Ultimate Weekly Lyon",
+                "slug": "tournament\/saucismash-ng-260-ultimate-weekly-lyon",
+                "source": "start.gg",
+                "start_at": "2026-05-07 17:00:00",
+                "end_at": "2026-05-07 21:55:00",
+                "city": "Lyon",
+                "country": "FR",
+                "state": "Auvergne-Rhône-Alpes",
+                "attendees": 49,
+                "events": [
+                    {
+                        "id": 1619275,
+                        "name": "Main Event - Ultimate Singles",
+                        "numEntrants": 48,
+                        "game": "Super Smash Bros. Ultimate"
+                    },
+                    {
+                        "id": 1619276,
+                        "name": "Main Event - Waiting List",
+                        "numEntrants": 6,
+                        "game": "Super Smash Bros. Ultimate"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/saucismash-ng-260-ultimate-weekly-lyon",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_909086",
+                "name": "Smash @ Open World #32",
+                "slug": "tournament\/smash-open-world-32",
+                "source": "start.gg",
+                "start_at": "2026-05-07 17:00:00",
+                "end_at": "2026-05-07 21:59:00",
+                "city": "Wien",
+                "country": "AT",
+                "state": "Wien",
+                "attendees": 22,
+                "events": [
+                    {
+                        "id": 1619577,
+                        "name": "Ultimate Singles",
+                        "numEntrants": 24,
+                        "game": "Super Smash Bros. Ultimate"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/smash-open-world-32",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_907515",
+                "name": "Neomax 2026 #18 - Nottingham FGC Weekly",
+                "slug": "tournament\/neomax-2026-18-nottingham-fgc-weekly",
+                "source": "start.gg",
+                "start_at": "2026-05-07 17:00:00",
+                "end_at": "2026-05-07 21:30:00",
+                "city": "Nottingham",
+                "country": "GB",
+                "state": "England",
+                "attendees": 17,
+                "events": [
+                    {
+                        "id": 1616277,
+                        "name": "Ultimate Singles",
+                        "numEntrants": 10,
+                        "game": "Super Smash Bros. Ultimate"
+                    },
+                    {
+                        "id": 1620587,
+                        "name": "FF: CotW",
+                        "numEntrants": 8,
+                        "game": "Fatal Fury: City of the Wolves"
+                    },
+                    {
+                        "id": 1620588,
+                        "name": "Guilty Gear Strive",
+                        "numEntrants": 7,
+                        "game": "Guilty Gear: Strive"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/neomax-2026-18-nottingham-fgc-weekly",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_908914",
+                "name": "Lorem Ipsum [Page 78]",
+                "slug": "tournament\/lorem-ipsum-page-78-1",
+                "source": "start.gg",
+                "start_at": "2026-05-07 17:00:00",
+                "end_at": "2026-05-07 22:00:00",
+                "city": "Strasbourg",
+                "country": "FR",
+                "state": "Grand Est",
+                "attendees": 0,
+                "events": [],
+                "url": "https:\/\/start.gg\/tournament\/lorem-ipsum-page-78-1",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_905219",
+                "name": "Pepite Stadium - S05E07 - La HF est de retour !?",
+                "slug": "tournament\/pepite-stadium-s05e07-la-hf-est-de-retour",
+                "source": "start.gg",
+                "start_at": "2026-05-07 17:00:00",
+                "end_at": "2026-05-07 21:00:00",
+                "city": "Paris",
+                "country": "FR",
+                "state": "IDF",
+                "attendees": 16,
+                "events": [
+                    {
+                        "id": 1611692,
+                        "name": "Melee Singles",
+                        "numEntrants": 16,
+                        "game": "Super Smash Bros. Melee"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/pepite-stadium-s05e07-la-hf-est-de-retour",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_907941",
+                "name": "StreetSmash 10 - In 2 Deep Edition",
+                "slug": "tournament\/streetsmash-10-in-2-deep-edition",
+                "source": "start.gg",
+                "start_at": "2026-05-07 17:00:00",
+                "end_at": "2026-05-07 21:00:00",
+                "city": "Manchester",
+                "country": "GB",
+                "state": "England",
+                "attendees": 20,
+                "events": [
+                    {
+                        "id": 1617210,
+                        "name": "Ultimate Singles",
+                        "numEntrants": 20,
+                        "game": "Super Smash Bros. Ultimate"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/streetsmash-10-in-2-deep-edition",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_910205",
+                "name": "Mashweida Weekly Series #68.7676",
+                "slug": "tournament\/mashweida-weekly-series-68-7676",
+                "source": "start.gg",
+                "start_at": "2026-05-07 17:00:00",
+                "end_at": "2026-05-07 21:55:00",
+                "city": "Mittweida",
+                "country": "DE",
+                "state": "SN",
+                "attendees": 5,
+                "events": [
+                    {
+                        "id": 1622044,
+                        "name": "SSSCHLECHTE NEUE DOPPLER 2 - RUECKKEHR DER DOPPLER",
+                        "numEntrants": 0,
+                        "game": "Super Smash Bros. Ultimate"
+                    },
+                    {
+                        "id": 1622043,
+                        "name": "Solo Mashing",
+                        "numEntrants": 6,
+                        "game": "Super Smash Bros. Ultimate"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/mashweida-weekly-series-68-7676",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_909774",
+                "name": "Get ready! S3 #18",
+                "slug": "tournament\/get-ready-s3-18",
+                "source": "start.gg",
+                "start_at": "2026-05-07 17:00:00",
+                "end_at": "2026-05-07 21:59:00",
+                "city": "Vedène",
+                "country": "FR",
+                "state": "Provence-Alpes-Côte d'Azur",
+                "attendees": 10,
+                "events": [
+                    {
+                        "id": 1621173,
+                        "name": "Ultimate SIngles",
+                        "numEntrants": 10,
+                        "game": "Super Smash Bros. Ultimate"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/get-ready-s3-18",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_909551",
+                "name": "Manabar Weekly 2026 (#18) Doubles + Rivals 2 Side Event",
+                "slug": "tournament\/manabar-weekly-2026-18-doubles-rivals-2-side-event",
+                "source": "start.gg",
+                "start_at": "2026-05-07 17:30:00",
+                "end_at": "2026-05-07 21:00:00",
+                "city": "Basel",
+                "country": "CH",
+                "state": "BS",
+                "attendees": 12,
+                "events": [
+                    {
+                        "id": 1620663,
+                        "name": "Ladder\/Friendlies",
+                        "numEntrants": 12,
+                        "game": "Super Smash Bros. Ultimate"
+                    },
+                    {
+                        "id": 1620662,
+                        "name": "Need Teammate",
+                        "numEntrants": 5,
+                        "game": "Super Smash Bros. Ultimate"
+                    },
+                    {
+                        "id": 1620667,
+                        "name": "2v2",
+                        "numEntrants": 4,
+                        "game": "Super Smash Bros. Ultimate"
+                    },
+                    {
+                        "id": 1620664,
+                        "name": "Rivals 2 Side Event",
+                        "numEntrants": 2,
+                        "game": "Rivals of Aether II"
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/manabar-weekly-2026-18-doubles-rivals-2-side-event",
+                "status": "upcoming",
+                "_source": "start.gg"
+            }
+        ],
+        "past": [],
+        "brawlstars": [
+            {
+                "id": "startgg_909846",
+                "name": "Double Dunk #71 @ Isthmian Gaming",
+                "slug": "tournament\/double-dunk-71-isthmian-gaming",
+                "source": "start.gg",
+                "start_at": "2026-05-07 23:00:00",
+                "end_at": "2026-05-08 03:00:00",
+                "city": "Madison",
+                "country": "US",
+                "state": null,
+                "attendees": 7,
+                "events": [
+                    {
+                        "id": 1621322,
+                        "name": "Rivals of Aether Singles",
+                        "numEntrants": 3,
+                        "game": null
+                    },
+                    {
+                        "id": 1621323,
+                        "name": "Rivals of Aether II Singles",
+                        "numEntrants": 7,
+                        "game": null
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/double-dunk-71-isthmian-gaming",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_909464",
+                "name": "Bay State Beatdown 203",
+                "slug": "tournament\/bay-state-beatdown-203",
+                "source": "start.gg",
+                "start_at": "2026-05-07 23:00:00",
+                "end_at": "2026-05-08 03:58:00",
+                "city": "Boston",
+                "country": "US",
+                "state": null,
+                "attendees": 7,
+                "events": [
+                    {
+                        "id": 1620435,
+                        "name": "SSBU Singles",
+                        "numEntrants": 5,
+                        "game": null
+                    },
+                    {
+                        "id": 1620436,
+                        "name": "Rivals Singles",
+                        "numEntrants": 3,
+                        "game": null
+                    },
+                    {
+                        "id": 1620441,
+                        "name": "Redemption Singles (free!)",
+                        "numEntrants": 0,
+                        "game": null
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/bay-state-beatdown-203",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_884679",
+                "name": "Ōtautahi Onslaught 2026 - Christchurch Fighting Game Major!!",
+                "slug": "tournament\/tautahi-onslaught-2026-christchurch-fighting-game-major",
+                "source": "start.gg",
+                "start_at": "2026-05-08 00:00:00",
+                "end_at": "2026-05-09 23:59:00",
+                "city": "Christchurch",
+                "country": "NZ",
+                "state": null,
+                "attendees": 80,
+                "events": [
+                    {
+                        "id": 1569987,
+                        "name": "Main Game: Super Smash Bros. Melee",
+                        "numEntrants": 24,
+                        "game": null
+                    },
+                    {
+                        "id": 1577383,
+                        "name": "Community Game: Beyblade X",
+                        "numEntrants": 16,
+                        "game": null
+                    },
+                    {
+                        "id": 1577406,
+                        "name": "Community Game: Under Night In-Birth II Sys:Celes",
+                        "numEntrants": 14,
+                        "game": null
+                    },
+                    {
+                        "id": 1577413,
+                        "name": "Community Game: Rivals of Aether",
+                        "numEntrants": 13,
+                        "game": null
+                    },
+                    {
+                        "id": 1577403,
+                        "name": "Community Game: BlazBlue Cross Tag Battle",
+                        "numEntrants": 12,
+                        "game": null
+                    },
+                    {
+                        "id": 1577404,
+                        "name": "Community Game: Melty Blood Actress Again Current Code",
+                        "numEntrants": 12,
+                        "game": null
+                    },
+                    {
+                        "id": 1577409,
+                        "name": "Community Game: Idol Showdown",
+                        "numEntrants": 10,
+                        "game": null
+                    },
+                    {
+                        "id": 1577407,
+                        "name": "Community Game: TetroFight",
+                        "numEntrants": 8,
+                        "game": null
+                    },
+                    {
+                        "id": 1577412,
+                        "name": "Community Game: King of Fighters XV",
+                        "numEntrants": 7,
+                        "game": null
+                    },
+                    {
+                        "id": 1577411,
+                        "name": "Community Game: Marvel vs Capcom 2",
+                        "numEntrants": 6,
+                        "game": null
+                    },
+                    {
+                        "id": 1569989,
+                        "name": "Main Game: Super Smash Bros. Ultimate",
+                        "numEntrants": 26,
+                        "game": null
+                    },
+                    {
+                        "id": 1569990,
+                        "name": "Main Game: Street Fighter 6",
+                        "numEntrants": 23,
+                        "game": null
+                    },
+                    {
+                        "id": 1569992,
+                        "name": "Main Game: Guilty Gear: STRIVE",
+                        "numEntrants": 21,
+                        "game": null
+                    },
+                    {
+                        "id": 1569993,
+                        "name": "Side Game: Rivals of Aether II",
+                        "numEntrants": 21,
+                        "game": null
+                    },
+                    {
+                        "id": 1569991,
+                        "name": "Main Game: Tekken 8",
+                        "numEntrants": 17,
+                        "game": null
+                    },
+                    {
+                        "id": 1569996,
+                        "name": "Side Game: Street Fighter III: Third Strike",
+                        "numEntrants": 16,
+                        "game": null
+                    },
+                    {
+                        "id": 1569994,
+                        "name": "Side Game: Fatal Fury: City of the Wolves",
+                        "numEntrants": 12,
+                        "game": null
+                    },
+                    {
+                        "id": 1569995,
+                        "name": "Side Game: Ultimate Marvel vs Capcom 3",
+                        "numEntrants": 10,
+                        "game": null
+                    },
+                    {
+                        "id": 1569998,
+                        "name": "Side Game: 2XKO",
+                        "numEntrants": 8,
+                        "game": null
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/tautahi-onslaught-2026-christchurch-fighting-game-major",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_909349",
+                "name": "Dash Dancers Weekly #227",
+                "slug": "tournament\/dash-dancers-weekly-227",
+                "source": "start.gg",
+                "start_at": "2026-05-08 15:00:00",
+                "end_at": "2026-05-08 20:30:00",
+                "city": "Düren",
+                "country": "DE",
+                "state": null,
+                "attendees": 10,
+                "events": [
+                    {
+                        "id": 1620227,
+                        "name": "Ultimate Singles",
+                        "numEntrants": 5,
+                        "game": null
+                    },
+                    {
+                        "id": 1620229,
+                        "name": "Rivals 1 Singles",
+                        "numEntrants": 3,
+                        "game": null
+                    },
+                    {
+                        "id": 1620228,
+                        "name": "Rivals 2 Singles",
+                        "numEntrants": 3,
+                        "game": null
+                    },
+                    {
+                        "id": 1620759,
+                        "name": "Strive 2.0",
+                        "numEntrants": 3,
+                        "game": null
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/dash-dancers-weekly-227",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_906068",
+                "name": "ROACS Season 5 - Qualifier Seven",
+                "slug": "tournament\/roacs-season-5-qualifier-seven",
+                "source": "start.gg",
+                "start_at": "2026-05-09 07:00:00",
+                "end_at": "2026-05-09 12:00:00",
+                "city": null,
+                "country": null,
+                "state": null,
+                "attendees": 0,
+                "events": [
+                    {
+                        "id": 1613405,
+                        "name": "Rivals Singles",
+                        "numEntrants": 0,
+                        "game": null
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/roacs-season-5-qualifier-seven",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_909396",
+                "name": "Comarca SmashWorld: Face-To-Face #24",
+                "slug": "tournament\/comarca-smashworld-face-to-face-24",
+                "source": "start.gg",
+                "start_at": "2026-05-09 08:30:00",
+                "end_at": "2026-05-09 18:30:00",
+                "city": "Torrevieja",
+                "country": "ES",
+                "state": null,
+                "attendees": 8,
+                "events": [
+                    {
+                        "id": 1620321,
+                        "name": "Smash Ultimate Casual",
+                        "numEntrants": 8,
+                        "game": null
+                    },
+                    {
+                        "id": 1620320,
+                        "name": "Rivals Singles",
+                        "numEntrants": 4,
+                        "game": null
+                    },
+                    {
+                        "id": 1620319,
+                        "name": "Smash Ultimate Singles",
+                        "numEntrants": 6,
+                        "game": null
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/comarca-smashworld-face-to-face-24",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_908986",
+                "name": "Playstyle Purgatory 12",
+                "slug": "tournament\/playstyle-purgatory-12",
+                "source": "start.gg",
+                "start_at": "2026-05-09 12:00:00",
+                "end_at": "2026-05-09 20:00:00",
+                "city": "Reykjavík",
+                "country": "IS",
+                "state": null,
+                "attendees": 4,
+                "events": [
+                    {
+                        "id": 1619375,
+                        "name": "Smash Remix",
+                        "numEntrants": 4,
+                        "game": null
+                    },
+                    {
+                        "id": 1619377,
+                        "name": "Rivals of Aether",
+                        "numEntrants": 3,
+                        "game": null
+                    },
+                    {
+                        "id": 1619358,
+                        "name": "Melee!",
+                        "numEntrants": 3,
+                        "game": null
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/playstyle-purgatory-12",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_908612",
+                "name": "Maplewood mayhem 5: the cb warm up",
+                "slug": "tournament\/maplewood-mayhem-5-the-cb-warm-up",
+                "source": "start.gg",
+                "start_at": "2026-05-09 17:00:00",
+                "end_at": "2026-05-10 02:00:00",
+                "city": "Maplewood",
+                "country": "US",
+                "state": null,
+                "attendees": 10,
+                "events": [
+                    {
+                        "id": 1618599,
+                        "name": "Tekken 8",
+                        "numEntrants": 0,
+                        "game": null
+                    },
+                    {
+                        "id": 1618598,
+                        "name": "Guilty Gear Xrd (free to enter)",
+                        "numEntrants": 2,
+                        "game": null
+                    },
+                    {
+                        "id": 1618597,
+                        "name": "Rivals of Aether",
+                        "numEntrants": 3,
+                        "game": null
+                    },
+                    {
+                        "id": 1618596,
+                        "name": "Rivals of Aether 2",
+                        "numEntrants": 3,
+                        "game": null
+                    },
+                    {
+                        "id": 1618594,
+                        "name": "Guilty Gear Strive",
+                        "numEntrants": 3,
+                        "game": null
+                    },
+                    {
+                        "id": 1618595,
+                        "name": "Granblue Fantasy Versus Rising",
+                        "numEntrants": 2,
+                        "game": null
+                    },
+                    {
+                        "id": 1618603,
+                        "name": "3S ( free to enter)",
+                        "numEntrants": 1,
+                        "game": null
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/maplewood-mayhem-5-the-cb-warm-up",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_908267",
+                "name": "Wonderfly Weekly #253",
+                "slug": "tournament\/wonderfly-weekly-253",
+                "source": "start.gg",
+                "start_at": "2026-05-13 21:00:00",
+                "end_at": "2026-05-14 04:00:00",
+                "city": "Arbutus",
+                "country": "US",
+                "state": null,
+                "attendees": 5,
+                "events": [
+                    {
+                        "id": 1617917,
+                        "name": "Project +",
+                        "numEntrants": 0,
+                        "game": null
+                    },
+                    {
+                        "id": 1617914,
+                        "name": "Rivals 2",
+                        "numEntrants": 5,
+                        "game": null
+                    },
+                    {
+                        "id": 1617915,
+                        "name": "Rivals 1",
+                        "numEntrants": 4,
+                        "game": null
+                    },
+                    {
+                        "id": 1617916,
+                        "name": "Super Smash Bros. Ultimate: Singles",
+                        "numEntrants": 0,
+                        "game": null
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/wonderfly-weekly-253",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_903075",
+                "name": "Evil Neomax",
+                "slug": "tournament\/evil-neomax-1",
+                "source": "start.gg",
+                "start_at": "2026-05-15 17:00:00",
+                "end_at": "2026-05-15 21:30:00",
+                "city": "Nottingham",
+                "country": "GB",
+                "state": null,
+                "attendees": 0,
+                "events": [
+                    {
+                        "id": 1607154,
+                        "name": "\"Brawl\" Singles",
+                        "numEntrants": 0,
+                        "game": null
+                    },
+                    {
+                        "id": 1607143,
+                        "name": "Rivals Workshop (Singles)",
+                        "numEntrants": 0,
+                        "game": null
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/evil-neomax-1",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_908221",
+                "name": "Let’s ROC 18",
+                "slug": "tournament\/let-s-roc-18",
+                "source": "start.gg",
+                "start_at": "2026-05-16 16:00:00",
+                "end_at": "2026-05-17 02:00:00",
+                "city": "Rochester",
+                "country": "US",
+                "state": null,
+                "attendees": 8,
+                "events": [
+                    {
+                        "id": 1617809,
+                        "name": "Invincible VS",
+                        "numEntrants": 4,
+                        "game": null
+                    },
+                    {
+                        "id": 1617798,
+                        "name": "Guilty Gear Strive",
+                        "numEntrants": 2,
+                        "game": null
+                    },
+                    {
+                        "id": 1617802,
+                        "name": "Rivals of Aether",
+                        "numEntrants": 1,
+                        "game": null
+                    },
+                    {
+                        "id": 1617831,
+                        "name": "Squad Strike",
+                        "numEntrants": 1,
+                        "game": null
+                    },
+                    {
+                        "id": 1617804,
+                        "name": "Dragon Ball FighterZ",
+                        "numEntrants": 2,
+                        "game": null
+                    },
+                    {
+                        "id": 1617795,
+                        "name": "Street Fighter 6",
+                        "numEntrants": 2,
+                        "game": null
+                    },
+                    {
+                        "id": 1617797,
+                        "name": "Ultimate Singles",
+                        "numEntrants": 1,
+                        "game": null
+                    },
+                    {
+                        "id": 1617800,
+                        "name": "2XKO",
+                        "numEntrants": 2,
+                        "game": null
+                    },
+                    {
+                        "id": 1617801,
+                        "name": "Rivals of Aether II",
+                        "numEntrants": 1,
+                        "game": null
+                    },
+                    {
+                        "id": 1617803,
+                        "name": "Fatal Fury: City of the Wolves",
+                        "numEntrants": 1,
+                        "game": null
+                    },
+                    {
+                        "id": 1617796,
+                        "name": "Tekken 8",
+                        "numEntrants": 3,
+                        "game": null
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/let-s-roc-18",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_896516",
+                "name": "Bracketfullabiscuits #3",
+                "slug": "tournament\/bracketfullabiscuits-3",
+                "source": "start.gg",
+                "start_at": "2026-05-16 16:00:00",
+                "end_at": "2026-05-17 00:00:00",
+                "city": "York",
+                "country": "US",
+                "state": null,
+                "attendees": 14,
+                "events": [
+                    {
+                        "id": 1592945,
+                        "name": "Rivals I Singles",
+                        "numEntrants": 11,
+                        "game": null
+                    },
+                    {
+                        "id": 1592946,
+                        "name": "Rivals II Singles",
+                        "numEntrants": 10,
+                        "game": null
+                    },
+                    {
+                        "id": 1592947,
+                        "name": "Rivals I Side Bracket (VOTE! LINK ON HOME PAGE)",
+                        "numEntrants": 1,
+                        "game": null
+                    },
+                    {
+                        "id": 1592948,
+                        "name": "Rivals II Side Bracket (VOTE! LINK ON MAIN PAGE)",
+                        "numEntrants": 1,
+                        "game": null
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/bracketfullabiscuits-3",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_908189",
+                "name": "The Cursed Rivals Workshop Tournament #3 ¡DELTA TRUTH BUS!",
+                "slug": "tournament\/the-cursed-rivals-workshop-tournament-3-delta-truth-bus",
+                "source": "start.gg",
+                "start_at": "2026-05-16 17:00:00",
+                "end_at": "2026-05-16 22:00:00",
+                "city": null,
+                "country": null,
+                "state": null,
+                "attendees": 6,
+                "events": [
+                    {
+                        "id": 1617728,
+                        "name": "Workshop Singles",
+                        "numEntrants": 6,
+                        "game": null
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/the-cursed-rivals-workshop-tournament-3-delta-truth-bus",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_903887",
+                "name": "SOLARPOWERED: BLACKOUT #2",
+                "slug": "tournament\/solarpowered-blackout-2",
+                "source": "start.gg",
+                "start_at": "2026-05-16 17:00:00",
+                "end_at": "2026-05-17 04:00:00",
+                "city": "Plano",
+                "country": "US",
+                "state": null,
+                "attendees": 10,
+                "events": [
+                    {
+                        "id": 1608702,
+                        "name": "Rivals of Aether Singles",
+                        "numEntrants": 5,
+                        "game": null
+                    },
+                    {
+                        "id": 1608704,
+                        "name": "Rivals 2 Doubles",
+                        "numEntrants": 1,
+                        "game": null
+                    },
+                    {
+                        "id": 1608700,
+                        "name": "Rivals of Aether 2 Singles",
+                        "numEntrants": 9,
+                        "game": null
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/solarpowered-blackout-2",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_904594",
+                "name": "SloBroke REBORN! #100: Regional! ($500 Pot Bonus)",
+                "slug": "tournament\/slobroke-reborn-100-regional-500-pot-bonus",
+                "source": "start.gg",
+                "start_at": "2026-05-16 19:00:00",
+                "end_at": "2026-05-17 05:00:00",
+                "city": "San Luis Obispo",
+                "country": "US",
+                "state": null,
+                "attendees": 21,
+                "events": [
+                    {
+                        "id": 1616787,
+                        "name": "Ultimate Doubles",
+                        "numEntrants": 1,
+                        "game": null
+                    },
+                    {
+                        "id": 1610248,
+                        "name": "Project+ Singles",
+                        "numEntrants": 7,
+                        "game": null
+                    },
+                    {
+                        "id": 1610236,
+                        "name": "Ultimate Singles",
+                        "numEntrants": 7,
+                        "game": null
+                    },
+                    {
+                        "id": 1610237,
+                        "name": "Melee Singles",
+                        "numEntrants": 12,
+                        "game": null
+                    },
+                    {
+                        "id": 1610247,
+                        "name": "Rivals Of Aether Singles",
+                        "numEntrants": 4,
+                        "game": null
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/slobroke-reborn-100-regional-500-pot-bonus",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_900508",
+                "name": "Molten Merendero IV",
+                "slug": "tournament\/molten-merendero-iv",
+                "source": "start.gg",
+                "start_at": "2026-05-30 07:00:00",
+                "end_at": "2026-05-30 20:00:00",
+                "city": "Milano",
+                "country": "IT",
+                "state": null,
+                "attendees": 23,
+                "events": [
+                    {
+                        "id": 1610498,
+                        "name": "Rivals 1 Singles",
+                        "numEntrants": 4,
+                        "game": null
+                    },
+                    {
+                        "id": 1601692,
+                        "name": "Rivals II Doubles",
+                        "numEntrants": 4,
+                        "game": null
+                    },
+                    {
+                        "id": 1601693,
+                        "name": "Rivals II Ladder",
+                        "numEntrants": 1,
+                        "game": null
+                    },
+                    {
+                        "id": 1601691,
+                        "name": "Rivals II Singles",
+                        "numEntrants": 23,
+                        "game": null
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/molten-merendero-iv",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_906384",
+                "name": "Rivals Uncaged #9 - Regional Event",
+                "slug": "tournament\/rivals-uncaged-9-regional-event",
+                "source": "start.gg",
+                "start_at": "2026-05-30 16:00:00",
+                "end_at": "2026-05-31 01:00:00",
+                "city": "Hatboro",
+                "country": "US",
+                "state": null,
+                "attendees": 14,
+                "events": [
+                    {
+                        "id": 1613960,
+                        "name": "RoA2 - 1v1",
+                        "numEntrants": 13,
+                        "game": null
+                    },
+                    {
+                        "id": 1613961,
+                        "name": "RoA - 1v1",
+                        "numEntrants": 5,
+                        "game": null
+                    },
+                    {
+                        "id": 1613962,
+                        "name": "RoA2 - Redemption Bracket",
+                        "numEntrants": 0,
+                        "game": null
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/rivals-uncaged-9-regional-event",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_907248",
+                "name": "SD Rivals",
+                "slug": "tournament\/sd-rivals",
+                "source": "start.gg",
+                "start_at": "2026-05-30 21:00:00",
+                "end_at": "2026-05-31 04:00:00",
+                "city": "El Cajon",
+                "country": "US",
+                "state": null,
+                "attendees": 0,
+                "events": [
+                    {
+                        "id": 1615733,
+                        "name": "Rivals 1 Singles",
+                        "numEntrants": 0,
+                        "game": null
+                    },
+                    {
+                        "id": 1615732,
+                        "name": "Rivals 2 Doubles",
+                        "numEntrants": 0,
+                        "game": null
+                    },
+                    {
+                        "id": 1615715,
+                        "name": "Rivals 2 Singles",
+                        "numEntrants": 0,
+                        "game": null
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/sd-rivals",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_908214",
+                "name": "Tapped In #8 - Back In Action",
+                "slug": "tournament\/tapped-in-8-back-in-action",
+                "source": "start.gg",
+                "start_at": "2026-05-31 15:00:00",
+                "end_at": "2026-05-31 23:00:00",
+                "city": "Alexandria",
+                "country": "US",
+                "state": null,
+                "attendees": 9,
+                "events": [
+                    {
+                        "id": 1617777,
+                        "name": "Melee Singles",
+                        "numEntrants": 8,
+                        "game": null
+                    },
+                    {
+                        "id": 1617779,
+                        "name": "Melee Doubles",
+                        "numEntrants": 1,
+                        "game": null
+                    },
+                    {
+                        "id": 1617783,
+                        "name": "WAITLIST Melee Singles",
+                        "numEntrants": 0,
+                        "game": null
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/tapped-in-8-back-in-action",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_883305",
+                "name": "Ultra Goat 2026 (Esquenta)",
+                "slug": "tournament\/ultra-goat-2026-esquenta",
+                "source": "start.gg",
+                "start_at": "2026-06-05 17:00:00",
+                "end_at": "2026-06-06 01:00:00",
+                "city": "Savassi",
+                "country": "BR",
+                "state": null,
+                "attendees": 14,
+                "events": [
+                    {
+                        "id": 1620758,
+                        "name": "Melty Blood Actress Again Current Code",
+                        "numEntrants": 6,
+                        "game": null
+                    },
+                    {
+                        "id": 1620760,
+                        "name": "Umineko: Golden Fantasia",
+                        "numEntrants": 6,
+                        "game": null
+                    },
+                    {
+                        "id": 1620757,
+                        "name": "Melty Blood: Type Lumina",
+                        "numEntrants": 5,
+                        "game": null
+                    },
+                    {
+                        "id": 1620762,
+                        "name": "Guilty Gear XX Accent Core +R",
+                        "numEntrants": 4,
+                        "game": null
+                    },
+                    {
+                        "id": 1620756,
+                        "name": "DNF Duel",
+                        "numEntrants": 2,
+                        "game": null
+                    },
+                    {
+                        "id": 1570850,
+                        "name": "Melee",
+                        "numEntrants": 2,
+                        "game": null
+                    },
+                    {
+                        "id": 1620764,
+                        "name": "Touhou Juuouen (19) ~ Unfinished Dream of All Living Ghost",
+                        "numEntrants": 2,
+                        "game": null
+                    },
+                    {
+                        "id": 1620765,
+                        "name": "Ultra Fight Da! Kyanta 2",
+                        "numEntrants": 2,
+                        "game": null
+                    },
+                    {
+                        "id": 1620767,
+                        "name": "Pokemon Close Combat",
+                        "numEntrants": 1,
+                        "game": null
+                    },
+                    {
+                        "id": 1565404,
+                        "name": "BlazBlue: Central Fiction",
+                        "numEntrants": 8,
+                        "game": null
+                    },
+                    {
+                        "id": 1565337,
+                        "name": "Rivals of Aether II",
+                        "numEntrants": 2,
+                        "game": null
+                    },
+                    {
+                        "id": 1565338,
+                        "name": "Rivals of Aether I",
+                        "numEntrants": 0,
+                        "game": null
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/ultra-goat-2026-esquenta",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_902088",
+                "name": "Super Midoff 17",
+                "slug": "tournament\/super-midoff-17",
+                "source": "start.gg",
+                "start_at": "2026-06-06 23:00:00",
+                "end_at": "2026-06-07 03:59:00",
+                "city": null,
+                "country": null,
+                "state": null,
+                "attendees": 4,
+                "events": [
+                    {
+                        "id": 1605067,
+                        "name": "Rivals of Aether Singles",
+                        "numEntrants": 4,
+                        "game": null
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/super-midoff-17",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_908927",
+                "name": "Arca-Sys #12",
+                "slug": "tournament\/arca-sys-12",
+                "source": "start.gg",
+                "start_at": "2026-06-20 12:00:00",
+                "end_at": "2026-06-20 17:00:00",
+                "city": "Villeurbanne",
+                "country": "FR",
+                "state": null,
+                "attendees": 13,
+                "events": [
+                    {
+                        "id": 1619253,
+                        "name": "Guilty Gear Strive",
+                        "numEntrants": 12,
+                        "game": null
+                    },
+                    {
+                        "id": 1619254,
+                        "name": "Granblue Fantasy Versus: Rising",
+                        "numEntrants": 6,
+                        "game": null
+                    },
+                    {
+                        "id": 1619256,
+                        "name": "Rivals of Aether",
+                        "numEntrants": 2,
+                        "game": null
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/arca-sys-12",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_892032",
+                "name": "Fight for the Throne 2026 – FGC Tournament at Eh! Game Expo ($3k+ Prize Pools)",
+                "slug": "tournament\/fight-for-the-throne-2026-fgc-tournament-at-eh-game-expo-3k-prize-pools",
+                "source": "start.gg",
+                "start_at": "2026-07-03 14:00:00",
+                "end_at": "2026-07-05 23:00:00",
+                "city": "Kingston",
+                "country": "CA",
+                "state": null,
+                "attendees": 29,
+                "events": [
+                    {
+                        "id": 1616044,
+                        "name": "Avatar Legends [Saturday]",
+                        "numEntrants": 0,
+                        "game": null
+                    },
+                    {
+                        "id": 1589806,
+                        "name": "Mario Kart World [Friday]",
+                        "numEntrants": 0,
+                        "game": null
+                    },
+                    {
+                        "id": 1587050,
+                        "name": "Rivals of Aether 1 Singles [Saturday]",
+                        "numEntrants": 0,
+                        "game": null
+                    },
+                    {
+                        "id": 1620472,
+                        "name": "Under NightIn-Birth II Sys:Celes [Saturday]",
+                        "numEntrants": 0,
+                        "game": null
+                    },
+                    {
+                        "id": 1589666,
+                        "name": "Ultimate Singles Under 17 [Friday]",
+                        "numEntrants": 0,
+                        "game": null
+                    },
+                    {
+                        "id": 1583877,
+                        "name": "TEKKEN 8 ($500 Pot Bonus) [Saturday]",
+                        "numEntrants": 1,
+                        "game": null
+                    },
+                    {
+                        "id": 1583898,
+                        "name": "Guilty Gear Strive [Saturday]",
+                        "numEntrants": 1,
+                        "game": null
+                    },
+                    {
+                        "id": 1587037,
+                        "name": "Granblue Fantasy Versus: Rising [Saturday]",
+                        "numEntrants": 2,
+                        "game": null
+                    },
+                    {
+                        "id": 1589471,
+                        "name": "Ultimate Doubles [Saturday]",
+                        "numEntrants": 1,
+                        "game": null
+                    },
+                    {
+                        "id": 1589601,
+                        "name": "Melee Doubles [Saturday]",
+                        "numEntrants": 0,
+                        "game": null
+                    },
+                    {
+                        "id": 1583890,
+                        "name": "2XKO - Mixed Mode ($500 Pot Bonus) [Saturday]",
+                        "numEntrants": 2,
+                        "game": null
+                    },
+                    {
+                        "id": 1589676,
+                        "name": "Rivals 2 Doubles [Saturday]",
+                        "numEntrants": 2,
+                        "game": null
+                    },
+                    {
+                        "id": 1583760,
+                        "name": "Ultimate Singles ($500 Pot Bonus) [Sat + Sun]",
+                        "numEntrants": 12,
+                        "game": null
+                    },
+                    {
+                        "id": 1583807,
+                        "name": "Melee Singles ($500 Pot Bonus) [Sat + Sun]",
+                        "numEntrants": 3,
+                        "game": null
+                    },
+                    {
+                        "id": 1583876,
+                        "name": "Street Fighter 6 ($500 Pot Bonus) [Saturday]",
+                        "numEntrants": 2,
+                        "game": null
+                    },
+                    {
+                        "id": 1587045,
+                        "name": "Invincible VS [Saturday]",
+                        "numEntrants": 3,
+                        "game": null
+                    },
+                    {
+                        "id": 1583864,
+                        "name": "Rivals 2 Singles ($500 Pot Bonus) [Saturday]",
+                        "numEntrants": 5,
+                        "game": null
+                    },
+                    {
+                        "id": 1589653,
+                        "name": "Ultimate Squad Strike [Sunday]",
+                        "numEntrants": 3,
+                        "game": null
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/fight-for-the-throne-2026-fgc-tournament-at-eh-game-expo-3k-prize-pools",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_887941",
+                "name": "Second Wind 2026",
+                "slug": "tournament\/second-wind-2026",
+                "source": "start.gg",
+                "start_at": "2026-07-10 06:00:00",
+                "end_at": "2026-07-12 08:00:00",
+                "city": "Wellington",
+                "country": "NZ",
+                "state": null,
+                "attendees": 109,
+                "events": [
+                    {
+                        "id": 1574970,
+                        "name": "Super Smash Bros. Ultimate",
+                        "numEntrants": 30,
+                        "game": null
+                    },
+                    {
+                        "id": 1574969,
+                        "name": "Super Smash Bros. Melee",
+                        "numEntrants": 29,
+                        "game": null
+                    },
+                    {
+                        "id": 1574968,
+                        "name": "Guilty Gear: Strive",
+                        "numEntrants": 28,
+                        "game": null
+                    },
+                    {
+                        "id": 1574975,
+                        "name": "Rivals of Aether II",
+                        "numEntrants": 25,
+                        "game": null
+                    },
+                    {
+                        "id": 1574976,
+                        "name": "Project+",
+                        "numEntrants": 24,
+                        "game": null
+                    },
+                    {
+                        "id": 1574967,
+                        "name": "Street Fighter 6",
+                        "numEntrants": 23,
+                        "game": null
+                    },
+                    {
+                        "id": 1574971,
+                        "name": "Rivals of Aether",
+                        "numEntrants": 22,
+                        "game": null
+                    },
+                    {
+                        "id": 1574972,
+                        "name": "TEKKEN 8",
+                        "numEntrants": 16,
+                        "game": null
+                    },
+                    {
+                        "id": 1593530,
+                        "name": "Avatar Legends",
+                        "numEntrants": 13,
+                        "game": null
+                    },
+                    {
+                        "id": 1574977,
+                        "name": "Under Night In-Birth II Sys:Celes",
+                        "numEntrants": 12,
+                        "game": null
+                    },
+                    {
+                        "id": 1574974,
+                        "name": "Fatal Fury: City of the Wolves",
+                        "numEntrants": 10,
+                        "game": null
+                    },
+                    {
+                        "id": 1574973,
+                        "name": "Granblue Fantasy Versus Rising",
+                        "numEntrants": 7,
+                        "game": null
+                    },
+                    {
+                        "id": 1574978,
+                        "name": "Ultimate Marvel vs Capcom 3",
+                        "numEntrants": 7,
+                        "game": null
+                    },
+                    {
+                        "id": 1594445,
+                        "name": "2XKO Mixed Bracket",
+                        "numEntrants": 5,
+                        "game": null
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/second-wind-2026",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_902123",
+                "name": "Super Midoff 20",
+                "slug": "tournament\/super-midoff-20",
+                "source": "start.gg",
+                "start_at": "2026-09-05 23:00:00",
+                "end_at": "2026-09-06 03:59:00",
+                "city": null,
+                "country": null,
+                "state": null,
+                "attendees": 1,
+                "events": [
+                    {
+                        "id": 1605146,
+                        "name": "Rivals of Aether Singles",
+                        "numEntrants": 1,
+                        "game": null
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/super-midoff-20",
+                "status": "upcoming",
+                "_source": "start.gg"
+            },
+            {
+                "id": "startgg_851461",
+                "name": "Riptide 2026",
+                "slug": "tournament\/riptide-2026-4",
+                "source": "start.gg",
+                "start_at": "2026-09-11 12:00:00",
+                "end_at": "2026-09-14 03:00:00",
+                "city": "Sandusky",
+                "country": "US",
+                "state": null,
+                "attendees": 488,
+                "events": [
+                    {
+                        "id": 1503443,
+                        "name": "Ultimate Squad Strike",
+                        "numEntrants": 44,
+                        "game": null
+                    },
+                    {
+                        "id": 1503442,
+                        "name": "Ultimate Doubles",
+                        "numEntrants": 15,
+                        "game": null
+                    },
+                    {
+                        "id": 1503440,
+                        "name": "Melee Doubles",
+                        "numEntrants": 11,
+                        "game": null
+                    },
+                    {
+                        "id": 1589367,
+                        "name": "Rivals of Aether 1 Singles",
+                        "numEntrants": 11,
+                        "game": null
+                    },
+                    {
+                        "id": 1503444,
+                        "name": "Splatoon 3",
+                        "numEntrants": 3,
+                        "game": null
+                    },
+                    {
+                        "id": 1503449,
+                        "name": "Rivals 2 Doubles",
+                        "numEntrants": 5,
+                        "game": null
+                    },
+                    {
+                        "id": 1572039,
+                        "name": "Mario Kart World Knockout Tour",
+                        "numEntrants": 28,
+                        "game": null
+                    },
+                    {
+                        "id": 1572035,
+                        "name": "Mario Kart World 12-Player Free-For-All",
+                        "numEntrants": 30,
+                        "game": null
+                    },
+                    {
+                        "id": 1503441,
+                        "name": "Ultimate Singles",
+                        "numEntrants": 138,
+                        "game": null
+                    },
+                    {
+                        "id": 1503439,
+                        "name": "Melee Singles",
+                        "numEntrants": 123,
+                        "game": null
+                    },
+                    {
+                        "id": 1503447,
+                        "name": "Rivals 2 Singles",
+                        "numEntrants": 38,
+                        "game": null
+                    }
+                ],
+                "url": "https:\/\/start.gg\/tournament\/riptide-2026-4",
+                "status": "upcoming",
+                "_source": "start.gg"
+            }
+        ],
+        "counts": {
+            "upcoming": 40,
+            "past": 0,
+            "brawlstars": 26
+        }
+    }
+}

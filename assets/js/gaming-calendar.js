@@ -41,7 +41,25 @@
       glow: "rgba(52,211,153,0.3)",
       games: [
         { id: "fc25", name: "FC 25", slug: "fc-25" },
+        { id: "fifa", name: "FIFA", slug: "fifa" },
         { id: "nba2k", name: "NBA 2K", slug: "nba-2k" },
+        { id: "rocketleague", name: "Rocket League", slug: "rocket-league" },
+        { id: "rl", name: "Rocket League", slug: "rl" },
+        { id: "madden", name: "Madden NFL", slug: "madden" },
+        { id: "efootball", name: "eFootball", slug: "efootball" },
+        { id: "pes", name: "PES", slug: "pes" },
+        { id: "mlbtheshow", name: "MLB The Show", slug: "mlb-the-show" },
+        { id: "nhl", name: "NHL", slug: "nhl" },
+        { id: "ufc", name: "UFC", slug: "ufc" },
+        { id: "wwe2k", name: "WWE 2K", slug: "wwe-2k" },
+        { id: "fm", name: "Football Manager", slug: "football-manager" },
+        { id: "dirtrally", name: "Dirt Rally", slug: "dirt-rally" },
+        { id: "f1", name: "F1", slug: "f1" },
+        { id: "gran turismo", name: "Gran Turismo", slug: "gran-turismo" },
+        { id: "forza", name: "Forza Motorsport", slug: "forza" },
+        { id: "iracing", name: "iRacing", slug: "iracing" },
+        { id: "tennis", name: "TopSpin 2K", slug: "topspin" },
+        { id: "pgatour", name: "PGA Tour 2K", slug: "pga-tour" },
       ],
     },
     {
@@ -66,6 +84,33 @@
         { id: "clashroyale", name: "Clash Royale", slug: "clash-royale" },
         { id: "freefire", name: "Free Fire", slug: "free-fire" },
         { id: "pubgm", name: "PUBG Mobile", slug: "pubg-mobile" },
+        {
+          id: "mlbb",
+          name: "Mobile Legends: Bang Bang",
+          slug: "mobile-legends",
+        },
+        {
+          id: "codm",
+          name: "Call of Duty: Mobile",
+          slug: "call-of-duty-mobile",
+        },
+        { id: "aov", name: "Arena of Valor", slug: "arena-of-valor" },
+        {
+          id: "wildrift",
+          name: "League of Legends: Wild Rift",
+          slug: "wild-rift",
+        },
+        { id: "hok", name: "Honor of Kings", slug: "honor-of-kings" },
+        { id: "valorantm", name: "Valorant Mobile", slug: "valorant-mobile" },
+        {
+          id: "apexm",
+          name: "Apex Legends Mobile",
+          slug: "apex-legends-mobile",
+        },
+        { id: "pokemonunite", name: "Pokémon UNITE", slug: "pokemon-unite" },
+        { id: "clashmini", name: "Clash Mini", slug: "clash-mini" },
+        { id: "squadbusters", name: "Squad Busters", slug: "squad-busters" },
+        { id: "crob", name: "Clash of Clans", slug: "clash-of-clans" },
       ],
     },
   ];
@@ -514,7 +559,7 @@
     }
   }
 
-  /* ── Chargement des données ── */
+  /* ── Chargement des données (PandaScore + start.gg) ── */
   async function loadTournaments(forceRefresh = false) {
     // Afficher un indicateur de chargement
     const container = document.getElementById("gc-tournaments");
@@ -530,68 +575,277 @@
 
     // Déterminer l'action : refresh = bypass du cache serveur
     const action = forceRefresh ? "refresh" : "tournaments";
-    const url = `includes/pandascore_api.php?action=${action}`;
+    const pandaUrl = `includes/pandascore_api.php?action=${action}`;
+    const startggUrl = `includes/startgg_api.php?action=${forceRefresh ? "refresh" : "all"}`;
 
-    try {
-      const fetchStart = performance.now();
-      const resp = await fetch(url);
+    let pandaData = null;
+    let startggData = null;
 
-      if (!resp.ok) {
-        console.warn(
-          `[GamingCalendar] API responded with status ${resp.status} ${resp.statusText}`,
-        );
-        throw new Error(`HTTP ${resp.status}`);
-      }
+    // Fetch les deux API en parallèle
+    const [pandaResp, startggResp] = await Promise.allSettled([
+      fetch(pandaUrl).then((r) => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json();
+      }),
+      fetch(startggUrl).then((r) => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json();
+      }),
+    ]);
 
-      const data = await resp.json();
-      const fetchTime = Math.round(performance.now() - fetchStart);
-
-      // Valider la structure : objet avec des clés de catégorie
+    // Traiter PandaScore
+    if (pandaResp.status === "fulfilled") {
+      const data = pandaResp.value;
       const validCategories = ["moba", "fps", "sport", "combat", "mobile"];
-      const isValidData =
+      const isValid =
         data &&
         typeof data === "object" &&
         !Array.isArray(data) &&
-        Object.keys(data).length > 0 &&
         Object.keys(data).some((key) => validCategories.includes(key));
-
-      if (isValidData) {
-        const apiCount = Object.values(data)
+      if (isValid) {
+        pandaData = data;
+        const cnt = Object.values(data)
           .filter(Array.isArray)
-          .reduce((sum, arr) => sum + arr.length, 0);
-        tournaments = mergeTournaments(STATIC_TOURNAMENTS, data);
-        console.log(
-          `[GamingCalendar] ✅ API PandaScore chargée (${apiCount} tournois live) en ${fetchTime}ms`,
-        );
-        return;
+          .reduce((s, a) => s + a.length, 0);
+        console.log(`[GamingCalendar] ✅ PandaScore: ${cnt} tournois`);
       } else {
-        console.warn(
-          "[GamingCalendar] ⚠️ Format API invalide, fallback statique",
-          data,
-        );
+        console.warn("[GamingCalendar] ⚠️ PandaScore format invalide", data);
       }
-    } catch (e) {
+    } else {
       console.warn(
-        `[GamingCalendar] ❌ API indisponible (${e.message}), utilisation des données statiques`,
+        `[GamingCalendar] ❌ PandaScore indisponible: ${pandaResp.reason?.message}`,
       );
     }
 
-    // Fallback : données statiques
-    tournaments = STATIC_TOURNAMENTS;
-    console.log(
-      `[GamingCalendar] ℹ️ ${Object.keys(STATIC_TOURNAMENTS).length} catégories statiques chargées`,
-    );
+    // Traiter start.gg
+    if (startggResp.status === "fulfilled") {
+      const data = startggResp.value;
+      if (data && data.success !== false) {
+        startggData = data;
+        const cnt =
+          (data.upcoming?.length || 0) +
+          (data.past?.length || 0) +
+          (data.brawlstars?.length || 0);
+        console.log(`[GamingCalendar] ✅ start.gg: ${cnt} tournois`);
+      } else {
+        console.warn("[GamingCalendar] ⚠️ start.gg format invalide", data);
+      }
+    } else {
+      console.warn(
+        `[GamingCalendar] ❌ start.gg indisponible: ${startggResp.reason?.message}`,
+      );
+    }
+
+    // Merger : statiques + PandaScore + start.gg
+    tournaments = mergeAllSources(STATIC_TOURNAMENTS, pandaData, startggData);
+
+    const total = Object.values(tournaments)
+      .filter(Array.isArray)
+      .reduce((s, a) => s + a.length, 0);
+    console.log(`[GamingCalendar] 📊 Total: ${total} tournois mergés`);
   }
 
-  function mergeTournaments(staticData, apiData) {
+  /* ── Merge statiques + PandaScore + start.gg ── */
+  function mergeAllSources(staticData, pandaData, startggData) {
     const merged = {};
+
+    // Copier les catégories statiques
     for (const cat of Object.keys(staticData)) {
       merged[cat] = [...staticData[cat]];
-      if (apiData[cat] && Array.isArray(apiData[cat])) {
-        merged[cat] = [...apiData[cat], ...merged[cat]];
+    }
+
+    // Ajouter PandaScore
+    if (pandaData) {
+      for (const cat of Object.keys(pandaData)) {
+        if (!merged[cat]) merged[cat] = [];
+        if (Array.isArray(pandaData[cat])) {
+          merged[cat] = [...pandaData[cat], ...merged[cat]];
+        }
       }
     }
+
+    // Ajouter start.gg — transformer en format compatible
+    if (startggData) {
+      const sggTournaments = [
+        ...(startggData.upcoming || []),
+        ...(startggData.past || []),
+        ...(startggData.brawlstars || []),
+      ];
+
+      // Dédupliquer par nom
+      const seen = new Set();
+      for (const t of sggTournaments) {
+        if (seen.has(t.name)) continue;
+        seen.add(t.name);
+
+        // Mapper les jeux start.gg vers nos catégories
+        const events = t.events || [];
+        const cat = detectCategory(t, events);
+
+        if (!merged[cat]) merged[cat] = [];
+
+        const transformed = {
+          name: t.name,
+          organizer: "start.gg",
+          game:
+            events.length > 0 ? events[0].game_name || "Esports" : "Esports",
+          date: t.start_at,
+          endDate: t.end_at,
+          format: t.city ? "LAN" : "Online",
+          prize: null,
+          location: [t.city, t.country].filter(Boolean).join(", ") || null,
+          tier: null,
+          status: t.status || "upcoming",
+          teams: t.attendees || 0,
+          logo: null,
+          stream: t.url,
+          streamPlatform: "start.gg",
+          _source: "start.gg",
+          _url: t.url,
+        };
+
+        merged[cat].push(transformed);
+      }
+    }
+
+    // Trier chaque catégorie : live > upcoming > completed
+    for (const cat of Object.keys(merged)) {
+      if (!Array.isArray(merged[cat])) continue;
+      const order = { live: 0, upcoming: 1, completed: 2 };
+      merged[cat].sort(
+        (a, b) => (order[a.status] || 9) - (order[b.status] || 9),
+      );
+    }
+
     return merged;
+  }
+
+  /* ── Détection de catégorie pour tournois start.gg ── */
+  function detectCategory(tournament, events) {
+    const gameKeywords = {
+      moba: ["league of legends", "lol", "dota", "wild rift"],
+      fps: [
+        "counter-strike",
+        "cs2",
+        "csgo",
+        "valorant",
+        "call of duty",
+        "overwatch",
+        "apex",
+        "rainbow six",
+      ],
+      sport: [
+        "fifa",
+        "fc 25",
+        "fc25",
+        "ea sports fc",
+        "ea fc",
+        "rocket league",
+        "rlcs",
+        "rl",
+        "nba 2k",
+        "nba",
+        "madden",
+        "nfl",
+        "efootball",
+        "pes",
+        "pro evolution soccer",
+        "mlb the show",
+        "mlb",
+        "nhl",
+        "ufc",
+        "wwe 2k",
+        "wwe",
+        "football manager",
+        "fm ",
+        "dirt rally",
+        "f1 ",
+        "formula 1",
+        "gran turismo",
+        "gt sport",
+        "forza motorsport",
+        "forza",
+        "iracing",
+        "topspin",
+        "tennis",
+        "pga tour",
+        "golf",
+        "racing",
+        "sim racing",
+        "motorsport",
+        "snowboard",
+        "skate ",
+        "tony hawk",
+        "steep",
+        "riders republic",
+        "descenders",
+      ],
+      combat: [
+        "street fighter",
+        "tekken",
+        "smash bros",
+        "super smash",
+        "guilty gear",
+        "mortal kombat",
+        "king of fighters",
+      ],
+      mobile: [
+        "brawl stars",
+        "clash royale",
+        "free fire",
+        "pubg mobile",
+        "mobile legends",
+        "mlbb",
+        "arena of valor",
+        "aov",
+        "wild rift",
+        "honor of kings",
+        "hok",
+        "call of duty mobile",
+        "cod mobile",
+        "codm",
+        "valorant mobile",
+        "apex legends mobile",
+        "apex mobile",
+        "pokemon unite",
+        "pokémon unite",
+        "clash mini",
+        "squad busters",
+        "clash of clans",
+        "coc",
+        "efootball",
+        "pes mobile",
+        "fifa mobile",
+        "marvel snap",
+        "hearthstone",
+        "legends of runeterra",
+        "magic the gathering arena",
+        "mtg arena",
+        "yu-gi-oh",
+        "teamfight tactics",
+        "tft mobile",
+        "lords mobile",
+        "rise of kingdoms",
+        "state of survival",
+        "genshin impact",
+        "wuthering waves",
+      ],
+    };
+
+    // Vérifier le nom du tournoi et les événements
+    const searchText = (
+      tournament.name +
+      " " +
+      events.map((e) => (e.game_name || "") + " " + (e.name || "")).join(" ")
+    ).toLowerCase();
+
+    for (const [cat, keywords] of Object.entries(gameKeywords)) {
+      for (const kw of keywords) {
+        if (searchText.includes(kw)) return cat;
+      }
+    }
+
+    return "mobile"; // fallback par défaut
   }
 
   /* ── Rendu ── */
@@ -705,11 +959,12 @@
                 <div class="gc-card__game-badge" style="background:${cat.glow};color:${cat.color};">
                     ${t.game}
                 </div>
-                <div class="gc-card__tier" style="background:${tier.bg};border-color:${tier.border};color:${tier.text};">
-                    ${t.tier}
+                <div style="display:flex;gap:4px;align-items:center;">
+                    ${t.tier ? `<div class="gc-card__tier" style="background:${tier.bg};border-color:${tier.border};color:${tier.text};">${t.tier}</div>` : ""}
+                    ${t._source === "start.gg" ? `<span style="font-size:9px;padding:2px 6px;border-radius:3px;background:rgba(56,189,248,0.1);color:#38bdf8;font-weight:600;letter-spacing:.3px;">start.gg</span>` : ""}
                 </div>
             </div>
-            <h4 class="gc-card__name">${t.name}</h4>
+            <h4 class="gc-card__name">${t._url ? `<a href="${t._url}" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">${t.name}</a>` : t.name}</h4>
             ${
               t.organizer
                 ? `<div class="gc-card__organizer">

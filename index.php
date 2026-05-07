@@ -12,7 +12,7 @@ require_once __DIR__ . "/includes/comments.php";
 
 $lang = "fr";
 $charset = "UTF-8";
-$seoTitle = "Développeur Full-Stack & Ethical Hacker — Portfolio Cyberpunk";
+$seoTitle = "Développeur Full-Stack & CyberSécurité — Portfolio Cyberpunk";
 $seoDesc =
     "Explorez l'univers BLACK_PROTOCOL : portfolio cyberpunk d'un Développeur Full-Stack, Ethical Hacker & Designer basé à Abidjan. Cybersécurité offensive, architectures cloud, game dev et créations numériques d'avant-garde.";
 $title = $seoTitle . " | BLACK_PROTOCOL";
@@ -266,7 +266,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
             <!-- Headlines -->
             <div class="hero__headline">
                 <h1>
-                    DÉVELOPPEUR <span class="highlight-orange">FULL-STACK</span> &amp; <span class="highlight-green">ETHICAL HACKER</span>
+                    DÉVELOPPEUR <span class="highlight-orange">FULL-STACK</span> &amp; <span class="highlight-green">CyberSécurité</span>
                 </h1>
                 <p>
                     Passionné par le <span class="italic">design</span> et le <span class="bold">gaming</span>. Architecte de solutions sécurisées au cœur de l'écosystème numérique.
@@ -2251,7 +2251,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
                 <div class="sidebar__brand-icon">
                     <span class="material-symbols-outlined">terminal</span>
                 </div>
-                <span class="sidebar__brand-text">BP</span>
+                <span class="sidebar__brand-text"><img src="Favicon/favicon-32x32.png" alt="" style="width:16px;height:16px;border-radius:3px;">
             </div>
             <div class="sidebar__divider"></div>
             <a href="#home" class="sidebar__link active" data-section="home" title="Accueil">
