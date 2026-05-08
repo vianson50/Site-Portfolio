@@ -1,0 +1,55 @@
+{
+    "ts": 1778244925,
+    "d": {
+        "success": true,
+        "source": "Journal Du Coin – Actu Crypto, Bitcoin, Blockchain, Économie et Trading",
+        "count": 5,
+        "items": [
+            {
+                "title": "Le terme « stablecoin » est dépassé : a16z veut changer la donne",
+                "link": "https:\/\/journalducoin.com\/analyses\/stablecoin-depasse-a16z\/",
+                "desc": "Une étiquette héritée des années volatiles de la crypto, devenue trop étroite pour ce qu’elle désigne. C’est en substance le diagnostic posé a16z, l’un des fonds les plus influents du capital-risque appliqué aux crypt...",
+                "date": "Fri, 08 May 2026 10:00:00 +0000",
+                "ts": 1778234400,
+                "image": "https:\/\/journalducoin-com.exactdn.com\/app\/uploads\/2025\/12\/Ripple_V4_Dollars_1.jpg?strip=all&lossy=1&quality=90&webp=90&ssl=1&lazy=1",
+                "author": ""
+            },
+            {
+                "title": "Coinbase annonce une perte de 394 millions $ au 1er trimestre, malgré le succès des dérivés",
+                "link": "https:\/\/journalducoin.com\/exchanges\/coinbase-perte-394-millions-dollars-q1-malgre-succes-derives\/",
+                "desc": "Moments difficiles. La crypto-bourse Coinbase a publié ses résultats pour le premier trimestre 2026. Si la perte nette comptable s’élève à 394 millions de dollars, celle-ci est très largement impactée par des pertes n...",
+                "date": "Fri, 08 May 2026 09:00:00 +0000",
+                "ts": 1778230800,
+                "image": "https:\/\/journalducoin-com.exactdn.com\/app\/uploads\/2026\/05\/coinbase-q1.png?strip=all&lossy=1&quality=90&webp=90&ssl=1&lazy=1",
+                "author": ""
+            },
+            {
+                "title": "Coinbase : Une panne Amazon Web Service paralyse le géant crypto",
+                "link": "https:\/\/journalducoin.com\/exchanges\/coinbase-une-panne-amazon-web-service-paralyse-le-geant-crypto\/",
+                "desc": "Coinbase à l’arrêt. La plateforme américaine est confrontée à une panne généralisée, conséquence directe d’un incident chez son hébergeur. Cette interruption, qui dure depuis plusieurs heures, est directement liée à u...",
+                "date": "Fri, 08 May 2026 06:15:00 +0000",
+                "ts": 1778220900,
+                "image": "https:\/\/journalducoin-com.exactdn.com\/app\/uploads\/2025\/10\/aws-web3.jpg?strip=all&lossy=1&quality=90&webp=90&ssl=1&lazy=1",
+                "author": ""
+            },
+            {
+                "title": "Le FMI met en garde contre l'IA : Le système financier mondial en danger ?",
+                "link": "https:\/\/journalducoin.com\/economie\/fmi-garde-ia-systeme-financier-mondial-danger\/",
+                "desc": "Alerte rouge à Washington. L’intelligence artificielle redessine le secteur financier à grande vitesse, mais elle ouvre aussi un boulevard inédit aux cyberattaques. Dans une note publiée le 7 mai 2026, le Fonds monéta...",
+                "date": "Fri, 08 May 2026 06:00:00 +0000",
+                "ts": 1778220000,
+                "image": "https:\/\/journalducoin-com.exactdn.com\/app\/uploads\/2026\/04\/V4_Robot_Trading_IA_Investissement_4.jpg?strip=all&lossy=1&quality=90&webp=90&ssl=1",
+                "author": ""
+            },
+            {
+                "title": "Le Bitcoin suit-il le S&P 500 ? Corrélation, causalité et timing",
+                "link": "https:\/\/journalducoin.com\/trading\/bitcoin-sp-500-correlation-causalite-timing\/",
+                "desc": "« Bitcoin est de l’or numérique. » « Bitcoin est une action tech sous stéroïdes. » Ces deux narratifs coexistent dans les médias financiers depuis des années. Ils simplifient une réalité mesurable : la corrélation gli...",
+                "date": "Thu, 07 May 2026 18:00:00 +0000",
+                "ts": 1778176800,
+                "image": "https:\/\/neutralis.finance\/images\/insights\/btc-sp500-correlation-by-period.svg",
+                "author": ""
+            }
+        ]
+    }
+}

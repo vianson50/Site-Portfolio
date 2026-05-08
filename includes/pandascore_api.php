@@ -395,9 +395,117 @@ function bp_esport_get_tournaments($key, $cache, $ttl, $catMap, $names)
 }
 
 // ── Route ──
+/**
+ * action=standings — fetch top 8 teams/players for a PandaScore tournament
+ * Params: tournament_id (int, PandaScore tournament ID) OR league_slug + tournament_slug
+ */
+function bp_esport_get_standings(
+    $key,
+    $tournamentId = null,
+    $leagueSlug = null,
+    $tournamentSlug = null,
+) {
+    // Fetch by tournament ID
+    if ($tournamentId) {
+        $r = bp_esport_fetch(
+            "/tournaments/" . (int) $tournamentId . "?embed[teams]",
+            $key,
+        );
+        if (isset($r["error"])) {
+            return ["success" => false, "error" => $r["error"]];
+        }
+        $t = $r["data"] ?? null;
+        if (!$t) {
+            return ["success" => false, "error" => "Tournoi introuvable"];
+        }
+
+        $teams = [];
+        foreach ($t["teams"] ?? [] as $team) {
+            $teams[] = [
+                "placement" => null,
+                "name" => $team["name"] ?? "Unknown",
+                "slug" => $team["slug"] ?? null,
+                "logo" => $team["image_url"] ?? null,
+                "acronym" => $team["acronym"] ?? null,
+            ];
+        }
+
+        return [
+            "success" => true,
+            "source" => "pandascore",
+            "tournament" => [
+                "id" => $t["id"],
+                "name" => $t["name"],
+                "game" => $t["videogame"]["name"] ?? null,
+            ],
+            "teams" => $teams,
+        ];
+    }
+
+    // Fetch by league slug — get running/upcoming tournaments with teams
+    if ($leagueSlug) {
+        $r = bp_esport_fetch(
+            "/leagues?filter[slug]=$leagueSlug&embed[tournaments]",
+            $key,
+        );
+        if (isset($r["error"])) {
+            return ["success" => false, "error" => $r["error"]];
+        }
+        $leagues = $r["data"] ?? [];
+        if (empty($leagues)) {
+            return ["success" => false, "error" => "League introuvable"];
+        }
+
+        $league = $leagues[0];
+        $out = [
+            "success" => true,
+            "source" => "pandascore",
+            "league" => [
+                "name" => $league["name"],
+                "logo" => $league["image_url"] ?? null,
+            ],
+            "tournaments" => [],
+        ];
+
+        foreach ($league["tournaments"] ?? [] as $t) {
+            $teams = [];
+            foreach ($t["teams"] ?? [] as $team) {
+                $teams[] = [
+                    "placement" => null,
+                    "name" => $team["name"] ?? "Unknown",
+                    "slug" => $team["slug"] ?? null,
+                    "logo" => $team["image_url"] ?? null,
+                    "acronym" => $team["acronym"] ?? null,
+                ];
+            }
+            $out["tournaments"][] = [
+                "id" => $t["id"],
+                "name" => $t["name"],
+                "game" => $t["videogame"]["name"] ?? null,
+                "teams" => $teams,
+            ];
+        }
+        return $out;
+    }
+
+    return [
+        "success" => false,
+        "error" => "Paramètres manquants: tournament_id ou league_slug requis",
+    ];
+}
+
+// ── Route ──
 $act = isset($_GET["action"]) ? $_GET["action"] : "";
 
-if ($act === "tournaments" || $act === "refresh") {
+if ($act === "standings") {
+    $tid = isset($_GET["tournament_id"]) ? (int) $_GET["tournament_id"] : null;
+    $lslug = isset($_GET["league_slug"]) ? $_GET["league_slug"] : null;
+    $res = bp_esport_get_standings($API_KEY, $tid, $lslug);
+    if (isset($res["success"]) && $res["success"] === false) {
+        http_response_code(502);
+    }
+    echo json_encode($res, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+} elseif ($act === "tournaments" || $act === "refresh") {
     if ($act === "refresh" && file_exists($CACHE)) {
         unlink($CACHE);
     }

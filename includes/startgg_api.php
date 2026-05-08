@@ -96,21 +96,40 @@ function sgg_transform_result($t)
     $row = sgg_transform_tournament($t);
 
     $winners = [];
+    $eventStandings = [];
     if (isset($t["events"]) && is_array($t["events"])) {
         foreach ($t["events"] as $ev) {
             $standings = $ev["standings"]["nodes"] ?? [];
+            $evStandings = [];
             foreach ($standings as $s) {
-                if (($s["placement"] ?? 0) === 1) {
+                $placement = $s["placement"] ?? null;
+                $entrantName = $s["entrant"]["name"] ?? null;
+                $entrantId = $s["entrant"]["id"] ?? null;
+                if ($placement === 1) {
                     $winners[] = [
                         "event" => $ev["name"] ?? null,
-                        "winner" => $s["entrant"]["name"] ?? null,
+                        "winner" => $entrantName,
                         "game" => $ev["videogame"]["name"] ?? null,
                     ];
                 }
+                $evStandings[] = [
+                    "placement" => $placement,
+                    "name" => $entrantName,
+                    "id" => $entrantId,
+                ];
+            }
+            if (!empty($evStandings)) {
+                $eventStandings[] = [
+                    "eventId" => $ev["id"] ?? null,
+                    "eventName" => $ev["name"] ?? null,
+                    "game" => $ev["videogame"]["name"] ?? null,
+                    "rankings" => $evStandings,
+                ];
             }
         }
     }
     $row["winners"] = $winners;
+    $row["standings"] = $eventStandings;
     return $row;
 }
 
@@ -268,8 +287,8 @@ function sgg_action_results($endpoint, $key)
           id name slug startAt endAt city countryCode numAttendees
           events {
             id name numEntrants videogame { id name slug }
-            standings(query: { perPage: 1 }) {
-              nodes { placement entrant { name } }
+            standings(query: { perPage: 8 }) {
+              nodes { placement entrant { id name } }
             }
           }
         }
@@ -376,6 +395,138 @@ function sgg_action_all($endpoint, $key, $cache, $ttl)
     return $out;
 }
 
+/**
+ * action=standings — fetch top 8 standings for a specific event or tournament
+ * Params: event_id (int) OR slug (string)
+ */
+function sgg_action_standings(
+    $endpoint,
+    $key,
+    $eventId = null,
+    $tournamentSlug = null,
+) {
+    // If we have a tournament slug, fetch its events + standings
+    if ($tournamentSlug && !$eventId) {
+        $query = <<<'GQL'
+        query($slug: String!) {
+          tournament(slug: $slug) {
+            id name slug
+            events {
+              id name
+              numEntrants
+              videogame { id name slug }
+              standings(query: { perPage: 8, page: 1 }) {
+                nodes {
+                  placement
+                  entrant { id name }
+                }
+              }
+            }
+          }
+        }
+        GQL;
+
+        $r = sgg_query($query, $endpoint, $key, ["slug" => $tournamentSlug]);
+
+        if (isset($r["error"])) {
+            return ["success" => false, "error" => $r["error"]];
+        }
+
+        $t = $r["data"]["tournament"] ?? null;
+        if (!$t) {
+            return ["success" => false, "error" => "Tournoi introuvable"];
+        }
+
+        $events = [];
+        foreach ($t["events"] ?? [] as $ev) {
+            $standings = [];
+            foreach ($ev["standings"]["nodes"] ?? [] as $s) {
+                $standings[] = [
+                    "placement" => $s["placement"] ?? null,
+                    "name" => $s["entrant"]["name"] ?? "Unknown",
+                ];
+            }
+            $events[] = [
+                "id" => $ev["id"],
+                "name" => $ev["name"],
+                "game" => $ev["videogame"]["name"] ?? null,
+                "numEntrants" => $ev["numEntrants"] ?? 0,
+                "standings" => $standings,
+            ];
+        }
+
+        return [
+            "success" => true,
+            "tournament" => [
+                "id" => $t["id"],
+                "name" => $t["name"],
+                "slug" => $t["slug"],
+            ],
+            "events" => $events,
+        ];
+    }
+
+    // If we have an event ID, fetch standings for that event
+    if ($eventId) {
+        $query = <<<'GQL'
+        query($eventId: ID!) {
+          event(id: $eventId) {
+            id name
+            numEntrants
+            videogame { id name slug }
+            standings(query: { perPage: 8, page: 1 }) {
+              nodes {
+                placement
+                entrant { id name }
+              }
+            }
+            tournament {
+              id name slug
+            }
+          }
+        }
+        GQL;
+
+        $r = sgg_query($query, $endpoint, $key, ["eventId" => $eventId]);
+
+        if (isset($r["error"])) {
+            return ["success" => false, "error" => $r["error"]];
+        }
+
+        $ev = $r["data"]["event"] ?? null;
+        if (!$ev) {
+            return ["success" => false, "error" => "Event introuvable"];
+        }
+
+        $standings = [];
+        foreach ($ev["standings"]["nodes"] ?? [] as $s) {
+            $standings[] = [
+                "placement" => $s["placement"] ?? null,
+                "name" => $s["entrant"]["name"] ?? "Unknown",
+            ];
+        }
+
+        return [
+            "success" => true,
+            "tournament" => $ev["tournament"] ?? null,
+            "events" => [
+                [
+                    "id" => $ev["id"],
+                    "name" => $ev["name"],
+                    "game" => $ev["videogame"]["name"] ?? null,
+                    "numEntrants" => $ev["numEntrants"] ?? 0,
+                    "standings" => $standings,
+                ],
+            ],
+        ];
+    }
+
+    return [
+        "success" => false,
+        "error" => "Paramètres manquants: event_id ou slug requis",
+    ];
+}
+
 // ── Route ──
 $act = isset($_GET["action"]) ? $_GET["action"] : "all";
 
@@ -394,6 +545,17 @@ switch ($act) {
 
     case "brawlstars":
         $res = sgg_action_brawlstars($ENDPOINT, $API_KEY);
+        break;
+
+    case "standings":
+        $eventId = isset($_GET["event_id"]) ? (int) $_GET["event_id"] : null;
+        $tournamentSlug = isset($_GET["slug"]) ? $_GET["slug"] : null;
+        $res = sgg_action_standings(
+            $ENDPOINT,
+            $API_KEY,
+            $eventId,
+            $tournamentSlug,
+        );
         break;
 
     case "refresh":

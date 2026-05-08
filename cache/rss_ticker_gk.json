@@ -1,0 +1,55 @@
+{
+    "ts": 1778244925,
+    "d": {
+        "success": true,
+        "source": "Gamekult - Jeux vidéo PC et consoles: tout l’univers des joueurs",
+        "count": 5,
+        "items": [
+            {
+                "title": "Tides of Tomorrow est un pari narratif audacieux, mais risqué",
+                "link": "https:\/\/www.gamekult.com\/jeux\/tides-of-tomorrow-3050887696\/test.html",
+                "desc": "Pour ceux qui viendront après",
+                "date": "Wed, 06 May 2026 00:00:00 +0000",
+                "ts": 1778025600,
+                "image": "https:\/\/cdn.gamekult.com\/assets\/front\/img\/backgrounds\/gray.svg",
+                "author": "Alexandre Cortes"
+            },
+            {
+                "title": "Invincible VS ne maîtrise pas sa force, dégâts collatéraux à prévoir",
+                "link": "https:\/\/www.gamekult.com\/jeux\/invincible-vs-3050888606\/test.html",
+                "desc": "C'est l'histoire d'un mec, il rentre dans un métro bondé...",
+                "date": "Fri, 01 May 2026 00:00:00 +0000",
+                "ts": 1777593600,
+                "image": "https:\/\/cdn.gamekult.com\/assets\/front\/img\/backgrounds\/gray.svg",
+                "author": "Jules Seigneur"
+            },
+            {
+                "title": "Vampire Crawlers entend l'âme des cartes (et c'est très bruyant)",
+                "link": "https:\/\/www.gamekult.com\/jeux\/vampire-crawlers-3050888933\/test.html",
+                "desc": "Petit tarot pour grosse conso",
+                "date": "Thu, 30 Apr 2026 00:00:00 +0000",
+                "ts": 1777507200,
+                "image": "https:\/\/cdn.gamekult.com\/assets\/front\/img\/backgrounds\/gray.svg",
+                "author": "Jules Seigneur"
+            },
+            {
+                "title": "Aphelion : même dans l'espace, le jeu narratif ne se découvre pas d'un fil",
+                "link": "https:\/\/www.gamekult.com\/jeux\/aphelion-3050888609\/test.html",
+                "desc": "L'espoir fait vivre",
+                "date": "Tue, 28 Apr 2026 00:00:00 +0000",
+                "ts": 1777334400,
+                "image": "https:\/\/cdn.gamekult.com\/assets\/front\/img\/backgrounds\/gray.svg",
+                "author": "Yael Kunz"
+            },
+            {
+                "title": "Saros est la meilleure exclusivité de la PlayStation 5",
+                "link": "https:\/\/www.gamekult.com\/jeux\/saros-3050888242\/test.html",
+                "desc": "Pruneau d'Arjun, ça vous va bien",
+                "date": "Fri, 24 Apr 2026 00:00:00 +0000",
+                "ts": 1776988800,
+                "image": "https:\/\/cdn.gamekult.com\/assets\/front\/img\/backgrounds\/gray.svg",
+                "author": "Alexandre Cortes"
+            }
+        ]
+    }
+}

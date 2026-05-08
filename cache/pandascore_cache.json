@@ -1,5 +1,5 @@
 {
-    "ts": 1778169593,
+    "ts": 1778244921,
     "d": {
         "moba": [
             {
@@ -65,22 +65,6 @@
                 "logo": null,
                 "stream": "https:\/\/www.douyu.com\/424559",
                 "streamPlatform": "Stream"
-            },
-            {
-                "name": "Regular Season",
-                "organizer": "HLL",
-                "game": "League of Legends",
-                "date": "2026-03-31T13:00:00Z",
-                "endDate": "2026-05-07T17:00:00Z",
-                "format": "LAN",
-                "prize": null,
-                "location": "GR",
-                "tier": "C-Tier",
-                "status": "live",
-                "teams": 8,
-                "logo": "https:\/\/cdn-api.pandascore.co\/images\/league\/image\/5355\/hellenic_legends_league_logo-png",
-                "stream": "https:\/\/www.twitch.tv\/helleniclegends",
-                "streamPlatform": "Twitch"
             },
             {
                 "name": "Regular Season",
@@ -324,6 +308,22 @@
             },
             {
                 "name": "Playoffs",
+                "organizer": "European Pro League",
+                "game": "Dota 2",
+                "date": "2026-04-28T09:00:00Z",
+                "endDate": "2026-05-10T22:00:00Z",
+                "format": "Online",
+                "prize": null,
+                "location": "WEU",
+                "tier": "C-Tier",
+                "status": "live",
+                "teams": 8,
+                "logo": "https:\/\/cdn-api.pandascore.co\/images\/league\/image\/4807\/799px-european_pro_league_2023_lightmode-png",
+                "stream": "https:\/\/kick.com\/epldota_en2",
+                "streamPlatform": "Stream"
+            },
+            {
+                "name": "Playoffs",
                 "organizer": "Esports World Cup",
                 "game": "League of Legends",
                 "date": "2026-04-28T15:00:00Z",
@@ -371,36 +371,20 @@
                 "streamPlatform": "Twitch"
             },
             {
-                "name": "Group B",
-                "organizer": "European Pro League",
+                "name": "Group Stage",
+                "organizer": "EPL World Series",
                 "game": "Dota 2",
-                "date": "2026-04-30T09:00:00Z",
-                "endDate": "2026-05-07T18:00:00Z",
+                "date": "2026-05-01T03:00:00Z",
+                "endDate": "2026-05-10T12:00:00Z",
                 "format": "Online",
                 "prize": null,
-                "location": "EEU",
+                "location": "ASIA",
                 "tier": "C-Tier",
                 "status": "live",
-                "teams": 7,
-                "logo": "https:\/\/cdn-api.pandascore.co\/images\/league\/image\/4807\/799px-european_pro_league_2023_lightmode-png",
-                "stream": "https:\/\/www.youtube.com\/watch?v=wz57xF0jdKc",
-                "streamPlatform": "YouTube"
-            },
-            {
-                "name": "Playoffs",
-                "organizer": "1win Essence",
-                "game": "Dota 2",
-                "date": "2026-05-08T09:00:00Z",
-                "endDate": "2026-05-11T22:00:00Z",
-                "format": "Online",
-                "prize": "100000 United States Dollar",
-                "location": "WEU",
-                "tier": "B-Tier",
-                "status": "upcoming",
-                "teams": 0,
-                "logo": null,
-                "stream": null,
-                "streamPlatform": null
+                "teams": 8,
+                "logo": "https:\/\/cdn-api.pandascore.co\/images\/league\/image\/4884\/799px-european_pro_league_2023_lightmode-png",
+                "stream": "https:\/\/kick.com\/epldota_en1",
+                "streamPlatform": "Stream"
             },
             {
                 "name": "Last Chance",
@@ -433,6 +417,22 @@
                 "logo": "https:\/\/cdn-api.pandascore.co\/images\/league\/image\/302\/CBLOL_2021_Logo.png",
                 "stream": "https:\/\/www.twitch.tv\/cblol",
                 "streamPlatform": "Twitch"
+            },
+            {
+                "name": "Playoffs",
+                "organizer": "Arabian League",
+                "game": "League of Legends",
+                "date": "2026-05-12T16:00:00Z",
+                "endDate": "2026-05-21T21:00:00Z",
+                "format": "Online",
+                "prize": null,
+                "location": "ME",
+                "tier": "C-Tier",
+                "status": "upcoming",
+                "teams": 3,
+                "logo": "https:\/\/cdn-api.pandascore.co\/images\/league\/image\/4962\/arabian_league-png",
+                "stream": "https:\/\/www.youtube.com\/@leagueoflegendsarabia",
+                "streamPlatform": "YouTube"
             },
             {
                 "name": "Group B",
@@ -578,22 +578,6 @@
                 "teams": 10,
                 "logo": "https:\/\/cdn-api.pandascore.co\/images\/league\/image\/5237\/407px-dach_cs_masters_full_bottom_darkmode-png",
                 "stream": "https:\/\/www.twitch.tv\/dachcs",
-                "streamPlatform": "Twitch"
-            },
-            {
-                "name": "Playoffs",
-                "organizer": "Gamers Club Liga Série A",
-                "game": "Counter-Strike 2",
-                "date": "2026-04-04T19:00:00Z",
-                "endDate": "2026-05-07T22:00:00Z",
-                "format": "Online",
-                "prize": "10000 Brazilian Real",
-                "location": "SA",
-                "tier": "C-Tier",
-                "status": "live",
-                "teams": 8,
-                "logo": "https:\/\/cdn-api.pandascore.co\/images\/league\/image\/4554\/Liga_Gamers_Club_SSrie_A_logo.png",
-                "stream": "https:\/\/www.twitch.tv\/gamersclubcs",
                 "streamPlatform": "Twitch"
             },
             {
@@ -774,22 +758,6 @@
             },
             {
                 "name": "Playoffs",
-                "organizer": "VCL",
-                "game": "Valorant",
-                "date": "2026-04-27T20:00:00Z",
-                "endDate": "2026-05-08T01:00:00Z",
-                "format": "Online",
-                "prize": "49500 United States Dollar",
-                "location": "NA",
-                "tier": "B-Tier",
-                "status": "live",
-                "teams": 8,
-                "logo": "https:\/\/cdn-api.pandascore.co\/images\/league\/image\/4947\/1200px-valorant_challengers_lightmode-png",
-                "stream": "https:\/\/www.twitch.tv\/VALORANT_NorthAmerica",
-                "streamPlatform": "Twitch"
-            },
-            {
-                "name": "Playoffs",
                 "organizer": "UKIC",
                 "game": "Counter-Strike 2",
                 "date": "2026-04-28T17:00:00Z",
@@ -821,35 +789,35 @@
                 "streamPlatform": "Stream"
             },
             {
-                "name": "Group D",
-                "organizer": "European Pro League",
-                "game": "Counter-Strike 2",
-                "date": "2026-05-08T08:00:00Z",
-                "endDate": "2026-05-13T10:30:00Z",
-                "format": "Online",
+                "name": "Playoffs",
+                "organizer": "VCT",
+                "game": "Valorant",
+                "date": "2026-05-01T09:00:00Z",
+                "endDate": "2026-05-10T14:00:00Z",
+                "format": "LAN",
                 "prize": null,
-                "location": "WEU",
-                "tier": "C-Tier",
-                "status": "upcoming",
-                "teams": 4,
-                "logo": "https:\/\/cdn-api.pandascore.co\/images\/league\/image\/4854\/799px-european_pro_league_2023_lightmode-png",
-                "stream": "https:\/\/kick.com\/eplcs_en",
-                "streamPlatform": "Stream"
+                "location": "CN",
+                "tier": "B-Tier",
+                "status": "live",
+                "teams": 8,
+                "logo": "https:\/\/cdn-api.pandascore.co\/images\/league\/image\/4531\/800px-vct_2023_logo_lightmode-png",
+                "stream": "https:\/\/www.youtube.com\/watch?v=UPDMu0ND-m8",
+                "streamPlatform": "YouTube"
             },
             {
-                "name": "Group Stage",
-                "organizer": "NODWIN Clutch Series",
+                "name": "Playoffs",
+                "organizer": "CCT Europe",
                 "game": "Counter-Strike 2",
-                "date": "2026-05-08T08:00:00Z",
-                "endDate": "2026-05-16T17:00:00Z",
+                "date": "2026-05-02T08:00:00Z",
+                "endDate": "2026-05-10T21:00:00Z",
                 "format": "Online",
-                "prize": null,
-                "location": "EEU",
+                "prize": "5000 United States Dollar",
+                "location": "WEU",
                 "tier": "C-Tier",
-                "status": "upcoming",
+                "status": "live",
                 "teams": 16,
-                "logo": "https:\/\/cdn-api.pandascore.co\/images\/league\/image\/5437\/nodwin_clutch_series_2_lightmode-png",
-                "stream": "https:\/\/kick.com\/nodwin_cs2",
+                "logo": "https:\/\/cdn-api.pandascore.co\/images\/league\/image\/5232\/799px-cct_2024_europe_allmode-png",
+                "stream": "https:\/\/kick.com\/cct_cs3",
                 "streamPlatform": "Stream"
             },
             {
@@ -865,8 +833,8 @@
                 "status": "upcoming",
                 "teams": 8,
                 "logo": "https:\/\/cdn-api.pandascore.co\/images\/league\/image\/5399\/odyssey_cup_cs2_allmode-png",
-                "stream": null,
-                "streamPlatform": null
+                "stream": "https:\/\/www.twitch.tv\/nahzinhaa",
+                "streamPlatform": "Twitch"
             },
             {
                 "name": "Group Stage",

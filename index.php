@@ -220,21 +220,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
     </header>
 
     <!-- ================================
-         RSS TICKER BAR
+         GAMING NEWS TICKER BAR
          ================================ -->
-    <div class="rss-ticker-bar">
-        <div class="rss-ticker-bar__label">
-            <span class="material-symbols-outlined" style="font-size:14px;">radar</span>
-            <span>LIVE</span>
+    <div class="news-ticker" id="news-ticker">
+        <div class="news-ticker__label">
+            <span class="material-symbols-outlined" style="font-size:18px;">stadia_controller</span>
+            <span>GAMING</span>
             <span class="live-indicator">
                 <span class="pulse-dot pulse-dot--green" style="width:6px;height:6px;"></span>
-                <span id="refresh-countdown" style="font-size:9px; color:rgba(255,255,255,0.4); min-width:22px; text-align:center;">60s</span>
             </span>
         </div>
-        <div class="rss-ticker-bar__content">
-            <rssapp-ticker id="TVOvmVGK5J7yEQY4"></rssapp-ticker><script data-src="https://widget.rss.app/v1/ticker.js" type="text/javascript" async class="rss-lazy"></script>
+        <div class="news-ticker__track">
+            <div class="news-ticker__content" id="ticker-content">
+                <span class="news-ticker__item">Chargement des actus gaming…</span>
+            </div>
         </div>
-        <div id="refresh-bar" style="position:absolute;bottom:0;left:0;height:1px;background:var(--primary);width:0%;transition:width 1s linear;"></div>
     </div>
 
     <!-- ================================
@@ -928,93 +928,58 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
                 <?php endif; ?>
             </div>
 
-            <!-- RSS Magazine -->
-            <div class="rss-card" style="margin-bottom: var(--sp-lg);">
-                <div class="rss-card__scanline"></div>
-                <div class="rss-card__bar">
-                    <div class="rss-card__dots">
-                        <span class="rss-card__dot rss-card__dot--red"></span>
-                        <span class="rss-card__dot rss-card__dot--yellow"></span>
-                        <span class="rss-card__dot rss-card__dot--green"></span>
+            <!-- CoinGecko — Coin Tracker -->
+            <div id="coin-tracker-section">
+                <div class="rf-header">
+                    <div class="rf-header__left">
+                        <span class="material-symbols-outlined" style="font-size:18px; color:var(--primary);">trending_up</span>
+                        <span class="label-caps">Coin Tracker</span>
+                        <span class="pulse-dot pulse-dot--green" style="margin-left:6px;"></span>
                     </div>
-                    <span class="rss-card__bar-title label-caps">INFO_MAGAZINE</span>
-                    <span class="rss-card__bar-status">
-                        <span class="pulse-dot pulse-dot--green"></span>
-                        <span class="label-caps" style="font-size:9px; color:rgba(255,255,255,0.35);">LIVE</span>
-                    </span>
+                    <div class="rf-header__right">
+                        <span id="ct-source" class="rf-header__source">CoinGecko</span>
+                        <span id="ct-count" class="rf-header__count">0</span>
+                        <button class="rf-header__refresh" onclick="window.CoinTracker.refresh()" title="Rafraîchir">
+                            <span class="material-symbols-outlined" style="font-size:16px;">refresh</span>
+                        </button>
+                    </div>
                 </div>
-                <div class="rss-card__widget">
-                    <rssapp-magazine id="zVn6TvX26blDCSPJ"></rssapp-magazine><script data-src="https://widget.rss.app/v1/magazine.js" type="text/javascript" async class="rss-lazy"></script>
+                <div class="ct-grid" id="ct-coins">
+                    <div class="rf-loading">
+                        <span class="material-symbols-outlined rf-loading__icon">sync</span>
+                        <span>Chargement des cours…</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Separator -->
-            <div class="rss-card__divider" style="margin: var(--sp-xl) 0;">
-                <span class="rss-card__divider-line"></span>
-                <span class="material-symbols-outlined" style="font-size:14px; color:rgba(255,255,255,0.15);">more_horiz</span>
-                <span class="rss-card__divider-line"></span>
+            <!-- RSS Feed — Crypto News -->
+            <div id="rss-feed-section">
+                <div class="rf-header">
+                    <div class="rf-header__left">
+                        <span class="material-symbols-outlined" style="font-size:18px; color:var(--primary);">newspaper</span>
+                        <span class="label-caps">Crypto Feed</span>
+                        <span class="pulse-dot pulse-dot--green" style="margin-left:6px;"></span>
+                    </div>
+                    <div class="rf-header__right">
+                        <span id="rf-source" class="rf-header__source">Journal du Coin</span>
+                        <span id="rf-count" class="rf-header__count">0/0</span>
+                        <button class="rf-header__refresh" onclick="window.RssFeed.refresh()" title="Rafraîchir">
+                            <span class="material-symbols-outlined" style="font-size:16px;">refresh</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="rf-grid" id="rf-feed">
+                    <div class="rf-loading">
+                        <span class="material-symbols-outlined rf-loading__icon">sync</span>
+                        <span>Chargement du flux…</span>
+                    </div>
+                </div>
+                <button id="rf-load-more" class="rf-load-more" onclick="window.RssFeed.loadMore()" style="display:none;">
+                    <span class="material-symbols-outlined" style="font-size:16px;">expand_more</span>
+                    Charger plus d'articles
+                </button>
             </div>
 
-            <!-- RSS Unified Card -->
-            <div class="rss-card">
-                <div class="rss-card__scanline"></div>
-                <div class="rss-card__bar">
-                    <div class="rss-card__dots">
-                        <span class="rss-card__dot rss-card__dot--red"></span>
-                        <span class="rss-card__dot rss-card__dot--yellow"></span>
-                        <span class="rss-card__dot rss-card__dot--green"></span>
-                    </div>
-                    <span class="rss-card__bar-title label-caps">RSS_TERMINAL</span>
-                    <span class="rss-card__bar-status">
-                        <span class="pulse-dot pulse-dot--green"></span>
-                        <span class="label-caps" style="font-size:9px; color:rgba(255,255,255,0.35);">STREAMING</span>
-                    </span>
-                </div>
-
-                <!-- Widget 1: Carousel -->
-                <div class="rss-card__widget">
-                    <div class="rss-card__widget-label">
-                        <span class="material-symbols-outlined" style="font-size:16px; color:var(--primary);">view_carousel</span>
-                        <span class="label-caps">Highlights</span>
-                    </div>
-                    <rssapp-carousel id="TVOvmVGK5J7yEQY4"></rssapp-carousel><script data-src="https://widget.rss.app/v1/carousel.js" type="text/javascript" async class="rss-lazy"></script>
-                </div>
-
-                <!-- Separator -->
-                <div class="rss-card__divider">
-                    <span class="rss-card__divider-line"></span>
-                    <span class="material-symbols-outlined" style="font-size:14px; color:rgba(255,255,255,0.15);">more_horiz</span>
-                    <span class="rss-card__divider-line"></span>
-                </div>
-
-                <!-- Widget 2: Wall -->
-                <div class="rss-card__widget">
-                    <div class="rss-card__widget-label">
-                        <span class="material-symbols-outlined" style="font-size:16px; color:var(--secondary-bright);">grid_view</span>
-                        <span class="label-caps">Archive</span>
-                    </div>
-                    <rssapp-wall id="S5zmzgmuJRPBcSVo"></rssapp-wall><script data-src="https://widget.rss.app/v1/wall.js" type="text/javascript" async class="rss-lazy"></script>
-                </div>
-            </div>
-
-            <div class="media-card">
-                <div class="media-card__scanline"></div>
-                <div class="media-card__bar">
-                    <div class="media-card__dots">
-                        <span class="media-card__dot media-card__dot--red"></span>
-                        <span class="media-card__dot media-card__dot--yellow"></span>
-                        <span class="media-card__dot media-card__dot--green"></span>
-                    </div>
-                    <span class="media-card__bar-title label-caps">SIGNAL_STREAM</span>
-                    <span class="media-card__bar-status">
-                        <span class="pulse-dot pulse-dot--green"></span>
-                        <span class="label-caps" style="font-size:9px; color:rgba(255,255,255,0.35);">LIVE</span>
-                    </span>
-                </div>
-                <div class="media-card__body">
-                    <rssapp-imageboard id="Lt3ZLEhfxXAnAcuM"></rssapp-imageboard><script data-src="https://widget.rss.app/v1/imageboard.js" type="text/javascript" async class="rss-lazy"></script>
-                </div>
-            </div>
         </div>
     </section>
     <!-- ================================
@@ -1752,7 +1717,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
                     </span>
                 </div>
                 <div class="gallery-card__body">
-                    <rssapp-imageboard id="cc3dcW1cljMM3wlZ"></rssapp-imageboard><script data-src="https://widget.rss.app/v1/imageboard.js" type="text/javascript" async class="rss-lazy"></script>
+                    <p style="color:var(--outline);text-align:center;padding:2rem;">Galerie visuelle — bientôt disponible.</p>
                 </div>
             </div>
         </div>
@@ -1788,7 +1753,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
                     </span>
                 </div>
                 <div class="media-card__body">
-                    <rssapp-imageboard id="lGxVnaoQxFBHUR53"></rssapp-imageboard><script data-src="https://widget.rss.app/v1/imageboard.js" type="text/javascript" async class="rss-lazy"></script>
+                    <p style="color:var(--outline);text-align:center;padding:2rem;">Media Wall — bientôt disponible.</p>
                 </div>
             </div>
         </div>
@@ -2412,55 +2377,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete_article"])) {
                 `transform 0.5s ${i * 0.06}s cubic-bezier(0.16,1,0.3,1)`;
             fadeObserver.observe(el);
         });
-
-        // ═══════════════════════════════════════
-        //  LAZY LOAD RSS WIDGETS
-        // ═══════════════════════════════════════
-        const rssLoaded = new Set();
-        const rssScripts = document.querySelectorAll('script.rss-lazy[data-src]');
-
-        // Load a single RSS script
-        function loadRssScript(script) {
-            const src = script.dataset.src;
-            if (rssLoaded.has(src)) return;
-            rssLoaded.add(src);
-            const s = document.createElement('script');
-            s.src = src;
-            s.type = 'text/javascript';
-            s.async = true;
-            script.parentNode.insertBefore(s, script);
-            script.remove();
-        }
-
-        // Load all RSS scripts at once (used as fallback)
-        function loadAllRss() {
-            rssScripts.forEach(s => loadRssScript(s));
-        }
-
-        if ('IntersectionObserver' in window) {
-            const rssObserver = new IntersectionObserver((entries, obs) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const script = entry.target.querySelector('script.rss-lazy[data-src]');
-                        if (script) loadRssScript(script);
-                        obs.unobserve(entry.target);
-                    }
-                });
-            }, { rootMargin: '200px' });
-
-            rssScripts.forEach(script => {
-                const parent = script.parentElement;
-                if (parent) rssObserver.observe(parent);
-            });
-        } else {
-            // No IntersectionObserver — load all immediately
-            loadAllRss();
-        }
-
-        // Safety: load any remaining after 8s
-        setTimeout(() => {
-            document.querySelectorAll('script.rss-lazy[data-src]').forEach(s => loadRssScript(s));
-        }, 8000);
 
         // — Smooth scroll for nav links (only for # anchor links)
         navLinks.forEach(link => {
@@ -3914,6 +3830,9 @@ Outil Rédactionnel v1.0 — BLACK_PROTOCOL`;
 
     <!-- Gaming Calendar -->
     <script src="assets/js/gaming-calendar.js" defer></script>
+
+    <!-- RSS Feed -->
+    <script src="assets/js/rss-feed.js" defer></script>
 
 </body>
 </html>

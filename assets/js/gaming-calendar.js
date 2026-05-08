@@ -133,6 +133,16 @@
         logo: null,
         stream: "https://lolesports.com",
         streamPlatform: "LoL Esports",
+        competitors: [
+          { rank: 1, name: "G2 Esports", record: "14-4", logo: null },
+          { rank: 2, name: "Fnatic", record: "13-5", logo: null },
+          { rank: 3, name: "Origen", record: "12-6", logo: null },
+          { rank: 4, name: "SK Gaming", record: "11-7", logo: null },
+          { rank: 5, name: "Vitality", record: "10-8", logo: null },
+          { rank: 6, name: "MDK", record: "9-9", logo: null },
+          { rank: 7, name: "Team BDS", record: "8-10", logo: null },
+          { rank: 8, name: "KC (Karmine Corp)", record: "7-11", logo: null },
+        ],
       },
       {
         name: "LCK Spring 2025",
@@ -149,6 +159,16 @@
         logo: null,
         stream: "https://lolesports.com",
         streamPlatform: "LoL Esports",
+        competitors: [
+          { rank: 1, name: "T1", record: "15-3", logo: null },
+          { rank: 2, name: "Gen.G", record: "14-4", logo: null },
+          { rank: 3, name: "Hanwha Life Esports", record: "13-5", logo: null },
+          { rank: 4, name: "Dplus KIA", record: "12-6", logo: null },
+          { rank: 5, name: "KT Rolster", record: "10-8", logo: null },
+          { rank: 6, name: "DRX", record: "8-10", logo: null },
+          { rank: 7, name: "BNK FearX", record: "7-11", logo: null },
+          { rank: 8, name: "T1 Esports Academy", record: "6-12", logo: null },
+        ],
       },
       {
         name: "The International 2025",
@@ -165,6 +185,7 @@
         logo: null,
         stream: "https://twitch.tv/dota2ti",
         streamPlatform: "Twitch",
+        competitors: [],
       },
       {
         name: "ESL Pro Tour Dota 2",
@@ -181,6 +202,7 @@
         logo: null,
         stream: null,
         streamPlatform: null,
+        competitors: [],
       },
     ],
     fps: [
@@ -199,6 +221,16 @@
         logo: null,
         stream: "https://twitch.tv/pgl",
         streamPlatform: "Twitch",
+        competitors: [
+          { rank: 1, name: "Team Spirit", record: "3-0", logo: null },
+          { rank: 2, name: "FaZe Clan", record: "3-1", logo: null },
+          { rank: 3, name: "Natus Vincere", record: "2-1", logo: null },
+          { rank: 4, name: "Vitality", record: "2-1", logo: null },
+          { rank: 5, name: "G2 Esports", record: "1-2", logo: null },
+          { rank: 6, name: "MOUZ", record: "1-2", logo: null },
+          { rank: 7, name: "Heroic", record: "1-2", logo: null },
+          { rank: 8, name: "Cloud9", record: "0-2", logo: null },
+        ],
       },
       {
         name: "VCT Masters 2025",
@@ -215,6 +247,7 @@
         logo: null,
         stream: "https://twitch.tv/valorant",
         streamPlatform: "Twitch",
+        competitors: [],
       },
       {
         name: "CDL Major 2025",
@@ -231,6 +264,7 @@
         logo: null,
         stream: "https://youtube.com/callofduty",
         streamPlatform: "YouTube",
+        competitors: [],
       },
       {
         name: "IEM Katowice 2025",
@@ -247,6 +281,16 @@
         logo: null,
         stream: null,
         streamPlatform: null,
+        competitors: [
+          { rank: 1, name: "Team Spirit", record: "3-0", logo: null },
+          { rank: 2, name: "FaZe Clan", record: "3-2", logo: null },
+          { rank: 3, name: "Natus Vincere", record: "2-1", logo: null },
+          { rank: 4, name: "Vitality", record: "1-2", logo: null },
+          { rank: 5, name: "G2 Esports", record: "1-2", logo: null },
+          { rank: 6, name: "Heroic", record: "0-2", logo: null },
+          { rank: 7, name: "MOUZ", record: "0-2", logo: null },
+          { rank: 8, name: "Complexity", record: "0-2", logo: null },
+        ],
       },
     ],
     sport: [
@@ -265,6 +309,16 @@
         logo: null,
         stream: "https://twitch.tv/ea",
         streamPlatform: "Twitch",
+        competitors: [
+          { rank: 1, name: "HezerT", record: "W-14", logo: null },
+          { rank: 2, name: " nicolas99fc", record: "W-13", logo: null },
+          { rank: 3, name: "UM Mestre", record: "W-12", logo: null },
+          { rank: 4, name: "MarcMaro", record: "W-11", logo: null },
+          { rank: 5, name: "NRJ Rannerz", record: "W-10", logo: null },
+          { rank: 6, name: "Jonas", record: "W-9", logo: null },
+          { rank: 7, name: "Loyalez", record: "W-8", logo: null },
+          { rank: 8, name: "leviLICIOUS", record: "W-7", logo: null },
+        ],
       },
       {
         name: "FC Pro World Championship",
@@ -281,6 +335,7 @@
         logo: null,
         stream: null,
         streamPlatform: null,
+        competitors: [],
       },
       {
         name: "NBA 2K League Season 8",
@@ -297,6 +352,7 @@
         logo: null,
         stream: "https://twitch.tv/nba2kleague",
         streamPlatform: "Twitch",
+        competitors: [],
       },
     ],
     combat: [
@@ -315,6 +371,7 @@
         logo: null,
         stream: "https://twitch.tv/evo",
         streamPlatform: "Twitch",
+        competitors: [],
       },
       {
         name: "Tekken World Tour Finals 2025",
@@ -331,6 +388,7 @@
         logo: null,
         stream: "https://twitch.tv/tekken",
         streamPlatform: "Twitch",
+        competitors: [],
       },
       {
         name: "Capcom Pro Tour 2025",
@@ -347,6 +405,16 @@
         logo: null,
         stream: "https://twitch.tv/capcomfighters",
         streamPlatform: "Twitch",
+        competitors: [
+          { rank: 1, name: "Kakeru", record: "1200 pts", logo: null },
+          { rank: 2, name: "menaRD", record: "1100 pts", logo: null },
+          { rank: 3, name: "Tokido", record: "980 pts", logo: null },
+          { rank: 4, name: "Daigo Umehara", record: "920 pts", logo: null },
+          { rank: 5, name: "Punk", record: "850 pts", logo: null },
+          { rank: 6, name: "Moke", record: "800 pts", logo: null },
+          { rank: 7, name: "Chris Tatarian", record: "720 pts", logo: null },
+          { rank: 8, name: " Phenom", record: "680 pts", logo: null },
+        ],
       },
       {
         name: "EVO Japan 2025",
@@ -363,6 +431,7 @@
         logo: null,
         stream: null,
         streamPlatform: null,
+        competitors: [],
       },
     ],
     mobile: [
@@ -381,6 +450,7 @@
         logo: null,
         stream: "https://twitch.tv/brawlstars",
         streamPlatform: "Twitch",
+        competitors: [],
       },
       {
         name: "Brawl Stars Championship Monthly",
@@ -397,6 +467,7 @@
         logo: null,
         stream: "https://youtube.com/brawlstars",
         streamPlatform: "YouTube",
+        competitors: [],
       },
       {
         name: "Clash Royale League World Finals 2025",
@@ -413,6 +484,7 @@
         logo: null,
         stream: "https://twitch.tv/clashroyale",
         streamPlatform: "Twitch",
+        competitors: [],
       },
       {
         name: "Clash Royale League Challenge",
@@ -429,6 +501,7 @@
         logo: null,
         stream: null,
         streamPlatform: null,
+        competitors: [],
       },
       {
         name: "Free Fire World Series 2025",
@@ -445,6 +518,7 @@
         logo: null,
         stream: "https://youtube.com/freefire",
         streamPlatform: "YouTube",
+        competitors: [],
       },
       {
         name: "Free Fire Continental Series",
@@ -461,6 +535,16 @@
         logo: null,
         stream: "https://youtube.com/freefire",
         streamPlatform: "YouTube",
+        competitors: [
+          { rank: 1, name: "LOUD", record: "3-0", logo: null },
+          { rank: 2, name: "EVOS Esports", record: "3-1", logo: null },
+          { rank: 3, name: "Team Secret", record: "2-1", logo: null },
+          { rank: 4, name: "Burasil Esports", record: "2-1", logo: null },
+          { rank: 5, name: "NRX", record: "1-2", logo: null },
+          { rank: 6, name: "EVOS Divine", record: "1-2", logo: null },
+          { rank: 7, name: "DEWA United", record: "0-2", logo: null },
+          { rank: 8, name: "RRQ Hoshi", record: "0-2", logo: null },
+        ],
       },
       {
         name: "PUBG Mobile Global Championship 2025",
@@ -477,6 +561,7 @@
         logo: null,
         stream: "https://twitch.tv/pubgmobile",
         streamPlatform: "Twitch",
+        competitors: [],
       },
       {
         name: "PUBG Mobile Super League",
@@ -493,6 +578,7 @@
         logo: null,
         stream: "https://youtube.com/pubgmobile",
         streamPlatform: "YouTube",
+        competitors: [],
       },
     ],
   };
@@ -688,7 +774,9 @@
           name: t.name,
           organizer: "start.gg",
           game:
-            events.length > 0 ? events[0].game_name || "Esports" : "Esports",
+            events.length > 0
+              ? events[0].game || events[0].game_name || "Esports"
+              : "Esports",
           date: t.start_at,
           endDate: t.end_at,
           format: t.city ? "LAN" : "Online",
@@ -702,6 +790,20 @@
           streamPlatform: "start.gg",
           _source: "start.gg",
           _url: t.url,
+          competitors: (t.standings || []).flatMap((es) =>
+            (es.rankings || []).map((r) => ({
+              rank: r.placement,
+              name: r.name,
+              record: null,
+              logo: null,
+            })),
+          ),
+          _sggSlug: t.slug || null,
+          _sggEvents: (t.events || []).map((e) => ({
+            id: e.id,
+            name: e.name,
+            game: e.game,
+          })),
         };
 
         merged[cat].push(transformed);
@@ -952,8 +1054,55 @@
         ? "smart_display"
         : "live_tv";
 
+    // Has competitors data?
+    const hasCompetitors = t.competitors && t.competitors.length > 0;
+    const hasSggSlug = t._sggSlug || (t._url && t._url.includes("start.gg"));
+
+    // Mini-preview: show top 3 if available
+    let miniRanking = "";
+    if (hasCompetitors) {
+      const top3 = t.competitors.slice(0, 3);
+      miniRanking = `
+        <div class="gc-card__mini-ranking">
+          ${top3
+            .map(
+              (c) => `
+            <div class="gc-mini-rank gc-mini-rank--${c.rank}">
+              <span class="gc-mini-rank__pos">${c.rank <= 3 ? ["", "🥇", "🥈", "🥉"][c.rank] : "#" + c.rank}</span>
+              <span class="gc-mini-rank__name">${c.name}</span>
+            </div>
+          `,
+            )
+            .join("")}
+        </div>`;
+    }
+
+    // Store tournament data as JSON in a data attribute for modal retrieval
+    const tData = encodeURIComponent(
+      JSON.stringify({
+        name: t.name,
+        organizer: t.organizer,
+        game: t.game,
+        date: t.date,
+        endDate: t.endDate,
+        format: t.format,
+        prize: t.prize,
+        location: t.location,
+        tier: t.tier,
+        status: t.status,
+        teams: t.teams,
+        stream: t.stream,
+        streamPlatform: t.streamPlatform,
+        _source: t._source,
+        _url: t._url,
+        _sggSlug: t._sggSlug,
+        _sggEvents: t._sggEvents,
+        competitors: t.competitors || [],
+      }),
+    );
+
     return `
-        <div class="gc-card gc-card--visible" data-status="${status.class}">
+        <div class="gc-card gc-card--visible" data-status="${status.class}" data-tournament="${tData}">
             <div class="gc-card__scanline"></div>
             <div class="gc-card__header">
                 <div class="gc-card__game-badge" style="background:${cat.glow};color:${cat.color};">
@@ -1003,6 +1152,7 @@
                     : ""
                 }
             </div>
+            ${miniRanking}
             <div class="gc-card__footer">
                 <div class="gc-card__footer-left">
                     <span class="gc-status ${status.class}">
@@ -1018,14 +1168,20 @@
                         : ""
                     }
                 </div>
-                ${
-                  t.stream
-                    ? `<a href="${t.stream}" target="_blank" rel="noopener" class="gc-card__stream">
-                        <span class="material-symbols-outlined">${streamIcon}</span>
-                        ${t.streamPlatform || "Regarder"}
-                    </a>`
-                    : ""
-                }
+                <div class="gc-card__footer-right">
+                  ${
+                    t.stream
+                      ? `<a href="${t.stream}" target="_blank" rel="noopener" class="gc-card__stream">
+                          <span class="material-symbols-outlined">${streamIcon}</span>
+                          ${t.streamPlatform || "Regarder"}
+                      </a>`
+                      : ""
+                  }
+                  <button class="gc-card__detail-btn" onclick="window.GamingCalendar.openDetail(this)" title="Voir classement & compétiteurs">
+                      <span class="material-symbols-outlined">leaderboard</span>
+                      ${hasCompetitors ? `${t.competitors.length}` : hasSggSlug ? "Charger" : "Détails"}
+                  </button>
+                </div>
             </div>
         </div>`;
   }
@@ -1137,6 +1293,300 @@
         `;
   }
 
+  /* ── Tournament Detail Modal ── */
+
+  function openDetail(btnEl) {
+    const card = btnEl.closest(".gc-card");
+    if (!card) return;
+    const raw = card.getAttribute("data-tournament");
+    if (!raw) return;
+    try {
+      const t = JSON.parse(decodeURIComponent(raw));
+      showTournamentModal(t);
+    } catch (e) {
+      console.error("[GamingCalendar] Error parsing tournament data", e);
+    }
+  }
+
+  function showTournamentModal(t) {
+    // Remove existing modal if any
+    const existing = document.getElementById("gc-modal-overlay");
+    if (existing) existing.remove();
+
+    const status = getStatusInfo(t.status, t.date, t.endDate);
+    const tier = t.tier ? getTierColor(t.tier) : null;
+
+    // Build ranking table HTML
+    let rankingHTML = "";
+    const competitors = t.competitors || [];
+
+    if (competitors.length > 0) {
+      rankingHTML = renderRankingTable(competitors, t);
+    } else if (t._source === "start.gg" && t._sggSlug) {
+      rankingHTML = `
+        <div class="gc-modal__load-ranking">
+          <button class="gc-modal__fetch-btn" onclick="window.GamingCalendar.fetchStandings('${t._sggSlug}')">
+            <span class="material-symbols-outlined">download</span>
+            Charger le classement depuis start.gg
+          </button>
+        </div>`;
+    } else {
+      rankingHTML = `
+        <div class="gc-modal__no-ranking">
+          <span class="material-symbols-outlined" style="font-size:2rem;color:#666;">info</span>
+          <p>Classement pas encore disponible pour ce tournoi.</p>
+          ${t.teams ? `<p class="gc-modal__sub">${t.teams} équipes/compétiteurs inscrits</p>` : ""}
+        </div>`;
+    }
+
+    const modal = document.createElement("div");
+    modal.id = "gc-modal-overlay";
+    modal.className = "gc-modal-overlay";
+    modal.innerHTML = `
+      <div class="gc-modal" onclick="event.stopPropagation()">
+        <div class="gc-modal__scanline"></div>
+        <button class="gc-modal__close" onclick="window.GamingCalendar.closeModal()">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+
+        <!-- Header -->
+        <div class="gc-modal__header">
+          <div class="gc-modal__badge-row">
+            <span class="gc-modal__game-badge">${t.game}</span>
+            ${tier ? `<span class="gc-modal__tier" style="background:${tier.bg};border-color:${tier.border};color:${tier.text};">${t.tier}</span>` : ""}
+            <span class="gc-status ${status.class}" style="font-size:11px;">${status.label}</span>
+            ${t._source === "start.gg" ? `<span class="gc-modal__source-badge">start.gg</span>` : ""}
+          </div>
+          <h2 class="gc-modal__title">${t.name}</h2>
+          ${t.organizer ? `<p class="gc-modal__organizer"><span class="material-symbols-outlined">business</span> ${t.organizer}</p>` : ""}
+        </div>
+
+        <!-- Info Grid -->
+        <div class="gc-modal__info-grid">
+          <div class="gc-modal__info-item">
+            <span class="material-symbols-outlined">calendar_today</span>
+            <div>
+              <span class="gc-modal__info-label">Date</span>
+              <span class="gc-modal__info-value">${t.date ? formatDate(t.date) : "TBA"}${t.endDate && t.endDate !== t.date ? ` → ${formatDate(t.endDate)}` : ""}</span>
+            </div>
+          </div>
+          <div class="gc-modal__info-item">
+            <span class="material-symbols-outlined">${t.format === "LAN" ? "lan" : "cloud"}</span>
+            <div>
+              <span class="gc-modal__info-label">Format</span>
+              <span class="gc-modal__info-value">${t.format || "TBA"}</span>
+            </div>
+          </div>
+          <div class="gc-modal__info-item">
+            <span class="material-symbols-outlined">payments</span>
+            <div>
+              <span class="gc-modal__info-label">Prize Pool</span>
+              <span class="gc-modal__info-value">${t.prize || "Non annoncé"}</span>
+            </div>
+          </div>
+          <div class="gc-modal__info-item">
+            <span class="material-symbols-outlined">location_on</span>
+            <div>
+              <span class="gc-modal__info-label">Lieu</span>
+              <span class="gc-modal__info-value">${t.location || "TBA"}</span>
+            </div>
+          </div>
+          <div class="gc-modal__info-item">
+            <span class="material-symbols-outlined">groups</span>
+            <div>
+              <span class="gc-modal__info-label">Compétiteurs</span>
+              <span class="gc-modal__info-value">${t.teams || "?"} équipes/joueurs</span>
+            </div>
+          </div>
+          ${
+            t.stream
+              ? `
+          <div class="gc-modal__info-item">
+            <span class="material-symbols-outlined">live_tv</span>
+            <div>
+              <span class="gc-modal__info-label">Stream</span>
+              <a href="${t.stream}" target="_blank" rel="noopener" class="gc-modal__info-link">${t.streamPlatform || "Regarder"}</a>
+            </div>
+          </div>`
+              : ""
+          }
+        </div>
+
+        <!-- Rankings -->
+        <div class="gc-modal__ranking-section" id="gc-modal-rankings">
+          <div class="gc-modal__section-header">
+            <span class="material-symbols-outlined">leaderboard</span>
+            <h3>Classement & Compétiteurs</h3>
+          </div>
+          ${rankingHTML}
+        </div>
+
+        <!-- Footer actions -->
+        <div class="gc-modal__actions">
+          ${
+            t._url
+              ? `<a href="${t._url}" target="_blank" rel="noopener" class="gc-modal__action-btn gc-modal__action-btn--primary">
+            <span class="material-symbols-outlined">open_in_new</span>
+            Voir sur ${t._source === "start.gg" ? "start.gg" : "le site"}
+          </a>`
+              : ""
+          }
+          <button class="gc-modal__action-btn" onclick="window.GamingCalendar.closeModal()">
+            Fermer
+          </button>
+        </div>
+      </div>`;
+
+    document.body.appendChild(modal);
+
+    // Animate in
+    requestAnimationFrame(() => {
+      modal.classList.add("gc-modal-overlay--visible");
+    });
+
+    // Close on overlay click
+    modal.addEventListener("click", () => {
+      window.GamingCalendar.closeModal();
+    });
+
+    // Close on Escape
+    const escHandler = (e) => {
+      if (e.key === "Escape") {
+        window.GamingCalendar.closeModal();
+        document.removeEventListener("keydown", escHandler);
+      }
+    };
+    document.addEventListener("keydown", escHandler);
+
+    // Prevent body scroll
+    document.body.style.overflow = "hidden";
+  }
+
+  function renderRankingTable(competitors, t) {
+    if (!competitors || competitors.length === 0) return "";
+
+    const placementIcons = {
+      1: "🥇",
+      2: "🥈",
+      3: "🥉",
+    };
+
+    const rows = competitors
+      .map((c) => {
+        const rank = c.rank || c.placement || "?";
+        const icon = placementIcons[rank] || "";
+        const medalClass = rank <= 3 ? `gc-rank-row--${rank}` : "";
+
+        return `
+        <div class="gc-rank-row ${medalClass}">
+          <div class="gc-rank-row__pos">
+            ${icon ? `<span class="gc-rank-medal">${icon}</span>` : `<span class="gc-rank-num">#${rank}</span>`}
+          </div>
+          <div class="gc-rank-row__info">
+            <span class="gc-rank-row__name">${c.name}</span>
+            ${c.record ? `<span class="gc-rank-row__record">${c.record}</span>` : ""}
+          </div>
+          ${rank <= 3 ? `<div class="gc-rank-row__bar" style="width:${Math.max(20, 100 - (rank - 1) * 25)}%"></div>` : ""}
+        </div>`;
+      })
+      .join("");
+
+    return `
+      <div class="gc-ranking-table">
+        ${rows}
+      </div>`;
+  }
+
+  async function fetchStandings(slug) {
+    const container = document.getElementById("gc-modal-rankings");
+    if (!container) return;
+
+    // Show loading state
+    const existingBtn = container.querySelector(".gc-modal__fetch-btn");
+    if (existingBtn) {
+      existingBtn.disabled = true;
+      existingBtn.innerHTML = `
+        <span class="material-symbols-outlined gc-spin">sync</span>
+        Chargement…`;
+    }
+
+    try {
+      const url = `includes/startgg_api.php?action=standings&slug=${encodeURIComponent(slug)}`;
+      const resp = await fetch(url);
+      if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+      const data = await resp.json();
+
+      if (data.success === false) {
+        throw new Error(data.error || "Erreur API");
+      }
+
+      // Build ranking from events
+      let html = "";
+      const events = data.events || [];
+
+      if (
+        events.length === 0 ||
+        events.every((e) => (e.standings || []).length === 0)
+      ) {
+        html = `
+          <div class="gc-modal__no-ranking">
+            <span class="material-symbols-outlined" style="font-size:2rem;color:#666;">info</span>
+            <p>Aucun classement disponible pour ce tournoi.</p>
+          </div>`;
+      } else {
+        for (const ev of events) {
+          const standings = ev.standings || [];
+          if (standings.length === 0) continue;
+
+          const competitors = standings.map((s) => ({
+            rank: s.placement,
+            name: s.name,
+            record: null,
+            logo: null,
+          }));
+
+          html += `
+            <div class="gc-modal__event-block">
+              ${
+                events.length > 1
+                  ? `
+                <div class="gc-modal__event-header">
+                  <span class="material-symbols-outlined">sports_esports</span>
+                  <span>${ev.name || "Event"}</span>
+                  ${ev.game ? `<span class="gc-modal__event-game">${ev.game}</span>` : ""}
+                  <span class="gc-modal__event-count">${ev.numEntrants || "?"} joueurs</span>
+                </div>`
+                  : ""
+              }
+              ${renderRankingTable(competitors)}
+            </div>`;
+        }
+      }
+
+      // Replace the load button with results
+      const loadSection = container.querySelector(".gc-modal__load-ranking");
+      if (loadSection) loadSection.remove();
+      container.insertAdjacentHTML("beforeend", html);
+    } catch (err) {
+      console.error("[GamingCalendar] Error fetching standings:", err);
+      if (existingBtn) {
+        existingBtn.disabled = false;
+        existingBtn.innerHTML = `
+          <span class="material-symbols-outlined">error</span>
+          Erreur: ${err.message}`;
+      }
+    }
+  }
+
+  function closeModal() {
+    const modal = document.getElementById("gc-modal-overlay");
+    if (modal) {
+      modal.classList.remove("gc-modal-overlay--visible");
+      setTimeout(() => modal.remove(), 300);
+    }
+    document.body.style.overflow = "";
+  }
+
   /* ── Initialisation ── */
   async function init() {
     const section = document.getElementById("gaming-calendar");
@@ -1152,6 +1602,9 @@
   /* ── API publique ── */
   window.GamingCalendar = {
     init,
+    openDetail,
+    fetchStandings,
+    closeModal,
     resetFilters() {
       activeCategory = "all";
       activeStatus = "all";
